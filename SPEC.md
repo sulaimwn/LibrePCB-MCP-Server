@@ -8,6 +8,8 @@ First release is local and Windows-first. Pin one verified stable LibrePCB relea
 
 ## Proposed architecture
 
+Implementation note (2026-09-10): the verified foundation is Python 3.12.14, Windows x64 and LibrePCB **2.1.1 / file format 2**. Only an internal process adapter, trusted preview job and development baseline harness exist so far. The architecture/tools below remain planned until their acceptance tests pass. See `docs/DECISIONS.md` for findings affecting implementation.
+
 AI client → local MCP server → project adapter and CLI runner → isolated project copies and output artifacts.
 
 - Preferred starting language: Python, because the initial work is process orchestration and structured text parsing. Select and pin a maintained official MCP Python SDK version after checking its current documentation on Day 2. Do not invent imports from memory.

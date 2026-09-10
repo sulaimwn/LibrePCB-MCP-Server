@@ -1,0 +1,355 @@
+{
+  "timestamp_utc": "20260910T221549Z",
+  "kind": "real_librepcb_cli_integration_baseline",
+  "passed": true,
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "fixture_sha256": "264a04f15d873f6f19dbe21556c951f6d9e969eb86d1b4c0a2f3709365d53f5e",
+  "source_manifest_sha256": "e3eff77e30d22e342471f2b3122c8f28bdc5d0dfef7ed596d877fb2b3cf151b4",
+  "checks": [
+    {
+      "name": "pinned_cli_version",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "help_available",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "format_2_fixture",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "strict_load",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline_erc_drc",
+      "passed": true,
+      "detail": {
+        "erc_approved": 2,
+        "drc_approved": 16,
+        "observed_approved": [
+          2,
+          16
+        ],
+        "observed_unapproved": [
+          0,
+          0
+        ],
+        "note": "Approved findings remain present."
+      }
+    },
+    {
+      "name": "pdf_export",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "manufacturing_exports",
+      "passed": true,
+      "detail": {
+        "gerber_count": 9,
+        "drill_count": 2
+      }
+    },
+    {
+      "name": "png_preview",
+      "passed": true,
+      "detail": {
+        "count": 2,
+        "dimensions": [
+          [
+            1760,
+            1245
+          ],
+          [
+            1760,
+            1245
+          ]
+        ]
+      }
+    },
+    {
+      "name": "all_project_files_unchanged",
+      "passed": true,
+      "detail": {
+        "file_count": 184
+      }
+    },
+    {
+      "name": "unapproved_erc_returns_1",
+      "passed": true,
+      "detail": "Existing open-wire approvals removed only in the disposable negative-test copy."
+    },
+    {
+      "name": "malformed_project_returns_1",
+      "passed": true,
+      "detail": "Same exit code as ERC findings: consumers must not classify by exit code alone."
+    },
+    {
+      "name": "original_archive_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline_copy_still_unchanged",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "--version"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 0.109,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\60dbe81300874263ab83f5d0193908d8.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\60dbe81300874263ab83f5d0193908d8.stderr.txt",
+      "stdout_excerpt": "LibrePCB CLI Version 2.1.1\r\nFile Format 2 (stable)\r\nGit Revision 06465bf (2026-06-12)\r\nQt Version 6.10.1 (compiled against 6.10.1)\r\nOpenCascade OCCT 7.9.1\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "name": "open_project_help",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--help"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 0.11,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\f102d4efd84e424081430240b3a29f0a.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\f102d4efd84e424081430240b3a29f0a.stderr.txt",
+      "stdout_excerpt": "Usage: <REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe [options] open-project [command_options] project\r\nLibrePCB Command Line Interface\r\n\r\nOptions:\r\n  -h, --help                         Print this message.\r\n  -V, --version                      Displays version information.\r\n  -v, --verbose                      Verbose output.\r\n  --erc                              Run the electrical rule check, print all\r\n                                     non-approved warnings/errors and report\r\n                                     failure (exit code = 1) if there are\r\n                                     non-approved messages.\r\n  --drc                              Run the design rule check, print all\r\n                                     non-approved warnings/errors and report\r\n                                     failure (exit code = 1) if there are\r\n                                     non-approved messages.\r\n  --drc-settings <file>              Override DRC settings by providing a *.lp\r\n                                     file containing custom settings. If not\r\n                                     set, the settings from the boards will be\r\n                                     used instead.\r\n  --run-job <name>                   Run a particular output job. Can be given\r\n                                     multiple times to run multiple jobs.\r\n  --run-jobs                         Run all existing output jobs.\r\n  --jobs <file>                      Override output jobs with a *.lp file\r\n                                     containing custom jobs. If not set, the\r\n                                     jobs from the project will be used instead.\r\n  --outdir <path>                    Override the output base directory of\r\n                                     jobs. If not set, the standard output\r\n                                     directory from the project is used.\r\n  --export-schematics <file>         [DEPRECATED, REPLACED BY: --run-jobs]\r\n                                     Export schematics to given file(s).\r\n                                     Existing files will be overwritten.\r\n                                     Supported file extensions: pdf, svg, bmp,\r\n                                     cur, icns, ico, jfif, jpeg, jpg, pbm, pgm,\r\n                                     png, ppm, tif, tiff, wbmp, webp, xbm, xpm\r\n  --export-bom <file>                [DEPRECATED, REPLACED BY: --run-jobs]\r\n                                     Export generic BOM to given file(s).\r\n                                     Existing files will be overwritten.\r\n                                     Supported file extensions: csv\r\n  --export-board-bom <file>          [DEPRECATED, REPLACED BY: --run-jobs]\r\n                                     Export board-specific BOM to given file(s).\r\n                                     Existing files will be overwritten.\r\n                                     Supported file extensions: csv\r\n  --bom-attributes <attributes>      [DEPRECATED, REPLACED BY: --run-jobs]\r\n                                     Comma-separated list of additional\r\n                                     attributes to be exported to the BOM.\r\n                                     Example: \"SUPPLIER, SKU\"\r\n  --export-pcb-fabrication-data      [DEPRECATED, REPLACED BY: --run-jobs]\r\n                                     Export PCB fabrication data\r\n                                     (Gerber/Excellon) according the fabrication\r\n                                     output settings of boards. Existing files\r\n                                     will be overwritten.\r\n  --pcb-fabrication-settings <file>  [DEPRECATED, REPLACED BY: --jobs] Override\r\n                                     PCB fabrication output settings by\r\n                                     providing a *.lp file containing custom\r\n                                     settings. If not set, the setting",
+      "stderr_excerpt": "",
+      "stdout_truncated": true,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "name": "strict_load",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--strict",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 0.812,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\f5ae1e9311774551a0570235498f3a29.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\f5ae1e9311774551a0570235498f3a29.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp'...\r\nCheck for non-canonical files...\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "name": "erc_drc",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--erc",
+        "--drc",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 5.859,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\f2a3eb1b953b4a429893f5d2f3726e53.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\f2a3eb1b953b4a429893f5d2f3726e53.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp'...\r\nRun ERC...\r\n  Approved messages: 2\r\n  Non-approved messages: 0\r\nRun DRC...\r\n  Board 'default':\r\n    Approved messages: 16\r\n    Non-approved messages: 0\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "name": "pdf_gerber_jobs",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--run-job",
+        "Schematic PDF",
+        "--run-job",
+        "Gerber/Excellon",
+        "--outdir",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 1.125,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\c25fc1a45ae64d62a5bbe712b668a70d.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\c25fc1a45ae64d62a5bbe712b668a70d.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp'...\r\nRun output job 'Schematic PDF'...\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\d0-reader_v2_Schematic.pdf'\r\nRun output job 'Gerber/Excellon'...\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_DRILLS-NPTH.drl'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_DRILLS-PTH.drl'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_OUTLINES.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_COPPER-TOP.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_COPPER-BOTTOM.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERMASK-TOP.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERMASK-BOTTOM.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SILKSCREEN-TOP.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SILKSCREEN-BOTTOM.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERPASTE-TOP.gbr'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERPASTE-BOTTOM.gbr'\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "name": "png_output_job",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--jobs",
+        "<REPO>\\resources\\preview-jobs.lp",
+        "--run-job",
+        "Schematic PNG",
+        "--outdir",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\preview",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 1.422,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\4f2f84e674e04e57ace3e0d37f79236f.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\4f2f84e674e04e57ace3e0d37f79236f.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\design\\d0-reader.lpp'...\r\nRun output job 'Schematic PNG'...\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\preview\\schematic.png'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\preview\\schematic1.png'\r\n  => '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\preview\\schematic2.png'\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "name": "unapproved_erc",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--erc",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\erc-unapproved\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 1,
+      "elapsed_seconds": 1.157,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\41c06501d2ee4c558380fe87a42482bc.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\41c06501d2ee4c558380fe87a42482bc.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\erc-unapproved\\d0-reader.lpp'...\r\nRun ERC...\r\n  Approved messages: 0\r\n  Non-approved messages: 2\r\nFinished with errors!\r\n",
+      "stderr_excerpt": "    - [WARNING] Open wire in net: 'GND'\r\n    - [WARNING] Open wire in net: 'POE-'\r\n",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "name": "malformed_project",
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--erc",
+        "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\malformed\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 1,
+      "elapsed_seconds": 0.593,
+      "stdout_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\c929cf06ab1248609cc6d6b9a16e3215.stdout.txt",
+      "stderr_path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\logs\\c929cf06ab1248609cc6d6b9a16e3215.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\malformed\\d0-reader.lpp'...\r\nFinished with errors!\r\n",
+      "stderr_excerpt": "ERROR: File parse error: S-Expression node ended without closing ')'.\r\nFile: <REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\malformed\\circuit\\circuit.lp\r\nInvalid Content: ''\r\n",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\.librepcb-output",
+      "bytes": 917,
+      "sha256": "0b59e5aa98f8c5ec2feeb4ebade37a23ddb7b40a1e5a8c9dde60d1f210a614bf"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\d0-reader_v2_Schematic.pdf",
+      "bytes": 103495,
+      "sha256": "caf41ca0e482977257b594fb6bad2857425efe5b5aa6979d8770b874aebed54b"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_COPPER-BOTTOM.gbr",
+      "bytes": 192191,
+      "sha256": "d4e2fa23934e9ad1e2d5210886ef8e8c32335f7a80118a6cb2c11ef1eeee879f"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_COPPER-TOP.gbr",
+      "bytes": 124596,
+      "sha256": "695340d15aabbe3055bef89a934e055495b4afa4fdfc2f1c285f82100b987d28"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_DRILLS-NPTH.drl",
+      "bytes": 367,
+      "sha256": "97e780e85494d06594983e80655a1016334c3c3fd5994540dd80a06068dbbfb1"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_DRILLS-PTH.drl",
+      "bytes": 3436,
+      "sha256": "4b0f0e3f8611a971a0c888fdc95ea2eb8f85bf4c229cc45ff9d6c99ae7e4bf14"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_OUTLINES.gbr",
+      "bytes": 879,
+      "sha256": "d3c41f416165478501d1c3838356c8e7a361d038befc06ded21e53da32c4e082"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SILKSCREEN-BOTTOM.gbr",
+      "bytes": 76513,
+      "sha256": "d7e980a1f8bdbe8cb38a11e305c4babb6e4164a388f27545c2c9bfe84dc5c4e2"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SILKSCREEN-TOP.gbr",
+      "bytes": 32457,
+      "sha256": "71f009e3608913e67b65ddaaa3e7973741c7b6908c3f6befbfb1395f467c8158"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERMASK-BOTTOM.gbr",
+      "bytes": 13364,
+      "sha256": "683deef987401d34f5c94203656a4a756708f2e4ad967f8e4e0307a6b42a33ec"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERMASK-TOP.gbr",
+      "bytes": 2088,
+      "sha256": "67f3fefbf7748a9de02e85223dffbbe14d44a402b272723e81e91b482fa8f4bf"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERPASTE-BOTTOM.gbr",
+      "bytes": 9239,
+      "sha256": "b3abe83f408bd216244e08a0527b6aeebda1be8ec372b55a6dbae4d4ee75850f"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\exports\\gerber\\d0-reader_v2_SOLDERPASTE-TOP.gbr",
+      "bytes": 1384,
+      "sha256": "e3460013a0f92c4daecced3401c7f548d175ee6761dbe37ebaae0132cd49712b"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\preview\\.librepcb-output",
+      "bytes": 108,
+      "sha256": "7836eac16cd6b6f88aaa84a8b7e37668ff071e1c0f62e34d4fe9579355cf5219"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\preview\\schematic1.png",
+      "bytes": 93282,
+      "sha256": "95b44c6353904fb283d530edb7a42d0a82f57639d74aa61d6ae77bf2caf977bf"
+    },
+    {
+      "path": "<REPO>\\work\\runs\\baseline-20260910T221549Z-4895e4b1\\preview\\schematic2.png",
+      "bytes": 125689,
+      "sha256": "e1517a30afc1cecb554188fc3b0285268b2daf3d8c13d92574658f77375c5b08"
+    }
+  ],
+  "limits": [
+    "No MCP handshake or registered tools yet.",
+    "No interactive LibrePCB GUI inspection or design editing tested.",
+    "PNG size and report-count expectations are specific to this pinned fixture.",
+    "Negative ERC probe exposes existing approvals; it does not create a new design fault."
+  ]
+}

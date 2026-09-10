@@ -2,6 +2,25 @@
 
 Reviewed September 10, 2026. This records documentation/source inspection, not runtime verification. Recheck version-sensitive claims at implementation time. Upstream default-branch links can change; pin supported releases and relevant commits during development.
 
+## Implementation verification added September 10
+
+Runtime evidence now exists separately at `evidence/2026-09-10-day1/`. The historical research below is retained as context.
+
+- Official stable download page identified 2.1.1. The downloaded Windows executable reported **LibrePCB CLI 2.1.1**, stable file format **2**, revision **06465bf (2026-06-12)**. Windows verified its Authenticode signature. Exact download and local SHA256 are in `toolchain.json`.
+  - https://librepcb.org/download/
+  - https://github.com/LibrePCB/LibrePCB/releases/tag/2.1.1
+- Real `open-project --help` and executions verified `--strict`, `--erc`, `--drc`, `--jobs`, `--run-job` and `--outdir`.
+  - https://librepcb.org/docs/cli/open-project/
+- **Observed difference worth retaining:** deprecated `--export-schematics` creates PNGs but returns **2**, unless warnings are suppressed. The supported graphics output job returns **0**. Use jobs.
+- Source inspection on the pinned release confirms CLI initialization uses `QGuiApplication`; the Windows ZIP hangs when we force `QT_QPA_PLATFORM=offscreen`. Normal native Windows platform plus hidden console works. This is observed on our host, not a statement about every OS/build.
+  - https://github.com/LibrePCB/LibrePCB/blob/2.1.1/apps/librepcb-cli/main.cpp
+- The pinned transaction layer uses `.lock`, `.backup/backup.lp`, and `.autosave/autosave.lp`. The future project adapter must account for saved-state recovery and locks; no product locking implementation exists yet.
+  - https://github.com/LibrePCB/LibrePCB/blob/2.1.1/libs/librepcb/core/fileio/transactionalfilesystem.cpp
+- The official fixture is pinned to `3aad10dae67ecfea9535a2cac328497d67e4d142`; its embedded project license is CC0-1.0. See `tests/fixtures/README.md`.
+  - https://github.com/LibrePCB/librepcb-example-projects/tree/3aad10dae67ecfea9535a2cac328497d67e4d142
+- The official MCP Python SDK repository was located, but no release, imports or runtime API has been selected/validated for this project. This remains Day 2 work.
+  - https://github.com/modelcontextprotocol/python-sdk
+
 ## Verified from official documentation/source
 
 - LibrePCB's CLI provides ERC, DRC, output-job execution and exports. It also has limited mutation/save options; it is not documented as a general placement/wiring API.

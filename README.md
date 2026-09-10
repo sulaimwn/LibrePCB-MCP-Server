@@ -10,7 +10,9 @@ A local, open-source tool that lets an MCP-compatible AI client inspect LibrePCB
 4. Read [HANDOFF.md](HANDOFF.md) before switching between Claude and ChatGPT.
 5. Read [RESEARCH.md](RESEARCH.md) for evidence and unresolved questions.
 
-**Current state:** planning workspace only. No MCP implementation, LibrePCB installation verification, runtime tests, or working editing demo has been completed.
+**Current state:** Day 1 complete. LibrePCB 2.1.1 runs locally on Windows; the real sample passes strict load, ERC/DRC and PNG/PDF/Gerber exports without changing its project files. A reusable internal process adapter and repeatable baseline harness are implemented. **No MCP tools or design-edit feature are registered yet.**
+
+See [Windows setup](docs/WINDOWS_SETUP.md), [recorded environment](docs/ENVIRONMENT.md), and [actual Day 1 results](evidence/2026-09-10-day1/README.md). Next: choose/pin the official MCP SDK and implement the local connection plus saved-project inspection.
 
 ## Week-one objective
 

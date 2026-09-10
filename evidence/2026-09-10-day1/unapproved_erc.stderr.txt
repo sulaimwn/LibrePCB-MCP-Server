@@ -1,0 +1,2 @@
+    - [WARNING] Open wire in net: 'GND'
+    - [WARNING] Open wire in net: 'POE-'

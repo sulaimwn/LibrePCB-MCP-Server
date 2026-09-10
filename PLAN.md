@@ -20,6 +20,15 @@ Earlier exploratory estimates were 40–100 hours for a general inspection/expor
 
 ## Decision gates
 
+### Milestone progress (updated September 10)
+
+- [x] Day 1: Python 3.12.14 and portable LibrePCB 2.1.1 verified. Pinned CC0 D0 reader fixture. Real strict load, ERC/DRC, PDF/Gerber and PNG output jobs passed. Byte preservation and two negative probes passed. See `evidence/2026-09-10-day1/`.
+- [ ] Day 2: official MCP SDK pin, STDIO server/client handshake, allowlisted saved-project handles, structured component/net parser. This is the next task.
+- [ ] Day 3: model-facing checks/previews with conservative diagnostic parsing and real fault fixtures. Day 1 CLI results are groundwork; they do not complete this milestone.
+- [ ] Days 4–7: editing experiment, hardening, packaging, owner trial and release candidate remain pending.
+
+### Acceptance gates
+
 - End of Day 1: if loading/check/export is blocked, resolve that first; do not build wrappers around assumed CLI behavior.
 - End of Day 2: if structured project parsing is too broad, support a documented subset and reject unsupported versions/shapes. Do not silently misread designs.
 - End of Day 3: demonstrate a useful read/check/export workflow before adding writes.

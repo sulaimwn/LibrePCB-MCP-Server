@@ -6,6 +6,20 @@ Use this folder as the source of truth. Only one client edits it at a time. Stop
 
 Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at the start. `CLAUDE.md` points to the same instructions. Do not assume automatic discovery; explicitly attach/read these files if necessary.
 
+## Current handoff packet
+
+- `docs/OWNER_CONTEXT.md`: owner preferences, authorization and useful conversation links.
+- `docs/ENVIRONMENT.md`: exact interpreter/binary locations, versions, Git ownership workaround.
+- `docs/WINDOWS_SETUP.md`: setup and repeatable validation commands.
+- `docs/DECISIONS.md`: verified CLI traps, implementation boundaries and decisions.
+- `evidence/2026-09-10-day1/README.md`: results, failures encountered, raw-log map, remaining gaps.
+- `evidence/2026-09-10-day1/baseline.json`: eight real CLI command records and 13 passing assertions.
+- `toolchain.json`: pinned LibrePCB/fixture downloads and hashes. MCP SDK remains unselected.
+
+Day 1 is finished. Resume Day 2 at STATUS.md. Do not repeat the downloads when the local prerequisites are already present. No background server is required for the current files.
+
+The Git repository is local, with no remote. Git commands from the normal user may need a per-command `-c safe.directory=<absolute repository path>` because the sandbox account created `.git`. See the recorded environment; avoid a global wildcard trust setting. Git writes may still require the coding client's permission flow.
+
 ## Before switching
 
 1. Save files and record any running processes or incomplete operations.

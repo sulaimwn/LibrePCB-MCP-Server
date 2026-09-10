@@ -1,0 +1,30 @@
+{
+  "librepcb": {
+    "version": "2.1.1",
+    "file_format": "2",
+    "git_revision_short": "06465bf",
+    "url": "https://download.librepcb.org/releases/2.1.1/librepcb-2.1.1-windows-x86_64.zip",
+    "sha256": "5fed82a57ede5e807bca4a737108389c64fbd323d29b967dbb2eafa63b6cb3ae",
+    "archive_bytes": 85142354,
+    "relative_executable": "work/tools/librepcb-2.1.1/bin/librepcb-cli.exe"
+  },
+  "fixture": {
+    "name": "d0-reader",
+    "repository": "https://github.com/LibrePCB/librepcb-example-projects",
+    "revision": "3aad10dae67ecfea9535a2cac328497d67e4d142",
+    "url": "https://raw.githubusercontent.com/LibrePCB/librepcb-example-projects/3aad10dae67ecfea9535a2cac328497d67e4d142/d0-reader.lppz",
+    "sha256": "264a04f15d873f6f19dbe21556c951f6d9e969eb86d1b4c0a2f3709365d53f5e",
+    "archive_bytes": 987915,
+    "license": "CC0-1.0",
+    "author_from_project_metadata": "U. Bruhin"
+  },
+  "tested_environment": {
+    "os": "Windows 11 x64, build 26200",
+    "python": "3.12.14",
+    "venv_pip": "25.0.1",
+    "git": "2.45.1.windows.1",
+    "qt": "6.10.1",
+    "opencascade": "7.9.1",
+    "mcp_sdk": null
+  }
+}
