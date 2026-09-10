@@ -8,11 +8,15 @@ First release is local and Windows-first. Pin one verified stable LibrePCB relea
 
 ## Proposed architecture
 
-Implementation note (2026-09-10): the verified foundation is Python 3.12.14, Windows x64 and LibrePCB **2.1.1 / file format 2**. Only an internal process adapter, trusted preview job and development baseline harness exist so far. The architecture/tools below remain planned until their acceptance tests pass. See `docs/DECISIONS.md` for findings affecting implementation.
+Implementation note (2026-09-10): Day 2 implements the transport/domain/adapter
+separation with five saved-project inspection tools on Python 3.12.14, Windows
+x64, MCP SDK 2.2.0 and LibrePCB **2.1.1 / file format 2**. Read `docs/DAY2.md` for
+the actual parser subset, response contract, limits and verified clients. Checks,
+previews/output jobs and editing below remain planned MCP capabilities.
 
 AI client → local MCP server → project adapter and CLI runner → isolated project copies and output artifacts.
 
-- Preferred starting language: Python, because the initial work is process orchestration and structured text parsing. Select and pin a maintained official MCP Python SDK version after checking its current documentation on Day 2. Do not invent imports from memory.
+- Language: Python. Official MCP SDK 2.2.0 is pinned after checking docs and installed source. Exact Windows/Python 3.12 runtime and build dependencies are hash-locked in `requirements.lock`.
 - Separate the MCP transport from domain operations so adapters can be tested without a model.
 - The CLI adapter handles supported LibrePCB commands, version detection, timeouts, exit codes, logs and output paths. Pass arguments as an array; never use shell-built commands from model input.
 - The project adapter parses S-expressions into a structure, preserves unknown supported content, and resolves identifiers across circuit, schematic, board and embedded library data. Avoid regex replacement for design edits.
@@ -25,7 +29,9 @@ AI client → local MCP server → project adapter and CLI runner → isolated p
 
 ## Proposed MCP tools
 
-These names and parameters are a design proposal, not implemented capabilities. Return structured data; distinguish proposed tools in docs from actual registered tools.
+The first five rows are implemented and tested in Day 2. `run_checks` and all
+following rows are proposals. Actual list results expose raw template values and
+typed attributes; connectivity is limited to circuit signal/component counts.
 
 | Tool | Parameters | Result / scope |
 | --- | --- | --- |

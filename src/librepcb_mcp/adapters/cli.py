@@ -3,7 +3,7 @@
 Process exit codes are deliberately separate from design-check results:
 LibrePCB uses exit 1 for both rule findings and errors loading a project.
 The domain layer must interpret the complete diagnostics before claiming a
-clean design. That domain layer is the next milestone, not implemented here.
+clean design. Rule-diagnostic interpretation belongs to the Day 3 domain layer.
 """
 
 from dataclasses import asdict, dataclass
@@ -42,8 +42,8 @@ def _excerpt(path: Path, limit: int = 4000) -> tuple[str, bool]:
 class ProcessRunner:
     """Developer-facing adapter with finite timeout and disk-backed diagnostics.
 
-    The caller supplies trusted executable/arguments. This is not the future
-    model-facing path boundary or an unrestricted product tool.
+    The caller supplies trusted executable/arguments. ProjectService enforces
+    model-facing paths and operations; this adapter is not a product tool.
     """
 
     def __init__(self, executable: Path, logs_dir: Path, timeout: float = 60):

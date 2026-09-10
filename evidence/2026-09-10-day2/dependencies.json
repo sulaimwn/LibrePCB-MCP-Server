@@ -1,0 +1,203 @@
+{
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.14",
+    "os_name": "nt",
+    "platform_machine": "AMD64",
+    "platform_release": "11",
+    "platform_system": "Windows",
+    "platform_version": "10.0.26200",
+    "python_full_version": "3.12.14",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "win32"
+  },
+  "dependencies": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "sha256": "f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.1",
+      "sha256": "aed8db4f6d71c51efb89530e12d9464e7bf2923d46c3205dc794a2a93f8c0648"
+    },
+    {
+      "name": "editables",
+      "version": "0.6",
+      "sha256": "d70e4698078a1d033e7786d9c64e5be070d058a67c21417024d38a58ac20aa43"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+    },
+    {
+      "name": "hatchling",
+      "version": "1.32.0",
+      "sha256": "0e17c9c3b9aa7c625acc8d0f5b622f107d5049af9ecf5ada4de1aada5be7cdbc"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.12.0",
+      "sha256": "7e04258ce01013d7d615e5b910a3b27fac937d7a95038227e79652b4ba3b4ceb"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.12.0",
+      "sha256": "cc8b6eecb8661c146b8f89a60e97456ee086e91a784ed31ac450c3a9e613dd36"
+    },
+    {
+      "name": "idna",
+      "version": "3.19",
+      "sha256": "815e7be7a7806d54abb586dc943addc79e8b2ee16915059658cbeff4b1b43bf4"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+    },
+    {
+      "name": "mcp",
+      "version": "2.2.0",
+      "sha256": "bde982589473a060ae145e3406e9a5333fe538c97229ba841f5a7f92be004f81"
+    },
+    {
+      "name": "mcp-types",
+      "version": "2.2.0",
+      "sha256": "ea476b73ee86709ab5abc9452385ed36cc05907e582355622e294595c9a04f13"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.44.0",
+      "sha256": "94b98c893a91b88657eaac1e3ba89618cdb85be6918196705354f34728b2cdef"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.0",
+      "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5",
+      "sha256": "346a034f080da3755d8e9cb5e00e8b07de1d39e4f6e2c87d8ab7cafa0b269a73"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.46.5",
+      "sha256": "5e81740c09e310f5aa5cbd3e434a01c154d4bef93241c7877b39f211d2b78ba8"
+    },
+    {
+      "name": "PyJWT",
+      "version": "2.13.0",
+      "sha256": "66adcc2aff09b3f1bbd95fc1e1577df8ac8723c978552fd43304c8a290ac5728"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23"
+    },
+    {
+      "name": "pywin32",
+      "version": "312",
+      "sha256": "b457f6d628a47e8a7346ce22acb7e1a46a4a78b52e1d17e1af56871bd19a93bc"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.6.3",
+      "sha256": "2c958bf94822e9290a40aaf2a822d4bc5c88099093e3948ad6c571eca9272e5f"
+    },
+    {
+      "name": "sse-starlette",
+      "version": "3.4.11",
+      "sha256": "c7b2244bdff016fe7f64e10075e89a3e6bbf899649cc89b0fe884b5545042453"
+    },
+    {
+      "name": "starlette",
+      "version": "1.6.0",
+      "sha256": "a86dd39d14bb45f85a3d18525215a9ef0cfd1f192ac793220e72598c90335f0c"
+    },
+    {
+      "name": "tomlkit",
+      "version": "0.15.1",
+      "sha256": "177a05aece5a8ca5266fd3c448abb47b8d352f09d477d3ca8332db4d89b24304"
+    },
+    {
+      "name": "trove-classifiers",
+      "version": "2026.6.1.19",
+      "sha256": "ab4c4ec93cc4a4e7815fa759906e05e6bb3f2fbd92ea0f897288c6a43efd15b3"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.4",
+      "sha256": "adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.52.4",
+      "sha256": "f86e41a149d7d05a9969337e3946a9c171c06a5d42680896daaba624aeac8da1"
+    }
+  ],
+  "requirements_sha256": "55e2f87940d8c9508d1756ab49ca278f8a10538e6806d039b51e600587108b00",
+  "fresh_venv": "<REPO>/work/v2",
+  "package": "librepcb-mcp-server==0.1.0.dev2",
+  "install_result": "36 hash-locked dependencies installed; editable package built/installed without build isolation",
+  "pip_check": "No broken requirements found.",
+  "bootstrap_result": "Updated bootstrap passed with existing LibrePCB and project venv; not a fresh-machine test"
+}

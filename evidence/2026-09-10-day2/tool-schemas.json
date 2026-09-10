@@ -1,0 +1,180 @@
+{
+  "_meta": null,
+  "ttlMs": 0,
+  "cacheScope": "private",
+  "nextCursor": null,
+  "tools": [
+    {
+      "name": "get_status",
+      "title": null,
+      "description": "Report supported versions, registered tools, readiness and missing-CLI problems.",
+      "inputSchema": {
+        "properties": {},
+        "type": "object",
+        "title": "get_statusArguments"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "open_project",
+      "title": null,
+      "description": "Inspect an absolute .lpp path in configured roots; reject locks/recovery; validate a saved copy with LibrePCB.",
+      "inputSchema": {
+        "properties": {
+          "path": {
+            "title": "Path",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object",
+        "title": "open_projectArguments"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_project_summary",
+      "title": null,
+      "description": "Return saved metadata, boards, schematics and counts; reject stale handles.",
+      "inputSchema": {
+        "properties": {
+          "project_id": {
+            "title": "Project Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id"
+        ],
+        "type": "object",
+        "title": "get_project_summaryArguments"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "list_components",
+      "title": null,
+      "description": "Page through components, raw values and typed attributes. limit is 1..100; use next_cursor unchanged.",
+      "inputSchema": {
+        "properties": {
+          "project_id": {
+            "title": "Project Id",
+            "type": "string"
+          },
+          "cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Cursor"
+          },
+          "limit": {
+            "default": 50,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id"
+        ],
+        "type": "object",
+        "title": "list_componentsArguments"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "list_nets",
+      "title": null,
+      "description": "Page through saved circuit nets and connected signal/component counts; excludes trace and wire geometry.",
+      "inputSchema": {
+        "properties": {
+          "project_id": {
+            "title": "Project Id",
+            "type": "string"
+          },
+          "cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Cursor"
+          },
+          "limit": {
+            "default": 50,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id"
+        ],
+        "type": "object",
+        "title": "list_netsArguments"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    }
+  ],
+  "resultType": "complete"
+}

@@ -1,77 +1,141 @@
 # Current project status
 
-Updated: 2026-09-10, approximately 18:25 America/Toronto. Active coding client: ChatGPT/Codex. Ready for a single-writer handoff.
+Updated: 2026-09-10, America/Toronto. Active coding client: ChatGPT/Codex.
+Ready for a single-writer handoff to Claude after the Day 2 checkpoint.
 
 ## Current milestone
 
-**Day 1 complete — real LibrePCB CLI baseline verified. Day 2 is next.**
+**Days 1 and 2 complete. Next: Day 3 — MCP checks and previews.**
 
-This is a working foundation, not a release or connected MCP server. No model-facing tools, project parser, value-edit feature, packaging or live GUI integration exist yet.
+The local inspection prototype is package `0.1.0.dev2`. Five MCP tools work:
+`get_status`, `open_project`, `get_project_summary`, `list_components`, `list_nets`.
+SDK clients and the installed Codex host made actual tool calls against real
+LibrePCB 2.1.1. Check/export/edit tools are not registered. No release is claimed.
 
-## Completed this session
+## Completed in Day 2
 
-- Read all original Markdown instructions and the owner's entire pasted conversation. Saved relevant owner context in `docs/OWNER_CONTEXT.md`; preserved `.claude` local settings, now ignored by Git.
-- Initialized local Git and made the initial planning/context checkpoint `0941493`. No remote, upload or publication. Final Day 1 checkpoint contains the implementation and evidence; inspect `git log -2 --oneline` for its hash.
-- Created `.venv` using the available desktop-bundled Python **3.12.14**. The WindowsApps alias is not a usable interpreter. No third-party Python dependencies installed; MCP SDK is not selected.
-- Downloaded the official portable Windows **LibrePCB 2.1.1**, recorded ZIP SHA256, verified the CLI's Windows signature, and ran its real version/help commands. File format 2, revision 06465bf, Qt 6.10.1, OCCT 7.9.1.
-- Vendored the unmodified **CC0 D0 reader** fixture archive from a pinned official repository revision, with source/license notes and a copied license.
-- Implemented an internal process adapter with argument arrays, finite timeout, hidden console, unique raw logs and bounded excerpts. It does not expose a shell tool or enforce a model-facing project-root policy; that policy belongs in the upcoming domain layer.
-- Implemented the repeatable Day 1 integration harness, a trusted PNG output job and a local bootstrap script.
+- Verified official MCP Python SDK **2.2.0** docs and installed APIs. Pinned all
+  36 runtime/build dependencies and wheel hashes for Windows x64 / Python 3.12.
+  Added package metadata and installed the editable package in `.venv`.
+- Built separate STDIO transport, domain service, bounded S-expression parser,
+  saved-file adapter and a documented format-2 inspection projection.
+- Added allowlisted local project roots, isolated byte-preserving copies,
+  session-scoped handles, revision hashes and size-aware pagination.
+- Reject locks/recovery, outside-root paths, traversal, links/junctions/reparse
+  points, hardlinks, malformed/unsupported projects and stale source/copy revisions.
+  Validate copies with the real CLI before exposing project data.
+- Read the fixture's **97 components, 48 nets, one board and two schematic sheets**.
+  R17's `{{RESISTANCE}}` is correctly reported as a raw template with a separate
+  `1.5 kiloohm` typed attribute. It is not treated as a resolved display string.
+- Prepared repeatable SDK and Codex host acceptance harnesses. The Codex harness
+  uses an ephemeral app-server thread and direct MCP calls, without a model turn.
+- Installed hash-locked dependencies and the editable package in a fresh
+  `work/v2` environment. Ran the final SDK and unit suites there.
+- Updated bootstrap, setup instructions, architecture/decision notes and this
+  handoff. Generated a ready sample and Codex/Claude Desktop config snippets in
+  `work/demo-bf2ee7/`. No persistent client config was edited.
 
 ## Files added or changed
 
-- `src/librepcb_mcp/adapters/cli.py`, package markers: process adapter, not MCP transport.
-- `scripts/verify_baseline.py`, `scripts/bootstrap.ps1`: reproducible CLI baseline and Windows prerequisites.
-- `resources/preview-jobs.lp`, `toolchain.json`: tested output-job configuration and version/hash pins.
-- `tests/test_cli_runner.py`, `tests/fixtures/`: six process tests and the redistributable sample.
-- `evidence/2026-09-10-day1/`: checked-in report, all eight command stdout/stderr pairs, source manifest and session notes.
-- `docs/OWNER_CONTEXT.md`, `docs/ENVIRONMENT.md`, `docs/WINDOWS_SETUP.md`, `docs/DECISIONS.md`: durable context for the next client.
-- Updated `.gitignore`, `.gitattributes`, README, PLAN, SPEC, RESEARCH, HANDOFF, CLAUDE and this status file.
-- Ignored `work/`: downloaded runtime, initial exploratory files, disposable test copies, exports and raw logs. `.venv/` is also ignored.
+- `pyproject.toml`, `requirements.lock`, `toolchain.json`: package and exact pins.
+- `src/librepcb_mcp/server.py`, `service.py`, `errors.py`, `__init__.py`: five-tool
+  transport, saved-design policies, error contract and version.
+- `src/librepcb_mcp/adapters/sexpr.py`, `files.py`, `project.py`: parser, path/copy
+  boundaries and structured inspection. Existing CLI adapter behavior is unchanged.
+- `tests/test_projects.py`: 13 parser/file/real-fixture tests; six Day 1 process
+  tests remain. `scripts/verify_mcp.py` and `verify_codex_host.py`: real integrations.
+- `scripts/bootstrap.ps1`, `scripts/prepare_demo.py`: installation and demo setup.
+- `docs/DAY2.md`: implementation contract, subset, limits, SDK API and sources.
+- `evidence/2026-09-10-day2/`: reports, actual tool schemas, unit output, dependency
+  record, 20 CLI log files and artifact map. Day 1 evidence remains unchanged.
+- Updated README, PLAN, SPEC, RESEARCH, HANDOFF, CLAUDE, ENVIRONMENT, DECISIONS,
+  WINDOWS_SETUP and STATUS. `docs/OWNER_CONTEXT.md` retains the original paste context.
 
 ## Checks actually run
 
-1. `.venv/Scripts/python.exe scripts/verify_baseline.py` — **PASS, 13 assertions across 8 real CLI invocations** on the final run.
-   - Strict open passed. ERC: 2 approved / 0 unapproved. DRC: 16 approved / 0 unapproved.
-   - Exported two 1760×1245 PNG schematic pages, one schematic PDF, nine Gerbers and two Excellon drill files.
-   - All 184 extracted project files and the source archive stayed unchanged.
-   - Exposing existing ERC approvals returned 1 with two warnings; malformed syntax also returned 1 with a parse error. This proves exit code alone cannot distinguish them.
-2. `.venv/Scripts/python.exe -m unittest discover -s tests -v` — **6 tests passed** after the adapter fix. These use real Python subprocesses; they are adapter tests, not LibrePCB integration tests.
-3. `scripts/bootstrap.ps1` with the documented Python path — passed on already-present prerequisites. The script's fresh-machine path has not been tested; initial download/extraction/venv creation was performed with equivalent explicit commands.
-4. `git diff --check` — passed during review; staged whitespace check performed at the final checkpoint.
-5. Visually inspected both schematic sheets using the image viewer. No interactive LibrePCB GUI opening, save/reopen, owner electrical review, or PDF page rendering was performed.
+1. `work/v2/Scripts/python.exe scripts/verify_mcp.py` — **PASS: 82 checks / 27 calls**.
+   Real SDK STDIO clients, real server and real LibrePCB. Legacy protocol
+   `2025-11-25`; automatic discovery `2026-07-28`. All five tools, complete
+   pagination, structured errors, bounded wire responses, containment, saved-state
+   invariants, source/copy changes, locks/recovery, missing CLI and negative
+   designs passed. Missing embedded device data was rejected by LibrePCB itself.
+   All **184 source files unchanged**. Run: `work/d2-2767e3/`.
+2. `.venv/Scripts/python.exe scripts/verify_codex_host.py --codex <recorded path>`
+   — **PASS: 7 checks** using installed **codex-cli 0.153.4**. All five tools and
+   an outside-root rejection passed. Source preserved; final host stderr empty.
+   Run: `work/cx-5134f6/`. This is a direct host test, not UI/model/Claude verification.
+3. `work/v2/Scripts/python.exe -m unittest discover -s tests -v` — **19 passed**
+   in 21.146 seconds. Actual Windows junction and hardlink rejection included.
+   Process timeout testing uses Python subprocesses, not a LibrePCB hang fixture.
+4. Fresh venv: hash-verified install of 36 dependencies, editable package install
+   with `--no-deps --no-build-isolation`, and `pip check` — **passed**.
+5. Updated bootstrap with existing prerequisites — **passed**. Fresh-machine
+   LibrePCB installation and a user-followed quickstart are still Day 6 work.
+6. Demo/config generation — passed; TOML parsed successfully. Claude Desktop
+   config is documentation-based, not an actual Claude connection test.
+7. Whitespace, metadata/evidence consistency and handoff-link checks were run
+   during final review. Inspect the local checkpoint for the final file set.
 
-Passing run: `work/runs/baseline-20260910T221549Z-4895e4b1/`.
-Durable report: `evidence/2026-09-10-day1/baseline.json`.
+Day 1's 13-check / 8-invocation CLI baseline remains valid recorded history in
+`evidence/2026-09-10-day1/`; it was not rerun in Day 2. Its source preservation,
+ERC/DRC and PNG/PDF/Gerber results do not complete the upcoming MCP export gate.
 
-## Failures encountered and resolved
+## Failures resolved and limits retained
 
-- Sandbox blocked network and `.git/index.lock`: handled via normal escalation. Git additionally saw sandbox-vs-owner ownership; used per-command `safe.directory` scoped to this exact repository, without global configuration changes.
-- Forcing Qt offscreen mode hung CLI `--version`; the timeout terminated it. The runner now uses native Windows Qt behavior and hides the console. Failed-run details: `work/runs/baseline-20260910T221414Z-f14cdad3/version-failure.json` and evidence README.
-- Deprecated `--export-schematics` generated PNGs but exited 2. Switched to a supported graphics output job, which exited 0.
-- A docstring escape warning was corrected. No known failing assertion remains in the current baseline/tests.
+- Deep Windows paths failed initial extraction; shortened run/session/snapshot
+  names and explicit generated-path limits resolved this without registry edits.
+- Editable build initially lacked `editables`; it is now explicitly pinned and
+  the fresh install passes. Report parsing now uses explicit UTF-8.
+- Verified v2 SDK imports after an unsuccessful exploratory transport import.
+- Fixed the optional Codex test's config-key quoting. An early run inherited an
+  unrelated Cloudflare plugin's authentication warning; final process-local
+  feature flags disable other plugins/apps, and the final stderr is empty.
+- No known failing assertion remains. Supported parser data is a read-only
+  projection; geometry, display-value evaluation and serialization are not implemented.
+- Saved revision checks assume cooperative local file access, not an atomic
+  transaction against an adversarial concurrent writer. Raw logs/snapshots have
+  no retention policy; source size, response size, parser work and CLI time are bounded.
+- Claude, graphical UI rendering, GUI save/reopen, personal designs, owner review,
+  edits, rollback and fresh-machine installation remain unverified.
 
 ## Running processes / incomplete operations
 
-No project-owned server, LibrePCB process, download or test is left running at handoff. Unrelated pre-existing Claude processes were not touched. No automation has been scheduled.
+Process inspection found no project-owned MCP server, LibrePCB or Codex host-test
+process left running. No download or test is pending. Unrelated existing desktop
+sessions were not stopped. No automation, publication, deployment, model turn or
+account credential change was performed. The Git repository is local with no remote.
 
-## Next task — start here
+## Next task — Claude starts Day 3 here
 
-**Day 2: build and test the smallest local MCP connection plus saved-project inspection.**
+1. Read AGENTS, this STATUS, PLAN, SPEC, `docs/DAY2.md`, `docs/DECISIONS.md`,
+   `docs/ENVIRONMENT.md` and both evidence READMEs. Inspect Git before editing.
+   Reuse `.venv`, pinned SDK 2.2.0 and the portable CLI; do not restart setup.
+2. Add `run_checks` as a fixed domain operation on a validated saved handle/copy.
+   Reuse the working CLI adapter, containment/lock/revision checks and finite
+   timeout. Parse stdout counts and stderr findings conservatively. Distinguish
+   approved/unapproved findings from parse failures, process failures and timeouts.
+   Exit 1 alone is not sufficient; unknown output must never imply a clean design.
+3. Add a constrained preview/output path using server-owned, verified output jobs.
+   Reuse `resources/preview-jobs.lp`. Enforce allowed output directories, supported
+   job types, substitution/path handling, collision policy and artifact limits.
+   Do not expose arbitrary project jobs or raw CLI argv to the model.
+4. Create disposable fixtures with real ERC and DRC faults; compare summaries to
+   raw CLI output. Include the existing 2 ERC / 16 DRC approvals in baseline reports.
+5. Exercise the complete MCP read -> checks -> preview/export flow through a real
+   client. Verify source preservation and check whether the chosen client can
+   actually consume the generated PNG preview. Direct CLI export success is insufficient.
+6. Preserve raw diagnostics and bounded structured results. Extend the current
+   acceptance harness and save exact evidence. Keep transport/domain/adapters separate.
+7. Update STATUS and HANDOFF before stopping. No edit tools until Day 3 passes;
+   Day 4's one-value candidate edit still requires reopen/save/reopen, invariants,
+   checks comparison, visual inspection and rollback evidence.
 
-1. Read `docs/ENVIRONMENT.md`, `docs/DECISIONS.md` and the real logs; reuse the existing prerequisites. Inspect Git and honor one writer at a time.
-2. Verify the current official MCP Python SDK interfaces from its docs/source, choose an exact stable version, create `pyproject.toml` and a pinned/locked dependency workflow, and install into this `.venv`.
-3. Add transport separately from domain operations. First tools: `get_status` and allowlisted `open_project`; use opaque handles, file-format rejection, saved-state labeling, safe paths and revision fingerprints. Address `.lock`, `.autosave` and `.backup` explicitly.
-4. Implement a real S-expression parser and documented format-2 subset for metadata, component references/raw values, attributes and nets. Do not treat `{{RESISTANCE}}` as an already-resolved resistor value. Preserve identifiers and reject unsupported shapes.
-5. Run an actual STDIO MCP handshake and calls using an SDK client, then the selected installed host if available. Document exactly which client was tested; an SDK client is not a Codex/Claude Desktop UI test.
-6. Keep rule violations separate from CLI failure. The model-facing checks/preview layer is Day 3; its allowlists, log limits and output-job path validation must be in place before tools are exposed.
+## Context and nonblocking owner decisions
 
-Do not add write tools until the read/check/export **MCP workflow** is verified. Day 1 CLI success alone does not finish Day 3. The value-edit gate still requires a candidate copy, semantic invariants, CLI/GUI reopen checks, checks comparison and rollback evidence.
+Owner authorized starting the project, completing Day 2, and then handing to
+Claude. One writer at a time; original conversation and useful links are recorded
+in `docs/OWNER_CONTEXT.md`. Follow the startup message in HANDOFF.md.
 
-## Nonblocking owner decisions
-
-- Public software license (required before distribution; CC0 fixture license is separate).
-- Exact Claude client/local access and daily available time.
-- Owner's preferred personal design for a later trial.
-
-These do not block Day 2 development. No subscription credentials or model API keys are needed for the server itself.
+A public software license, exact Claude client, personal trial design and owner
+availability remain undecided. They do not block Day 3. This server uses no
+subscription credentials or model API keys.

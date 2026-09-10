@@ -1,6 +1,7 @@
 # LibrePCB MCP Server
 
-A local, open-source tool that lets an MCP-compatible AI client inspect LibrePCB projects, run checks, produce previews and manufacturing files, and eventually make validated design edits.
+A local MCP server for inspecting saved LibrePCB projects. Rule checks, previews,
+manufacturing exports and a constrained edit are subsequent milestones.
 
 ## Start here
 
@@ -10,9 +11,16 @@ A local, open-source tool that lets an MCP-compatible AI client inspect LibrePCB
 4. Read [HANDOFF.md](HANDOFF.md) before switching between Claude and ChatGPT.
 5. Read [RESEARCH.md](RESEARCH.md) for evidence and unresolved questions.
 
-**Current state:** Day 1 complete. LibrePCB 2.1.1 runs locally on Windows; the real sample passes strict load, ERC/DRC and PNG/PDF/Gerber exports without changing its project files. A reusable internal process adapter and repeatable baseline harness are implemented. **No MCP tools or design-edit feature are registered yet.**
+**Current state: Day 2 complete.** Five local MCP tools report status, open an
+allowlisted saved project, summarize it, and list components and nets. The real
+sample returns 97 components and 48 nets. SDK clients and the installed Codex
+host passed real tool calls; the source files stayed unchanged. Package version
+`0.1.0.dev2` uses Python 3.12, MCP SDK 2.2.0 and LibrePCB 2.1.1 on Windows x64.
 
-See [Windows setup](docs/WINDOWS_SETUP.md), [recorded environment](docs/ENVIRONMENT.md), and [actual Day 1 results](evidence/2026-09-10-day1/README.md). Next: choose/pin the official MCP SDK and implement the local connection plus saved-project inspection.
+See [Windows setup](docs/WINDOWS_SETUP.md), [Day 2 behavior and limits](docs/DAY2.md),
+and [test evidence](evidence/2026-09-10-day2/README.md). Next: Day 3 MCP checks and
+previews. Day 1 already proved direct CLI ERC/DRC and PNG/PDF/Gerber exports;
+those operations are not MCP tools yet. No edit feature is implemented.
 
 ## Week-one objective
 

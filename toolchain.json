@@ -25,6 +25,16 @@
     "git": "2.45.1.windows.1",
     "qt": "6.10.1",
     "opencascade": "7.9.1",
-    "mcp_sdk": null
+    "mcp_sdk": "2.2.0",
+    "codex_cli": "0.153.4",
+    "server_package": "0.1.0.dev2"
+  },
+  "python_dependencies": {
+    "lock": "requirements.lock",
+    "platform": "Windows x64 / CPython 3.12",
+    "mcp_sdk": "2.2.0",
+    "mcp_sdk_source_commit": "9972c21aa42054fb1450c5fc614761ed11847ec6",
+    "build_backend": "hatchling==1.32.0",
+    "editable_support": "editables==0.6"
   }
 }

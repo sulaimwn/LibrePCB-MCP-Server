@@ -3,6 +3,7 @@
 *.md text eol=lf
 *.json text eol=lf
 *.toml text eol=lf
+requirements.lock text eol=lf
 *.lp text eol=lf
 *.lppz binary
 *.png binary

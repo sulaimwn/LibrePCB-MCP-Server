@@ -23,7 +23,7 @@ Earlier exploratory estimates were 40–100 hours for a general inspection/expor
 ### Milestone progress (updated September 10)
 
 - [x] Day 1: Python 3.12.14 and portable LibrePCB 2.1.1 verified. Pinned CC0 D0 reader fixture. Real strict load, ERC/DRC, PDF/Gerber and PNG output jobs passed. Byte preservation and two negative probes passed. See `evidence/2026-09-10-day1/`.
-- [ ] Day 2: official MCP SDK pin, STDIO server/client handshake, allowlisted saved-project handles, structured component/net parser. This is the next task.
+- [x] Day 2: SDK 2.2.0 and dependencies pinned; five STDIO inspection tools; allowlisted saved copies and revisions; format-2 parser. SDK integration passed 82 checks/27 calls, installed Codex host passed 7 checks, and 19 adapter/parser/file tests passed. Fresh Python environment verified. See `evidence/2026-09-10-day2/`. No Claude/UI connection claimed.
 - [ ] Day 3: model-facing checks/previews with conservative diagnostic parsing and real fault fixtures. Day 1 CLI results are groundwork; they do not complete this milestone.
 - [ ] Days 4–7: editing experiment, hardening, packaging, owner trial and release candidate remain pending.
 

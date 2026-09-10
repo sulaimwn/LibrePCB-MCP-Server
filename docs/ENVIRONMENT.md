@@ -14,8 +14,11 @@ Verified locally on 2026-09-10. Paths describe this machine; use explicit argume
 | LibrePCB revision | 06465bf (2026-06-12) |
 | Qt | 6.10.1, compiled against 6.10.1 |
 | OpenCascade | 7.9.1 |
-| Third-party Python libraries | None installed in project environment |
-| MCP SDK / host integration | Not yet selected/tested |
+| MCP SDK | 2.2.0; all 36 runtime/build dependencies pinned with wheel hashes |
+| Package / build backend | 0.1.0.dev2 / hatchling 1.32.0, editables 0.6 |
+| MCP protocols tested with SDK | 2025-11-25 (legacy), 2026-07-28 (automatic) |
+| Installed host tested | codex-cli 0.153.4, direct app-server MCP calls |
+| Claude / graphical UI connection | Not tested |
 
 ## Exact paths
 
@@ -31,7 +34,24 @@ Portable CLI: `<repository>\work\tools\librepcb-2.1.1\bin\librepcb-cli.exe`.
 
 Portable GUI executable is in the same binary directory. The interactive application has not been launched for this project. Do not change the user's workspace settings to test it.
 
-No global Python, PATH, registry, Git config, Codex MCP config or Claude config changes were made. The venv depends on its base interpreter; if the desktop runtime is removed, recreate the venv using a separately installed Python 3.12+.
+No global Python, PATH, registry, Git config, Codex MCP config or Claude config
+changes were made. The venv depends on its base interpreter; if the desktop
+runtime is removed, recreate it using Python 3.12 x64 and the dependency lock.
+
+Fresh verification interpreter: `<repository>\work\v2\Scripts\python.exe`.
+Its locked dependency install, editable install, dependency check, 19 tests and
+82-check MCP acceptance run passed. It is an ignored development environment,
+not redistributable packaging.
+
+Tested Codex executable:
+`C:\Users\vboxuser\AppData\Local\OpenAI\Codex\bin\fd4c151a749f3ab4\codex.exe`.
+The deterministic harness used its generated app-server JSON schemas, an
+ephemeral thread and direct MCP calls. No model turn was submitted. The final
+test disabled other plugins/apps only in its child process and had empty stderr.
+Generated host schemas are ignored under `work/research/day2/codex-schema/`.
+
+Ready sample/config snippets: `<repository>\work\demo-bf2ee7\`.
+See `docs/WINDOWS_SETUP.md`; snippets have not been installed in a client.
 
 ## Downloads and integrity
 
@@ -60,3 +80,5 @@ Use the same scoped option for `add`/`commit` when required. The coding environm
 - `LC_ALL=C` is set by the adapter, but tests were only run with the host culture en-US. Do not assume localized output is fully handled by the upcoming domain parser.
 - Real rule findings print in **stderr** while counts are in **stdout**. Preserve both.
 - Raw diagnostics go to unique files. Only 4,000 bytes per stream are included in the returned adapter record.
+- Keep data paths short. Deep extraction initially hit Windows MAX_PATH; the
+  server now checks generated paths and uses compact session/snapshot folder names.

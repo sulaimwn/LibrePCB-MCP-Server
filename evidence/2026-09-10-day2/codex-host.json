@@ -1,0 +1,348 @@
+{
+  "kind": "codex_app_server_direct_mcp",
+  "codex_version": "codex-cli 0.153.4",
+  "passed": true,
+  "failure": null,
+  "checks": [
+    {
+      "name": "host_discovers_five_tools",
+      "passed": true,
+      "tools": [
+        "get_status",
+        "list_components",
+        "list_nets",
+        "open_project",
+        "get_project_summary"
+      ],
+      "runtime_status": "connected"
+    },
+    {
+      "name": "real_cli_ready",
+      "passed": true
+    },
+    {
+      "name": "host_reads_summary",
+      "passed": true
+    },
+    {
+      "name": "list_components",
+      "passed": true
+    },
+    {
+      "name": "list_nets",
+      "passed": true
+    },
+    {
+      "name": "host_receives_structured_error",
+      "passed": true
+    },
+    {
+      "name": "source_preserved",
+      "passed": true
+    }
+  ],
+  "calls": [
+    {
+      "tool": "get_status",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"ok\": true, \"message\": \"Saved-project operation completed.\", \"data\": {\"server_version\": \"0.1.0.dev2\", \"mcp_sdk_version\": \"2.2.0\", \"ready\": true, \"librepcb\": {\"version\": \"2.1.1\", \"file_format\": \"2\", \"version_output\": \"LibrePCB CLI Version 2.1.1\\r\\nFile Format 2 (stable)\\r\\nGit Revision 06465bf (2026-06-12)\\r\\nQt Version 6.10.1 (compiled against 6.10.1)\\r\\nOpenCascade OCCT 7.9.1\\r\\n\", \"stdout_artifact\": \"C:\\\\Users\\\\vboxuser\\\\Documents\\\\Codex\\\\2026-09-10\\\\help-me-write-a-good-prompt\\\\outputs\\\\librepcb-mcp-server\\\\work\\\\cx-5134f6\\\\d\\\\s-6d3ded8433fa\\\\logs\\\\9ff53ee350054ba99b689bfa4bb86ef3.stdout.txt\", \"stderr_artifact\": \"C:\\\\Users\\\\vboxuser\\\\Documents\\\\Codex\\\\2026-09-10\\\\help-me-write-a-good-prompt\\\\outputs\\\\librepcb-mcp-server\\\\work\\\\cx-5134f6\\\\d\\\\s-6d3ded8433fa\\\\logs\\\\9ff53ee350054ba99b689bfa4bb86ef3.stderr.txt\"}, \"tools\": [\"get_status\", \"open_project\", \"get_project_summary\", \"list_components\", \"list_nets\"], \"problems\": [], \"saved_state_only\": true, \"write_tools\": false, \"project_root_count\": 1, \"limits\": {\"max_page_size\": 100, \"max_open_attempts_per_session\": 32, \"max_response_bytes\": 64000}}}"
+          }
+        ],
+        "structuredContent": {
+          "ok": true,
+          "message": "Saved-project operation completed.",
+          "data": {
+            "server_version": "0.1.0.dev2",
+            "mcp_sdk_version": "2.2.0",
+            "ready": true,
+            "librepcb": {
+              "version": "2.1.1",
+              "file_format": "2",
+              "version_output": "LibrePCB CLI Version 2.1.1\r\nFile Format 2 (stable)\r\nGit Revision 06465bf (2026-06-12)\r\nQt Version 6.10.1 (compiled against 6.10.1)\r\nOpenCascade OCCT 7.9.1\r\n",
+              "stdout_artifact": "<REPO>\\work\\cx-5134f6\\d\\s-6d3ded8433fa\\logs\\9ff53ee350054ba99b689bfa4bb86ef3.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\cx-5134f6\\d\\s-6d3ded8433fa\\logs\\9ff53ee350054ba99b689bfa4bb86ef3.stderr.txt"
+            },
+            "tools": [
+              "get_status",
+              "open_project",
+              "get_project_summary",
+              "list_components",
+              "list_nets"
+            ],
+            "problems": [],
+            "saved_state_only": true,
+            "write_tools": false,
+            "project_root_count": 1,
+            "limits": {
+              "max_page_size": 100,
+              "max_open_attempts_per_session": 32,
+              "max_response_bytes": 64000
+            }
+          }
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "open_project",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"ok\": true, \"message\": \"Saved-project operation completed.\", \"data\": {\"project_id\": \"4e3abbddb4e542a99205f26bd2223acf\", \"revision\": \"sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757\", \"state\": \"saved_snapshot\", \"captured_at\": \"2026-09-10T23:18:05.231265+00:00\", \"lock_present\": false, \"metadata\": {\"id\": \"62381a67-292d-448e-952b-bea07d640ac0\", \"name\": \"d0-reader\", \"author\": \"U. Bruhin\", \"version\": \"v2\", \"created\": \"2023-06-06T15:13:03Z\"}, \"file_format\": \"2\", \"boards\": [{\"id\": \"9220702f-a48e-4216-8865-87f6ea8ca353\", \"name\": \"default\", \"file\": \"boards/default/board.lp\"}], \"schematics\": [{\"id\": \"f963e052-a18b-4f05-bdb0-ab605ad87e1b\", \"name\": \"Main\", \"file\": \"schematics/main/schematic.lp\"}, {\"id\": \"a3fc7c77-9971-4020-b120-fae5dcadff13\", \"name\": \"Ethernet\", \"file\": \"schematics/ethernet/schematic.lp\"}], \"component_count\": 97, \"net_count\": 48, \"snapshot_project\": \"C:\\\\Users\\\\vboxuser\\\\Documents\\\\Codex\\\\2026-09-10\\\\help-me-write-a-good-prompt\\\\outputs\\\\librepcb-mcp-server\\\\work\\\\cx-5134f6\\\\d\\\\s-6d3ded8433fa\\\\p01\\\\d0-reader.lpp\", \"inspection_scope\": \"Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values.\"}}"
+          }
+        ],
+        "structuredContent": {
+          "ok": true,
+          "message": "Saved-project operation completed.",
+          "data": {
+            "project_id": "4e3abbddb4e542a99205f26bd2223acf",
+            "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+            "state": "saved_snapshot",
+            "captured_at": "2026-09-10T23:18:05.231265+00:00",
+            "lock_present": false,
+            "metadata": {
+              "id": "62381a67-292d-448e-952b-bea07d640ac0",
+              "name": "d0-reader",
+              "author": "U. Bruhin",
+              "version": "v2",
+              "created": "2023-06-06T15:13:03Z"
+            },
+            "file_format": "2",
+            "boards": [
+              {
+                "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                "name": "default",
+                "file": "boards/default/board.lp"
+              }
+            ],
+            "schematics": [
+              {
+                "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+                "name": "Main",
+                "file": "schematics/main/schematic.lp"
+              },
+              {
+                "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+                "name": "Ethernet",
+                "file": "schematics/ethernet/schematic.lp"
+              }
+            ],
+            "component_count": 97,
+            "net_count": 48,
+            "snapshot_project": "<REPO>\\work\\cx-5134f6\\d\\s-6d3ded8433fa\\p01\\d0-reader.lpp",
+            "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+          }
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_project_summary",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"ok\": true, \"message\": \"Saved-project operation completed.\", \"data\": {\"project_id\": \"4e3abbddb4e542a99205f26bd2223acf\", \"revision\": \"sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757\", \"state\": \"saved_snapshot\", \"captured_at\": \"2026-09-10T23:18:05.231265+00:00\", \"lock_present\": false, \"metadata\": {\"id\": \"62381a67-292d-448e-952b-bea07d640ac0\", \"name\": \"d0-reader\", \"author\": \"U. Bruhin\", \"version\": \"v2\", \"created\": \"2023-06-06T15:13:03Z\"}, \"file_format\": \"2\", \"boards\": [{\"id\": \"9220702f-a48e-4216-8865-87f6ea8ca353\", \"name\": \"default\", \"file\": \"boards/default/board.lp\"}], \"schematics\": [{\"id\": \"f963e052-a18b-4f05-bdb0-ab605ad87e1b\", \"name\": \"Main\", \"file\": \"schematics/main/schematic.lp\"}, {\"id\": \"a3fc7c77-9971-4020-b120-fae5dcadff13\", \"name\": \"Ethernet\", \"file\": \"schematics/ethernet/schematic.lp\"}], \"component_count\": 97, \"net_count\": 48, \"snapshot_project\": \"C:\\\\Users\\\\vboxuser\\\\Documents\\\\Codex\\\\2026-09-10\\\\help-me-write-a-good-prompt\\\\outputs\\\\librepcb-mcp-server\\\\work\\\\cx-5134f6\\\\d\\\\s-6d3ded8433fa\\\\p01\\\\d0-reader.lpp\", \"inspection_scope\": \"Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values.\"}}"
+          }
+        ],
+        "structuredContent": {
+          "ok": true,
+          "message": "Saved-project operation completed.",
+          "data": {
+            "project_id": "4e3abbddb4e542a99205f26bd2223acf",
+            "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+            "state": "saved_snapshot",
+            "captured_at": "2026-09-10T23:18:05.231265+00:00",
+            "lock_present": false,
+            "metadata": {
+              "id": "62381a67-292d-448e-952b-bea07d640ac0",
+              "name": "d0-reader",
+              "author": "U. Bruhin",
+              "version": "v2",
+              "created": "2023-06-06T15:13:03Z"
+            },
+            "file_format": "2",
+            "boards": [
+              {
+                "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                "name": "default",
+                "file": "boards/default/board.lp"
+              }
+            ],
+            "schematics": [
+              {
+                "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+                "name": "Main",
+                "file": "schematics/main/schematic.lp"
+              },
+              {
+                "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+                "name": "Ethernet",
+                "file": "schematics/ethernet/schematic.lp"
+              }
+            ],
+            "component_count": 97,
+            "net_count": 48,
+            "snapshot_project": "<REPO>\\work\\cx-5134f6\\d\\s-6d3ded8433fa\\p01\\d0-reader.lpp",
+            "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+          }
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "list_components",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"ok\": true, \"message\": \"Saved-project operation completed.\", \"data\": {\"project_id\": \"4e3abbddb4e542a99205f26bd2223acf\", \"revision\": \"sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757\", \"state\": \"saved_snapshot\", \"items\": [{\"id\": \"833ecbcf-4fa8-4d41-8a7b-76d8aa2aca38\", \"reference\": \"C1\", \"value_raw\": \"{{CAPACITANCE}}\", \"value_is_template\": true, \"attributes\": [{\"key\": \"CAPACITANCE\", \"type\": \"capacitance\", \"unit\": \"microfarad\", \"value\": \"10\"}, {\"key\": \"MPN\", \"type\": \"string\", \"unit\": \"none\", \"value\": \"CL21B106KPQNNNE\"}], \"library_component_id\": \"d167e0e3-6a92-4b76-b013-77b9c230e5f1\", \"schematic_only\": false, \"signal_count\": 2, \"connected_signal_count\": 2}, {\"id\": \"9d44c525-8cb7-4be9-a420-dde87cee9470\", \"reference\": \"C10\", \"value_raw\": \"{{CAPACITANCE}}\", \"value_is_template\": true, \"attributes\": [{\"key\": \"CAPACITANCE\", \"type\": \"capacitance\", \"unit\": \"microfarad\", \"value\": \"1\"}], \"library_component_id\": \"d167e0e3-6a92-4b76-b013-77b9c230e5f1\", \"schematic_only\": false, \"signal_count\": 2, \"connected_signal_count\": 2}, {\"id\": \"012ad46b-d2fe-45e3-bd71-c9efe2b64f8f\", \"reference\": \"C11\", \"value_raw\": \"{{CAPACITANCE}}\", \"value_is_template\": true, \"attributes\": [{\"key\": \"CAPACITANCE\", \"type\": \"capacitance\", \"unit\": \"picofarad\", \"value\": \"470\"}], \"library_component_id\": \"d167e0e3-6a92-4b76-b013-77b9c230e5f1\", \"schematic_only\": false, \"signal_count\": 2, \"connected_signal_count\": 2}], \"total\": 97, \"next_cursor\": \"4e3abbddb4e542a99205f26bd2223acf:components:3\"}}"
+          }
+        ],
+        "structuredContent": {
+          "ok": true,
+          "message": "Saved-project operation completed.",
+          "data": {
+            "project_id": "4e3abbddb4e542a99205f26bd2223acf",
+            "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+            "state": "saved_snapshot",
+            "items": [
+              {
+                "id": "833ecbcf-4fa8-4d41-8a7b-76d8aa2aca38",
+                "reference": "C1",
+                "value_raw": "{{CAPACITANCE}}",
+                "value_is_template": true,
+                "attributes": [
+                  {
+                    "key": "CAPACITANCE",
+                    "type": "capacitance",
+                    "unit": "microfarad",
+                    "value": "10"
+                  },
+                  {
+                    "key": "MPN",
+                    "type": "string",
+                    "unit": "none",
+                    "value": "CL21B106KPQNNNE"
+                  }
+                ],
+                "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+                "schematic_only": false,
+                "signal_count": 2,
+                "connected_signal_count": 2
+              },
+              {
+                "id": "9d44c525-8cb7-4be9-a420-dde87cee9470",
+                "reference": "C10",
+                "value_raw": "{{CAPACITANCE}}",
+                "value_is_template": true,
+                "attributes": [
+                  {
+                    "key": "CAPACITANCE",
+                    "type": "capacitance",
+                    "unit": "microfarad",
+                    "value": "1"
+                  }
+                ],
+                "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+                "schematic_only": false,
+                "signal_count": 2,
+                "connected_signal_count": 2
+              },
+              {
+                "id": "012ad46b-d2fe-45e3-bd71-c9efe2b64f8f",
+                "reference": "C11",
+                "value_raw": "{{CAPACITANCE}}",
+                "value_is_template": true,
+                "attributes": [
+                  {
+                    "key": "CAPACITANCE",
+                    "type": "capacitance",
+                    "unit": "picofarad",
+                    "value": "470"
+                  }
+                ],
+                "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+                "schematic_only": false,
+                "signal_count": 2,
+                "connected_signal_count": 2
+              }
+            ],
+            "total": 97,
+            "next_cursor": "4e3abbddb4e542a99205f26bd2223acf:components:3"
+          }
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "list_nets",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"ok\": true, \"message\": \"Saved-project operation completed.\", \"data\": {\"project_id\": \"4e3abbddb4e542a99205f26bd2223acf\", \"revision\": \"sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757\", \"state\": \"saved_snapshot\", \"items\": [{\"id\": \"d3764793-7b40-45e2-9fe3-863c2095f671\", \"name\": \"!LAN_RST\", \"netclass_id\": \"6b4592ea-551e-4039-aa59-8b170c8528ca\", \"signal_count\": 2, \"component_count\": 2}, {\"id\": \"30852888-93c8-4c8a-94a4-d3cc44fc00ba\", \"name\": \"!RST\", \"netclass_id\": \"6b4592ea-551e-4039-aa59-8b170c8528ca\", \"signal_count\": 3, \"component_count\": 3}, {\"id\": \"d6084e3e-947d-43a5-ae0d-103b2dab57d7\", \"name\": \"3V3\", \"netclass_id\": \"6b4592ea-551e-4039-aa59-8b170c8528ca\", \"signal_count\": 33, \"component_count\": 31}], \"total\": 48, \"next_cursor\": \"4e3abbddb4e542a99205f26bd2223acf:nets:3\"}}"
+          }
+        ],
+        "structuredContent": {
+          "ok": true,
+          "message": "Saved-project operation completed.",
+          "data": {
+            "project_id": "4e3abbddb4e542a99205f26bd2223acf",
+            "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+            "state": "saved_snapshot",
+            "items": [
+              {
+                "id": "d3764793-7b40-45e2-9fe3-863c2095f671",
+                "name": "!LAN_RST",
+                "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+                "signal_count": 2,
+                "component_count": 2
+              },
+              {
+                "id": "30852888-93c8-4c8a-94a4-d3cc44fc00ba",
+                "name": "!RST",
+                "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+                "signal_count": 3,
+                "component_count": 3
+              },
+              {
+                "id": "d6084e3e-947d-43a5-ae0d-103b2dab57d7",
+                "name": "3V3",
+                "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+                "signal_count": 33,
+                "component_count": 31
+              }
+            ],
+            "total": 48,
+            "next_cursor": "4e3abbddb4e542a99205f26bd2223acf:nets:3"
+          }
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "open_project",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"ok\": false, \"error\": \"path_not_allowed\", \"message\": \"Project is outside the configured roots.\", \"details\": {}}"
+          }
+        ],
+        "structuredContent": {
+          "ok": false,
+          "error": "path_not_allowed",
+          "message": "Project is outside the configured roots.",
+          "details": {}
+        },
+        "isError": true
+      }
+    }
+  ],
+  "note": "Actual installed Codex host, ephemeral thread, direct MCP calls. No model turn, UI rendering test, or persistent host config edits."
+}
