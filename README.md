@@ -1,4 +1,8 @@
-# LibrePCB MCP Server
+# LibrePCB-MCP-Server — WIP
+
+**Work in progress.** This is an experimental development project, not a finished
+product or an official LibrePCB integration. Interfaces and supported behavior
+may change. Day 3 checks and previews are currently being implemented and tested.
 
 A local MCP server for inspecting saved LibrePCB projects. Rule checks, previews,
 manufacturing exports and a constrained edit are subsequent milestones.
@@ -34,4 +38,7 @@ The owner will alternate between ChatGPT and Claude as subscription limits requi
 
 Open this folder as the project in the coding client. If the other client cannot access the local folder, transfer it or use a private Git repository. Do not assume a subscription includes local file access, shared conversation history, or API credits. A normal MCP tool server need not make model API calls itself.
 
-The project has not been published and a software license has not yet been chosen. Never describe it as an official LibrePCB integration.
+This development repository preserves source, documentation, test fixtures,
+validation evidence and project history. Downloaded tools, virtual environments,
+temporary work and credentials are excluded. A software license for the server
+has not yet been chosen; the included sample design has its own CC0 license.

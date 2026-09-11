@@ -4,6 +4,10 @@ Planning baseline: September 10–16, 2026, America/Toronto. Treat these as Day 
 
 ## Capacity and scope
 
+Owner update, September 10: Codex continues Day 3. Upload the project to GitHub
+as `LibrePCB-MCP-Server` with an explicit WIP README. This is a development
+repository, not a release or deployment; retain all existing acceptance gates.
+
 Reserve approximately 30–45 focused project hours across the week as a planning assumption, not a commitment from the owner. This includes setup, implementation, testing, and documentation. Owner time is especially needed for installation issues and reviewing LibrePCB designs. AI output must still be tested.
 
 Earlier exploratory estimates were 40–100 hours for a general inspection/export MVP and another 100–250 hours for robust limited editing. This week's shorter plan reduces scope to one OS, one stable LibrePCB version, small fixtures, and a small tool set. It does not promise the same breadth sooner. At lower availability, preserve the quality gates and extend the dates.

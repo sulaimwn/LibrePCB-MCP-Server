@@ -9,7 +9,11 @@ Captured from the owner's pasted ChatGPT/Claude conversation on 2026-09-10.
 - The week is a working target. Useful read/check/export plus a proven value-edit experiment is the intended progression; edit release gates still apply.
 - The historical Python-bindings branch is research material, not a runtime dependency. It does not establish live board-control support.
 - Do not infer a personal biography, available hours, API entitlement, or model capabilities from drafts in the pasted conversation.
-- No public repository, publication, deployment, maintainer contact, or subscription/API credential use is authorized by this kickoff.
+- The original kickoff did not authorize publication. The owner subsequently
+  asked Codex to continue Day 3 and push the project to GitHub as
+  **LibrePCB-MCP-Server**, with a README that clearly says WIP. That later request
+  authorizes repository creation and pushing the project/history. Deployment,
+  maintainer contact and subscription/API credential use remain outside the task.
 
 ## Context links worth keeping
 

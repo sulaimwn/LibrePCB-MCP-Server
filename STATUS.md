@@ -1,11 +1,13 @@
 # Current project status
 
 Updated: 2026-09-10, America/Toronto. Active coding client: ChatGPT/Codex.
-Ready for a single-writer handoff to Claude after the Day 2 checkpoint.
+Codex is continuing Day 3 at the owner's request. The Day 2 record below is retained
+until the next checkpoint. GitHub upload is now authorized as `LibrePCB-MCP-Server`,
+with a clearly marked work-in-progress README; visibility is being confirmed.
 
 ## Current milestone
 
-**Days 1 and 2 complete. Next: Day 3 — MCP checks and previews.**
+**Days 1 and 2 complete. Day 3 in progress — MCP checks and previews.**
 
 The local inspection prototype is package `0.1.0.dev2`. Five MCP tools work:
 `get_status`, `open_project`, `get_project_summary`, `list_components`, `list_nets`.
