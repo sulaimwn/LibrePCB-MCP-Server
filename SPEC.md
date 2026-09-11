@@ -11,8 +11,9 @@ First release is local and Windows-first. Pin one verified stable LibrePCB relea
 Implementation note (2026-09-11): Days 2–3 implement eight saved-project
 inspection/check/export tools on Python 3.12.14, Windows x64, MCP SDK 2.2.0 and
 LibrePCB **2.1.1 / file format 2**. Read `docs/DAY2.md` for the inspection subset
-and `docs/DAY3.md` for checks, native PNG and fixed PDF/Gerber exports. Editing
-below remains planned; no design-edit tool exists.
+and `docs/DAY3.md` for checks, native PNG and fixed PDF/Gerber exports. Day 4
+adds an opt-in typed-resistance candidate tool, documented in `docs/DAY4.md`.
+General editing and live-editor control remain planned.
 
 AI client → local MCP server → project adapter and CLI runner → isolated project copies and output artifacts.
 
@@ -29,8 +30,8 @@ AI client → local MCP server → project adapter and CLI runner → isolated p
 
 ## Proposed MCP tools
 
-The first eight rows are implemented and tested through Day 3. `create_value_edit`
-is still a proposal. Lists expose raw template values and typed attributes;
+The first eight rows are enabled by default. Day 4 implements `create_value_edit`
+only with `--enable-experimental-edits`, within the narrow scope below. Lists expose raw template values and typed attributes;
 connectivity is limited to circuit signal/component counts.
 
 | Tool | Parameters | Result / scope |
@@ -43,7 +44,7 @@ connectivity is limited to circuit signal/component counts.
 | `run_checks` | `project_id`, `checks` = `erc`, `drc`, or `both`; optional `board_id` | Findings, severity, approved/unapproved status where available, tool outcome, raw report artifact. |
 | `export_preview` | `project_id`, optional `schematic_id` | All schematic PNG artifacts and one selected native MCP image; first sheet by default. |
 | `run_output_job` | `project_id`, `job_name` = `schematic_pdf` or `gerber_excellon`, optional `board_id` | Fixed server-owned job, fresh output directory, verified artifacts and manifest. Board required for multi-board manufacturing. |
-| `create_value_edit` | `project_id`, `component_id`, `new_value`, `expected_revision` | Candidate project path, changed-value summary and validation results. Only if Day 4 passes. |
+| `create_value_edit` *(opt in)* | `project_id`, `component_id`, decimal-string `new_value`, `expected_revision` | Separate typed-resistance candidate path/handle, exact change, CLI strict/save/reopen, file invariants and matching baseline/candidate checks. One board, no unapproved findings; no source replacement. |
 
 Allowlist project roots and output locations. A project ID maps to a validated path inside the server, not arbitrary follow-up paths supplied by the model. Validate identifiers, board selectors, size limits and string length. Do not expose general shell execution or unrestricted Python evaluation as an MCP tool.
 

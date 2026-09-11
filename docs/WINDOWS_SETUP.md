@@ -1,7 +1,7 @@
 # Windows development quickstart
 
-Day 3 supports saved-project inspection, checks, native PNG previews and fixed
-PDF/Gerber exports through a local STDIO MCP server. Tested:
+Day 4 supports saved-project inspection, checks, native PNG/PDF/Gerber exports
+and opt-in typed-resistance candidates through a local STDIO MCP server. Tested:
 Windows x64, Python 3.12.14, LibrePCB 2.1.1, MCP SDK 2.2.0.
 
 ## Existing workspace: verify it
@@ -12,12 +12,13 @@ Run from PowerShell in this repository:
 & '.\.venv\Scripts\python.exe' -m unittest discover -s tests -v
 & '.\.venv\Scripts\python.exe' scripts/verify_mcp.py
 & '.\.venv\Scripts\python.exe' scripts/verify_day3.py
+& '.\.venv\Scripts\python.exe' scripts/verify_day4.py
 ```
 
-Expected: 33 tests pass, inspection reports `passed: true` with 82 checks / 27
-MCP calls, and Day 3 reports 73 checks / 20 calls. Both harnesses use SDK clients,
+Expected: 42 tests pass, inspection reports `passed: true` with 82 checks / 27
+MCP calls, Day 3 reports 73 checks / 20 calls, and Day 4 reports 103 checks / 30 calls. All three harnesses use SDK clients,
 the real server and real LibrePCB; they do not call a model. Unique copies and
-logs go under `work/d2-<id>/` and `work/d3-<id>/`, with exact `report.json` results.
+logs go under `work/d2-<id>/`, `work/d3-<id>/` and `work/d4-<id>/`, with exact `report.json` results.
 Server processes stop at completion. Allow a few minutes for the combined suite.
 
 For the optional installed Codex host test:
@@ -29,8 +30,9 @@ For the optional installed Codex host test:
 Expected: 12 checks / 10 calls pass, including all eight tools, native image
 bytes, checks, PDF and manufacturing exports. The executable path is specific
 to this machine. The ephemeral host thread uses direct tools, without a model
-turn or persistent config edits. Host image delivery and subsequent agent visual
-inspection passed; UI click-through and Claude connection remain untested.
+turn or persistent config edits. Add `--experimental-edits` to that harness for 15 checks / 13 calls, including
+the ninth tool and edited candidate image. Host image delivery passed. Actual
+LibrePCB GUI save/reopen was tested separately; Codex UI and Claude remain untested.
 
 ## Set up prerequisites
 
@@ -55,8 +57,8 @@ The equivalent Python installation steps, after creating a venv, are:
 
 The updated bootstrap passed with local prerequisites present. The locked
 dependencies and package also installed into a newly created `work/v2` venv,
-which passed Day 2 tests. Day 3 installed a noneditable wheel there and passed
-the full 73-check acceptance, proving packaged resource loading. Fresh-machine
+which passed Day 2 tests. Day 3 passed packaged export acceptance there; Day 4
+passed the full candidate workflow using its noneditable wheel too. Fresh-machine
 installation and an owner-followed trial remain Day 6 work.
 
 ## Prepare a sample and client configuration
@@ -70,7 +72,10 @@ This creates a new `work/demo-<id>/` containing the unchanged CC0 sample in `p/`
 The snippets contain absolute paths for the interpreter, CLI, allowed sample
 root and separate snapshot/log data directory. The script does not install
 them into a client or change existing settings. A ready sample from this
-session is `work/demo-5d07c4/`.
+session is `work/demo-4a5686/`, generated with `--experimental-edits`. To generate
+that variant yourself, add `--experimental-edits` to `prepare_demo.py`; it enables
+the ninth tool and raises the generated Codex tool timeout to 300 seconds. The
+default command still generates the eight-tool configuration.
 
 For Codex, merge the generated `mcp_servers.librepcb` table into the appropriate
 trusted project or user config, preserving existing tables. For Claude Desktop,
@@ -85,7 +90,7 @@ The host launches the server on demand; no port, hosted service or model API key
 is required. Start with `get_status`, then `open_project` on the absolute `.lpp`
 path, then use the returned `project_id` for summary/components/nets. Use returned
 cursors unchanged. Then call `run_checks`, `export_preview`, and supported
-`run_output_job` jobs. Generated Codex config allows 120 seconds per tool for
+`run_output_job` jobs. Default Codex config allows 120 seconds per tool (300 with experimental edits) for
 combined CLI operations; longer custom CLI timeouts need a longer host timeout.
 The sample prompt is included beside the configuration.
 
@@ -93,7 +98,9 @@ To inspect a personal project later, configure its containing directory as a
 `--project-root`, close it in LibrePCB, and supply its extracted `.lpp` path.
 Keep `--data-root` separate and reasonably short. The server rejects locks,
 recovery data, linked paths, unsupported formats and stale revisions. See
-[inspection limits](DAY2.md) and [Day 3 operations and limits](DAY3.md).
+[inspection limits](DAY2.md), [Day 3 exports](DAY3.md) and [Day 4 candidate
+lifecycle/rollback](DAY4.md). Only separate candidates are edited. Use decimal
+strings in the existing resistance unit, and the source's current revision.
 
 ## Direct CLI baseline and artifacts
 

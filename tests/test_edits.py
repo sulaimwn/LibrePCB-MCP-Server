@@ -5,8 +5,9 @@ from tempfile import TemporaryDirectory
 import unittest
 from zipfile import ZipFile
 
-from librepcb_mcp.adapters.edits import CIRCUIT_FILE, resistance_edit, verify_edit
+from librepcb_mcp.adapters.edits import CIRCUIT_FILE, resistance_edit, verify_edit, verify_save_initialization
 from librepcb_mcp.adapters.files import Capture, capture
+from librepcb_mcp.adapters.sexpr import parse
 from librepcb_mcp.errors import ProjectError
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -80,6 +81,25 @@ class ResistanceEditTests(unittest.TestCase):
             with self.assertRaises(ProjectError) as raised:
                 verify_edit(self.before, Capture(changed, "unit-test"), edit)
             self.assertEqual(raised.exception.code, "validation_failed")
+
+    def test_save_initialization_never_hides_design_changes(self):
+        prefs = {"project/settings.user.lp": b"(librepcb_project_user_settings)\n"}
+        saved = Capture({**self.before.files, **prefs}, "unit-test")
+        self.assertEqual(verify_save_initialization(self.before, saved, "d0-reader.lpp"), list(prefs))
+        for changed in ({**saved.files, "extra.lp": b"(unexpected)"},
+                        {**saved.files, "circuit/erc.lp": b"(changed)"},
+                        {**saved.files, "project/settings.user.lp": b"(librepcb_circuit)"}):
+            with self.assertRaises(ProjectError):
+                verify_save_initialization(self.before, Capture(changed, "unit-test"), "d0-reader.lpp")
+
+    def test_populated_part_choice_rejected(self):
+        source = self.before.files[CIRCUIT_FILE].decode("utf-8")
+        target = next(node for node in parse(source).children("component") if node.atom() == R17)
+        offset = target.one("device").items[0].end
+        content = (source[:offset] + '\n   (part "fixed-1k5" (manufacturer "test"))' + source[offset:]).encode()
+        captured = Capture({**self.before.files, CIRCUIT_FILE: content}, "unit-test")
+        with self.assertRaises(ProjectError):
+            self.patch(captured=captured)
 
 
 if __name__ == "__main__":

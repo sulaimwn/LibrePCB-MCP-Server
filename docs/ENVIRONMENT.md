@@ -15,11 +15,11 @@ Verified locally through 2026-09-11. Paths describe this machine; use explicit a
 | Qt | 6.10.1, compiled against 6.10.1 |
 | OpenCascade | 7.9.1 |
 | MCP SDK | 2.2.0; all 36 runtime/build dependencies pinned with wheel hashes |
-| Package / build backend | 0.1.0.dev3 / hatchling 1.32.0, editables 0.6 |
+| Package / build backend | 0.1.0.dev4 / hatchling 1.32.0, editables 0.6 |
 | MCP protocols tested with SDK | 2025-11-25 (legacy), 2026-07-28 (automatic) |
 | Installed host tested | codex-cli 0.153.4, direct app-server MCP calls |
 | GitHub CLI | 2.100.0, verified official Windows portable download; development publication only |
-| Claude / graphical UI connection | Not tested; Codex direct-host native image bytes received and inspected |
+| GUI / Claude | Actual LibrePCB GUI save/reopen tested in isolation; Claude connection untested |
 
 ## Exact paths
 
@@ -33,7 +33,7 @@ Project interpreter: `<repository>\.venv\Scripts\python.exe`.
 
 Portable CLI: `<repository>\work\tools\librepcb-2.1.1\bin\librepcb-cli.exe`.
 
-Portable GUI executable is in the same binary directory. The interactive application has not been launched for this project. Do not change the user's workspace settings to test it.
+Portable GUI executable is in the same binary directory. Day 4 opened/saved/reopened a disposable candidate in the actual GUI, with isolated `LIBREPCB_WORKSPACE=work/d4g/ws` and `LIBREPCB_CONFIG_DIR=work/d4g/config` (absolute paths in the child environment). Normal workspace settings were not changed.
 
 No global Python, PATH, registry, Git config, Codex MCP config or Claude config
 changes were made. The venv depends on its base interpreter; if the desktop
@@ -41,9 +41,9 @@ runtime is removed, recreate it using Python 3.12 x64 and the dependency lock.
 
 Fresh verification interpreter: `<repository>\work\v2\Scripts\python.exe`.
 Its 36 hash-locked dependencies were installed in Day 2. Day 3 replaced the
-editable install with a noneditable `0.1.0.dev3` wheel, verified site-packages
-and resource loading, passed `pip check`, and passed 73 checks / 20 MCP calls.
-The wheel is under `work/day3-wheel-final/`; hashes are in Day 3 evidence.
+editable install with a wheel. Day 4 installed the noneditable `0.1.0.dev4` wheel, verified site-packages
+and resource loading, and passed `pip check`. The full Day 4 candidate acceptance
+is recorded in the Day 4 evidence packet. Its wheel is under `work/day4-wheel/`.
 This is an ignored isolated test environment, not a fresh-machine trial.
 
 Tested Codex executable:
@@ -53,7 +53,7 @@ ephemeral thread and direct MCP calls. No model turn was submitted. The final
 test disabled other plugins/apps only in its child process and had empty stderr.
 Generated host schemas are ignored under `work/research/day2/codex-schema/`.
 
-Ready sample/config snippets: `<repository>\work\demo-5d07c4\`.
+Ready sample/config snippets: `<repository>\work\demo-4a5686\`.
 See `docs/WINDOWS_SETUP.md`; snippets have not been installed in a client.
 
 ## Downloads and integrity

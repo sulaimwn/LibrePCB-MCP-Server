@@ -13,19 +13,21 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `docs/WINDOWS_SETUP.md`: setup and repeatable validation commands.
 - `docs/DECISIONS.md`: verified CLI traps, implementation boundaries and decisions.
 - `docs/DAY2.md`: historical inspection contract and parser subset.
-- `docs/DAY3.md`: current eight-tool checks/export/image contract, limits and host-test boundary.
+- `docs/DAY3.md`: eight default checks/export/image tools.
+- `docs/DAY4.md`: opt-in ninth typed-resistance candidate tool, save/reopen, invariants, rollback and lifecycle.
+- `evidence/2026-09-11-day4/README.md`: current 42-test, 103-check SDK, 82-check inspection, 15-check Codex host, GUI and package evidence.
 - `evidence/2026-09-11-day3/README.md`: 33 unit tests, 82 inspection checks, 73 check/export/image checks, 12 Codex host checks and packaged-server evidence.
 - `evidence/2026-09-10-day2/README.md`: 82-check SDK run, seven-check installed Codex host run, 19 tests and dependency evidence.
 - `evidence/2026-09-10-day1/README.md`: results, failures encountered, raw-log map, remaining gaps.
 - `evidence/2026-09-10-day1/baseline.json`: eight real CLI command records and 13 passing assertions.
 - `toolchain.json`, `requirements.lock`, `pyproject.toml`: pinned LibrePCB/fixture, MCP SDK 2.2.0 and hash-locked Windows/Python 3.12 dependencies.
 
-Days 1–3 are finished. **Next is Day 4 at STATUS.md: prove one value edit.**
-The owner chose Codex to complete Day 3. Keep this packet for later continuity;
-there is no automatic handoff to Claude.
+Days 1–4 are finished. **Next is Day 5 reliability at STATUS.md.**
+The owner chose Codex to continue and asked for regular GitHub pushes. No Claude
+handoff is planned; keep this packet for continuity.
 Do not repeat downloads or replace the working SDK imports. No background server
 is required; hosts start STDIO processes when needed. Ready sample and generated
-Codex/Claude Desktop configuration snippets are in `work/demo-5d07c4/`; no live
+Codex/Claude Desktop configuration snippets are in `work/demo-4a5686/` (experimental edits enabled); no live
 client config was changed. Recreate them with `scripts/prepare_demo.py` if needed.
 
 The private GitHub repository is `https://github.com/sulaimwn/LibrePCB-MCP-Server`, remote `origin`, branch `master`. The owner explicitly requested this upload with a WIP README. Downloaded runtimes, environments and scratch artifacts remain ignored. Git commands from the normal user may need a per-command `-c safe.directory=<absolute repository path>` because the sandbox account created `.git`. See the recorded environment; avoid a global wildcard trust setting. Git writes may still require the coding client's permission flow.
@@ -46,7 +48,7 @@ We are building LibrePCB MCP Server. Continue the existing project rather than s
 Project folder:
 C:\Users\vboxuser\Documents\Codex\2026-09-10\help-me-write-a-good-prompt\outputs\librepcb-mcp-server
 
-Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md, docs/DAY2.md and docs/DAY3.md. Inspect files and Git. Days 1–3 are complete: eight tools perform inspection, checks, native PNG, PDF and Gerber exports with SDK 2.2.0 and the installed Codex host against LibrePCB 2.1.1. If asked to continue development, start Day 4's controlled value-edit experiment from STATUS.md. Reuse .venv and portable CLI. Preserve sources, use one writer, and update STATUS with actual evidence before stopping. No edit tool is a release candidate until its reopen/save/reopen, invariant, check, visual and rollback gates pass. Existing private GitHub publication was owner-requested; do not expand to a public release or deployment without a request.
+Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md, docs/DAY2.md and docs/DAY3.md. Inspect files and Git. Read docs/DAY4.md too. Days 1–4 are complete: eight default inspection/check/export tools plus an opt-in ninth typed-resistance candidate tool, verified with SDK 2.2.0, the Codex host and LibrePCB 2.1.1. Actual GUI save/reopen, invariant checks and discard/reopen rollback passed for R17. Continue Day 5 reliability from STATUS.md; the owner wants Codex to continue and regular GitHub pushes. Reuse .venv and portable CLI. Preserve sources, use one writer, and update STATUS with actual evidence before stopping. No edit tool is a release candidate until its reopen/save/reopen, invariant, check, visual and rollback gates pass. Existing private GitHub publication was owner-requested; do not expand to a public release or deployment without a request.
 ```
 
 ## End-of-session record template

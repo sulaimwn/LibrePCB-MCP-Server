@@ -1,0 +1,90 @@
+{
+  "server_package": "0.1.0.dev4",
+  "mcp_sdk": "2.2.0",
+  "python": "3.12.14",
+  "librepcb": "2.1.1 / stable format 2 / 06465bf",
+  "codex_cli": "0.153.4",
+  "github_cli": "2.100.0 (development publication only; not a server dependency)",
+  "requirements": {
+    "path": "<REPO>\\requirements.lock",
+    "bytes": 3683,
+    "sha256": "55e2f87940d8c9508d1756ab49ca278f8a10538e6806d039b51e600587108b00"
+  },
+  "dependency_install_evidence": "../2026-09-10-day2/dependencies.json",
+  "dependency_change": "None: same 36 hash-locked dependencies in both environments.",
+  "wheel": {
+    "path": "<REPO>\\work\\day4-wheel\\librepcb_mcp_server-0.1.0.dev4-py3-none-any.whl",
+    "bytes": 32247,
+    "sha256": "39063f28ac869af5bb6020d9b40b9b456932f915719e42a5eae5299cbd883ec5"
+  },
+  "wheel_test": {
+    "interpreter": "<REPO>/work/v2/Scripts/python.exe",
+    "installation": "Noneditable wheel, --no-deps; loaded from work/v2/Lib/site-packages/librepcb_mcp.",
+    "checks": 103,
+    "calls": 30,
+    "report": "mcp-edit-rollback.json",
+    "pip_check": "No broken requirements found.",
+    "boundary": "Existing isolated dependency environment; not a fresh-machine trial."
+  },
+  "editable_test": {
+    "interpreter": "<REPO>/.venv/Scripts/python.exe",
+    "checks": 103,
+    "calls": 30,
+    "report": "mcp-edit-editable.json",
+    "pip_check": "No broken requirements found."
+  },
+  "job_resources": [
+    {
+      "path": "<REPO>\\src\\librepcb_mcp\\resources\\preview.lp",
+      "bytes": 1212,
+      "sha256": "18a55897da925fa025e721d460ccfd7d3b9264a253ddd9a66d40dc04ec0b4b50"
+    },
+    {
+      "path": "<REPO>\\src\\librepcb_mcp\\resources\\gerber.lp",
+      "bytes": 907,
+      "sha256": "22eba290907ac3eecd66d5d9b6471a56e74caaf49832d2dd489aae60508cccb7"
+    }
+  ],
+  "images_visually_inspected": [
+    {
+      "path": "<REPO>\\work\\cx-b6e940\\host-preview-10.png",
+      "bytes": 128774,
+      "sha256": "997058ea53660d75b7a73892d6084ddb39cb4588243b6d8fba208d38118285bf"
+    },
+    {
+      "path": "<REPO>\\work\\d4g\\r17-value.png",
+      "bytes": 126390,
+      "sha256": "2875e127216617898a6ac8575a1a53758ef08eabc0ab3f883bf546a1ab6b00c6"
+    },
+    {
+      "path": "<REPO>\\work\\d4g\\saved-r17.png",
+      "bytes": 122535,
+      "sha256": "eaebeac5af106622c978915b5cab8fe85e18de158700c57383219e2cbf6c87bc"
+    },
+    {
+      "path": "<REPO>\\work\\d4g\\reopened-r17.png",
+      "bytes": 127531,
+      "sha256": "f3a01c6d27fcb28bce7113311c565439b925b66b8347a2a9570d8d567c86ef70"
+    }
+  ],
+  "final_packaged_images": [
+    {
+      "path": "<REPO>\\work\\d4-b5b753\\client-preview-5.png",
+      "bytes": 128714,
+      "sha256": "108cc0533f08d973fdbd4694192341496ff130de60039f64a1e413e69a663f58"
+    },
+    {
+      "path": "<REPO>\\work\\d4-b5b753\\client-preview-18.png",
+      "bytes": 128774,
+      "sha256": "997058ea53660d75b7a73892d6084ddb39cb4588243b6d8fba208d38118285bf"
+    }
+  ],
+  "image_note": "Codex-received edited Ethernet image is retained unchanged as edited-ethernet-mcp.png. GUI screenshots are independent save/reopen evidence. Native image bytes were not redrawn.",
+  "gui_evidence": "gui-save-reopen.json",
+  "known_failed_development_runs": [
+    {
+      "path": "<REPO>/work/d4-1ef54b/report.json",
+      "reason": "Initial Gerber comparison normalized timestamps but missed their derived MD5 comments. Corrected normalization accepts only these two volatile fields; final editable and packaged runs passed."
+    }
+  ]
+}

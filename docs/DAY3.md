@@ -1,5 +1,8 @@
 # Day 3: checks, previews and fixed exports
 
+This is the Day 3 checkpoint. Its eight tools remain the default; see
+[Day 4](DAY4.md) for the current opt-in candidate editing extension.
+
 Implemented and verified September 11, 2026. Package `0.1.0.dev3`, Windows x64,
 Python 3.12.14, official MCP SDK 2.2.0, LibrePCB 2.1.1 / stable format 2.
 The project remains WIP. Day 2 inspection behavior is documented in `DAY2.md`.

@@ -37,3 +37,12 @@ The GitHub repository is `sulaimwn/LibrePCB-MCP-Server`, with a WIP README and
 project history. Visibility was unspecified; private was the stated default
 and was used. This is not an owner-selected public release or a hosted deployment.
 Claude context remains available, but the owner chose Codex to do Day 3.
+
+
+## Current continuation instruction (September 11)
+
+Owner: “start day 4 / whatever else u gotta do”, “push to github regularly”, and
+“Im not sending this to claude any time soon”. Codex continues; preserve regular
+meaningful checkpoints and context. A live handoff/client-switch trial is deferred.
+Native editor API investigation remains after the initial seven milestones, as
+discussed with the owner; Day 4 proves a limited saved-copy resistance edit.

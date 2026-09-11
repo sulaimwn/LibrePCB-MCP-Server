@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from decimal import Decimal
+from pathlib import PurePosixPath
 import re
 
 from librepcb_mcp.adapters.files import Capture
@@ -82,3 +83,24 @@ def verify_edit(before: Capture, after: Capture, edit: ResistanceEdit) -> dict:
                            {"changed_files": changed[:20]})
     return {"exact_expected_files": True, "file_count": len(after.files),
             "changed_files": changed, "identifiers_connectivity_geometry_and_other_bytes_preserved": True}
+
+
+def verify_save_initialization(before: Capture, saved: Capture, filename: str) -> list[str]:
+    """Permit only newly generated preference files when saving the unedited control.
+
+    Existing files, including any existing preferences, must remain byte-identical.
+    The resulting saved control becomes the exact reference for candidate validation.
+    """
+    data = inspect_project(before, filename)
+    names = {"project/settings.user.lp": "librepcb_project_user_settings"}
+    for kind, pages in (("board", data.boards), ("schematic", data.schematics)):
+        for page in pages:
+            names[str(PurePosixPath(page["file"]).parent / "settings.user.lp")] = f"librepcb_{kind}_user_settings"
+    require(all(saved.files.get(name) == content for name, content in before.files.items()),
+            "LibrePCB saving changed an existing control file; this edit is unsupported.", "validation_failed")
+    added = sorted(saved.files.keys() - before.files.keys())
+    require(set(added) <= names.keys(), "LibrePCB saving created unexpected control files.", "validation_failed")
+    for name in added:
+        require(parse(saved.files[name].decode("utf-8")).name == names[name],
+                "Unexpected generated preference document.", "validation_failed")
+    return added

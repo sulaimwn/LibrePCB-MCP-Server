@@ -12,6 +12,7 @@ from uuid import uuid4
 from librepcb_mcp import __version__
 from librepcb_mcp.adapters.cli import ProcessRunner
 from librepcb_mcp.adapters.checks import interpret_check
+from librepcb_mcp.adapters.edits import CIRCUIT_FILE, resistance_edit, verify_edit, verify_save_initialization
 from librepcb_mcp.adapters.exports import Artifact, JOB_NAMES, collect_artifacts, image_bytes, job_text
 from librepcb_mcp.adapters.files import capture, copy_capture, local_absolute, no_links
 from librepcb_mcp.adapters.project import ProjectData, inspect_project
@@ -30,10 +31,12 @@ class Snapshot:
     revision: str
     captured_at: str
     data: ProjectData
+    source_revision: str | None = None
 
 
 class ProjectService:
-    def __init__(self, cli: str, project_roots: list[str], data_root: str, *, timeout: float = 30):
+    def __init__(self, cli: str, project_roots: list[str], data_root: str, *, timeout: float = 30,
+                 experimental_edits: bool = False):
         require(bool(project_roots), "At least one project root is required.", "invalid_argument")
         self.roots = tuple(local_absolute(root) for root in project_roots)
         require(all(root.is_dir() for root in self.roots), "Configured project roots must exist.", "invalid_argument")
@@ -49,12 +52,15 @@ class ProjectService:
         self.open_attempts = 0
         self.operation_count = 0
         self.artifacts: dict[str, Artifact] = {}
+        self.experimental_edits = experimental_edits
+        self.tools = [*TOOLS, *(["create_value_edit"] if experimental_edits else [])]
+        self.edit_attempts = 0
 
     def dispatch(self, operation: str, **arguments) -> dict:
         with self.lock:
             try:
                 no_links(self.session_dir)
-                require(operation in TOOLS, "Unknown operation.", "invalid_argument")
+                require(operation in self.tools, "Unknown operation.", "invalid_argument")
                 result = getattr(self, operation)(**arguments)
                 response = {"ok": True, "message": "Saved-project operation completed.", "data": result}
                 require(len(json.dumps(response).encode("utf-8")) <= 64_000,
@@ -92,11 +98,12 @@ class ProjectService:
             cli = None
             problems = [{"code": exc.code, "message": str(exc), "details": exc.details}]
         return {"server_version": __version__, "mcp_sdk_version": version("mcp"), "ready": not problems,
-                "librepcb": cli, "tools": TOOLS, "problems": problems,
-                "saved_state_only": True, "write_tools": False, "project_root_count": len(self.roots),
+                "librepcb": cli, "tools": self.tools, "problems": problems,
+                "saved_state_only": True, "write_tools": self.experimental_edits,
+                "experimental_edits": self.experimental_edits, "project_root_count": len(self.roots),
                 "output_jobs": ["schematic_pdf", "gerber_excellon"],
                 "limits": {"max_page_size": 100, "max_open_attempts_per_session": 32,
-                           "max_check_export_operations": 64, "max_response_bytes": 64000,
+                           "max_check_export_operations": 64, "max_edit_attempts": 8, "max_response_bytes": 64000,
                            "max_preview_wire_bytes": 1500000, "max_log_bytes_per_stream": self.runner.max_log_bytes}}
 
     def _source(self, value: str) -> Path:
@@ -139,7 +146,7 @@ class ProjectService:
                 "Unknown project handle; open the project in this server session.", "invalid_argument")
         snapshot = self.snapshots[project_id]
         self._source(str(snapshot.source))
-        require(capture(snapshot.source.parent).revision == snapshot.revision
+        require(capture(snapshot.source.parent).revision == (snapshot.source_revision or snapshot.revision)
                 and capture(snapshot.copy).revision == snapshot.revision,
                 "Source or snapshot changed. Open the project again for current data.", "stale_revision")
         return snapshot
@@ -152,6 +159,8 @@ class ProjectService:
                 "boards": snapshot.data.boards, "schematics": snapshot.data.schematics,
                 "component_count": len(snapshot.data.components), "net_count": len(snapshot.data.nets),
                 "snapshot_project": str(snapshot.copy / snapshot.source.name),
+                "is_edit_candidate": snapshot.source_revision is not None,
+                "source_revision": snapshot.source_revision or snapshot.revision,
                 "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."}
 
     def get_project_summary(self, project_id: str) -> dict:
@@ -319,3 +328,80 @@ class ProjectService:
             require(board_id is None and bool(snapshot.data.schematics),
                     "Schematic PDF requires schematics and does not take board_id.", "invalid_argument")
         return self._export(snapshot, job_name, board_id)
+
+    def create_value_edit(self, project_id: str, component_id: str, new_value: str,
+                          expected_revision: str) -> dict:
+        require(self.experimental_edits, "Experimental editing is not enabled.", "unsupported_edit")
+        snapshot = self._snapshot(project_id)
+        require(expected_revision == snapshot.revision, "Expected source revision does not match.", "stale_revision")
+        require(snapshot.source_revision is None, "Chaining edits on a candidate is not supported.", "unsupported_edit")
+        require(len(snapshot.data.boards) == 1, "Experimental value edits require exactly one board.", "unsupported_edit")
+        original = capture(snapshot.copy)
+        # Reject unsupported values/components before any candidate or CLI save.
+        edit = resistance_edit(original, snapshot.source.name, component_id, new_value)
+        require(self.edit_attempts < 8, "Session edit limit reached; restart the server.", "resource_limit")
+        self.edit_attempts += 1
+        directory = self.session_dir / f"e{self.edit_attempts:02d}"
+        no_links(directory)
+        directory.mkdir(exist_ok=False)
+        report_path = directory / "edit.json"
+        record = {"outcome": "pending", "source_project_id": project_id, "source_revision": snapshot.revision,
+                  "change": edit.change, "cli_roundtrip": []}
+        identifier = None
+
+        def cli_step(folder: Path, flags: list[str]):
+            self._snapshot(project_id)
+            capture(folder)  # refuse locks/recovery/linked files before invoking LibrePCB
+            result = self.runner.run(["open-project", *flags, str(folder / snapshot.source.name)], cwd=self.session_dir)
+            record["cli_roundtrip"].append({"flags": flags, **self._diagnostics(result)})
+            self._snapshot(project_id)
+            if result.outcome != "completed" or result.exit_code != 0 or Path(result.stderr_path).stat().st_size:
+                raise ProjectError(result.outcome if result.outcome != "completed" else "validation_failed",
+                                   "Candidate save/reopen validation failed.", self._diagnostics(result))
+            return capture(folder)
+
+        try:
+            baseline = self.run_checks(project_id)
+            record["baseline_checks"] = baseline
+            require(baseline["outcome"] == "passed", "Resolve unapproved findings before experimental value editing.", "validation_failed")
+            control = directory / "b"
+            candidate = directory / "c"
+            copy_capture(original, control)
+            saved = cli_step(control, ["--save"])
+            record["generated_preference_files"] = verify_save_initialization(original, saved, snapshot.source.name)
+            # The saved, unedited control is the exact reference for every other
+            # byte, including newly initialized preferences and all approvals.
+            edit = resistance_edit(saved, snapshot.source.name, component_id, new_value)
+            copy_capture(saved, candidate)
+            (candidate / CIRCUIT_FILE).write_bytes(edit.content)
+            verify_edit(saved, capture(candidate), edit)
+            for flags in (["--strict"], ["--save"], ["--strict"]):
+                current = cli_step(candidate, flags)
+                record["invariants"] = verify_edit(saved, current, edit)
+            identifier = uuid4().hex
+            candidate_snapshot = Snapshot(identifier, snapshot.source, candidate, current.revision,
+                datetime.now(timezone.utc).isoformat(), inspect_project(current, snapshot.source.name), snapshot.revision)
+            self.snapshots[identifier] = candidate_snapshot
+            checked = self.run_checks(identifier)
+            record["candidate_checks"] = checked
+            signature = lambda result: [(c["check"], c["approved_count"], c["unapproved_count"], c["findings"])
+                                        for c in result["checks"]]
+            require(checked["outcome"] == "passed" and signature(checked) == signature(baseline),
+                    "Candidate findings differ from the source baseline.", "validation_failed")
+            verify_edit(saved, capture(candidate), edit)
+            self._snapshot(project_id)
+            record["outcome"] = "validated_candidate"
+            record["candidate"] = self._summary(candidate_snapshot)
+            record["rollback"] = "Original was never modified. Close the candidate and discard its copy to abandon this edit."
+            record["experimental"] = True
+            record["report_artifact"] = str(report_path)
+            return record
+        except Exception as exc:
+            if identifier is not None:
+                self.snapshots.pop(identifier, None)
+            record.update(outcome="failed", error=getattr(exc, "code", "io_error"), message=str(exc))
+            if isinstance(exc, ProjectError):
+                raise ProjectError(exc.code, str(exc), {**exc.details, "report_artifact": str(report_path)}) from exc
+            raise
+        finally:
+            report_path.write_text(json.dumps(record, indent=2), encoding="utf-8")

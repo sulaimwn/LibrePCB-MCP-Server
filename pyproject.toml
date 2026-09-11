@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "librepcb-mcp-server"
-version = "0.1.0.dev3"
-description = "Local saved-project inspection for LibrePCB 2.1.1 over MCP"
+version = "0.1.0.dev4"
+description = "Local inspection, checks, exports and experimental resistance candidates for LibrePCB 2.1.1"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = ["mcp==2.2.0"]

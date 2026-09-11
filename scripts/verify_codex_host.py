@@ -83,6 +83,7 @@ class Host:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--codex", required=True, type=Path)
+    parser.add_argument("--experimental-edits", action="store_true")
     args = parser.parse_args()
     run_dir = ROOT / "work" / ("cx-" + uuid4().hex[:6])
     run_dir.mkdir(parents=True)
@@ -107,7 +108,9 @@ def main():
     server = {"command": sys.executable, "args": ["-m", "librepcb_mcp.server", "--cli",
               str(ROOT / pin["librepcb"]["relative_executable"]), "--project-root", str(source),
               "--data-root", str(run_dir / "d")], "cwd": str(ROOT),
-              "startup_timeout_sec": 30, "tool_timeout_sec": 120}
+              "startup_timeout_sec": 30, "tool_timeout_sec": 300 if args.experimental_edits else 120}
+    if args.experimental_edits:
+        server["args"].append("--enable-experimental-edits")
     for key, value in server.items():
         overrides.append(f"mcp_servers.librepcb_day2.{key}={json.dumps(value)}")
     command = [str(args.codex), "app-server", "--listen", "stdio://"]
@@ -126,12 +129,12 @@ def main():
         thread_id = thread["thread"]["id"]
         status = host.request("mcpServerStatus/list", {"threadId": thread_id, "limit": 100}, timeout=90)
         found = next(item for item in status["data"] if item["name"] == "librepcb_day2")
-        checks.append({"name": "host_discovers_eight_tools", "passed": len(found["tools"]) == 8,
+        checks.append({"name": "host_discovers_registered_tools", "passed": len(found["tools"]) == (9 if args.experimental_edits else 8),
                        "tools": list(found["tools"]), "runtime_status": found.get("runtimeStatus")})
 
         def call(tool, arguments=None):
             result = host.request("mcpServer/tool/call", {"threadId": thread_id,
-                                  "server": "librepcb_day2", "tool": tool, "arguments": arguments or {}}, timeout=120)
+                                  "server": "librepcb_day2", "tool": tool, "arguments": arguments or {}}, timeout=300 if args.experimental_edits else 120)
             for content in result["content"]:
                 if content.get("type") == "image":
                     data = base64.b64decode(content.pop("data"), validate=True)
@@ -163,6 +166,19 @@ def main():
         for job, count in (("schematic_pdf", 1), ("gerber_excellon", 11)):
             exported = call("run_output_job", {"project_id": handle, "job_name": job})
             checks.append({"name": "host_export_" + job, "passed": exported["ok"] and len(exported["data"]["artifacts"]) == count})
+        if args.experimental_edits:
+            edited = call("create_value_edit", {"project_id": handle, "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+                          "new_value": "2.2", "expected_revision": opened["data"]["revision"]})
+            checks.append({"name": "host_creates_validated_resistance_candidate", "passed": edited["ok"]
+                           and edited["data"]["outcome"] == "validated_candidate" and edited["data"]["change"]["after"] == "2.2"})
+            candidate = edited["data"]["candidate"]
+            ethernet = next(s["id"] for s in candidate["schematics"] if s["name"] == "Ethernet")
+            candidate_preview = call("export_preview", {"project_id": candidate["project_id"], "schematic_id": ethernet})
+            images = [c for c in calls[-1]["result"]["content"] if c.get("type") == "image"]
+            checks.append({"name": "host_receives_edited_candidate_image", "passed": candidate_preview["ok"] and len(images) == 1})
+            original_summary = call("get_project_summary", {"project_id": handle})
+            checks.append({"name": "host_source_handle_remains_unchanged", "passed": original_summary["ok"]
+                           and original_summary["data"]["revision"] == opened["data"]["revision"]})
         rejected = call("open_project", {"path": str(ROOT / "outside.lpp")})
         checks.append({"name": "host_receives_structured_error", "passed": not rejected["ok"] and
                        rejected["error"] == "path_not_allowed" and calls[-1]["result"]["isError"]})
@@ -173,7 +189,7 @@ def main():
         host.close()
         log.close()
         checks.append({"name": "source_preserved", "passed": manifest(source) == before})
-        report = {"kind": "codex_app_server_direct_mcp", "codex_version": cli_version,
+        report = {"kind": "codex_app_server_direct_mcp", "codex_version": cli_version, "experimental_edits": args.experimental_edits,
                   "passed": completed and all(c["passed"] for c in checks), "failure": failure,
                   "checks": checks, "calls": calls,
                   "note": "Actual installed Codex host, ephemeral thread, direct MCP calls. Native PNG bytes saved separately with hashes. No model turn or persistent host config edits."}

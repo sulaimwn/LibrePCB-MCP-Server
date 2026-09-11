@@ -23,16 +23,20 @@ API calls and needs no subscription credentials or model API keys.
 | `run_checks` | Runs real ERC/DRC and separates approved findings, unapproved findings and check failures. |
 | `export_preview` | Exports schematic PNGs and attaches one selected sheet as a native MCP image. |
 | `run_output_job` | Runs a server-owned schematic PDF or Gerber/Excellon job in a new output directory. |
+| `create_value_edit` *(experimental, opt in)* | Creates a separate resistor-value candidate, validates saving/reopening and compares checks. Preserves the original. |
 
 Checks and exports use the pinned LibrePCB CLI. A rule violation is a valid check
 result; missing, contradictory or unfamiliar diagnostics are never treated as a
 pass. Exports use fixed server-owned jobs and filenames, and return artifact paths,
 hashes and raw diagnostic paths.
 
-**Not implemented yet:** design-edit tools, component placement, wiring, routing,
+Eight tools are enabled by default. The ninth requires the experimental editing
+option described below.
+
+**Not implemented yet:** general design editing, component placement, wiring, routing,
 live access to unsaved GUI state, general library authoring, and support for other
-operating systems or LibrePCB releases. The next milestone is one constrained
-value-edit experiment, subject to validation and rollback gates.
+operating systems or LibrePCB releases. Current editing is limited to one typed
+resistance value in a separate candidate; it does not control the live editor.
 
 ## Example workflow
 
@@ -75,6 +79,34 @@ See [Windows setup](docs/WINDOWS_SETUP.md) for complete commands, configuration 
 troubleshooting. Codex host tool calls and native image delivery have been tested;
 Claude connection and an owner-followed installation trial are still pending.
 
+## Experimental resistor editing
+
+To prepare a sample configuration with editing enabled:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_demo.py --experimental-edits
+```
+
+This adds `--enable-experimental-edits` to the generated server arguments and
+allows 300 seconds per tool. Nothing is installed into your client automatically.
+
+The tool takes a component ID, the current source revision and a decimal value
+in the resistor's **existing unit**. For example, R17's `"2.2"` means 2.2 kΩ
+because its RESISTANCE attribute is already in kiloohms. It rejects unsupported
+component shapes, selected parts, extra attributes, stale revisions, locks and
+unapproved rule findings. It requires one board and preserves the raw template.
+
+The result includes a new candidate project handle for inspection, previews and
+exports, plus the saved project path and validation report. The original remains
+unchanged. To abandon the edit, close the candidate and discard its copy.
+Candidate handles last for that server session and become stale if you save the
+candidate in the GUI. Copy a candidate into an allowed project folder before
+opening it as a new source in a later session. Chaining candidate edits is deferred.
+
+The real LibrePCB editor displayed the tested change **1.5 kΩ → 2.2 kΩ**, saved
+it and reopened it successfully. This is a narrow development experiment; see
+[Day 4 details](docs/DAY4.md) and [evidence](evidence/2026-09-11-day4/README.md).
+
 ## Current validation
 
 The included real sample has **97 components, 48 nets, one board and two schematic
@@ -86,17 +118,20 @@ below the board's minimum width, then verify LibrePCB reports the new faults.
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe scripts\verify_mcp.py
 .\.venv\Scripts\python.exe scripts\verify_day3.py
+.\.venv\Scripts\python.exe scripts\verify_day4.py
 ```
 
-Recorded results: **33 unit/adapter tests**, **82 inspection MCP checks**, **73
-check/export/image MCP checks**, and **12 installed Codex host checks** passed.
-All 184 source-fixture files remained unchanged. The generated schematic images
-were also visually inspected. See [Day 3 evidence](evidence/2026-09-11-day3/README.md)
-for exact runs, failures resolved and the limits of these claims.
+Day 3 recorded 33 unit/adapter tests, 82 inspection MCP checks, 73 check/export/image
+checks and 12 Codex host checks. Day 4 expands this to **42 unit/adapter tests**,
+reruns the **82 inspection checks**, and passes **15 Codex host checks** including
+the experimental edit. The Day 4 packet records the full candidate/rollback MCP
+acceptance separately. All 184 original source files remain unchanged. Received
+schematic images and the GUI's saved/reopened value were visually inspected.
 
 These results do not establish electrical correctness, production readiness or
-compatibility with arbitrary designs. GUI save/reopen, editing/rollback, a personal
-project trial and fresh-machine installation remain later acceptance work.
+compatibility with arbitrary designs. A personal-project trial and fresh-machine
+installation remain later acceptance work. The GUI and editing evidence covers
+the narrow resistor example above, not general editor automation.
 
 ## Working boundaries
 
@@ -108,7 +143,7 @@ project trial and fresh-machine installation remain later acceptance work.
 - Retained snapshots/artifacts still need manual cleanup between inactive sessions.
 
 Implementation details and exact limits are in [Day 3 notes](docs/DAY3.md) and
-[Day 2 inspection notes](docs/DAY2.md).
+[Day 2 inspection notes](docs/DAY2.md), plus [Day 4 editing](docs/DAY4.md).
 
 ## Project context and roadmap
 

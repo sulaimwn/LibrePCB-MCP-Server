@@ -12,7 +12,7 @@ Recorded from implementation through 2026-09-11. Read alongside SPEC.md; this do
 8. **Use the native Qt platform on Windows.** Forced offscreen mode hung version detection. The final adapter removes this override on Windows and uses a hidden console. Tests cover only the recorded Windows/en-US host.
 9. **Require closed saved projects.** Day 2 rejects any `.lock`, `.autosave` or `.backup` entry, creates a byte-preserving copy, validates it with LibrePCB, and checks source/copy revisions before results. Local allowlisted paths reject links/junctions, hardlinks, traversal and unsupported formats. This is not atomic against adversarial concurrent filesystem changes or access to unsaved GUI state.
 10. **Read raw component values honestly.** Inspection of the real circuit file shows references such as R17 with raw value `{{RESISTANCE}}` and a separate typed resistance attribute. Do not claim raw text is the displayed electrical value or change only one field without understanding it. A structured parser must precede design edits.
-11. **Development evidence is not a release gate shortcut.** SDK clients and the installed Codex host pass all eight tools, real ERC/DRC faults, native PNG, PDF and manufacturing exports. Host-received images were visually inspected. Live GUI save/reopen, value edits, rollback, fresh-machine install, Claude/UI connection and owner review still need their gates in PLAN.md.
+11. **Development evidence is not a release gate shortcut.** SDK clients and the installed Codex host pass all eight tools, real ERC/DRC faults, native PNG, PDF and manufacturing exports. Host-received images were visually inspected. Day 4 adds the narrow opt-in resistor edit with real GUI save/reopen and actual rollback. Broader editing, fresh-machine install, Claude/Codex UI connection and owner review still need their gates in PLAN.md.
 12. **Use compact storage paths on Windows.** Long generated fixture paths failed at extraction. Short run/session/snapshot directory names and an explicit path-length rejection avoid changing system settings.
 13. **Return a bounded projection, preserve the original bytes.** The S-expression parser retains spans and accepts only the documented inspection subset. It does not serialize designs or resolve display templates. Ordinary results have text plus structured data, matching error flags and a 64,000-byte cap; lists use size-aware pagination. Native PNG results have a separate 1,500,000-byte wire cap. See `docs/DAY2.md` and `docs/DAY3.md`.
 
@@ -32,3 +32,25 @@ Recorded from implementation through 2026-09-11. Read alongside SPEC.md; this do
 ## Context preserved from the reference projects
 
 The KiCad reference uses IPC/SWIG backends. That is architectural inspiration, not a LibrePCB API. The 2018 Python-binding fork is useful for later native undo/GUI ideas, but no code from it has been ported or used. See RESEARCH.md for exact links and limitations.
+
+
+## Day 4 decisions
+
+18. **Keep resistance editing opt-in.** The default eight tools remain intact;
+    an explicit launch flag adds the ninth. No general GUI or shell tool exists.
+19. **Patch the typed attribute, retain the template/unit.** Plain decimal input,
+    a sole RESISTANCE attribute, two-signal resistor shape and no selected parts
+    define the experimental boundary. Do not leave an incompatible MPN selected.
+20. **Compare against an independently saved control.** LibrePCB generates editor
+    preferences on save. All existing source files must remain identical; only
+    verified preference paths may be added. Candidate validation then requires
+    exact full-file equality except the intended scalar, after every save/reopen.
+21. **Source and candidate revisions differ.** Candidate handles retain their
+    original source revision as well as their own revision. External changes to
+    either invalidate the handle. Chaining is deferred; rollback is discarding
+    the separate copy, not overwriting the original.
+22. **GUI testing is evidence, not product architecture.** Isolated workspace/config,
+    scoped developer UI Automation, real save/reopen and screenshots establish
+    this example. Native live-editor control remains a later milestone.
+23. **Manufacturing comparison includes volatile metadata.** Normalize only the
+    creation timestamp and derived MD5 comments; require every other byte equal.

@@ -100,3 +100,19 @@ Inspected tip: `ddf461c96c75b91a9494949a1291c1769eb0a260`, committed May 20, 201
   official checksum before use for the owner-requested private repository.
   [Official release](https://github.com/cli/cli/releases/tag/v2.100.0),
   [repository creation interface](https://cli.github.com/manual/gh_repo_create).
+
+
+## Day 4 verification — September 11
+
+The pinned resistance type stores numeric text independently of its unit and
+prints both for display. The experiment preserves `{{RESISTANCE}}` and patches
+only the existing numeric attribute. Actual CLI and GUI save/reopen confirmed
+R17 at 2.2 kΩ with all other design bytes matching an independently saved control.
+GUI workspace/config environment overrides and project-file arguments were
+verified in pinned source before the isolated trials. The application does not
+support CLI-style `--help`. The native Python-binding fork is still unported.
+
+See [Day 4 notes and primary sources](docs/DAY4.md), including typed attributes,
+workspace overrides, CLI save/strict behavior and Gerber checksum generation.
+Actual MCP candidate/rollback and Codex-host evidence is retained in the Day 4
+packet; no model turn, live editor API or Claude connection is inferred from it.
