@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "run": "<REPO>\\work\\d4p-89d75",
+  "change": {
+    "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+    "reference": "R17",
+    "file": "circuit/circuit.lp",
+    "field": "RESISTANCE",
+    "type": "resistance",
+    "unit": "kiloohm",
+    "before": "1.5",
+    "after": "2.2",
+    "value_raw": "{{RESISTANCE}}",
+    "character_span": [
+      10716,
+      10721
+    ]
+  },
+  "cli": [
+    {
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--save",
+        "<REPO>\\work\\d4p-89d75\\control\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 1.985,
+      "stdout_path": "<REPO>\\work\\d4p-89d75\\logs\\d1836868098941fcb6f0231c9db0a160.stdout.txt",
+      "stderr_path": "<REPO>\\work\\d4p-89d75\\logs\\d1836868098941fcb6f0231c9db0a160.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\d4p-89d75\\control\\d0-reader.lpp'...\r\nSave project...\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--strict",
+        "<REPO>\\work\\d4p-89d75\\p\\candidate\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 0.671,
+      "stdout_path": "<REPO>\\work\\d4p-89d75\\logs\\4355a390ae094ab6ac3dc4da5ee6abe6.stdout.txt",
+      "stderr_path": "<REPO>\\work\\d4p-89d75\\logs\\4355a390ae094ab6ac3dc4da5ee6abe6.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\d4p-89d75\\p\\candidate\\d0-reader.lpp'...\r\nCheck for non-canonical files...\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--save",
+        "<REPO>\\work\\d4p-89d75\\p\\candidate\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 1.266,
+      "stdout_path": "<REPO>\\work\\d4p-89d75\\logs\\44094f2b4c4a4a93a47ccfa8b2df43ec.stdout.txt",
+      "stderr_path": "<REPO>\\work\\d4p-89d75\\logs\\44094f2b4c4a4a93a47ccfa8b2df43ec.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\d4p-89d75\\p\\candidate\\d0-reader.lpp'...\r\nSave project...\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    },
+    {
+      "argv": [
+        "<REPO>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "open-project",
+        "--strict",
+        "<REPO>\\work\\d4p-89d75\\p\\candidate\\d0-reader.lpp"
+      ],
+      "outcome": "completed",
+      "exit_code": 0,
+      "elapsed_seconds": 0.656,
+      "stdout_path": "<REPO>\\work\\d4p-89d75\\logs\\db15c3bb8ed34594b5d754e053dea01b.stdout.txt",
+      "stderr_path": "<REPO>\\work\\d4p-89d75\\logs\\db15c3bb8ed34594b5d754e053dea01b.stderr.txt",
+      "stdout_excerpt": "Open project '<REPO>\\work\\d4p-89d75\\p\\candidate\\d0-reader.lpp'...\r\nCheck for non-canonical files...\r\nSUCCESS\r\n",
+      "stderr_excerpt": "",
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "error": null
+    }
+  ],
+  "source_preserved": true,
+  "exact_edit_after_save_and_reopen": true,
+  "control_save_added_only_user_settings": [
+    "boards/default/settings.user.lp",
+    "project/settings.user.lp",
+    "schematics/ethernet/settings.user.lp",
+    "schematics/main/settings.user.lp"
+  ],
+  "note": "Real CLI probe; GUI and MCP edit acceptance are not yet run."
+}

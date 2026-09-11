@@ -4,6 +4,12 @@ Planning baseline: September 10–16, 2026, America/Toronto. Treat these as Day 
 
 ## Capacity and scope
 
+Owner update, September 11: Codex continues Day 4 and necessary supporting work,
+with regular meaningful pushes to the existing private GitHub repository. No
+Claude handoff is planned. First prove one saved-copy resistor edit and its
+reopen/save/reopen, invariant, check, visual and rollback gates. Native live-editor
+control remains a later investigation, not a dependency of this milestone.
+
 Owner update, September 10: Codex continues Day 3. Upload the project to GitHub
 as `LibrePCB-MCP-Server` with an explicit WIP README. This is a development
 repository, not a release or deployment; retain all existing acceptance gates.

@@ -1,5 +1,23 @@
 # Current project status
 
+**Day 4 is now in progress at the owner's request.** Codex remains the active
+writer; no Claude handoff is planned. Regular GitHub checkpoints are authorized.
+The completed Day 3 record below remains as the baseline until Day 4 validation
+is recorded. First task: verify typed resistor semantics and isolated GUI/save
+lifecycle, then implement the smallest validated candidate-edit operation.
+
+Day 4 proof checkpoint: `adapters/edits.py` implements a typed scalar patch and
+exact full-file invariants; **seven new unit tests passed**. The real CLI
+strict/save/strict probe passed at `work/d4p-89d75/`. A disposable candidate
+opened in the actual GUI, visibly showed R17 at 2.2 kΩ, saved, and reopened in
+a new GUI process with the value retained. An independently GUI-saved unmodified
+control matches all 188 candidate files except the intended resistance scalar.
+The four added files are editor preferences, including board-layer visibility.
+All 184 original source files remain untouched. Evidence/screenshots are in
+`evidence/2026-09-11-day4/`; details in `docs/DAY4.md`. No GUI remains running.
+MCP edit registration, full checks/export comparison and rollback are next;
+Day 4 is not complete at this checkpoint. Codex continues after this push.
+
 Updated: September 11, 2026, America/Toronto. Active coding client: ChatGPT/Codex.
 Owner chose Codex to complete Day 3 and explicitly requested GitHub publication
 as **LibrePCB-MCP-Server**, with a WIP README. This supersedes the earlier Claude

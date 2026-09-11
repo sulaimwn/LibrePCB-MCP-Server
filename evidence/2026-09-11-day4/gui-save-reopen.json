@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "kind": "actual_gui_save_reopen_and_file_comparison",
+  "gui_version": "LibrePCB 2.1.1 (06465bf)",
+  "gui_processes": [
+    2844,
+    19880
+  ],
+  "control_gui_process": 7428,
+  "project": "<REPO>/work/d4p-a0454/p/candidate/d0-reader.lpp",
+  "isolated_workspace": "<REPO>/work/d4g/ws",
+  "isolated_config": "<REPO>/work/d4g/config",
+  "change": {
+    "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+    "reference": "R17",
+    "file": "circuit/circuit.lp",
+    "field": "RESISTANCE",
+    "type": "resistance",
+    "unit": "kiloohm",
+    "before": "1.5",
+    "after": "2.2",
+    "value_raw": "{{RESISTANCE}}",
+    "character_span": [
+      10716,
+      10721
+    ]
+  },
+  "invariants": {
+    "exact_expected_files": true,
+    "file_count": 188,
+    "changed_files": [
+      "circuit/circuit.lp"
+    ],
+    "identifiers_connectivity_geometry_and_other_bytes_preserved": true
+  },
+  "original_source_files": 184,
+  "source_preserved": true,
+  "steps": [
+    "Opened candidate in actual editor via .lpp argument.",
+    "Selected Ethernet and zoomed to R17; agent observed 2.2 kOhm.",
+    "Sent Ctrl+S to the owned foreground GUI; UI reported Project saved! and circuit timestamp changed.",
+    "Closed owned GUI normally and started a new process on the saved candidate.",
+    "Selected Ethernet, zoomed to R17; agent again observed 2.2 kOhm.",
+    "Closed GUI normally; no lock remains; compared all bytes against the independently CLI- and GUI-saved unmodified control plus exact patch."
+  ],
+  "notes": [
+    "GUI driven through Windows UI Automation and scoped input only to owned process; not a product GUI adapter.",
+    "UI Automation value-setting did not update Slint search; keyboard input and scoped mouse zoom worked.",
+    "Saved control adds four editor-preference files; every original source file is preserved except the intended candidate scalar.",
+    "No workspace libraries installed; embedded project libraries suffice to open/save this fixture."
+  ]
+}
