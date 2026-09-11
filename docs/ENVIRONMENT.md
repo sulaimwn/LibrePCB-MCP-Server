@@ -1,6 +1,6 @@
 # Recorded development environment
 
-Verified locally on 2026-09-10. Paths describe this machine; use explicit arguments on another machine.
+Verified locally through 2026-09-11. Paths describe this machine; use explicit arguments on another machine.
 
 | Item | Observed value |
 | --- | --- |
@@ -15,10 +15,11 @@ Verified locally on 2026-09-10. Paths describe this machine; use explicit argume
 | Qt | 6.10.1, compiled against 6.10.1 |
 | OpenCascade | 7.9.1 |
 | MCP SDK | 2.2.0; all 36 runtime/build dependencies pinned with wheel hashes |
-| Package / build backend | 0.1.0.dev2 / hatchling 1.32.0, editables 0.6 |
+| Package / build backend | 0.1.0.dev3 / hatchling 1.32.0, editables 0.6 |
 | MCP protocols tested with SDK | 2025-11-25 (legacy), 2026-07-28 (automatic) |
 | Installed host tested | codex-cli 0.153.4, direct app-server MCP calls |
-| Claude / graphical UI connection | Not tested |
+| GitHub CLI | 2.100.0, verified official Windows portable download; development publication only |
+| Claude / graphical UI connection | Not tested; Codex direct-host native image bytes received and inspected |
 
 ## Exact paths
 
@@ -39,9 +40,11 @@ changes were made. The venv depends on its base interpreter; if the desktop
 runtime is removed, recreate it using Python 3.12 x64 and the dependency lock.
 
 Fresh verification interpreter: `<repository>\work\v2\Scripts\python.exe`.
-Its locked dependency install, editable install, dependency check, 19 tests and
-82-check MCP acceptance run passed. It is an ignored development environment,
-not redistributable packaging.
+Its 36 hash-locked dependencies were installed in Day 2. Day 3 replaced the
+editable install with a noneditable `0.1.0.dev3` wheel, verified site-packages
+and resource loading, passed `pip check`, and passed 73 checks / 20 MCP calls.
+The wheel is under `work/day3-wheel-final/`; hashes are in Day 3 evidence.
+This is an ignored isolated test environment, not a fresh-machine trial.
 
 Tested Codex executable:
 `C:\Users\vboxuser\AppData\Local\OpenAI\Codex\bin\fd4c151a749f3ab4\codex.exe`.
@@ -50,7 +53,7 @@ ephemeral thread and direct MCP calls. No model turn was submitted. The final
 test disabled other plugins/apps only in its child process and had empty stderr.
 Generated host schemas are ignored under `work/research/day2/codex-schema/`.
 
-Ready sample/config snippets: `<repository>\work\demo-bf2ee7\`.
+Ready sample/config snippets: `<repository>\work\demo-5d07c4\`.
 See `docs/WINDOWS_SETUP.md`; snippets have not been installed in a client.
 
 ## Downloads and integrity
@@ -71,14 +74,14 @@ The ZIP hash is the observed download hash, not an independently obtained upstre
 git -c safe.directory=C:/Users/vboxuser/Documents/Codex/2026-09-10/help-me-write-a-good-prompt/outputs/librepcb-mcp-server status --short
 ```
 
-Use the same scoped option for `add`/`commit` when required. The coding environment may require approval for Git writes or downloads; do not bypass that with another tool or a wildcard trust setting. The initial checkpoint is `0941493`. No Git remote exists.
+Use the same scoped option for `add`/`commit` when required. The coding environment may require approval for Git writes or downloads; do not bypass that with another tool or a wildcard trust setting. The initial checkpoint is `0941493`. Remote `origin` is the owner-requested private `https://github.com/sulaimwn/LibrePCB-MCP-Server.git`, branch `master`. GitHub CLI is `work/tools/gh-2.100.0/portable/bin/gh.exe`; its existing authenticated account created the repo. Pushes use a per-command Git credential helper invoking that CLI, without global config changes. Never put credentials in project files.
 
 ## Windows CLI findings
 
 - Do not force `QT_QPA_PLATFORM=offscreen`. It hung this build before even printing `--version`, under both ordinary and hidden process launch. The adapter removes that inherited setting on Windows.
 - `CREATE_NO_WINDOW` alone works; no helper GUI window needs to be opened.
-- `LC_ALL=C` is set by the adapter, but tests were only run with the host culture en-US. Do not assume localized output is fully handled by the upcoming domain parser.
+- `LC_ALL=C` is set by the adapter, but tests were only run with the host culture en-US. The Day 3 parser rejects unknown/localized output conservatively; other locales are unverified.
 - Real rule findings print in **stderr** while counts are in **stdout**. Preserve both.
-- Raw diagnostics go to unique files. Only 4,000 bytes per stream are included in the returned adapter record.
+- Raw diagnostics go to unique files capped at 2,000,000 bytes per stream; reaching the cap stops the child with `output_limit`. Excerpts remain 4,000 bytes per stream.
 - Keep data paths short. Deep extraction initially hit Windows MAX_PATH; the
   server now checks generated paths and uses compact session/snapshot folder names.

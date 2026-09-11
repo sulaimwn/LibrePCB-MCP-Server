@@ -28,3 +28,12 @@ Captured from the owner's pasted ChatGPT/Claude conversation on 2026-09-10.
 Claude reported Git 2.45.1, no LibrePCB on PATH, and no usable Python on PATH. The original folder had no Git repository and no implementation. Codex confirmed these gaps at kickoff, but discovered a usable bundled Python through the desktop runtime. Record the executable in the environment evidence; do not depend on WindowsApps' Python alias.
 
 The pasted conversation remains at the owner's local attachment path. This summary intentionally records project-relevant context rather than copying unrelated personal conversation into version control.
+
+
+## Completed owner-requested Day 3 / GitHub checkpoint (September 11)
+
+Codex completed Day 3 and preserved the latest evidence and continuation notes.
+The GitHub repository is `sulaimwn/LibrePCB-MCP-Server`, with a WIP README and
+project history. Visibility was unspecified; private was the stated default
+and was used. This is not an owner-selected public release or a hosted deployment.
+Claude context remains available, but the owner chose Codex to do Day 3.

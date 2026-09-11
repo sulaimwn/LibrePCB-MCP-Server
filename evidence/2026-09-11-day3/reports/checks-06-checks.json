@@ -1,0 +1,34 @@
+{
+  "project_id": "785167f1aa0a4509b990327b4dd01f1d",
+  "revision": "sha256:ab6c8fc353caf99d31086176305c040f924f596064eb565bc04172d576a27cab",
+  "state": "saved_snapshot",
+  "outcome": "violations",
+  "approved_count": 16,
+  "unapproved_count": 1,
+  "checks": [
+    {
+      "check": "drc",
+      "board": {
+        "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+        "name": "default",
+        "file": "boards/default/board.lp"
+      },
+      "outcome": "violations",
+      "approved_count": 16,
+      "unapproved_count": 1,
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Trace width on 'Top Copper': 0.01 < 0.2 mm",
+          "approved": false
+        }
+      ],
+      "findings_truncated": false,
+      "exit_code": 1,
+      "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\3379acfcbcd548c78176d8196f915a4c.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\3379acfcbcd548c78176d8196f915a4c.stderr.txt",
+      "diagnostic_notes": []
+    }
+  ],
+  "approval_details_available": false
+}

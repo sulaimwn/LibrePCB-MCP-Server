@@ -1,0 +1,71 @@
+{
+  "server_package": "0.1.0.dev3",
+  "mcp_sdk": "2.2.0",
+  "python": "3.12.14",
+  "librepcb": "2.1.1 / stable format 2 / 06465bf",
+  "codex_cli": "0.153.4",
+  "github_cli": "2.100.0 (development publication only; not a server dependency)",
+  "requirements": {
+    "path": "<REPO>\\requirements.lock",
+    "bytes": 3683,
+    "sha256": "55e2f87940d8c9508d1756ab49ca278f8a10538e6806d039b51e600587108b00"
+  },
+  "dependency_install_evidence": "../2026-09-10-day2/dependencies.json",
+  "dependency_change": "None: same 36 hash-locked dependencies in both environments.",
+  "wheel": {
+    "path": "<REPO>\\work\\day3-wheel-final\\librepcb_mcp_server-0.1.0.dev3-py3-none-any.whl",
+    "bytes": 27343,
+    "sha256": "c5609668635c86aa514694380b323615c8802089a619c3b9d6d8a97e655ccb6c"
+  },
+  "wheel_test": {
+    "interpreter": "<REPO>/work/v2/Scripts/python.exe",
+    "installation": "Noneditable wheel, --no-deps; package loaded from work/v2/Lib/site-packages.",
+    "checks": 73,
+    "calls": 20,
+    "report": "mcp-checks-exports.json",
+    "pip_check": "No broken requirements found.",
+    "boundary": "Existing isolated dependency environment; not a fresh-machine trial."
+  },
+  "job_resources": [
+    {
+      "path": "<REPO>\\src\\librepcb_mcp\\resources\\preview.lp",
+      "bytes": 1212,
+      "sha256": "18a55897da925fa025e721d460ccfd7d3b9264a253ddd9a66d40dc04ec0b4b50"
+    },
+    {
+      "path": "<REPO>\\src\\librepcb_mcp\\resources\\gerber.lp",
+      "bytes": 907,
+      "sha256": "22eba290907ac3eecd66d5d9b6471a56e74caaf49832d2dd489aae60508cccb7"
+    }
+  ],
+  "images_visually_inspected": [
+    {
+      "path": "<REPO>\\work\\cx-2957d9\\host-preview-6.png",
+      "bytes": 93974,
+      "sha256": "bd7bbe16ea95ed9605bbce638eefb991a7ca45bca2b80676d949c58f204b1957"
+    },
+    {
+      "path": "<REPO>\\work\\d3-cada83\\client-preview-5.png",
+      "bytes": 128714,
+      "sha256": "108cc0533f08d973fdbd4694192341496ff130de60039f64a1e413e69a663f58"
+    }
+  ],
+  "readme_image": {
+    "path": "<REPO>\\docs\\images\\d0-reader-ethernet.png",
+    "bytes": 128714,
+    "sha256": "108cc0533f08d973fdbd4694192341496ff130de60039f64a1e413e69a663f58"
+  },
+  "image_note": "README is unchanged SDK-received Ethernet image from the earlier passing editable run. Both it and Codex-received Main were visually inspected; final packaged run received its own images.",
+  "final_packaged_images": [
+    {
+      "path": "<REPO>\\work\\d3-a225dc\\client-preview-4.png",
+      "bytes": 93974,
+      "sha256": "bd7bbe16ea95ed9605bbce638eefb991a7ca45bca2b80676d949c58f204b1957"
+    },
+    {
+      "path": "<REPO>\\work\\d3-a225dc\\client-preview-5.png",
+      "bytes": 128714,
+      "sha256": "108cc0533f08d973fdbd4694192341496ff130de60039f64a1e413e69a663f58"
+    }
+  ]
+}

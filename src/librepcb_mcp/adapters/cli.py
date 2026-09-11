@@ -11,6 +11,7 @@ from pathlib import Path
 import math
 import os
 import subprocess
+import threading
 import time
 from uuid import uuid4
 
@@ -46,12 +47,16 @@ class ProcessRunner:
     model-facing paths and operations; this adapter is not a product tool.
     """
 
-    def __init__(self, executable: Path, logs_dir: Path, timeout: float = 60):
+    def __init__(self, executable: Path, logs_dir: Path, timeout: float = 60,
+                 max_log_bytes: int = 2_000_000):
         if not math.isfinite(timeout) or timeout <= 0 or timeout > 300:
             raise ValueError("timeout must be finite and in (0, 300] seconds")
         self.executable = executable.resolve()
         self.logs_dir = logs_dir.resolve()
         self.timeout = timeout
+        if type(max_log_bytes) is not int or not 1024 <= max_log_bytes <= 8_000_000:
+            raise ValueError("max_log_bytes must be in 1024..8000000")
+        self.max_log_bytes = max_log_bytes
 
     def run(self, args: list[str], *, cwd: Path) -> ProcessResult:
         argv = (str(self.executable), *args)
@@ -80,8 +85,8 @@ class ProcessRunner:
                         argv,
                         cwd=cwd,
                         stdin=subprocess.DEVNULL,
-                        stdout=stdout,
-                        stderr=stderr,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
                         shell=False,
                         env=environment,
                         creationflags=(
@@ -92,18 +97,61 @@ class ProcessRunner:
                     outcome = "process_failed"
                     error = str(exc)
                 else:
+                    overflow = threading.Event()
+                    reader_errors = []
+
+                    def drain(pipe, destination):
+                        remaining = self.max_log_bytes
+                        try:
+                            with pipe:
+                                while chunk := pipe.read1(16_384):
+                                    destination.write(chunk[:remaining])
+                                    remaining -= min(len(chunk), remaining)
+                                    if remaining == 0:
+                                        # Reaching the cap also terminates the process;
+                                        # never report possibly truncated logs as clean.
+                                        overflow.set()
+                        except (OSError, ValueError) as exc:
+                            reader_errors.append(type(exc).__name__)
+
+                    readers = [threading.Thread(target=drain, args=(pipe, target), daemon=True)
+                               for pipe, target in ((process.stdout, stdout), (process.stderr, stderr))]
+                    for reader in readers:
+                        reader.start()
                     try:
-                        exit_code = process.wait(timeout=self.timeout)
-                        outcome = "completed"
-                    except subprocess.TimeoutExpired:
-                        process.kill()
-                        process.wait()
-                        outcome = "timeout"
-                        error = "The command exceeded its time limit and was terminated."
+                        while True:
+                            if overflow.is_set():
+                                process.kill()
+                                process.wait()
+                                outcome = "output_limit"
+                                error = "CLI diagnostics reached the byte limit; logs may be incomplete."
+                                break
+                            remaining_time = self.timeout - (time.monotonic() - started)
+                            if remaining_time <= 0:
+                                process.kill()
+                                process.wait()
+                                outcome = "timeout"
+                                error = "The command exceeded its time limit and was terminated."
+                                break
+                            try:
+                                exit_code = process.wait(timeout=min(.05, remaining_time))
+                                outcome = "completed"
+                                break
+                            except subprocess.TimeoutExpired:
+                                continue
                     except BaseException:
                         process.kill()
                         process.wait()
                         raise
+                    finally:
+                        for reader in readers:
+                            reader.join(timeout=5)
+                    if outcome == "completed" and overflow.is_set():
+                        outcome = "output_limit"
+                        error = "CLI diagnostics reached the byte limit; logs may be incomplete."
+                    if reader_errors or any(reader.is_alive() for reader in readers):
+                        outcome = "process_failed"
+                        error = "CLI diagnostics could not be fully captured."
         out, out_truncated = _excerpt(stdout_path)
         err, err_truncated = _excerpt(stderr_path)
         return ProcessResult(

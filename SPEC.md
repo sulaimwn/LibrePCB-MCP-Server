@@ -8,11 +8,11 @@ First release is local and Windows-first. Pin one verified stable LibrePCB relea
 
 ## Proposed architecture
 
-Implementation note (2026-09-10): Day 2 implements the transport/domain/adapter
-separation with five saved-project inspection tools on Python 3.12.14, Windows
-x64, MCP SDK 2.2.0 and LibrePCB **2.1.1 / file format 2**. Read `docs/DAY2.md` for
-the actual parser subset, response contract, limits and verified clients. Checks,
-previews/output jobs and editing below remain planned MCP capabilities.
+Implementation note (2026-09-11): Days 2–3 implement eight saved-project
+inspection/check/export tools on Python 3.12.14, Windows x64, MCP SDK 2.2.0 and
+LibrePCB **2.1.1 / file format 2**. Read `docs/DAY2.md` for the inspection subset
+and `docs/DAY3.md` for checks, native PNG and fixed PDF/Gerber exports. Editing
+below remains planned; no design-edit tool exists.
 
 AI client → local MCP server → project adapter and CLI runner → isolated project copies and output artifacts.
 
@@ -29,9 +29,9 @@ AI client → local MCP server → project adapter and CLI runner → isolated p
 
 ## Proposed MCP tools
 
-The first five rows are implemented and tested in Day 2. `run_checks` and all
-following rows are proposals. Actual list results expose raw template values and
-typed attributes; connectivity is limited to circuit signal/component counts.
+The first eight rows are implemented and tested through Day 3. `create_value_edit`
+is still a proposal. Lists expose raw template values and typed attributes;
+connectivity is limited to circuit signal/component counts.
 
 | Tool | Parameters | Result / scope |
 | --- | --- | --- |
@@ -40,9 +40,9 @@ typed attributes; connectivity is limited to circuit signal/component counts.
 | `get_project_summary` | `project_id` | Boards, schematics, counts, saved snapshot information. |
 | `list_components` | `project_id`, optional `cursor`, `limit` | Identifiers, references and values; explicit warnings for unsupported data. |
 | `list_nets` | `project_id`, optional `cursor`, `limit` | Net identifiers/names and supported connectivity information. |
-| `run_checks` | `project_id`, `checks` = `erc`, `drc`, or `both`; optional board selector | Findings, severity, approved/unapproved status where available, tool outcome, raw report artifact. |
-| `export_preview` | `project_id`, supported target/board selector | Preview artifact from a verified output job. Prefer bounded PNG for model inspection; capability depends on the pinned CLI/client. |
-| `run_output_job` | `project_id`, validated configured `job_name` | Generated artifacts within the designated export directory. Initially support a small known set of job types. |
+| `run_checks` | `project_id`, `checks` = `erc`, `drc`, or `both`; optional `board_id` | Findings, severity, approved/unapproved status where available, tool outcome, raw report artifact. |
+| `export_preview` | `project_id`, optional `schematic_id` | All schematic PNG artifacts and one selected native MCP image; first sheet by default. |
+| `run_output_job` | `project_id`, `job_name` = `schematic_pdf` or `gerber_excellon`, optional `board_id` | Fixed server-owned job, fresh output directory, verified artifacts and manifest. Board required for multi-board manufacturing. |
 | `create_value_edit` | `project_id`, `component_id`, `new_value`, `expected_revision` | Candidate project path, changed-value summary and validation results. Only if Day 4 passes. |
 
 Allowlist project roots and output locations. A project ID maps to a validated path inside the server, not arbitrary follow-up paths supplied by the model. Validate identifiers, board selectors, size limits and string length. Do not expose general shell execution or unrestricted Python evaluation as an MCP tool.
@@ -73,4 +73,4 @@ work/              ignored scratch copies and generated artifacts
 pyproject.toml     package metadata and pinned/locked dependency workflow
 ```
 
-Do not commit personal board designs, credentials, full user logs, downloaded runtimes, or generated manufacturing outputs by default. Choose the project license before external distribution and track licenses for reused code and fixtures.
+Do not commit personal board designs, credentials, full user logs, downloaded runtimes, or generated manufacturing outputs by default. Track licenses for reused code and fixtures. The owner authorized uploading this WIP to a private GitHub repository while the server license remains undecided; select a license before a public software release.

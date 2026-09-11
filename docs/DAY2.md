@@ -1,5 +1,8 @@
 # Day 2 implementation and handoff details
 
+Historical Day 2 checkpoint. Current checks/export/image behavior is in
+[DAY3.md](DAY3.md), with current test results in STATUS and Day 3 evidence.
+
 Implemented September 10, 2026: package `0.1.0.dev2`, Windows x64, Python 3.12.14,
 LibrePCB 2.1.1 / stable file format 2, official MCP Python SDK 2.2.0.
 This is a local inspection prototype. Day 3 checks and previews remain pending.

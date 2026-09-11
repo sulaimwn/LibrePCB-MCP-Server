@@ -65,8 +65,8 @@ async def verify() -> int:
             expect("initialize_handshake", client.server_info.name == "LibrePCB MCP Server")
             listed = await client.list_tools()
             tools = [tool.name for tool in listed.tools]
-            expect("exactly_five_read_tools", set(tools) == {"get_status", "open_project", "get_project_summary", "list_components", "list_nets"}, tools)
-            expect("read_only_annotations", all(tool.annotations.read_only_hint for tool in listed.tools))
+            expect("exactly_eight_tools", set(tools) == {"get_status", "open_project", "get_project_summary", "list_components", "list_nets", "run_checks", "export_preview", "run_output_job"}, tools)
+            expect("read_only_annotations", all(tool.annotations.read_only_hint for tool in listed.tools if tool.name not in {"export_preview", "run_output_job"}))
             (run_dir / "tool-schemas.json").write_text(listed.model_dump_json(by_alias=True, indent=2), encoding="utf-8")
             status = await call(client, "get_status")
             expect("real_cli_ready", status["ok"] and status["data"]["ready"] and status["data"]["librepcb"]["version"] == "2.1.1")

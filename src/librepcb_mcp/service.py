@@ -11,11 +11,14 @@ from uuid import uuid4
 
 from librepcb_mcp import __version__
 from librepcb_mcp.adapters.cli import ProcessRunner
+from librepcb_mcp.adapters.checks import interpret_check
+from librepcb_mcp.adapters.exports import Artifact, JOB_NAMES, collect_artifacts, image_bytes, job_text
 from librepcb_mcp.adapters.files import capture, copy_capture, local_absolute, no_links
 from librepcb_mcp.adapters.project import ProjectData, inspect_project
 from librepcb_mcp.errors import ProjectError, require
 
-TOOLS = ["get_status", "open_project", "get_project_summary", "list_components", "list_nets"]
+TOOLS = ["get_status", "open_project", "get_project_summary", "list_components", "list_nets",
+         "run_checks", "export_preview", "run_output_job"]
 MAX_PAGE_BYTES = 24_000  # MCP carries both text and structured representations.
 
 
@@ -44,6 +47,8 @@ class ProjectService:
         self.lock = threading.RLock()
         self.snapshots: dict[str, Snapshot] = {}
         self.open_attempts = 0
+        self.operation_count = 0
+        self.artifacts: dict[str, Artifact] = {}
 
     def dispatch(self, operation: str, **arguments) -> dict:
         with self.lock:
@@ -89,7 +94,10 @@ class ProjectService:
         return {"server_version": __version__, "mcp_sdk_version": version("mcp"), "ready": not problems,
                 "librepcb": cli, "tools": TOOLS, "problems": problems,
                 "saved_state_only": True, "write_tools": False, "project_root_count": len(self.roots),
-                "limits": {"max_page_size": 100, "max_open_attempts_per_session": 32, "max_response_bytes": 64000}}
+                "output_jobs": ["schematic_pdf", "gerber_excellon"],
+                "limits": {"max_page_size": 100, "max_open_attempts_per_session": 32,
+                           "max_check_export_operations": 64, "max_response_bytes": 64000,
+                           "max_preview_wire_bytes": 1500000, "max_log_bytes_per_stream": self.runner.max_log_bytes}}
 
     def _source(self, value: str) -> Path:
         path = local_absolute(value)
@@ -180,3 +188,134 @@ class ProjectService:
 
     def list_nets(self, project_id: str, cursor: str | None = None, limit: int = 50) -> dict:
         return self._page(project_id, cursor, limit, "nets")
+
+    @staticmethod
+    def _board(snapshot: Snapshot, board_id: str | None) -> tuple[int, dict]:
+        boards = snapshot.data.boards
+        require(bool(boards), "This project has no board.", "invalid_argument")
+        if board_id is None:
+            require(len(boards) == 1, "Select board_id explicitly for a project with multiple boards.", "invalid_argument")
+            return 0, boards[0]
+        for index, board in enumerate(boards):
+            if board["id"] == board_id:
+                return index, board
+        raise ProjectError("invalid_argument", "Unknown board_id for this saved project.")
+
+    def _operation_directory(self) -> Path:
+        require(self.operation_count < 64, "Session check/export limit reached; restart the server.", "resource_limit")
+        self.operation_count += 1
+        directory = self.session_dir / f"r{self.operation_count:03d}"
+        no_links(directory)
+        directory.mkdir(exist_ok=False)
+        return directory
+
+    @staticmethod
+    def _diagnostics(result) -> dict:
+        return {"stdout_artifact": result.stdout_path, "stderr_artifact": result.stderr_path,
+                "exit_code": result.exit_code, "process_outcome": result.outcome}
+
+    def run_checks(self, project_id: str, checks: str = "both", board_id: str | None = None) -> dict:
+        require(checks in {"erc", "drc", "both"}, "checks must be erc, drc or both.", "invalid_argument")
+        require(checks != "erc" or board_id is None, "ERC applies to the circuit; omit board_id.", "invalid_argument")
+        snapshot = self._snapshot(project_id)
+        selected = self._board(snapshot, board_id) if checks != "erc" else None
+        directory = self._operation_directory()
+        self._cli_version()
+        project = snapshot.copy / snapshot.source.name
+        reports = []
+        for kind in (["erc", "drc"] if checks == "both" else [checks]):
+            args = ["open-project", f"--{kind}"]
+            board = None
+            if kind == "drc":
+                index, board = selected
+                args.extend(["--board-index", str(index)])
+            args.append(str(project))
+            result = self.runner.run(args, cwd=self.session_dir)
+            report = interpret_check(result, kind, project, board)
+            reports.append(report)
+            # Also recheck on failures: a concurrent saved change invalidates this result.
+            self._snapshot(project_id)
+            if report["outcome"] == "indeterminate":
+                artifact = directory / "checks.json"
+                artifact.write_text(json.dumps(reports, indent=2), encoding="utf-8")
+                code = result.outcome if result.outcome != "completed" else "check_failed"
+                raise ProjectError(code, "A rule check could not be interpreted reliably; no pass is claimed.",
+                                   {"checks": reports, "report_artifact": str(artifact)})
+        record = {"project_id": project_id, "revision": snapshot.revision, "state": "saved_snapshot",
+                  "outcome": "violations" if any(r["outcome"] == "violations" for r in reports) else "passed",
+                  "approved_count": sum(r["approved_count"] for r in reports),
+                  "unapproved_count": sum(r["unapproved_count"] for r in reports), "checks": reports,
+                  "approval_details_available": False}
+        artifact = directory / "checks.json"
+        artifact.write_text(json.dumps(record, indent=2), encoding="utf-8")
+        record["report_artifact"] = str(artifact)
+        return record
+
+    def _export(self, snapshot: Snapshot, kind: str, board_id: str | None = None) -> dict:
+        directory = self._operation_directory()
+        output = directory / "files"
+        output.mkdir(exist_ok=False)
+        jobs = directory / "jobs.lp"
+        jobs.write_text(job_text(kind, board_id), encoding="utf-8", newline="\n")
+        self._cli_version()
+        project = snapshot.copy / snapshot.source.name
+        result = self.runner.run(["open-project", "--jobs", str(jobs), "--run-job", JOB_NAMES[kind],
+                                  "--outdir", str(output), str(project)], cwd=self.session_dir)
+        self._snapshot(snapshot.project_id)
+        diagnostics = self._diagnostics(result)
+        if result.outcome != "completed":
+            raise ProjectError(result.outcome, "Export did not complete.", diagnostics)
+        stdout = Path(result.stdout_path).read_text(encoding="utf-8")
+        lines = stdout.splitlines()
+        prefix = [f"Open project '{project}'...", f"Run output job '{JOB_NAMES[kind]}'..."]
+        if not (result.exit_code == 0 and len(lines) >= 4 and lines[:2] == prefix and lines[-1] == "SUCCESS"
+                and all(line.startswith("  => '") and line.endswith("'") for line in lines[2:-1])
+                and not Path(result.stderr_path).stat().st_size):
+            raise ProjectError("export_failed", "Export reported an error or unfamiliar diagnostics; inspect the raw logs.", diagnostics)
+        for line in lines[2:-1]:
+            declared = Path(line[6:-1])
+            if not declared.is_absolute() or not declared.is_relative_to(output):
+                raise ProjectError("invalid_export", "An output artifact was declared outside the export directory.", diagnostics)
+        try:
+            artifacts = collect_artifacts(output, kind, len(snapshot.data.schematics))
+        except ProjectError as exc:
+            raise ProjectError(exc.code, str(exc), diagnostics) from exc
+        record = {"project_id": snapshot.project_id, "revision": snapshot.revision, "state": "saved_snapshot",
+                  "job": kind, "board_id": board_id, "artifacts": [a.public() for a in artifacts],
+                  "output_directory": str(output), "diagnostics": diagnostics}
+        manifest = directory / "artifacts.json"
+        manifest.write_text(json.dumps(record, indent=2), encoding="utf-8")
+        record["manifest_artifact"] = str(manifest)
+        self.artifacts.update({a.identifier: a for a in artifacts})
+        return record
+
+    def export_preview(self, project_id: str, schematic_id: str | None = None) -> dict:
+        snapshot = self._snapshot(project_id)
+        pages = snapshot.data.schematics
+        require(bool(pages), "Project has no schematics.", "invalid_argument")
+        selected = next((i for i, page in enumerate(pages) if page["id"] == schematic_id), None) if schematic_id is not None else 0
+        require(selected is not None, "Unknown schematic_id for this project.", "invalid_argument")
+        record = self._export(snapshot, "schematic_png")
+        filename = "schematic.png" if len(pages) == 1 else f"schematic{selected+1}.png"
+        image = next(a for a in record["artifacts"] if a["filename"] == filename)
+        record.update({"selected_schematic": pages[selected], "image_artifact_id": image["artifact_id"],
+                       "image_note": "One selected schematic is attached as an MCP image; all generated pages are listed as artifacts."})
+        return record
+
+    def get_preview_image(self, artifact_id: str) -> bytes:
+        """Internal transport helper; not a general file-reading MCP tool."""
+        with self.lock:
+            require(artifact_id in self.artifacts, "Unknown preview artifact.", "invalid_argument")
+            return image_bytes(self.artifacts[artifact_id])
+
+    def run_output_job(self, project_id: str, job_name: str, board_id: str | None = None) -> dict:
+        require(job_name in {"schematic_pdf", "gerber_excellon"},
+                "Supported jobs are schematic_pdf and gerber_excellon.", "invalid_argument")
+        snapshot = self._snapshot(project_id)
+        if job_name == "gerber_excellon":
+            _, board = self._board(snapshot, board_id)
+            board_id = board["id"]
+        else:
+            require(board_id is None and bool(snapshot.data.schematics),
+                    "Schematic PDF requires schematics and does not take board_id.", "invalid_argument")
+        return self._export(snapshot, job_name, board_id)

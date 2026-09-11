@@ -6,6 +6,7 @@ It does not test UI rendering or launch a coding agent.
 """
 
 import argparse
+import base64
 import hashlib
 import json
 from pathlib import Path
@@ -106,7 +107,7 @@ def main():
     server = {"command": sys.executable, "args": ["-m", "librepcb_mcp.server", "--cli",
               str(ROOT / pin["librepcb"]["relative_executable"]), "--project-root", str(source),
               "--data-root", str(run_dir / "d")], "cwd": str(ROOT),
-              "startup_timeout_sec": 30, "tool_timeout_sec": 45}
+              "startup_timeout_sec": 30, "tool_timeout_sec": 120}
     for key, value in server.items():
         overrides.append(f"mcp_servers.librepcb_day2.{key}={json.dumps(value)}")
     command = [str(args.codex), "app-server", "--listen", "stdio://"]
@@ -125,12 +126,18 @@ def main():
         thread_id = thread["thread"]["id"]
         status = host.request("mcpServerStatus/list", {"threadId": thread_id, "limit": 100}, timeout=90)
         found = next(item for item in status["data"] if item["name"] == "librepcb_day2")
-        checks.append({"name": "host_discovers_five_tools", "passed": len(found["tools"]) == 5,
+        checks.append({"name": "host_discovers_eight_tools", "passed": len(found["tools"]) == 8,
                        "tools": list(found["tools"]), "runtime_status": found.get("runtimeStatus")})
 
         def call(tool, arguments=None):
             result = host.request("mcpServer/tool/call", {"threadId": thread_id,
-                                  "server": "librepcb_day2", "tool": tool, "arguments": arguments or {}})
+                                  "server": "librepcb_day2", "tool": tool, "arguments": arguments or {}}, timeout=120)
+            for content in result["content"]:
+                if content.get("type") == "image":
+                    data = base64.b64decode(content.pop("data"), validate=True)
+                    image_path = run_dir / f"host-preview-{len(calls)}.png"
+                    image_path.write_bytes(data)
+                    content.update({"saved_image": str(image_path), "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()})
             calls.append({"tool": tool, "result": result})
             return result["structuredContent"]
 
@@ -144,6 +151,18 @@ def main():
         for tool in ("list_components", "list_nets"):
             page = call(tool, {"project_id": handle, "limit": 3})
             checks.append({"name": tool, "passed": page["ok"] and len(page["data"]["items"]) == 3})
+        rules = call("run_checks", {"project_id": handle})
+        checks.append({"name": "host_runs_real_checks", "passed": rules["ok"] and rules["data"]["outcome"] == "passed"
+                       and rules["data"]["approved_count"] == 18 and rules["data"]["unapproved_count"] == 0})
+        preview = call("export_preview", {"project_id": handle})
+        images = [c for c in calls[-1]["result"]["content"] if c.get("type") == "image"]
+        checks.append({"name": "host_receives_native_png_image", "passed": preview["ok"] and len(images) == 1
+                       and images[0]["mimeType"] == "image/png" and images[0]["bytes"] > 1000})
+        selected = next(a for a in preview["data"]["artifacts"] if a["artifact_id"] == preview["data"]["image_artifact_id"])
+        checks.append({"name": "host_image_matches_export", "passed": images[0]["sha256"] == selected["sha256"]})
+        for job, count in (("schematic_pdf", 1), ("gerber_excellon", 11)):
+            exported = call("run_output_job", {"project_id": handle, "job_name": job})
+            checks.append({"name": "host_export_" + job, "passed": exported["ok"] and len(exported["data"]["artifacts"]) == count})
         rejected = call("open_project", {"path": str(ROOT / "outside.lpp")})
         checks.append({"name": "host_receives_structured_error", "passed": not rejected["ok"] and
                        rejected["error"] == "path_not_allowed" and calls[-1]["result"]["isError"]})
@@ -157,7 +176,7 @@ def main():
         report = {"kind": "codex_app_server_direct_mcp", "codex_version": cli_version,
                   "passed": completed and all(c["passed"] for c in checks), "failure": failure,
                   "checks": checks, "calls": calls,
-                  "note": "Actual installed Codex host, ephemeral thread, direct MCP calls. No model turn, UI rendering test, or persistent host config edits."}
+                  "note": "Actual installed Codex host, ephemeral thread, direct MCP calls. Native PNG bytes saved separately with hashes. No model turn or persistent host config edits."}
         encoded = json.dumps(report, indent=2).replace(json.dumps(str(ROOT))[1:-1], "<REPO>")
         (run_dir / "report.json").write_text(encoded + "\n", encoding="utf-8")
         print(json.dumps({"passed": report["passed"], "checks": len(checks), "failure": failure,

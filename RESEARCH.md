@@ -72,9 +72,31 @@ Inspected tip: `ddf461c96c75b91a9494949a1291c1769eb0a260`, committed May 20, 201
 
 ## Inferences and things to prove
 
-- Local CLI/file-based MCP inspection now has real acceptance evidence. Full read/check/export and edit workflows still require subsequent milestones.
+- Full local MCP read/check/export now has real SDK and Codex-host evidence, including native image delivery and agent inspection. Edit workflows still require subsequent milestones.
 - Direct editing needs cross-file semantic validation, not just valid S-expression syntax.
 - The historical fork supplies design ideas for a native bridge; porting effort and current compatibility are unknown.
 - We did not find a documented supported current editor-control API in the initial research. Absence from this search is not proof none exists; recheck before committing to native work.
 - GUI automation is not chosen as the primary architecture because reproducibility and state synchronization would need separate validation.
 - Model capability claims and PCB-tool popularity rankings are not inputs to feasibility or release criteria.
+
+
+## Day 3 implementation verification — September 11
+
+- Pinned CLI diagnostic formatting, separate check invocations and board selection
+  were checked against official 2.1.1 source and actual runtime output. Real
+  unconnected-net and narrow-trace faults produced expected ERC/DRC findings.
+  [CLI source](https://github.com/LibrePCB/LibrePCB/blob/2.1.1/apps/librepcb-cli/commandlineinterface.cpp),
+  [ERC source](https://github.com/LibrePCB/LibrePCB/blob/2.1.1/libs/librepcb/core/project/erc/electricalrulecheck.cpp).
+- Server-owned graphics/manufacturing jobs use fixed paths and validated UUIDs.
+  The observed `.librepcb-output` control file is explicitly validated.
+  [Job selection](https://github.com/LibrePCB/LibrePCB/blob/2.1.1/libs/librepcb/core/job/outputjob.h),
+  [graphics](https://github.com/LibrePCB/LibrePCB/blob/2.1.1/libs/librepcb/core/job/graphicsoutputjob.cpp),
+  [Gerber](https://github.com/LibrePCB/LibrePCB/blob/2.1.1/libs/librepcb/core/job/gerberexcellonoutputjob.cpp).
+- SDK 2.2.0 `ImageContent` and `CallToolResult` interfaces were checked locally
+  before use. Real SDK and Codex 0.153.4 host calls received native PNG bytes
+  with matching hashes. This agent inspected two received sheets. Claude and
+  graphical UI connection remain untested. See the Day 3 evidence packet.
+- GitHub CLI 2.100.0 was downloaded from its official release and matched the
+  official checksum before use for the owner-requested private repository.
+  [Official release](https://github.com/cli/cli/releases/tag/v2.100.0),
+  [repository creation interface](https://cli.github.com/manual/gh_repo_create).

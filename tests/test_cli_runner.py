@@ -55,6 +55,14 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(result.outcome, "cli_missing")
         self.assertIsNone(result.exit_code)
 
+    def test_large_diagnostics_are_capped_and_not_reported_as_completed(self):
+        result = self.runner(max_log_bytes=4096).run(
+            ["-c", "import sys; sys.stdout.write('x'*1000000); sys.stdout.flush()"], cwd=self.root)
+        self.assertEqual(result.outcome, "output_limit")
+        self.assertEqual(Path(result.stdout_path).stat().st_size, 4096)
+        self.assertLessEqual(Path(result.stderr_path).stat().st_size, 4096)
+        self.assertIn("incomplete", result.error)
+
     def test_launch_failure_is_not_a_missing_cli(self):
         result = self.runner().run([], cwd=self.root / "missing-directory")
         self.assertEqual(result.outcome, "process_failed")

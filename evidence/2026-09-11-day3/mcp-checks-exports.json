@@ -1,0 +1,1267 @@
+{
+  "kind": "real_day3_mcp_checks_exports_images",
+  "mcp_sdk": "2.2.0",
+  "package": "0.1.0.dev3",
+  "passed": true,
+  "failure": null,
+  "faults": {
+    "erc": {
+      "fault": "new circuit net with zero connected component signals",
+      "net_id": "e260931a-ec03-4dfa-9265-23422f0b3871",
+      "net_name": "MCP_DAY3_UNCONNECTED",
+      "file": "circuit/circuit.lp"
+    },
+    "drc": {
+      "fault": "existing copper trace narrowed below the board's 0.2 mm minimum",
+      "trace_id": "36810801-2113-4286-8d08-61786dc56c8a",
+      "before_mm": "0.2",
+      "after_mm": "0.01",
+      "file": "boards/default/board.lp"
+    }
+  },
+  "checks": [
+    {
+      "name": "real_handshake",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "eight_registered_tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "export_annotations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cli_ready",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline_checks_passed",
+      "passed": true,
+      "detail": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "outcome": "passed",
+          "approved_count": 18,
+          "unapproved_count": 0,
+          "checks": [
+            {
+              "check": "erc",
+              "board": null,
+              "outcome": "passed",
+              "approved_count": 2,
+              "unapproved_count": 0,
+              "findings": [],
+              "findings_truncated": false,
+              "exit_code": 0,
+              "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\0723a2ddf38d43ae8f4993c601078a08.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\0723a2ddf38d43ae8f4993c601078a08.stderr.txt",
+              "diagnostic_notes": []
+            },
+            {
+              "check": "drc",
+              "board": {
+                "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                "name": "default",
+                "file": "boards/default/board.lp"
+              },
+              "outcome": "passed",
+              "approved_count": 16,
+              "unapproved_count": 0,
+              "findings": [],
+              "findings_truncated": false,
+              "exit_code": 0,
+              "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\c1cc929c442f43f79300ce85dff394b4.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\c1cc929c442f43f79300ce85dff394b4.stderr.txt",
+              "diagnostic_notes": []
+            }
+          ],
+          "approval_details_available": false,
+          "report_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r001\\checks.json"
+        }
+      }
+    },
+    {
+      "name": "approved_findings_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "separate_erc_drc_counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "output_collision_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "preview_Main",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_mcp_image_Main",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "image_matches_artifact_Main",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "preview_Ethernet",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_mcp_image_Ethernet",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "image_matches_artifact_Ethernet",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "repeated_exports_are_separate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "schematic_pdf_exported",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "schematic_pdf_file_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "gerber_excellon_exported",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "gerber_excellon_file_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_export_hashes_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "artifacts_under_session",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_erc_fault_is_not_a_process_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_erc_finding",
+      "passed": true,
+      "detail": {
+        "severity": "warning",
+        "message": "Less than two pins in net: 'MCP_DAY3_UNCONNECTED'",
+        "approved": false
+      }
+    },
+    {
+      "name": "bounded_10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_drc_fault_is_not_a_process_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_drc_finding",
+      "passed": true,
+      "detail": {
+        "severity": "error",
+        "message": "Trace width on 'Top Copper': 0.01 < 0.2 mm",
+        "approved": false
+      }
+    },
+    {
+      "name": "bounded_12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "project_output_jobs_are_not_executed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "arbitrary_job_rejected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown_board_rejected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown_sheet_rejected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lock_blocks_run_checks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lock_blocks_export_preview",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "error_flag_19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lock_blocks_run_output_job",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_and_snapshot_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fault_sources_preserved",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "calls": [
+    {
+      "tool": "get_status",
+      "arguments": {},
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "server_version": "0.1.0.dev3",
+          "mcp_sdk_version": "2.2.0",
+          "ready": true,
+          "librepcb": {
+            "version": "2.1.1",
+            "file_format": "2",
+            "version_output": "LibrePCB CLI Version 2.1.1\r\nFile Format 2 (stable)\r\nGit Revision 06465bf (2026-06-12)\r\nQt Version 6.10.1 (compiled against 6.10.1)\r\nOpenCascade OCCT 7.9.1\r\n",
+            "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\b5d25b7cd9aa400fb3e5fc52285a26f8.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\b5d25b7cd9aa400fb3e5fc52285a26f8.stderr.txt"
+          },
+          "tools": [
+            "get_status",
+            "open_project",
+            "get_project_summary",
+            "list_components",
+            "list_nets",
+            "run_checks",
+            "export_preview",
+            "run_output_job"
+          ],
+          "problems": [],
+          "saved_state_only": true,
+          "write_tools": false,
+          "project_root_count": 1,
+          "output_jobs": [
+            "schematic_pdf",
+            "gerber_excellon"
+          ],
+          "limits": {
+            "max_page_size": 100,
+            "max_open_attempts_per_session": 32,
+            "max_check_export_operations": 64,
+            "max_response_bytes": 64000,
+            "max_preview_wire_bytes": 1500000,
+            "max_log_bytes_per_stream": 2000000
+          }
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "open_project",
+      "arguments": {
+        "path": "<REPO>\\work\\d3-a225dc\\p\\board space\\d0-reader.lpp"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "captured_at": "2026-09-11T11:32:34.418354+00:00",
+          "lock_present": false,
+          "metadata": {
+            "id": "62381a67-292d-448e-952b-bea07d640ac0",
+            "name": "d0-reader",
+            "author": "U. Bruhin",
+            "version": "v2",
+            "created": "2023-06-06T15:13:03Z"
+          },
+          "file_format": "2",
+          "boards": [
+            {
+              "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+              "name": "default",
+              "file": "boards/default/board.lp"
+            }
+          ],
+          "schematics": [
+            {
+              "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+              "name": "Main",
+              "file": "schematics/main/schematic.lp"
+            },
+            {
+              "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+              "name": "Ethernet",
+              "file": "schematics/ethernet/schematic.lp"
+            }
+          ],
+          "component_count": 97,
+          "net_count": 48,
+          "snapshot_project": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\p01\\d0-reader.lpp",
+          "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_checks",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "outcome": "passed",
+          "approved_count": 18,
+          "unapproved_count": 0,
+          "checks": [
+            {
+              "check": "erc",
+              "board": null,
+              "outcome": "passed",
+              "approved_count": 2,
+              "unapproved_count": 0,
+              "findings": [],
+              "findings_truncated": false,
+              "exit_code": 0,
+              "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\0723a2ddf38d43ae8f4993c601078a08.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\0723a2ddf38d43ae8f4993c601078a08.stderr.txt",
+              "diagnostic_notes": []
+            },
+            {
+              "check": "drc",
+              "board": {
+                "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                "name": "default",
+                "file": "boards/default/board.lp"
+              },
+              "outcome": "passed",
+              "approved_count": 16,
+              "unapproved_count": 0,
+              "findings": [],
+              "findings_truncated": false,
+              "exit_code": 0,
+              "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\c1cc929c442f43f79300ce85dff394b4.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\c1cc929c442f43f79300ce85dff394b4.stderr.txt",
+              "diagnostic_notes": []
+            }
+          ],
+          "approval_details_available": false,
+          "report_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r001\\checks.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "export_preview",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508"
+      },
+      "is_error": true,
+      "structured_content": {
+        "ok": false,
+        "error": "io_error",
+        "message": "Could not read or store the project snapshot.",
+        "details": {
+          "exception_type": "FileExistsError"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "export_preview",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "schematic_id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "job": "schematic_png",
+          "board_id": null,
+          "artifacts": [
+            {
+              "artifact_id": "e57dd7a155c34e18beec36f5275f8c6b",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r003\\files\\schematic1.png",
+              "filename": "schematic1.png",
+              "mime_type": "image/png",
+              "bytes": 93974,
+              "sha256": "bd7bbe16ea95ed9605bbce638eefb991a7ca45bca2b80676d949c58f204b1957",
+              "width": 1754,
+              "height": 1239
+            },
+            {
+              "artifact_id": "adb6aca4d4ad462a907ebcc1a7ab4c06",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r003\\files\\schematic2.png",
+              "filename": "schematic2.png",
+              "mime_type": "image/png",
+              "bytes": 128714,
+              "sha256": "108cc0533f08d973fdbd4694192341496ff130de60039f64a1e413e69a663f58",
+              "width": 1754,
+              "height": 1239
+            }
+          ],
+          "output_directory": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r003\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\2995b42d6b8847df93e4b7a418a349dc.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\2995b42d6b8847df93e4b7a418a349dc.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r003\\artifacts.json",
+          "selected_schematic": {
+            "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+            "name": "Main",
+            "file": "schematics/main/schematic.lp"
+          },
+          "image_artifact_id": "e57dd7a155c34e18beec36f5275f8c6b",
+          "image_note": "One selected schematic is attached as an MCP image; all generated pages are listed as artifacts."
+        }
+      },
+      "images": [
+        {
+          "type": "image",
+          "mimeType": "image/png",
+          "annotations": null,
+          "_meta": null,
+          "saved_image": "client-preview-4.png",
+          "bytes": 93974,
+          "sha256": "bd7bbe16ea95ed9605bbce638eefb991a7ca45bca2b80676d949c58f204b1957"
+        }
+      ]
+    },
+    {
+      "tool": "export_preview",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "schematic_id": "a3fc7c77-9971-4020-b120-fae5dcadff13"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "job": "schematic_png",
+          "board_id": null,
+          "artifacts": [
+            {
+              "artifact_id": "2ec54337bddc4d0fa7478be4d3fa8202",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r004\\files\\schematic1.png",
+              "filename": "schematic1.png",
+              "mime_type": "image/png",
+              "bytes": 93974,
+              "sha256": "bd7bbe16ea95ed9605bbce638eefb991a7ca45bca2b80676d949c58f204b1957",
+              "width": 1754,
+              "height": 1239
+            },
+            {
+              "artifact_id": "5bd9d8e578474e0c8553689d533c4d58",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r004\\files\\schematic2.png",
+              "filename": "schematic2.png",
+              "mime_type": "image/png",
+              "bytes": 128714,
+              "sha256": "108cc0533f08d973fdbd4694192341496ff130de60039f64a1e413e69a663f58",
+              "width": 1754,
+              "height": 1239
+            }
+          ],
+          "output_directory": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r004\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\fea07c1a51464b5cbf028d453a50b6d0.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\fea07c1a51464b5cbf028d453a50b6d0.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r004\\artifacts.json",
+          "selected_schematic": {
+            "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+            "name": "Ethernet",
+            "file": "schematics/ethernet/schematic.lp"
+          },
+          "image_artifact_id": "5bd9d8e578474e0c8553689d533c4d58",
+          "image_note": "One selected schematic is attached as an MCP image; all generated pages are listed as artifacts."
+        }
+      },
+      "images": [
+        {
+          "type": "image",
+          "mimeType": "image/png",
+          "annotations": null,
+          "_meta": null,
+          "saved_image": "client-preview-5.png",
+          "bytes": 128714,
+          "sha256": "108cc0533f08d973fdbd4694192341496ff130de60039f64a1e413e69a663f58"
+        }
+      ]
+    },
+    {
+      "tool": "run_output_job",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "job_name": "schematic_pdf"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "job": "schematic_pdf",
+          "board_id": null,
+          "artifacts": [
+            {
+              "artifact_id": "cc1a1d47fe8f4e85b883c9f8d4134e19",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r005\\files\\schematic.pdf",
+              "filename": "schematic.pdf",
+              "mime_type": "application/pdf",
+              "bytes": 103775,
+              "sha256": "6d727b2d48e05904ad3b2177a66ba3f939ee72a09a83ee977c69e6e413602a7e"
+            }
+          ],
+          "output_directory": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r005\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\65243c0eb2f04b3e9ac0d47f9bc91db4.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\65243c0eb2f04b3e9ac0d47f9bc91db4.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r005\\artifacts.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_output_job",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "job_name": "gerber_excellon"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "job": "gerber_excellon",
+          "board_id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+          "artifacts": [
+            {
+              "artifact_id": "4ac0898a099246eb9083e68fd0ee36ff",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_COPPER-BOTTOM.gbr",
+              "filename": "board_COPPER-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 192191,
+              "sha256": "4e8e9632ba5c4dd501840b0091578d8dd3589285698ee72301f8a07731b7fd6b"
+            },
+            {
+              "artifact_id": "2da530e7e7b04aa08ead01a0a10194ad",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_COPPER-TOP.gbr",
+              "filename": "board_COPPER-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 124596,
+              "sha256": "de91a8906004e20199a5556b8250936e7ae19d2804feeae985c720f26e39d207"
+            },
+            {
+              "artifact_id": "6c416817da114f05baacb807bbd4e654",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_DRILLS-NPTH.drl",
+              "filename": "board_DRILLS-NPTH.drl",
+              "mime_type": "application/octet-stream",
+              "bytes": 367,
+              "sha256": "8a0cf78107ef47b793f68d450dde89b175f045cd80b47f9d11675fd1cef84e01"
+            },
+            {
+              "artifact_id": "d563cfa5373441a89c0ecda0c8bf2411",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_DRILLS-PTH.drl",
+              "filename": "board_DRILLS-PTH.drl",
+              "mime_type": "application/octet-stream",
+              "bytes": 3436,
+              "sha256": "656641d22cadebcc267c7c47055def88a4aa4563594cee3b32a2c7ec97881461"
+            },
+            {
+              "artifact_id": "d42b21bb78dc4836b3186e018fd8a734",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_OUTLINES.gbr",
+              "filename": "board_OUTLINES.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 879,
+              "sha256": "6b1da4d4f5d3074f96ad085e36c594c4c92738c400ff26b83f01c9ccf3bc2345"
+            },
+            {
+              "artifact_id": "c90d36c83a314231851b25b07a595b25",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_SILKSCREEN-BOTTOM.gbr",
+              "filename": "board_SILKSCREEN-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 76513,
+              "sha256": "51aee7aa37b90aa935c4aab0a933966e10fc728380870a6a1f78a8e93e733b04"
+            },
+            {
+              "artifact_id": "74cc8649a18a45e6b2a450929c2c3679",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_SILKSCREEN-TOP.gbr",
+              "filename": "board_SILKSCREEN-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 32457,
+              "sha256": "58d18583c8d8ecc2aa210e6a4be1c65635ee08b7c998cd786651d3535e2a6ab7"
+            },
+            {
+              "artifact_id": "a4963590d10345109013ed944578d4ba",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_SOLDERMASK-BOTTOM.gbr",
+              "filename": "board_SOLDERMASK-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 13364,
+              "sha256": "6cea7138917ab72e77fa1eb9ad3ab602f81245c92c3302c9238895dc57b575fd"
+            },
+            {
+              "artifact_id": "ab5af83e5a1445b6b8b9b40b56d1bd5e",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_SOLDERMASK-TOP.gbr",
+              "filename": "board_SOLDERMASK-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 2088,
+              "sha256": "2cfe3a535dc6a7b13dde427feeb9bab4124f6b49ee9c576c0ca611e541c7c595"
+            },
+            {
+              "artifact_id": "28984f7871284ae5b2316995daa49671",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_SOLDERPASTE-BOTTOM.gbr",
+              "filename": "board_SOLDERPASTE-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 9239,
+              "sha256": "a41809427063724e15cc920cc6752a52583cc5e892d2dccb55be3b22309fa50c"
+            },
+            {
+              "artifact_id": "da84ae9afcd9448da7db7b58b6a42587",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files\\gerber\\board_SOLDERPASTE-TOP.gbr",
+              "filename": "board_SOLDERPASTE-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 1384,
+              "sha256": "d8923145348171a1b92532a3df2d0f12dd1e951b99d3b0de0317d70a74197895"
+            }
+          ],
+          "output_directory": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\650ba61deb5a4d18ba7b85c4ca35db8a.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\650ba61deb5a4d18ba7b85c4ca35db8a.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r006\\artifacts.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "open_project",
+      "arguments": {
+        "path": "<REPO>\\work\\d3-a225dc\\p\\erc\\d0-reader.lpp"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "87dda4f1f7aa49dfabc915e68dbb22eb",
+          "revision": "sha256:eb684aa3cca6e9653666c77694bd944e27b6c1b02a0dd45b99db0a1a8204b1dd",
+          "state": "saved_snapshot",
+          "captured_at": "2026-09-11T11:33:02.114271+00:00",
+          "lock_present": false,
+          "metadata": {
+            "id": "62381a67-292d-448e-952b-bea07d640ac0",
+            "name": "d0-reader",
+            "author": "U. Bruhin",
+            "version": "v2",
+            "created": "2023-06-06T15:13:03Z"
+          },
+          "file_format": "2",
+          "boards": [
+            {
+              "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+              "name": "default",
+              "file": "boards/default/board.lp"
+            }
+          ],
+          "schematics": [
+            {
+              "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+              "name": "Main",
+              "file": "schematics/main/schematic.lp"
+            },
+            {
+              "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+              "name": "Ethernet",
+              "file": "schematics/ethernet/schematic.lp"
+            }
+          ],
+          "component_count": 97,
+          "net_count": 49,
+          "snapshot_project": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\p02\\d0-reader.lpp",
+          "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_checks",
+      "arguments": {
+        "project_id": "87dda4f1f7aa49dfabc915e68dbb22eb",
+        "checks": "erc"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "87dda4f1f7aa49dfabc915e68dbb22eb",
+          "revision": "sha256:eb684aa3cca6e9653666c77694bd944e27b6c1b02a0dd45b99db0a1a8204b1dd",
+          "state": "saved_snapshot",
+          "outcome": "violations",
+          "approved_count": 2,
+          "unapproved_count": 1,
+          "checks": [
+            {
+              "check": "erc",
+              "board": null,
+              "outcome": "violations",
+              "approved_count": 2,
+              "unapproved_count": 1,
+              "findings": [
+                {
+                  "severity": "warning",
+                  "message": "Less than two pins in net: 'MCP_DAY3_UNCONNECTED'",
+                  "approved": false
+                }
+              ],
+              "findings_truncated": false,
+              "exit_code": 1,
+              "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\3d949da0b4af44d9be1e50d468295b5a.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\3d949da0b4af44d9be1e50d468295b5a.stderr.txt",
+              "diagnostic_notes": []
+            }
+          ],
+          "approval_details_available": false,
+          "report_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r007\\checks.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "open_project",
+      "arguments": {
+        "path": "<REPO>\\work\\d3-a225dc\\p\\drc\\d0-reader.lpp"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "785167f1aa0a4509b990327b4dd01f1d",
+          "revision": "sha256:ab6c8fc353caf99d31086176305c040f924f596064eb565bc04172d576a27cab",
+          "state": "saved_snapshot",
+          "captured_at": "2026-09-11T11:33:08.834419+00:00",
+          "lock_present": false,
+          "metadata": {
+            "id": "62381a67-292d-448e-952b-bea07d640ac0",
+            "name": "d0-reader",
+            "author": "U. Bruhin",
+            "version": "v2",
+            "created": "2023-06-06T15:13:03Z"
+          },
+          "file_format": "2",
+          "boards": [
+            {
+              "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+              "name": "default",
+              "file": "boards/default/board.lp"
+            }
+          ],
+          "schematics": [
+            {
+              "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+              "name": "Main",
+              "file": "schematics/main/schematic.lp"
+            },
+            {
+              "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+              "name": "Ethernet",
+              "file": "schematics/ethernet/schematic.lp"
+            }
+          ],
+          "component_count": 97,
+          "net_count": 48,
+          "snapshot_project": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\p03\\d0-reader.lpp",
+          "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_checks",
+      "arguments": {
+        "project_id": "785167f1aa0a4509b990327b4dd01f1d",
+        "checks": "drc"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "785167f1aa0a4509b990327b4dd01f1d",
+          "revision": "sha256:ab6c8fc353caf99d31086176305c040f924f596064eb565bc04172d576a27cab",
+          "state": "saved_snapshot",
+          "outcome": "violations",
+          "approved_count": 16,
+          "unapproved_count": 1,
+          "checks": [
+            {
+              "check": "drc",
+              "board": {
+                "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                "name": "default",
+                "file": "boards/default/board.lp"
+              },
+              "outcome": "violations",
+              "approved_count": 16,
+              "unapproved_count": 1,
+              "findings": [
+                {
+                  "severity": "error",
+                  "message": "Trace width on 'Top Copper': 0.01 < 0.2 mm",
+                  "approved": false
+                }
+              ],
+              "findings_truncated": false,
+              "exit_code": 1,
+              "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\3379acfcbcd548c78176d8196f915a4c.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\3379acfcbcd548c78176d8196f915a4c.stderr.txt",
+              "diagnostic_notes": []
+            }
+          ],
+          "approval_details_available": false,
+          "report_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r008\\checks.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "open_project",
+      "arguments": {
+        "path": "<REPO>\\work\\d3-a225dc\\p\\poison\\d0-reader.lpp"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "7a0adca5189d41cfa3f3c1c94487d029",
+          "revision": "sha256:48941d9749d8449115f1994d9c60200dfe310da6834a8aa9838110bde879cc5e",
+          "state": "saved_snapshot",
+          "captured_at": "2026-09-11T11:33:19.295055+00:00",
+          "lock_present": false,
+          "metadata": {
+            "id": "62381a67-292d-448e-952b-bea07d640ac0",
+            "name": "d0-reader",
+            "author": "U. Bruhin",
+            "version": "v2",
+            "created": "2023-06-06T15:13:03Z"
+          },
+          "file_format": "2",
+          "boards": [
+            {
+              "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+              "name": "default",
+              "file": "boards/default/board.lp"
+            }
+          ],
+          "schematics": [
+            {
+              "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+              "name": "Main",
+              "file": "schematics/main/schematic.lp"
+            },
+            {
+              "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+              "name": "Ethernet",
+              "file": "schematics/ethernet/schematic.lp"
+            }
+          ],
+          "component_count": 97,
+          "net_count": 48,
+          "snapshot_project": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\p04\\d0-reader.lpp",
+          "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_output_job",
+      "arguments": {
+        "project_id": "7a0adca5189d41cfa3f3c1c94487d029",
+        "job_name": "schematic_pdf"
+      },
+      "is_error": false,
+      "structured_content": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "7a0adca5189d41cfa3f3c1c94487d029",
+          "revision": "sha256:48941d9749d8449115f1994d9c60200dfe310da6834a8aa9838110bde879cc5e",
+          "state": "saved_snapshot",
+          "job": "schematic_pdf",
+          "board_id": null,
+          "artifacts": [
+            {
+              "artifact_id": "4fe37059b9e049dc8bb62e6d66707550",
+              "path": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r009\\files\\schematic.pdf",
+              "filename": "schematic.pdf",
+              "mime_type": "application/pdf",
+              "bytes": 103744,
+              "sha256": "23632359e9139df8a82c0381720b4e01ec008fbe18ccf35b8b44db714e866700"
+            }
+          ],
+          "output_directory": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r009\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\7c92c60751174fb794fc1c9815bb6594.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\logs\\7c92c60751174fb794fc1c9815bb6594.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\d3-a225dc\\d\\s-a08e2bca676d\\r009\\artifacts.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_output_job",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "job_name": "STEP Model"
+      },
+      "is_error": true,
+      "structured_content": null,
+      "images": []
+    },
+    {
+      "tool": "run_checks",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "board_id": "unknown"
+      },
+      "is_error": true,
+      "structured_content": {
+        "ok": false,
+        "error": "invalid_argument",
+        "message": "Unknown board_id for this saved project.",
+        "details": {}
+      },
+      "images": []
+    },
+    {
+      "tool": "export_preview",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "schematic_id": "unknown"
+      },
+      "is_error": true,
+      "structured_content": {
+        "ok": false,
+        "error": "invalid_argument",
+        "message": "Unknown schematic_id for this project.",
+        "details": {}
+      },
+      "images": []
+    },
+    {
+      "tool": "run_checks",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508"
+      },
+      "is_error": true,
+      "structured_content": {
+        "ok": false,
+        "error": "project_locked",
+        "message": "Close the project in LibrePCB before reading it; a lock file is present.",
+        "details": {}
+      },
+      "images": []
+    },
+    {
+      "tool": "export_preview",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508"
+      },
+      "is_error": true,
+      "structured_content": {
+        "ok": false,
+        "error": "project_locked",
+        "message": "Close the project in LibrePCB before reading it; a lock file is present.",
+        "details": {}
+      },
+      "images": []
+    },
+    {
+      "tool": "run_output_job",
+      "arguments": {
+        "project_id": "cc5d97a6a41d4a8ca6cf70e86446a508",
+        "job_name": "schematic_pdf"
+      },
+      "is_error": true,
+      "structured_content": {
+        "ok": false,
+        "error": "project_locked",
+        "message": "Close the project in LibrePCB before reading it; a lock file is present.",
+        "details": {}
+      },
+      "images": []
+    }
+  ],
+  "source_preserved": true,
+  "note": "PNG bytes received as native MCP images are saved separately; no model API was called."
+}

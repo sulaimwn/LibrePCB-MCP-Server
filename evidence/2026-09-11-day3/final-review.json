@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Python source parses",
+      "passed": true
+    },
+    {
+      "check": "Documentation local links resolve: []",
+      "passed": true
+    },
+    {
+      "check": "Fixture is unchanged pinned archive",
+      "passed": true
+    },
+    {
+      "check": "Dependency lock unchanged from Day 2",
+      "passed": true
+    },
+    {
+      "check": "Package/toolchain version agrees",
+      "passed": true
+    },
+    {
+      "check": "mcp-checks-exports.json counts and every recorded assertion",
+      "passed": true
+    },
+    {
+      "check": "mcp-inspection.json counts and every recorded assertion",
+      "passed": true
+    },
+    {
+      "check": "codex-host.json counts and every recorded assertion",
+      "passed": true
+    },
+    {
+      "check": "All server/host stderr empty",
+      "passed": true
+    },
+    {
+      "check": "All raw/report map targets present",
+      "passed": true
+    },
+    {
+      "check": "Unit suite successful",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel hash unchanged",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/errors.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/server.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/service.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/__init__.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/checks.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/cli.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/exports.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/files.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/project.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/sexpr.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/__init__.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/resources/gerber.lp",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/resources/preview.lp",
+      "passed": true
+    },
+    {
+      "check": "README image unchanged from received SDK image",
+      "passed": true
+    },
+    {
+      "check": "Demo Codex timeout is 120 seconds",
+      "passed": true
+    },
+    {
+      "check": "Demo Claude JSON parses (not a connection test)",
+      "passed": true
+    },
+    {
+      "check": "Git diff whitespace",
+      "passed": true
+    },
+    {
+      "check": "Historical evidence unchanged",
+      "passed": true
+    }
+  ],
+  "note": "Metadata, artifact, source/wheel and documentation consistency checks; not additional LibrePCB integration."
+}

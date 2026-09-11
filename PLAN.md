@@ -24,11 +24,11 @@ Earlier exploratory estimates were 40–100 hours for a general inspection/expor
 
 ## Decision gates
 
-### Milestone progress (updated September 10)
+### Milestone progress (updated September 11)
 
 - [x] Day 1: Python 3.12.14 and portable LibrePCB 2.1.1 verified. Pinned CC0 D0 reader fixture. Real strict load, ERC/DRC, PDF/Gerber and PNG output jobs passed. Byte preservation and two negative probes passed. See `evidence/2026-09-10-day1/`.
 - [x] Day 2: SDK 2.2.0 and dependencies pinned; five STDIO inspection tools; allowlisted saved copies and revisions; format-2 parser. SDK integration passed 82 checks/27 calls, installed Codex host passed 7 checks, and 19 adapter/parser/file tests passed. Fresh Python environment verified. See `evidence/2026-09-10-day2/`. No Claude/UI connection claimed.
-- [ ] Day 3: model-facing checks/previews with conservative diagnostic parsing and real fault fixtures. Day 1 CLI results are groundwork; they do not complete this milestone.
+- [x] Day 3: eight tools with conservative checks, real ERC/DRC faults, native PNG, PDF and manufacturing exports. Packaged SDK run: 73 checks/20 calls; inspection regression: 82/27; Codex host: 12/10; unit/adapter tests: 33. Host-delivered image bytes were visually inspected by this agent; no live model turn or UI connection claimed. See `evidence/2026-09-11-day3/`. Private GitHub repository created with WIP README; not a release.
 - [ ] Days 4–7: editing experiment, hardening, packaging, owner trial and release candidate remain pending.
 
 ### Acceptance gates

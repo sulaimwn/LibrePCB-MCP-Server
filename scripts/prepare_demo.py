@@ -25,13 +25,14 @@ def main():
                  "--project-root", str(source), "--data-root", str(demo / "d")]
     codex = "\n".join(["[mcp_servers.librepcb]", f"command = {json.dumps(command)}",
                         f"args = {json.dumps(arguments)}", "startup_timeout_sec = 30",
-                        "tool_timeout_sec = 45", ""])
+                        "tool_timeout_sec = 120", ""])
     tomllib.loads(codex)
     (demo / "codex-config.toml").write_text(codex, encoding="utf-8")
     claude = {"mcpServers": {"librepcb": {"command": command, "args": arguments}}}
     (demo / "claude-desktop-config.json").write_text(json.dumps(claude, indent=2) + "\n", encoding="utf-8")
     prompt = (f"Use LibrePCB tools: check status, open {source / 'd0-reader.lpp'}, get its summary, "
-              "then inspect its components and nets. Report raw template values honestly.\n")
+              "then inspect its components and nets, run ERC and DRC, and show a schematic preview. "
+              "Report approved and unapproved findings separately and raw template values honestly.\n")
     (demo / "sample-prompt.txt").write_text(prompt, encoding="utf-8")
     print(json.dumps({"demo_directory": str(demo), "project": str(source / "d0-reader.lpp"),
                       "note": "Configuration snippets generated only; host settings were not changed."}, indent=2))

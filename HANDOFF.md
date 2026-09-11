@@ -1,4 +1,4 @@
-# ChatGPT ↔ Claude handoff
+# Project continuity and client handoff
 
 ## Shared rules
 
@@ -12,19 +12,23 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `docs/ENVIRONMENT.md`: exact interpreter/binary locations, versions, Git ownership workaround.
 - `docs/WINDOWS_SETUP.md`: setup and repeatable validation commands.
 - `docs/DECISIONS.md`: verified CLI traps, implementation boundaries and decisions.
-- `docs/DAY2.md`: actual five-tool contract, parser subset, SDK APIs, limits and client-test boundaries.
+- `docs/DAY2.md`: historical inspection contract and parser subset.
+- `docs/DAY3.md`: current eight-tool checks/export/image contract, limits and host-test boundary.
+- `evidence/2026-09-11-day3/README.md`: 33 unit tests, 82 inspection checks, 73 check/export/image checks, 12 Codex host checks and packaged-server evidence.
 - `evidence/2026-09-10-day2/README.md`: 82-check SDK run, seven-check installed Codex host run, 19 tests and dependency evidence.
 - `evidence/2026-09-10-day1/README.md`: results, failures encountered, raw-log map, remaining gaps.
 - `evidence/2026-09-10-day1/baseline.json`: eight real CLI command records and 13 passing assertions.
 - `toolchain.json`, `requirements.lock`, `pyproject.toml`: pinned LibrePCB/fixture, MCP SDK 2.2.0 and hash-locked Windows/Python 3.12 dependencies.
 
-Days 1 and 2 are finished. **Resume Day 3 at STATUS.md: MCP checks and previews.**
+Days 1–3 are finished. **Next is Day 4 at STATUS.md: prove one value edit.**
+The owner chose Codex to complete Day 3. Keep this packet for later continuity;
+there is no automatic handoff to Claude.
 Do not repeat downloads or replace the working SDK imports. No background server
 is required; hosts start STDIO processes when needed. Ready sample and generated
-Codex/Claude Desktop configuration snippets are in `work/demo-bf2ee7/`; no live
+Codex/Claude Desktop configuration snippets are in `work/demo-5d07c4/`; no live
 client config was changed. Recreate them with `scripts/prepare_demo.py` if needed.
 
-The Git repository is local, with no remote. Git commands from the normal user may need a per-command `-c safe.directory=<absolute repository path>` because the sandbox account created `.git`. See the recorded environment; avoid a global wildcard trust setting. Git writes may still require the coding client's permission flow.
+The private GitHub repository is `https://github.com/sulaimwn/LibrePCB-MCP-Server`, remote `origin`, branch `master`. The owner explicitly requested this upload with a WIP README. Downloaded runtimes, environments and scratch artifacts remain ignored. Git commands from the normal user may need a per-command `-c safe.directory=<absolute repository path>` because the sandbox account created `.git`. See the recorded environment; avoid a global wildcard trust setting. Git writes may still require the coding client's permission flow.
 
 ## Before switching
 
@@ -42,7 +46,7 @@ We are building LibrePCB MCP Server. Continue the existing project rather than s
 Project folder:
 C:\Users\vboxuser\Documents\Codex\2026-09-10\help-me-write-a-good-prompt\outputs\librepcb-mcp-server
 
-Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md and docs/DAY2.md. Inspect the actual files and Git state. Days 1 and 2 are complete: five read tools work with SDK 2.2.0 and the installed Codex host against LibrePCB 2.1.1. Continue Day 3's checks/previews from STATUS.md. Reuse the existing .venv and portable CLI. Keep source designs unchanged, use one writer at a time, and update STATUS.md with changes, actual test evidence and the next task before ending. No edit tool until the read/check/export MCP gate passes. Do not publish or deploy without an explicit request.
+Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md, docs/DAY2.md and docs/DAY3.md. Inspect files and Git. Days 1–3 are complete: eight tools perform inspection, checks, native PNG, PDF and Gerber exports with SDK 2.2.0 and the installed Codex host against LibrePCB 2.1.1. If asked to continue development, start Day 4's controlled value-edit experiment from STATUS.md. Reuse .venv and portable CLI. Preserve sources, use one writer, and update STATUS with actual evidence before stopping. No edit tool is a release candidate until its reopen/save/reopen, invariant, check, visual and rollback gates pass. Existing private GitHub publication was owner-requested; do not expand to a public release or deployment without a request.
 ```
 
 ## End-of-session record template
