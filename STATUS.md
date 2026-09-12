@@ -6,7 +6,7 @@ and no near-term Claude handoff. Keep the continuity files current regardless.
 
 ## Milestone
 
-**Days 1–4 complete. Next: Day 5 reliability work.** Package **0.1.0.dev4**.
+**Days 1–4 complete. Day 5 reliability is in progress.** Package **0.1.0.dev5** is being validated.
 Windows x64 / Python 3.12.14 / MCP SDK 2.2.0 / LibrePCB 2.1.1, stable format 2.
 The server remains WIP. Eight inspection/check/export tools are enabled by default;
 `--enable-experimental-edits` adds a ninth, `create_value_edit`.
@@ -25,6 +25,18 @@ Source, docs, tests, fixture, evidence and history are uploaded. Runtimes, envir
 scratch copies and credentials remain excluded.
 
 ## Implemented and files changed
+
+Day 5 work in progress: added cooperative whole-operation deadlines (including
+writer queue), transport cancellation checks, exclusive report storage, pending
+edit journals, failed-handle cleanup, and error reporting that preserves the
+original failure when storage also fails. `operations.py`, `adapters/reports.py`,
+CLI/file/service/transport code and `tests/test_reliability.py` are changing.
+The prior 42 tests and first 13 reliability tests passed. Real CLI/MCP recovery
+passed 38 checks / 7 completed MCP calls / 26 observed native invocations at
+`work/d5-b9ab7c/`. The installed Day 5 wheel passed the 73-check export/fault
+regression at `work/d3-4a5bd3/`. Final 57-test and packaged recovery/inspection/edit
+and Codex-host runs are active. The table below is Day 4's completed evidence,
+not a claim that all Day 5 changes have passed it yet.
 
 - `src/librepcb_mcp/adapters/edits.py`: bounded typed-attribute patch, control-save
   initialization checks, and exact full-file candidate invariants.
@@ -99,9 +111,10 @@ remain untested. Day 1/2/3 evidence is unchanged historical context.
 
 ## Running processes and operations
 
-No project test, MCP server, CLI or GUI process remains running. The installed-wheel
-run completed successfully. Final checks and publication are recorded in the Day 4
-evidence packet and current Git checkpoint. No model API calls, subscriptions,
+Day 5 verification is active: unit output `work/day5-unit-final.txt`, packaged
+Day 4 regression `work/d4-482d14/`, packaged reliability `work/d5-de8a3e/`, inspection
+`work/d2-d6a048/`, and a Codex host regression. These harnesses own their subprocesses
+and stop them at completion. No LibrePCB GUI is running. No model API calls, subscriptions,
 credential changes, maintainer contact, deployment, automation or persistent MCP
 client-config change was performed. Other desktop sessions were not stopped.
 

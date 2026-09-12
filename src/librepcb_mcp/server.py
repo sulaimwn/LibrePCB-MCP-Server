@@ -33,7 +33,17 @@ def create_server(service: ProjectService) -> MCPServer:
     export = ToolAnnotations(read_only_hint=False, destructive_hint=False, open_world_hint=False)
 
     async def call(operation: str, **arguments) -> CallToolResult:
-        result = await anyio.to_thread.run_sync(lambda: service.dispatch(operation, **arguments))
+        cancelled = anyio.get_cancelled_exc_class()
+
+        def cancel_check():
+            try:
+                anyio.from_thread.check_cancelled()
+            except cancelled as exc:
+                raise ProjectError("cancelled", "The client cancelled this operation. Partial artifacts are retained.") from exc
+
+        # Keep ownership of the worker until it has killed/reaped its CLI and
+        # recorded failure. Abandoning a thread does not stop its file writes.
+        result = await anyio.to_thread.run_sync(lambda: service.dispatch(operation, _cancel_check=cancel_check, **arguments))
         response = CallToolResult(content=[TextContent(text=json.dumps(result, ensure_ascii=True))],
                                   structured_content=result, is_error=not result["ok"])
         if len(response.model_dump_json(by_alias=True).encode("utf-8")) > 64_000:
@@ -110,11 +120,12 @@ def main() -> None:
     parser.add_argument("--project-root", action="append", required=True, help="Allowed local project directory; repeatable")
     parser.add_argument("--data-root", required=True, help="Directory for isolated snapshots and raw diagnostics")
     parser.add_argument("--timeout", type=float, default=30, help="CLI timeout in seconds, maximum 300")
+    parser.add_argument("--operation-timeout", type=float, help="Whole-operation budget in seconds, maximum 600; default 90, or 240 with experimental edits")
     parser.add_argument("--enable-experimental-edits", action="store_true", help="Opt in to one typed-resistance candidate edit")
     arguments = parser.parse_args()
     try:
         service = ProjectService(arguments.cli, arguments.project_root, arguments.data_root, timeout=arguments.timeout,
-                                 experimental_edits=arguments.enable_experimental_edits)
+                                 experimental_edits=arguments.enable_experimental_edits, operation_timeout=arguments.operation_timeout)
     except (ProjectError, ValueError, OSError) as exc:
         print(f"Configuration error: {exc}", file=sys.stderr)
         raise SystemExit(2) from exc

@@ -27,7 +27,7 @@
     "opencascade": "7.9.1",
     "mcp_sdk": "2.2.0",
     "codex_cli": "0.153.4",
-    "server_package": "0.1.0.dev4",
+    "server_package": "0.1.0.dev5",
     "github_cli": "2.100.0"
   },
   "python_dependencies": {

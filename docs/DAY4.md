@@ -1,5 +1,8 @@
 # Day 4: validated resistance candidates
 
+This is the Day 4 checkpoint. See [Day 5](DAY5.md) for current operation deadlines,
+cancellation, failure reports and recovery behavior.
+
 Implemented September 11, 2026: package **0.1.0.dev4**, Windows x64 / Python
 3.12.14 / MCP SDK 2.2.0 / LibrePCB 2.1.1 (stable format 2). Codex continues
 development; the owner requested regular GitHub pushes and no Claude handoff.

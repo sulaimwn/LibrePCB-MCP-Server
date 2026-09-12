@@ -36,7 +36,8 @@ Earlier exploratory estimates were 40–100 hours for a general inspection/expor
 - [x] Day 2: SDK 2.2.0 and dependencies pinned; five STDIO inspection tools; allowlisted saved copies and revisions; format-2 parser. SDK integration passed 82 checks/27 calls, installed Codex host passed 7 checks, and 19 adapter/parser/file tests passed. Fresh Python environment verified. See `evidence/2026-09-10-day2/`. No Claude/UI connection claimed.
 - [x] Day 3: eight tools with conservative checks, real ERC/DRC faults, native PNG, PDF and manufacturing exports. Packaged SDK run: 73 checks/20 calls; inspection regression: 82/27; Codex host: 12/10; unit/adapter tests: 33. Host-delivered image bytes were visually inspected by this agent; no live model turn or UI connection claimed. See `evidence/2026-09-11-day3/`. Private GitHub repository created with WIP README; not a release.
 - [x] Day 4: one typed-resistance candidate, real CLI and GUI save/reopen, exact design invariants, unchanged findings, previews/exports and actual discard/reopen rollback. Opt-in ninth MCP tool; 42 unit/adapter tests, 103 SDK checks/30 calls, 82 inspection checks/27 calls, 15 Codex host checks/13 calls. See `evidence/2026-09-11-day4/`.
-- [ ] Days 5–7: reliability, fresh-machine packaging/setup, owner trial and release candidate remain pending.
+- [ ] Day 5 in progress: cooperative deadlines/cancellation, failed-handle cleanup, report-storage failure handling and interrupted/retried operations; real recovery and packaged regressions running.
+- [ ] Days 6–7: fresh-machine packaging/setup, owner trial and release candidate remain pending.
 
 ### Acceptance gates
 

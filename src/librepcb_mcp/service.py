@@ -16,7 +16,9 @@ from librepcb_mcp.adapters.edits import CIRCUIT_FILE, resistance_edit, verify_ed
 from librepcb_mcp.adapters.exports import Artifact, JOB_NAMES, collect_artifacts, image_bytes, job_text
 from librepcb_mcp.adapters.files import capture, copy_capture, local_absolute, no_links
 from librepcb_mcp.adapters.project import ProjectData, inspect_project
+from librepcb_mcp.adapters.reports import write_json
 from librepcb_mcp.errors import ProjectError, require
+from librepcb_mcp.operations import checkpoint, operation_scope, validate_timeout
 
 TOOLS = ["get_status", "open_project", "get_project_summary", "list_components", "list_nets",
          "run_checks", "export_preview", "run_output_job"]
@@ -36,7 +38,9 @@ class Snapshot:
 
 class ProjectService:
     def __init__(self, cli: str, project_roots: list[str], data_root: str, *, timeout: float = 30,
-                 experimental_edits: bool = False):
+                 experimental_edits: bool = False, operation_timeout: float | None = None):
+        self.operation_timeout = operation_timeout if operation_timeout is not None else (240 if experimental_edits else 90)
+        validate_timeout(self.operation_timeout)
         require(bool(project_roots), "At least one project root is required.", "invalid_argument")
         self.roots = tuple(local_absolute(root) for root in project_roots)
         require(all(root.is_dir() for root in self.roots), "Configured project roots must exist.", "invalid_argument")
@@ -56,15 +60,27 @@ class ProjectService:
         self.tools = [*TOOLS, *(["create_value_edit"] if experimental_edits else [])]
         self.edit_attempts = 0
 
-    def dispatch(self, operation: str, **arguments) -> dict:
-        with self.lock:
+    def dispatch(self, operation: str, *, _cancel_check=None, **arguments) -> dict:
+        with operation_scope(self.operation_timeout, _cancel_check):
+            acquired = False
+            successful = False
+            snapshots_before, artifacts_before = set(), set()
             try:
+                # The same budget includes queueing; cancelled queued requests
+                # cannot acquire the writer lock later and start an edit.
+                while not acquired:
+                    checkpoint()
+                    acquired = self.lock.acquire(timeout=.05)
+                snapshots_before, artifacts_before = set(self.snapshots), set(self.artifacts)
+                checkpoint()
                 no_links(self.session_dir)
                 require(operation in self.tools, "Unknown operation.", "invalid_argument")
                 result = getattr(self, operation)(**arguments)
                 response = {"ok": True, "message": "Saved-project operation completed.", "data": result}
                 require(len(json.dumps(response).encode("utf-8")) <= 64_000,
                         "Result exceeds the supported response size.", "resource_limit")
+                checkpoint()
+                successful = True
                 return response
             except ProjectError as exc:
                 return {"ok": False, "error": exc.code, "message": str(exc), "details": exc.details}
@@ -73,9 +89,24 @@ class ProjectService:
                         "details": {"exception_type": type(exc).__name__}}
             except Exception:
                 artifact = self.session_dir / ("error-" + uuid4().hex + ".txt")
-                artifact.write_text(traceback.format_exc(), encoding="utf-8")
+                details = {}
+                try:
+                    no_links(artifact)
+                    with artifact.open("x", encoding="utf-8") as stream:
+                        stream.write(traceback.format_exc())
+                    details["diagnostic_artifact"] = str(artifact)
+                except (OSError, ProjectError) as exc:
+                    details["diagnostic_write_error"] = type(exc).__name__
                 return {"ok": False, "error": "internal_error", "message": "An unexpected error occurred.",
-                        "details": {"diagnostic_artifact": str(artifact)}}
+                        "details": details}
+            finally:
+                if acquired:
+                    if not successful:
+                        for key in self.snapshots.keys() - snapshots_before:
+                            self.snapshots.pop(key)
+                        for key in self.artifacts.keys() - artifacts_before:
+                            self.artifacts.pop(key)
+                    self.lock.release()
 
     def _cli_version(self) -> dict:
         no_links(self.runner.executable)
@@ -104,6 +135,7 @@ class ProjectService:
                 "output_jobs": ["schematic_pdf", "gerber_excellon"],
                 "limits": {"max_page_size": 100, "max_open_attempts_per_session": 32,
                            "max_check_export_operations": 64, "max_edit_attempts": 8, "max_response_bytes": 64000,
+                           "operation_timeout_seconds": self.operation_timeout, "cli_timeout_seconds": self.runner.timeout,
                            "max_preview_wire_bytes": 1500000, "max_log_bytes_per_stream": self.runner.max_log_bytes}}
 
     def _source(self, value: str) -> Path:
@@ -142,6 +174,7 @@ class ProjectService:
         return self._summary(snapshot)
 
     def _snapshot(self, project_id: str) -> Snapshot:
+        checkpoint()
         require(isinstance(project_id, str) and project_id in self.snapshots,
                 "Unknown project handle; open the project in this server session.", "invalid_argument")
         snapshot = self.snapshots[project_id]
@@ -211,6 +244,7 @@ class ProjectService:
         raise ProjectError("invalid_argument", "Unknown board_id for this saved project.")
 
     def _operation_directory(self) -> Path:
+        checkpoint()
         require(self.operation_count < 64, "Session check/export limit reached; restart the server.", "resource_limit")
         self.operation_count += 1
         directory = self.session_dir / f"r{self.operation_count:03d}"
@@ -246,17 +280,23 @@ class ProjectService:
             self._snapshot(project_id)
             if report["outcome"] == "indeterminate":
                 artifact = directory / "checks.json"
-                artifact.write_text(json.dumps(reports, indent=2), encoding="utf-8")
                 code = result.outcome if result.outcome != "completed" else "check_failed"
+                details = {"checks": reports}
+                try:
+                    write_json(artifact, reports)
+                    details["report_artifact"] = str(artifact)
+                except (OSError, ProjectError) as storage_error:
+                    details["report_write_error"] = type(storage_error).__name__
                 raise ProjectError(code, "A rule check could not be interpreted reliably; no pass is claimed.",
-                                   {"checks": reports, "report_artifact": str(artifact)})
+                                   details)
         record = {"project_id": project_id, "revision": snapshot.revision, "state": "saved_snapshot",
                   "outcome": "violations" if any(r["outcome"] == "violations" for r in reports) else "passed",
                   "approved_count": sum(r["approved_count"] for r in reports),
                   "unapproved_count": sum(r["unapproved_count"] for r in reports), "checks": reports,
                   "approval_details_available": False}
         artifact = directory / "checks.json"
-        artifact.write_text(json.dumps(record, indent=2), encoding="utf-8")
+        checkpoint()
+        write_json(artifact, record)
         record["report_artifact"] = str(artifact)
         return record
 
@@ -265,7 +305,8 @@ class ProjectService:
         output = directory / "files"
         output.mkdir(exist_ok=False)
         jobs = directory / "jobs.lp"
-        jobs.write_text(job_text(kind, board_id), encoding="utf-8", newline="\n")
+        with jobs.open("x", encoding="utf-8", newline="\n") as stream:
+            stream.write(job_text(kind, board_id))
         self._cli_version()
         project = snapshot.copy / snapshot.source.name
         result = self.runner.run(["open-project", "--jobs", str(jobs), "--run-job", JOB_NAMES[kind],
@@ -293,7 +334,8 @@ class ProjectService:
                   "job": kind, "board_id": board_id, "artifacts": [a.public() for a in artifacts],
                   "output_directory": str(output), "diagnostics": diagnostics}
         manifest = directory / "artifacts.json"
-        manifest.write_text(json.dumps(record, indent=2), encoding="utf-8")
+        checkpoint()
+        write_json(manifest, record)
         record["manifest_artifact"] = str(manifest)
         self.artifacts.update({a.identifier: a for a in artifacts})
         return record
@@ -340,13 +382,14 @@ class ProjectService:
         # Reject unsupported values/components before any candidate or CLI save.
         edit = resistance_edit(original, snapshot.source.name, component_id, new_value)
         require(self.edit_attempts < 8, "Session edit limit reached; restart the server.", "resource_limit")
+        require(self.operation_count <= 62, "Two check operations are required for an edit; session limit reached.", "resource_limit")
         self.edit_attempts += 1
         directory = self.session_dir / f"e{self.edit_attempts:02d}"
         no_links(directory)
         directory.mkdir(exist_ok=False)
         report_path = directory / "edit.json"
         record = {"outcome": "pending", "source_project_id": project_id, "source_revision": snapshot.revision,
-                  "change": edit.change, "cli_roundtrip": []}
+                  "change": edit.change, "cli_roundtrip": [], "operation_directory": str(directory)}
         identifier = None
 
         def cli_step(folder: Path, flags: list[str]):
@@ -361,6 +404,9 @@ class ProjectService:
             return capture(folder)
 
         try:
+            # Durable intent before starting native operations. A process crash
+            # can leave this and partial copies; it never makes a usable handle.
+            write_json(directory / "started.json", record)
             baseline = self.run_checks(project_id)
             record["baseline_checks"] = baseline
             require(baseline["outcome"] == "passed", "Resolve unapproved findings before experimental value editing.", "validation_failed")
@@ -395,13 +441,23 @@ class ProjectService:
             record["rollback"] = "Original was never modified. Close the candidate and discard its copy to abandon this edit."
             record["experimental"] = True
             record["report_artifact"] = str(report_path)
+            checkpoint()
+            write_json(report_path, record)
             return record
-        except Exception as exc:
+        except BaseException as exc:
             if identifier is not None:
                 self.snapshots.pop(identifier, None)
-            record.update(outcome="failed", error=getattr(exc, "code", "io_error"), message=str(exc))
-            if isinstance(exc, ProjectError):
-                raise ProjectError(exc.code, str(exc), {**exc.details, "report_artifact": str(report_path)}) from exc
-            raise
-        finally:
-            report_path.write_text(json.dumps(record, indent=2), encoding="utf-8")
+            code = getattr(exc, "code", "io_error" if isinstance(exc, OSError) else "internal_error")
+            record.pop("candidate", None)
+            record.pop("report_artifact", None)
+            record.update(outcome="failed", error=code, message=str(exc)[:1000])
+            details = {**getattr(exc, "details", {}), "operation_directory": str(directory)}
+            try:
+                failure_path = directory / "failure.json"
+                write_json(failure_path, record)
+                details["report_artifact"] = str(failure_path)
+            except (OSError, ProjectError) as storage_error:
+                details["report_write_error"] = type(storage_error).__name__
+            if not isinstance(exc, Exception):
+                raise
+            raise ProjectError(code, str(exc)[:1000], details) from exc

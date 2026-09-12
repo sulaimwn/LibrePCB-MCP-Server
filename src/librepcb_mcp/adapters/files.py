@@ -7,6 +7,7 @@ from pathlib import Path, PurePosixPath
 import stat
 
 from librepcb_mcp.errors import ProjectError, require
+from librepcb_mcp.operations import checkpoint
 
 MAX_FILE_BYTES = 16_000_000
 MAX_PROJECT_BYTES = 100_000_000
@@ -63,6 +64,7 @@ class Capture:
 
 def capture(directory: Path) -> Capture:
     """Capture saved files only, never autosaves, links, VCS data or GUI state."""
+    checkpoint()
     closed_project(directory)
     files = {}
     total = 0
@@ -72,6 +74,7 @@ def capture(directory: Path) -> Capture:
         parent = pending.pop()
         no_links(parent)
         for child in sorted(parent.iterdir()):
+            checkpoint()
             entries += 1
             require(entries <= MAX_ENTRIES, "Project contains too many entries.", "resource_limit")
             if child.name in VCS_DIRS:
@@ -98,11 +101,13 @@ def capture(directory: Path) -> Capture:
 
 
 def copy_capture(captured: Capture, destination: Path) -> None:
+    checkpoint()
     no_links(destination)
     require(os.name != "nt" or all(len(str(destination / name)) < 260 for name in captured.files),
             "Snapshot paths exceed this Windows setup's limit. Configure a shorter data-root directory.", "path_too_long")
     destination.mkdir(parents=True, exist_ok=False)
     for name, data in captured.files.items():
+        checkpoint()
         path = destination / relative_design_path(name)
         path.parent.mkdir(parents=True, exist_ok=True)
         no_links(path)

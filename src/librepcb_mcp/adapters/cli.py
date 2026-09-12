@@ -15,6 +15,10 @@ import threading
 import time
 from uuid import uuid4
 
+from librepcb_mcp.adapters.files import no_links
+from librepcb_mcp.errors import ProjectError
+from librepcb_mcp.operations import checkpoint
+
 
 @dataclass(frozen=True)
 class ProcessResult:
@@ -59,7 +63,9 @@ class ProcessRunner:
         self.max_log_bytes = max_log_bytes
 
     def run(self, args: list[str], *, cwd: Path) -> ProcessResult:
+        checkpoint()
         argv = (str(self.executable), *args)
+        no_links(self.logs_dir)
         self.logs_dir.mkdir(parents=True, exist_ok=True)
         operation_id = uuid4().hex
         stdout_path = self.logs_dir / f"{operation_id}.stdout.txt"
@@ -81,6 +87,7 @@ class ProcessRunner:
                 environment["LC_ALL"] = "C"
                 environment.pop("LIBREPCB_SUPPRESS_DEPRECATION_WARNINGS", None)
                 try:
+                    checkpoint()
                     process = subprocess.Popen(
                         argv,
                         cwd=cwd,
@@ -106,6 +113,7 @@ class ProcessRunner:
                             with pipe:
                                 while chunk := pipe.read1(16_384):
                                     destination.write(chunk[:remaining])
+                                    destination.flush()
                                     remaining -= min(len(chunk), remaining)
                                     if remaining == 0:
                                         # Reaching the cap also terminates the process;
@@ -120,6 +128,19 @@ class ProcessRunner:
                         reader.start()
                     try:
                         while True:
+                            try:
+                                checkpoint()
+                            except ProjectError as exc:
+                                process.kill()
+                                process.wait()
+                                outcome, error = exc.code, str(exc)
+                                break
+                            if reader_errors:
+                                process.kill()
+                                process.wait()
+                                outcome = "process_failed"
+                                error = "CLI diagnostics could not be stored."
+                                break
                             if overflow.is_set():
                                 process.kill()
                                 process.wait()

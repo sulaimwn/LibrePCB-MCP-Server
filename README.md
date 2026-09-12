@@ -103,6 +103,12 @@ Candidate handles last for that server session and become stale if you save the
 candidate in the GUI. Copy a candidate into an allowed project folder before
 opening it as a new source in a later session. Chaining candidate edits is deferred.
 
+Day 5 adds cancellation and a time budget for the whole operation, including
+waiting for other work: 90 seconds by default, or 240 with experimental editing.
+Failed operations retain their partial copies and diagnostics; retries use a new
+directory. A report-storage failure cannot turn an edit into a successful result.
+See [reliability and recovery](docs/DAY5.md) for timeout settings and cleanup limits.
+
 The real LibrePCB editor displayed the tested change **1.5 kΩ → 2.2 kΩ**, saved
 it and reopened it successfully. This is a narrow development experiment; see
 [Day 4 details](docs/DAY4.md) and [evidence](evidence/2026-09-11-day4/README.md).
