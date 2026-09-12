@@ -134,6 +134,11 @@ the experimental edit. The Day 4 packet records the full candidate/rollback MCP
 acceptance separately. All 184 original source files remain unchanged. Received
 schematic images and the GUI's saved/reopened value were visually inspected.
 
+Day 5 passes **57 unit/adapter tests** and **38 reliability checks**, including
+real cancellation, interrupted CLI execution and recovery after a report-storage
+failure. The installed package also passes the full 82/73/103-check regressions
+and 15 Codex host checks. See [Day 5 evidence](evidence/2026-09-12-day5/README.md).
+
 These results do not establish electrical correctness, production readiness or
 compatibility with arbitrary designs. A personal-project trial and fresh-machine
 installation remain later acceptance work. The GUI and editing evidence covers

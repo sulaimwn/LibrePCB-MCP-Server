@@ -13,7 +13,9 @@ inspection/check/export tools on Python 3.12.14, Windows x64, MCP SDK 2.2.0 and
 LibrePCB **2.1.1 / file format 2**. Read `docs/DAY2.md` for the inspection subset
 and `docs/DAY3.md` for checks, native PNG and fixed PDF/Gerber exports. Day 4
 adds an opt-in typed-resistance candidate tool, documented in `docs/DAY4.md`.
-General editing and live-editor control remain planned.
+Day 5 adds cooperative whole-operation deadlines/cancellation and failure recovery
+without expanding the tool set; see `docs/DAY5.md`. General editing and live-editor
+control remain planned.
 
 AI client → local MCP server → project adapter and CLI runner → isolated project copies and output artifacts.
 

@@ -1,0 +1,24 @@
+{
+  "project_id": "6707da2d27304bb2a52d337401ec5431",
+  "revision": "sha256:48941d9749d8449115f1994d9c60200dfe310da6834a8aa9838110bde879cc5e",
+  "state": "saved_snapshot",
+  "job": "schematic_pdf",
+  "board_id": null,
+  "artifacts": [
+    {
+      "artifact_id": "8ebcad2527194d1fbc4e69a429475956",
+      "path": "<REPO>\\work\\d3-4a5bd3\\d\\s-c5e1ba48862a\\r009\\files\\schematic.pdf",
+      "filename": "schematic.pdf",
+      "mime_type": "application/pdf",
+      "bytes": 103556,
+      "sha256": "85e50308f5bbd0f06f5c9d4a501e668b7cb23e6da36a22abef6b3aa94641a550"
+    }
+  ],
+  "output_directory": "<REPO>\\work\\d3-4a5bd3\\d\\s-c5e1ba48862a\\r009\\files",
+  "diagnostics": {
+    "stdout_artifact": "<REPO>\\work\\d3-4a5bd3\\d\\s-c5e1ba48862a\\logs\\716325a2fae044409e818129fd181950.stdout.txt",
+    "stderr_artifact": "<REPO>\\work\\d3-4a5bd3\\d\\s-c5e1ba48862a\\logs\\716325a2fae044409e818129fd181950.stderr.txt",
+    "exit_code": 0,
+    "process_outcome": "completed"
+  }
+}

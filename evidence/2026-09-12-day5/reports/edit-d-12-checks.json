@@ -1,0 +1,47 @@
+{
+  "project_id": "500e979cf97b45de87ce5a4b2767d564",
+  "revision": "sha256:eb684aa3cca6e9653666c77694bd944e27b6c1b02a0dd45b99db0a1a8204b1dd",
+  "state": "saved_snapshot",
+  "outcome": "violations",
+  "approved_count": 18,
+  "unapproved_count": 1,
+  "checks": [
+    {
+      "check": "erc",
+      "board": null,
+      "outcome": "violations",
+      "approved_count": 2,
+      "unapproved_count": 1,
+      "findings": [
+        {
+          "severity": "warning",
+          "message": "Less than two pins in net: 'MCP_DAY3_UNCONNECTED'",
+          "approved": false
+        }
+      ],
+      "findings_truncated": false,
+      "exit_code": 1,
+      "stdout_artifact": "<REPO>\\work\\d4-482d14\\d\\s-c4f061364126\\logs\\34a3e21ffbf7480db11b5912a40e99e2.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d4-482d14\\d\\s-c4f061364126\\logs\\34a3e21ffbf7480db11b5912a40e99e2.stderr.txt",
+      "diagnostic_notes": []
+    },
+    {
+      "check": "drc",
+      "board": {
+        "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+        "name": "default",
+        "file": "boards/default/board.lp"
+      },
+      "outcome": "passed",
+      "approved_count": 16,
+      "unapproved_count": 0,
+      "findings": [],
+      "findings_truncated": false,
+      "exit_code": 0,
+      "stdout_artifact": "<REPO>\\work\\d4-482d14\\d\\s-c4f061364126\\logs\\4bc86ecfde3e463ba08a5a244708ee2c.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d4-482d14\\d\\s-c4f061364126\\logs\\4bc86ecfde3e463ba08a5a244708ee2c.stderr.txt",
+      "diagnostic_notes": []
+    }
+  ],
+  "approval_details_available": false
+}

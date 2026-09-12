@@ -1,0 +1,14 @@
+Open project '<REPO>\work\cx-b86578\d\s-e9037a57748c\p01\d0-reader.lpp'...
+Run output job 'Gerber Excellon'...
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_DRILLS-NPTH.drl'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_DRILLS-PTH.drl'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_OUTLINES.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_COPPER-TOP.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_COPPER-BOTTOM.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_SOLDERMASK-TOP.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_SOLDERMASK-BOTTOM.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_SILKSCREEN-TOP.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_SILKSCREEN-BOTTOM.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_SOLDERPASTE-TOP.gbr'
+  => '<REPO>\work\cx-b86578\d\s-e9037a57748c\r004\files\gerber\board_SOLDERPASTE-BOTTOM.gbr'
+SUCCESS

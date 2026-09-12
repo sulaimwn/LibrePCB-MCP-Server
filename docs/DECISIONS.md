@@ -54,3 +54,21 @@ The KiCad reference uses IPC/SWIG backends. That is architectural inspiration, n
     this example. Native live-editor control remains a later milestone.
 23. **Manufacturing comparison includes volatile metadata.** Normalize only the
     creation timestamp and derived MD5 comments; require every other byte equal.
+
+
+## Day 5 decisions
+
+24. **One budget per domain operation.** Use a context-local cooperative deadline,
+    including the writer queue and nested CLI work. Poll cancellation without
+    abandoning the worker; stop/reap the direct child before releasing ownership.
+25. **Reports are part of candidate completion.** Create reports exclusively and
+    require the final report to succeed. Keep started/failure evidence, invalidate
+    failed handles, and preserve the primary error if diagnostic storage fails.
+26. **Recovery creates new copies.** Reserve enough check capacity before saving;
+    retry into a new directory and retain old outputs. Never infer a valid design
+    from an incomplete report or a handle from an earlier server session.
+27. **Describe the supervision boundary precisely.** Cooperative cancellation and
+    direct-child termination are tested. General child trees, forced parent death,
+    crash-atomic filesystem behavior and runtime disk quotas remain deferred.
+    Automatic cleanup is withheld because candidates may be wanted by the owner;
+    document manual cleanup only after owning processes exit.

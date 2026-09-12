@@ -1,0 +1,36 @@
+{
+  "project_id": "4db619c5d2e244ebad901a5916dbbf08",
+  "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+  "state": "saved_snapshot",
+  "job": "schematic_png",
+  "board_id": null,
+  "artifacts": [
+    {
+      "artifact_id": "b1155eebf8f64e1e8d5639931ad0d027",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r007\\files\\schematic1.png",
+      "filename": "schematic1.png",
+      "mime_type": "image/png",
+      "bytes": 93974,
+      "sha256": "bd7bbe16ea95ed9605bbce638eefb991a7ca45bca2b80676d949c58f204b1957",
+      "width": 1754,
+      "height": 1239
+    },
+    {
+      "artifact_id": "22f2e26e0f724f77821473b091f086aa",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r007\\files\\schematic2.png",
+      "filename": "schematic2.png",
+      "mime_type": "image/png",
+      "bytes": 128774,
+      "sha256": "997058ea53660d75b7a73892d6084ddb39cb4588243b6d8fba208d38118285bf",
+      "width": 1754,
+      "height": 1239
+    }
+  ],
+  "output_directory": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r007\\files",
+  "diagnostics": {
+    "stdout_artifact": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\logs\\621ef998fc5247bc82c2cad4091ad1c5.stdout.txt",
+    "stderr_artifact": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\logs\\621ef998fc5247bc82c2cad4091ad1c5.stderr.txt",
+    "exit_code": 0,
+    "process_outcome": "completed"
+  }
+}

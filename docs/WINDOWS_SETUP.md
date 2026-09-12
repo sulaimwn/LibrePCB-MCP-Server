@@ -1,6 +1,6 @@
 # Windows development quickstart
 
-Day 4 supports saved-project inspection, checks, native PNG/PDF/Gerber exports
+Day 5 supports saved-project inspection, checks, native PNG/PDF/Gerber exports
 and opt-in typed-resistance candidates through a local STDIO MCP server. Tested:
 Windows x64, Python 3.12.14, LibrePCB 2.1.1, MCP SDK 2.2.0.
 
@@ -13,13 +13,14 @@ Run from PowerShell in this repository:
 & '.\.venv\Scripts\python.exe' scripts/verify_mcp.py
 & '.\.venv\Scripts\python.exe' scripts/verify_day3.py
 & '.\.venv\Scripts\python.exe' scripts/verify_day4.py
+& '.\.venv\Scripts\python.exe' scripts/verify_day5.py
 ```
 
-Expected: 42 tests pass, inspection reports `passed: true` with 82 checks / 27
-MCP calls, Day 3 reports 73 checks / 20 calls, and Day 4 reports 103 checks / 30 calls. All three harnesses use SDK clients,
+Expected: 57 tests pass, inspection reports `passed: true` with 82 checks / 27
+MCP calls, Day 3 reports 73 checks / 20 calls, and Day 4 reports 103 checks / 30 calls. Day 5 adds 38 reliability checks, seven completed MCP calls, two cancelled requests and 26 observed direct CLI invocations. All four harnesses use SDK clients,
 the real server and real LibrePCB; they do not call a model. Unique copies and
-logs go under `work/d2-<id>/`, `work/d3-<id>/` and `work/d4-<id>/`, with exact `report.json` results.
-Server processes stop at completion. Allow a few minutes for the combined suite.
+logs go under `work/d2-<id>/`, `work/d3-<id>/`, `work/d4-<id>/` and `work/d5-<id>/`, with exact `report.json` results.
+Server processes stop at completion. Allow several minutes per larger harness.
 
 For the optional installed Codex host test:
 
@@ -99,7 +100,7 @@ To inspect a personal project later, configure its containing directory as a
 Keep `--data-root` separate and reasonably short. The server rejects locks,
 recovery data, linked paths, unsupported formats and stale revisions. See
 [inspection limits](DAY2.md), [Day 3 exports](DAY3.md) and [Day 4 candidate
-lifecycle/rollback](DAY4.md). Only separate candidates are edited. Use decimal
+lifecycle/rollback](DAY4.md), and [Day 5 cancellation/deadlines/recovery](DAY5.md). Only separate candidates are edited. Use decimal
 strings in the existing resistance unit, and the source's current revision.
 
 ## Direct CLI baseline and artifacts

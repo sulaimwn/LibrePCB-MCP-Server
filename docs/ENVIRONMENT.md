@@ -1,6 +1,6 @@
 # Recorded development environment
 
-Verified locally through 2026-09-11. Paths describe this machine; use explicit arguments on another machine.
+Verified locally through 2026-09-12. Paths describe this machine; use explicit arguments on another machine.
 
 | Item | Observed value |
 | --- | --- |
@@ -15,7 +15,7 @@ Verified locally through 2026-09-11. Paths describe this machine; use explicit a
 | Qt | 6.10.1, compiled against 6.10.1 |
 | OpenCascade | 7.9.1 |
 | MCP SDK | 2.2.0; all 36 runtime/build dependencies pinned with wheel hashes |
-| Package / build backend | 0.1.0.dev4 / hatchling 1.32.0, editables 0.6 |
+| Package / build backend | 0.1.0.dev5 / hatchling 1.32.0, editables 0.6 |
 | MCP protocols tested with SDK | 2025-11-25 (legacy), 2026-07-28 (automatic) |
 | Installed host tested | codex-cli 0.153.4, direct app-server MCP calls |
 | GitHub CLI | 2.100.0, verified official Windows portable download; development publication only |
@@ -44,6 +44,9 @@ Its 36 hash-locked dependencies were installed in Day 2. Day 3 replaced the
 editable install with a wheel. Day 4 installed the noneditable `0.1.0.dev4` wheel, verified site-packages
 and resource loading, and passed `pip check`. The full Day 4 candidate acceptance
 is recorded in the Day 4 evidence packet. Its wheel is under `work/day4-wheel/`.
+Day 5 replaced that wheel with noneditable `0.1.0.dev5`, passed all four SDK
+acceptance/regression harnesses and the Codex host, and passed `pip check` in both
+environments. The tested wheel and hash are recorded in the Day 5 packet.
 This is an ignored isolated test environment, not a fresh-machine trial.
 
 Tested Codex executable:

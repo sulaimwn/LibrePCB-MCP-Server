@@ -1,0 +1,30 @@
+{
+  "project_id": "446dc4000bd146f4960584238c8835b1",
+  "revision": "sha256:eb684aa3cca6e9653666c77694bd944e27b6c1b02a0dd45b99db0a1a8204b1dd",
+  "state": "saved_snapshot",
+  "outcome": "violations",
+  "approved_count": 2,
+  "unapproved_count": 1,
+  "checks": [
+    {
+      "check": "erc",
+      "board": null,
+      "outcome": "violations",
+      "approved_count": 2,
+      "unapproved_count": 1,
+      "findings": [
+        {
+          "severity": "warning",
+          "message": "Less than two pins in net: 'MCP_DAY3_UNCONNECTED'",
+          "approved": false
+        }
+      ],
+      "findings_truncated": false,
+      "exit_code": 1,
+      "stdout_artifact": "<REPO>\\work\\d3-4a5bd3\\d\\s-c5e1ba48862a\\logs\\6902dab979c2404c9983b7a090198a5e.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d3-4a5bd3\\d\\s-c5e1ba48862a\\logs\\6902dab979c2404c9983b7a090198a5e.stderr.txt",
+      "diagnostic_notes": []
+    }
+  ],
+  "approval_details_available": false
+}

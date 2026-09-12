@@ -1,136 +1,131 @@
 # Current project status
 
-Updated September 11, 2026, America/Toronto. **Codex remains the active writer.**
-The owner requested Day 4 and necessary supporting work, regular GitHub pushes,
-and no near-term Claude handoff. Keep the continuity files current regardless.
+Updated September 12, 2026, America/Toronto. **Codex remains the active writer.**
+The owner said to keep going, maintain context and push regularly. No Claude
+handoff is planned. Use these milestone names, not elapsed calendar days.
 
 ## Milestone
 
-**Days 1–4 complete. Day 5 reliability is in progress.** Package **0.1.0.dev5** is being validated.
-Windows x64 / Python 3.12.14 / MCP SDK 2.2.0 / LibrePCB 2.1.1, stable format 2.
-The server remains WIP. Eight inspection/check/export tools are enabled by default;
-`--enable-experimental-edits` adds a ninth, `create_value_edit`.
-
-The new tool creates a separate typed-resistance candidate, validates real CLI
-strict-open/save/reopen, preserves all other design bytes, and compares ERC/DRC
-against the source. It checks expected source revision and locks, rejects
-unsupported shapes/part choices and unapproved findings, and never replaces the
-original. See `docs/DAY4.md` for exact scope, limits and candidate lifecycle.
+**Days 1–5 complete. Next: Day 6 installation and user-workflow trial.**
+Package **0.1.0.dev5**; Windows x64 / Python 3.12.14 / MCP SDK 2.2.0 /
+LibrePCB 2.1.1, stable format 2, revision 06465bf. Dependency lock unchanged.
+The server remains WIP: eight tools by default, with opt-in ninth
+`create_value_edit`. No general editing, native GUI API, placement or routing.
 
 GitHub: [sulaimwn/LibrePCB-MCP-Server](https://github.com/sulaimwn/LibrePCB-MCP-Server),
-**private**, branch `master`, remote `origin`. The owner authorized continuing
-pushes. The initial Day 4 GUI/CLI proof checkpoint is `b0079f8`; the final current
-checkpoint is identified by `git log -1`. No public release or deployment is claimed.
-Source, docs, tests, fixture, evidence and history are uploaded. Runtimes, environments,
-scratch copies and credentials remain excluded.
+**private**, `origin`, branch `master`. Regular pushes are owner-authorized.
+Day 4 completed at `ebbd277`; initial Day 5 implementation was pushed as `79040fe`.
+The final current checkpoint is identified by `git log -1`. This is development
+publication, not a public software release or deployment.
 
-## Implemented and files changed
+## Day 5 changes
 
-Day 5 work in progress: added cooperative whole-operation deadlines (including
-writer queue), transport cancellation checks, exclusive report storage, pending
-edit journals, failed-handle cleanup, and error reporting that preserves the
-original failure when storage also fails. `operations.py`, `adapters/reports.py`,
-CLI/file/service/transport code and `tests/test_reliability.py` are changing.
-The prior 42 tests and first 13 reliability tests passed. Real CLI/MCP recovery
-passed 38 checks / 7 completed MCP calls / 26 observed native invocations at
-`work/d5-b9ab7c/`. The installed Day 5 wheel passed the 73-check export/fault
-regression at `work/d3-4a5bd3/`. Final 57-test and packaged recovery/inspection/edit
-and Codex-host runs are active. The table below is Day 4's completed evidence,
-not a claim that all Day 5 changes have passed it yet.
+- `operations.py`: cooperative request budget, shared by nested CLI/domain work.
+  The budget includes waiting for the writer lock and project-file loops. Default
+  90 seconds, or 240 with experimental editing; `--operation-timeout` can select
+  a positive finite limit up to 600 seconds. Per-CLI default remains 30 seconds.
+- `server.py`: worker cancellation uses verified AnyIO callbacks; it does not
+  abandon a thread that is still writing. `service.py` prevents expired/cancelled
+  queued work from starting and removes new handles/registrations on failure.
+- CLI/file adapters: checkpoints during file capture/copy and process waits;
+  direct-child kill/reap on cancellation or timeout. Flush bounded logs and stop
+  the child if log storage fails. No process-tree adapter was added.
+- `adapters/reports.py`: exclusive report creation with linked-path rejection.
+  Candidate operations record `started.json`, require final `edit.json` storage,
+  and retain a separate `failure.json` where possible. Failed report storage cannot
+  mask the original failure. Rule-check and unexpected-error diagnostics also cope
+  with storage failure. Retries preserve all previous operation directories.
+- Edits require capacity for both baseline/candidate check operations before saving.
+  The existing typed-resistance scope, exact byte invariants and opt-in gate remain.
+- `tests/test_reliability.py`: 15 added tests for budgets, cancellation, writer
+  queueing, real subprocess/log failures, failed reports, retry and registration
+  cleanup. Synthetic fault cases are labeled; real LibrePCB acceptance is separate.
+- `scripts/verify_day5.py`: actual interrupted CLI invocation, report-write failure
+  after native validation, successful retries, real MCP active/queued cancellation,
+  recovery and restart. README, setup, plan/spec, continuity and evidence updated.
 
-- `src/librepcb_mcp/adapters/edits.py`: bounded typed-attribute patch, control-save
-  initialization checks, and exact full-file candidate invariants.
-- `service.py`: opt-in candidate creation, expected/source/candidate revisions,
-  saved unedited control, strict/save/strict verification, baseline/candidate
-  findings comparison, session limit and failure reports. Returned candidate
-  handles work with existing read/check/export tools.
-- `server.py`: opt-in ninth tool and launch flag; default tools remain eight.
-  Package metadata/version updated to `0.1.0.dev4`; dependency lock unchanged.
-- `scripts/verify_value_roundtrip.py`, `verify_day4.py`: real CLI probe and full
-  SDK candidate/rejection/export/rollback acceptance. Codex host harness adds
-  `--experimental-edits`. `prepare_demo.py` adds matching config generation.
-- `tests/test_edits.py`: nine tests for exact scalar changes, unsafe/unchanged
-  values, unsupported components/part choices, Unicode, control-save boundaries
-  and unrelated design changes. Existing 33 tests retained.
-- README, PLAN, SPEC, HANDOFF, CLAUDE, environment/setup/decision/research notes,
-  `docs/DAY4.md`, and `evidence/2026-09-11-day4/` updated for continuation.
+## Checks actually performed
 
-## Validation actually performed
+Final integration rows below use the **noneditable Day 5 wheel** installed in
+`work/v2`; module loading from site-packages was verified. Unit tests use `.venv`.
 
-| Check | Result |
+| Run | Result and path |
 | --- | --- |
-| Unit/adapter suite | **42 passed**, 25.669 s, `work/day4-unit-tests.txt`. Synthetic fixtures cover failure modes; actual process/filesystem tests remain included. |
-| Existing SDK inspection regression | **82 checks / 27 calls passed**, `work/d2-2ed875/`, editable Day 4 package. |
-| SDK candidate/edit/rollback acceptance | **103 checks / 30 calls passed** in both `work/d4-291dd8/` (editable) and `work/d4-b5b753/` (installed wheel). Both reports are retained in the Day 4 evidence packet. |
-| Installed Codex host | **15 checks / 13 calls passed**, `work/cx-b6e940/`. All nine tools, validated candidate and native edited image. Stderr empty. |
-| Real GUI save/reopen | R17 visibly **1.5 kΩ → 2.2 kΩ**. Actual editor saved candidate, closed, restarted and displayed 2.2 kΩ again. Independent unmodified GUI-saved control comparison passed. |
-| CLI strict/save/strict probe | Passed at `work/d4p-89d75/`; reproducible via `scripts/verify_value_roundtrip.py`. |
-| Package | Day 4 wheel installed noneditable in existing isolated `work/v2`; site-packages loading verified and full 103-check acceptance passed. `pip check` passed in both environments. |
-| Final consistency review | **38 checks passed**: source/wheel match, pinned fixture and dependencies, report counts, artifact links, image hashes, config snippets and unchanged historical evidence. |
-| Demo | `work/demo-4a5686/`: unchanged sample and experimental Codex/Claude snippets with 300-second tool timeout. No persistent client configuration edited. |
+| Unit/adapter suite | **57 passed**, 160.095 seconds; `work/day5-unit-final.txt`. |
+| New real CLI/MCP reliability | **38 checks / 7 completed MCP calls**, plus two cancelled requests and **26 observed direct service CLI invocations**; `work/d5-de8a3e/`. |
+| Existing inspection regression | **82 checks / 27 calls passed**; `work/d2-d6a048/`. |
+| Checks/export/native-image/fault regression | **73 checks / 20 calls passed**; `work/d3-4a5bd3/`. |
+| Candidate/edit/rollback regression | **103 checks / 30 calls passed**; `work/d4-482d14/`. |
+| Installed Codex host | **15 checks / 13 calls passed** with experimental edits; `work/cx-b86578/`. Direct ephemeral calls; no model turn. |
+| Package/dependencies | Noneditable wheel `work/day5-wheel/librepcb_mcp_server-0.1.0.dev5-py3-none-any.whl`; both environments passed `pip check`. |
+| Final consistency review | **47 checks passed**: source/wheel match, pinned hashes, evidence counts/artifacts, docs links and unchanged earlier evidence. |
 
-Fixture remains 97 components, 48 nets, one board and two sheets. Baseline and
-candidate keep **2 ERC / 16 DRC approvals**, zero unapproved findings. The tests
-preserve all 184 original files. Saved controls/candidates add four editor
-preference files (188 total). After equivalent save behavior, only the intended
-resistance scalar differs. Main PNG is unchanged; Ethernet changes as expected.
-PDF exports work. Gerber/drill files retain identical nonvolatile content; only
-creation-time comments and derived checksum comments differ.
+All final server/host stderr files are empty. Exact reports, mapped raw CLI logs,
+started/failure/success records and wheel hashes are under
+`evidence/2026-09-12-day5/`. Earlier editable recovery also passed 38 checks at
+`work/d5-b9ab7c/`; the final packet uses the installed run above as authoritative.
 
-Rollback was actually tested: after MCP shutdown, the harness verified and removed
-only its closed, known candidate copy, then reopened the original through a fresh
-client at 1.5 kΩ. Invalid/stale inputs, locks, occupied candidate directories,
-candidate chaining and an actual ERC-fault source were rejected and preserved.
+The CC0 fixture remains 97 components, 48 nets, one board, two sheets and 184
+untouched source files. Validated R17 candidates retain 2 approved ERC / 16 approved
+DRC findings and zero unapproved findings; saved controls/candidates have 188 files.
+Day 4's actual GUI save/reopen screenshots remain historical visual proof. GUI
+was not rerun for reliability changes. Day 5 reran native preview/export delivery,
+real rule-fault detection, exact candidate invariants and actual rollback.
 
-The actual GUI and Codex-delivered edited PNG were visually inspected. GUI test
-helpers used a private workspace/config and scoped input to the owned process.
-This does not introduce live-editor control into the product. Codex host calls
-were direct/ephemeral, without a model turn; Claude and a live chat installation
-remain untested. Day 1/2/3 evidence is unchanged historical context.
+## Failures exercised and resolved
 
-## Resolved issues and remaining limits
+- Interrupted one real CLI `--save` invocation with a deliberate 10 ms timeout.
+  It failed with retained logs/control and no candidate handle. The source stayed
+  unchanged. This does not identify which internal save phase was reached.
+- Injected final report-write failure after actual successful LibrePCB candidate
+  validation. The tool failed, removed its handle, retained failure evidence and
+  then successfully retried into a new directory, preserving earlier outputs.
+- Cancelled an active and queued edit through real SDK STDIO requests. The active
+  request recorded cancellation, the queued request never started, and subsequent
+  source inspection and a same-session edit retry succeeded. Restart rejected old
+  handles and reopened the original source unchanged.
+- Initial combined unit run had 56 passes and one test KeyError: the test expected
+  `process_outcome` inside an interpreted check, which stores timeout in
+  `diagnostic_notes`. Corrected the assertion; final 57-test suite passed.
 
-- CLI saving adds `settings.user.lp`; GUI saving fills board-layer visibility.
-  Validate against independent saved controls instead of overlooking file changes.
-- A Gerber comparison initially failed on the derived MD5 after timestamp changes.
-  Only those two metadata fields are normalized in the final comparison.
-- An initial part-choice unit fixture modified the wrong shared-device instance;
-  selecting R17 by parsed component ID fixed it. Final 42-test suite passes.
-- GUI `--help` does not print help; the exploratory process hit its timeout and
-  was stopped. Subsequent trials used supported project arguments and isolated
-  environment settings. Foreground checks stopped input when focus moved away.
-- Editing remains opt-in and narrow: one board, plain decimal typed resistance,
-  no populated part choices/extra attributes/chaining. No arbitrary editing,
-  placement, wiring, routing or native API bridge. No electrical-correctness claim.
-- Candidate handles expire with the session and become stale after external saves.
-  Copy a closed candidate into an allowed project folder for later-session use.
-- Cooperative revision checks are not atomic filesystem transactions. There is
-  no operation-wide deadline, automated retention, runtime disk quota or general
-  child-process-tree supervision. Fresh-machine and personal-design trials remain.
-- Server license selection and owner trial remain open; the fixture is CC0.
+## Boundaries and recovery
 
-## Running processes and operations
+See `docs/DAY5.md` for operation budgets, cancellation, retained files and recovery.
+Deadlines are cooperative, not atomic or hard real-time: an individual stalled
+filesystem call or cleanup can exceed the nominal budget. General descendant
+supervision and forced server-process termination remain unsupported. Confirm
+owned LibrePCB processes have exited before cleaning an abruptly ended session.
+Automatic retention and runtime disk quotas remain deferred; preserve wanted
+candidates and clean only inactive, known session directories manually.
 
-Day 5 verification is active: unit output `work/day5-unit-final.txt`, packaged
-Day 4 regression `work/d4-482d14/`, packaged reliability `work/d5-de8a3e/`, inspection
-`work/d2-d6a048/`, and a Codex host regression. These harnesses own their subprocesses
-and stop them at completion. No LibrePCB GUI is running. No model API calls, subscriptions,
-credential changes, maintainer contact, deployment, automation or persistent MCP
-client-config change was performed. Other desktop sessions were not stopped.
+Only closed saved projects and the documented typed-resistance shape are supported.
+Candidate handles expire with the server session or external saves; copy a closed
+candidate to an allowed project folder for later-session use. No source replacement
+or model-facing deletion tool exists. No electrical-correctness claim is made.
 
-## Next task — Day 5 reliability, Codex continues
+Fresh-machine setup, owner/personal-design trial, persistent MCP UI installation,
+Claude connection and a server license choice remain open. Existing isolated-env
+wheel tests do not establish a fresh-machine installation. No subscription keys,
+model API calls, credential changes, maintainer contact, automation or deployment.
 
-1. Read AGENTS, STATUS, PLAN, SPEC, `docs/DAY4.md`, DECISIONS, ENVIRONMENT and
-   Day 4 evidence; inspect Git. Reuse `.venv`, portable LibrePCB and SDK 2.2.0.
-   One writer at a time; continue regular meaningful pushes to the same repo.
-2. Harden the existing nine-tool scope: interrupted/failed candidate save or
-   report storage, cumulative deadlines, stale/locked candidates, retained partial
-   artifacts, operation limits and recovery. Preserve source and existing output.
-3. Reproduce failures with bounded tests and real CLI where relevant. Do not
-   expand to placement/routing or native bindings during this reliability milestone.
-4. Keep experimental edits disabled by default. Document retention and clean
-   shutdown behavior before broader trials. Owner deferred switching to Claude;
-   keep handoff docs ready, but do not require a second client to make progress.
-5. Day 6 remains fresh-machine/setup workflow and owner review; Day 7 is a release
-   candidate only if its gates pass. Native GUI API investigation is after the
-   initial milestones, beginning with one footprint-pad move/undo experiment.
+## Running processes
+
+All Day 5 test harnesses have completed. No owned MCP server, LibrePCB CLI or GUI
+process remains running. Other desktop sessions were not stopped. Generated demo
+snippets at `work/demo-4a5686/` remain available; no persistent client config changed.
+
+## Next task — Day 6, Codex continues
+
+1. Read AGENTS/STATUS/PLAN/SPEC, `docs/DAY5.md`, environment/setup notes and current
+   evidence; inspect Git. Reuse the pinned portable runtime and dependency lock.
+2. Follow the Windows quickstart from a clean checkout/environment, checking the
+   bootstrap and generated config/sample paths as a user would. Keep this distinct
+   from a fresh-machine claim if the same Windows machine is used.
+3. Package and walk through open → inspect → checks → native preview → PDF/export;
+   optionally demonstrate the narrowly supported candidate edit. Prepare concrete
+   artifacts and a reviewable client configuration before an owner trial.
+4. Record any actual installation failures, exact commands and recovery. Keep the
+   WIP/experimental gates and source preservation. A second client is optional;
+   the owner deferred Claude. Continue meaningful GitHub pushes.
+5. Owner review and license choice remain release gates. Day 7 is a local release
+   candidate only when its gates pass. No native-fork expansion during packaging.

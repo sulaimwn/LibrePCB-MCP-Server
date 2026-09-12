@@ -1,0 +1,161 @@
+{
+  "outcome": "failed",
+  "source_project_id": "c538d5c3c6e845afb6a2909be720a9ff",
+  "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+  "change": {
+    "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+    "reference": "R17",
+    "file": "circuit/circuit.lp",
+    "field": "RESISTANCE",
+    "type": "resistance",
+    "unit": "kiloohm",
+    "before": "1.5",
+    "after": "2.2",
+    "value_raw": "{{RESISTANCE}}",
+    "character_span": [
+      10716,
+      10721
+    ]
+  },
+  "cli_roundtrip": [
+    {
+      "flags": [
+        "--save"
+      ],
+      "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\f5d83fb994cb4080b010dae3dd0de579.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\f5d83fb994cb4080b010dae3dd0de579.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    },
+    {
+      "flags": [
+        "--strict"
+      ],
+      "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\d86ad3878dca4522813f0a93fa33a0a9.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\d86ad3878dca4522813f0a93fa33a0a9.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    },
+    {
+      "flags": [
+        "--save"
+      ],
+      "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\18213ef01a554ef9835e25a9a7f185df.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\18213ef01a554ef9835e25a9a7f185df.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    },
+    {
+      "flags": [
+        "--strict"
+      ],
+      "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\950256d02f8c470d94c32637b9c5a6ba.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\950256d02f8c470d94c32637b9c5a6ba.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    }
+  ],
+  "operation_directory": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\e02",
+  "baseline_checks": {
+    "project_id": "c538d5c3c6e845afb6a2909be720a9ff",
+    "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+    "state": "saved_snapshot",
+    "outcome": "passed",
+    "approved_count": 18,
+    "unapproved_count": 0,
+    "checks": [
+      {
+        "check": "erc",
+        "board": null,
+        "outcome": "passed",
+        "approved_count": 2,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\af5e6cc9326d4d45859a376bb787ee94.stdout.txt",
+        "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\af5e6cc9326d4d45859a376bb787ee94.stderr.txt",
+        "diagnostic_notes": []
+      },
+      {
+        "check": "drc",
+        "board": {
+          "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+          "name": "default",
+          "file": "boards/default/board.lp"
+        },
+        "outcome": "passed",
+        "approved_count": 16,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\b24a12b6666041feabf3848f6ce2d844.stdout.txt",
+        "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\b24a12b6666041feabf3848f6ce2d844.stderr.txt",
+        "diagnostic_notes": []
+      }
+    ],
+    "approval_details_available": false,
+    "report_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\r002\\checks.json"
+  },
+  "generated_preference_files": [
+    "boards/default/settings.user.lp",
+    "project/settings.user.lp",
+    "schematics/ethernet/settings.user.lp",
+    "schematics/main/settings.user.lp"
+  ],
+  "invariants": {
+    "exact_expected_files": true,
+    "file_count": 188,
+    "changed_files": [
+      "circuit/circuit.lp"
+    ],
+    "identifiers_connectivity_geometry_and_other_bytes_preserved": true
+  },
+  "candidate_checks": {
+    "project_id": "4b06c832d7f0460cb19894ebb4a10036",
+    "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+    "state": "saved_snapshot",
+    "outcome": "passed",
+    "approved_count": 18,
+    "unapproved_count": 0,
+    "checks": [
+      {
+        "check": "erc",
+        "board": null,
+        "outcome": "passed",
+        "approved_count": 2,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\f31d316531224458a17e0683282210b2.stdout.txt",
+        "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\f31d316531224458a17e0683282210b2.stderr.txt",
+        "diagnostic_notes": []
+      },
+      {
+        "check": "drc",
+        "board": {
+          "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+          "name": "default",
+          "file": "boards/default/board.lp"
+        },
+        "outcome": "passed",
+        "approved_count": 16,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\f8178f07843a44a6aafb5ee7b9067354.stdout.txt",
+        "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\f8178f07843a44a6aafb5ee7b9067354.stderr.txt",
+        "diagnostic_notes": []
+      }
+    ],
+    "approval_details_available": false,
+    "report_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\r003\\checks.json"
+  },
+  "rollback": "Original was never modified. Close the candidate and discard its copy to abandon this edit.",
+  "experimental": true,
+  "error": "io_error",
+  "message": "[Errno 28] Injected final report storage failure after real LibrePCB validation"
+}

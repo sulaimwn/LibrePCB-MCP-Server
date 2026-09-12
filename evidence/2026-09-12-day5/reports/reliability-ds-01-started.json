@@ -1,0 +1,22 @@
+{
+  "outcome": "pending",
+  "source_project_id": "c538d5c3c6e845afb6a2909be720a9ff",
+  "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+  "change": {
+    "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+    "reference": "R17",
+    "file": "circuit/circuit.lp",
+    "field": "RESISTANCE",
+    "type": "resistance",
+    "unit": "kiloohm",
+    "before": "1.5",
+    "after": "2.2",
+    "value_raw": "{{RESISTANCE}}",
+    "character_span": [
+      10716,
+      10721
+    ]
+  },
+  "cli_roundtrip": [],
+  "operation_directory": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\e01"
+}

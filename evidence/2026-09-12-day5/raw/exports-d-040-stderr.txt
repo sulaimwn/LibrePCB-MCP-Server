@@ -1,0 +1,1 @@
+      - [ERROR] Trace width on 'Top Copper': 0.01 < 0.2 mm

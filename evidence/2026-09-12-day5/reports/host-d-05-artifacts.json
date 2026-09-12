@@ -1,0 +1,104 @@
+{
+  "project_id": "58ed622dbc1e410396d8fee18ab08c69",
+  "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+  "state": "saved_snapshot",
+  "job": "gerber_excellon",
+  "board_id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+  "artifacts": [
+    {
+      "artifact_id": "4efb71e6eebe4ed7b75472987113f81a",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_COPPER-BOTTOM.gbr",
+      "filename": "board_COPPER-BOTTOM.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 192191,
+      "sha256": "b6df9b973ffe6bd5d0c34b67675dcc6253b3bc6017ca0f333e6db6d03738d27d"
+    },
+    {
+      "artifact_id": "e04ad48c369b41e9bcd5c8c1c384a0b1",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_COPPER-TOP.gbr",
+      "filename": "board_COPPER-TOP.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 124596,
+      "sha256": "0524a9b28095829a49611f6b9e408ef222a3342865307621cff68e89ebd6c039"
+    },
+    {
+      "artifact_id": "088894b293b34485a6f92f9e907cc286",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_DRILLS-NPTH.drl",
+      "filename": "board_DRILLS-NPTH.drl",
+      "mime_type": "application/octet-stream",
+      "bytes": 367,
+      "sha256": "82070e6c57a42ddf91a9fc4f812acb28db5d74761d61bf259b4bfd5873c73908"
+    },
+    {
+      "artifact_id": "4faeb006b7d346f5b572c183e4ce7553",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_DRILLS-PTH.drl",
+      "filename": "board_DRILLS-PTH.drl",
+      "mime_type": "application/octet-stream",
+      "bytes": 3436,
+      "sha256": "f59ea25d3ed4086d17b7fa416ea157ce2ced8de5f9ad8ba06420f54d25beca28"
+    },
+    {
+      "artifact_id": "24d3fed8284e411c87ec6a5bfe43c910",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_OUTLINES.gbr",
+      "filename": "board_OUTLINES.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 879,
+      "sha256": "2474f0f2abe39c46da09196ba26b00811c86066426869cc169641a4a02703264"
+    },
+    {
+      "artifact_id": "ad884c03fc8e42e2b859cecf664099df",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_SILKSCREEN-BOTTOM.gbr",
+      "filename": "board_SILKSCREEN-BOTTOM.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 76513,
+      "sha256": "b39071d3210b009e486547b6e887785aca57314e667e20c96cba5d64be786565"
+    },
+    {
+      "artifact_id": "d5f2a714df924095abb65b0f6fb01315",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_SILKSCREEN-TOP.gbr",
+      "filename": "board_SILKSCREEN-TOP.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 32457,
+      "sha256": "260f6883db30246b28db215988e819c7f9f8540f6c26e24f871c09663e502427"
+    },
+    {
+      "artifact_id": "e1f42153f14d475ead149430e655119f",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_SOLDERMASK-BOTTOM.gbr",
+      "filename": "board_SOLDERMASK-BOTTOM.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 13364,
+      "sha256": "cf01dfaffde203513bf90c0296fd84d195f71cd53630aadf5e56f467dc0aa009"
+    },
+    {
+      "artifact_id": "d6378d038abc4a1ba88bc63cf578aa70",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_SOLDERMASK-TOP.gbr",
+      "filename": "board_SOLDERMASK-TOP.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 2088,
+      "sha256": "91e7a39a37c41630883756804f396377236f4fa09a6fcf16e2ec6353b92304ab"
+    },
+    {
+      "artifact_id": "eeb43a00b2524a379f6e61a2690263af",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_SOLDERPASTE-BOTTOM.gbr",
+      "filename": "board_SOLDERPASTE-BOTTOM.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 9239,
+      "sha256": "c6040d8051d7ce033553bf696998b335ab657f6bf4207fd488489d8472996d69"
+    },
+    {
+      "artifact_id": "2c6dce9dd6854d028fdeab98e4eab595",
+      "path": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files\\gerber\\board_SOLDERPASTE-TOP.gbr",
+      "filename": "board_SOLDERPASTE-TOP.gbr",
+      "mime_type": "application/octet-stream",
+      "bytes": 1384,
+      "sha256": "f1dd81199c6c2cd85155975783397f25b2f8b5a4bc1291ef73d65f69960d6240"
+    }
+  ],
+  "output_directory": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\r004\\files",
+  "diagnostics": {
+    "stdout_artifact": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\logs\\acfcb4fe11d64453af8ac6d08af4636f.stdout.txt",
+    "stderr_artifact": "<REPO>\\work\\cx-b86578\\d\\s-e9037a57748c\\logs\\acfcb4fe11d64453af8ac6d08af4636f.stderr.txt",
+    "exit_code": 0,
+    "process_outcome": "completed"
+  }
+}

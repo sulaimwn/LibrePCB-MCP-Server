@@ -1,0 +1,76 @@
+{
+  "outcome": "failed",
+  "source_project_id": "c538d5c3c6e845afb6a2909be720a9ff",
+  "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+  "change": {
+    "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+    "reference": "R17",
+    "file": "circuit/circuit.lp",
+    "field": "RESISTANCE",
+    "type": "resistance",
+    "unit": "kiloohm",
+    "before": "1.5",
+    "after": "2.2",
+    "value_raw": "{{RESISTANCE}}",
+    "character_span": [
+      10716,
+      10721
+    ]
+  },
+  "cli_roundtrip": [
+    {
+      "flags": [
+        "--save"
+      ],
+      "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\95c53a9070fb4cafa62c2590570f57a2.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\95c53a9070fb4cafa62c2590570f57a2.stderr.txt",
+      "exit_code": null,
+      "process_outcome": "timeout"
+    }
+  ],
+  "operation_directory": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\e01",
+  "baseline_checks": {
+    "project_id": "c538d5c3c6e845afb6a2909be720a9ff",
+    "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+    "state": "saved_snapshot",
+    "outcome": "passed",
+    "approved_count": 18,
+    "unapproved_count": 0,
+    "checks": [
+      {
+        "check": "erc",
+        "board": null,
+        "outcome": "passed",
+        "approved_count": 2,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\2ab4c669dc624b8bbc42a898da424f62.stdout.txt",
+        "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\2ab4c669dc624b8bbc42a898da424f62.stderr.txt",
+        "diagnostic_notes": []
+      },
+      {
+        "check": "drc",
+        "board": {
+          "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+          "name": "default",
+          "file": "boards/default/board.lp"
+        },
+        "outcome": "passed",
+        "approved_count": 16,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\0fb46a0c44b643d1871e89bdaff5ae5e.stdout.txt",
+        "stderr_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\logs\\0fb46a0c44b643d1871e89bdaff5ae5e.stderr.txt",
+        "diagnostic_notes": []
+      }
+    ],
+    "approval_details_available": false,
+    "report_artifact": "<REPO>\\work\\d5-de8a3e\\ds\\s-58b0ea498f56\\r001\\checks.json"
+  },
+  "error": "timeout",
+  "message": "Candidate save/reopen validation failed."
+}

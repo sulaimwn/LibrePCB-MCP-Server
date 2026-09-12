@@ -1,0 +1,6 @@
+Open project '<REPO>\work\d4-482d14\d\s-c4f061364126\p01\d0-reader.lpp'...
+Run output job 'Schematic PNG'...
+  => '<REPO>\work\d4-482d14\d\s-c4f061364126\r001\files\schematic.png'
+  => '<REPO>\work\d4-482d14\d\s-c4f061364126\r001\files\schematic1.png'
+  => '<REPO>\work\d4-482d14\d\s-c4f061364126\r001\files\schematic2.png'
+SUCCESS

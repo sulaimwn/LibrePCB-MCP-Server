@@ -1,0 +1,194 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Python source parses",
+      "passed": true
+    },
+    {
+      "check": "Documentation local links resolve: []",
+      "passed": true
+    },
+    {
+      "check": "Fixture unchanged",
+      "passed": true
+    },
+    {
+      "check": "Dependency lock unchanged",
+      "passed": true
+    },
+    {
+      "check": "Package/toolchain version agrees",
+      "passed": true
+    },
+    {
+      "check": "reliability assertion and call counts",
+      "passed": true
+    },
+    {
+      "check": "reliability uses Day 5 server",
+      "passed": true
+    },
+    {
+      "check": "reliability server/host stderr empty",
+      "passed": true
+    },
+    {
+      "check": "edit assertion and call counts",
+      "passed": true
+    },
+    {
+      "check": "edit uses Day 5 server",
+      "passed": true
+    },
+    {
+      "check": "edit server/host stderr empty",
+      "passed": true
+    },
+    {
+      "check": "exports assertion and call counts",
+      "passed": true
+    },
+    {
+      "check": "exports uses Day 5 server",
+      "passed": true
+    },
+    {
+      "check": "exports server/host stderr empty",
+      "passed": true
+    },
+    {
+      "check": "inspection assertion and call counts",
+      "passed": true
+    },
+    {
+      "check": "inspection uses Day 5 server",
+      "passed": true
+    },
+    {
+      "check": "inspection server/host stderr empty",
+      "passed": true
+    },
+    {
+      "check": "host assertion and call counts",
+      "passed": true
+    },
+    {
+      "check": "host uses Day 5 server",
+      "passed": true
+    },
+    {
+      "check": "host server/host stderr empty",
+      "passed": true
+    },
+    {
+      "check": "Real interrupted save and source preservation",
+      "passed": true
+    },
+    {
+      "check": "Actual rollback and source preservation",
+      "passed": true
+    },
+    {
+      "check": "All mapped raw/report artifacts exist",
+      "passed": true
+    },
+    {
+      "check": "Recorded artifact counts",
+      "passed": true
+    },
+    {
+      "check": "Full final unit suite successful",
+      "passed": true
+    },
+    {
+      "check": "All evidence JSON parses",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel hash unchanged",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/errors.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/operations.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/server.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/service.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/__init__.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/checks.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/cli.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/edits.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/exports.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/files.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/project.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/reports.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/sexpr.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/adapters/__init__.py",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/resources/gerber.lp",
+      "passed": true
+    },
+    {
+      "check": "Tested wheel matches src/librepcb_mcp/resources/preview.lp",
+      "passed": true
+    },
+    {
+      "check": "Existing experimental demo remains compatible",
+      "passed": true
+    },
+    {
+      "check": "Claude JSON parses (not a connection test)",
+      "passed": true
+    },
+    {
+      "check": "Git diff whitespace",
+      "passed": true
+    },
+    {
+      "check": "Historical Day 1/2/3/4 evidence unchanged",
+      "passed": true
+    }
+  ],
+  "note": "Metadata, source/wheel, artifact and documentation consistency; not additional LibrePCB integration."
+}

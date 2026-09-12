@@ -46,3 +46,11 @@ Owner: “start day 4 / whatever else u gotta do”, “push to github regularly
 meaningful checkpoints and context. A live handoff/client-switch trial is deferred.
 Native editor API investigation remains after the initial seven milestones, as
 discussed with the owner; Day 4 proves a limited saved-copy resistance edit.
+
+
+## September 12 continuation
+
+The owner continued with “keep going” during Day 5. Codex completed reliability
+and retained all evidence and setup context. The next milestone is Day 6
+installation/user-workflow trial. Regular private GitHub pushes remain authorized;
+no Claude handoff or public software release was requested.

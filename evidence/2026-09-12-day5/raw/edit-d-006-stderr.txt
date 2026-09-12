@@ -1,0 +1,1 @@
+    - [WARNING] Less than two pins in net: 'MCP_DAY3_UNCONNECTED'

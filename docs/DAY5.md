@@ -1,6 +1,6 @@
 # Day 5: reliability and recovery
 
-Implementation in progress, September 11, 2026. Windows x64, Python 3.12.14,
+Implemented and verified September 11–12, 2026, package `0.1.0.dev5`. Windows x64, Python 3.12.14,
 LibrePCB 2.1.1 and MCP SDK 2.2.0 remain pinned. This milestone hardens the
 existing eight default tools and opt-in ninth tool; it adds no design features.
 
@@ -74,7 +74,7 @@ If a host forcibly kills the server, confirm its LibrePCB process has also exite
 before touching retained copies. No process-tree, crash-atomicity, runtime disk
 quota, electrical-correctness or fresh-machine guarantee is claimed.
 
-## Verification plan and evidence
+## Verification and evidence
 
 `tests/test_reliability.py` injects storage/validation faults and uses real Python
 subprocesses for cumulative deadlines, log failure and AnyIO cancellation. These
@@ -88,8 +88,10 @@ retry in the same session, then verifies old-handle rejection after restart.
 The short CLI timeout does not establish which internal save phase was reached.
 
 Existing Day 2 inspection, Day 3 checks/export/fault and Day 4 edit/rollback
-harnesses provide regression coverage. Actual run results will be recorded in
-`evidence/2026-09-11-day5/` and STATUS before completing this milestone.
+harnesses all passed against the installed Day 5 wheel, alongside the Codex host.
+The 57-test unit suite passed. See [Day 5 evidence](../evidence/2026-09-12-day5/README.md)
+for the 38-check reliability run, 82/73/103-check regressions, 15-check host run,
+raw diagnostics and package hashes.
 
 Primary sources: [AnyIO worker cancellation](https://anyio.readthedocs.io/en/stable/threads.html#reacting-to-cancellation-in-worker-threads),
 plus installed SDK 2.2.0 `mcp/shared/jsonrpc_dispatcher.py` and installed AnyIO
