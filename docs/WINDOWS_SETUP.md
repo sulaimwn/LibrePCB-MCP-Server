@@ -1,6 +1,6 @@
 # Windows development quickstart
 
-Package `0.1.0.dev6` supports saved-project inspection, checks, native PNG/PDF/Gerber exports
+Package `0.1.0rc1` supports saved-project inspection, checks, native PNG/PDF/Gerber exports
 and opt-in typed-resistance candidates through a local STDIO MCP server. Tested:
 Windows x64, Python 3.12.14, LibrePCB 2.1.1, MCP SDK 2.2.0.
 

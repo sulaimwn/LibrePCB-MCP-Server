@@ -1,0 +1,226 @@
+{
+  "checks": [
+    {
+      "name": "bundle_sidecar_hash",
+      "passed": true
+    },
+    {
+      "name": "bundle_contains_exact_review_files",
+      "passed": true
+    },
+    {
+      "name": "bundle_manifest_matches_sidecar",
+      "passed": true
+    },
+    {
+      "name": "bundle_hash_source.zip",
+      "passed": true
+    },
+    {
+      "name": "bundle_hash_librepcb_mcp_server-0.1.0rc1-py3-none-any.whl",
+      "passed": true
+    },
+    {
+      "name": "bundle_hash_requirements.lock",
+      "passed": true
+    },
+    {
+      "name": "bundle_hash_toolchain.json",
+      "passed": true
+    },
+    {
+      "name": "bundle_hash_CHANGELOG.md",
+      "passed": true
+    },
+    {
+      "name": "bundle_hash_RELEASE_NOTES.md",
+      "passed": true
+    },
+    {
+      "name": "bundle_hash_INSTALL.md",
+      "passed": true
+    },
+    {
+      "name": "source_excludes_local_runtime_and_settings",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/__init__.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/__init__.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/checks.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/cli.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/edits.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/exports.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/files.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/project.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/reports.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/adapters/sexpr.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/errors.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/operations.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/resources/gerber.lp",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/resources/preview.lp",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/server.py",
+      "passed": true
+    },
+    {
+      "name": "wheel_source_src/librepcb_mcp/service.py",
+      "passed": true
+    },
+    {
+      "name": "redistributable_fixture_hash",
+      "passed": true
+    },
+    {
+      "name": "same_pinned_dependencies",
+      "passed": true
+    },
+    {
+      "name": "repeated_wheel_build_is_identical",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "name": "rebuild-wheel",
+      "argv": [
+        "<REPO>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "hatchling",
+        "build",
+        "-t",
+        "wheel",
+        "-d",
+        "<REPO>\\work\\day7-acceptance\\rebuild"
+      ],
+      "cwd": "<BUILD_SOURCE>",
+      "exit_code": 0,
+      "log": "<REPO>\\work\\day7-acceptance\\rebuild-wheel.txt"
+    },
+    {
+      "name": "install-wheel",
+      "argv": [
+        "<REPO>\\work\\v2\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "--disable-pip-version-check",
+        "install",
+        "--force-reinstall",
+        "--no-deps",
+        "<REPO>\\work\\candidates\\0.1.0rc1-743e415-f10488\\librepcb_mcp_server-0.1.0rc1-py3-none-any.whl"
+      ],
+      "cwd": "<REPO>",
+      "exit_code": 0,
+      "log": "<REPO>\\work\\day7-acceptance\\install-wheel.txt"
+    },
+    {
+      "name": "pip-check",
+      "argv": [
+        "<REPO>\\work\\v2\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "<REPO>",
+      "exit_code": 0,
+      "log": "<REPO>\\work\\day7-acceptance\\pip-check.txt"
+    },
+    {
+      "name": "isolated-module-probe",
+      "argv": [
+        "<REPO>\\work\\v2\\Scripts\\python.exe",
+        "-I",
+        "<REPO>\\work\\day7-acceptance\\probe.py"
+      ],
+      "cwd": "<REPO>\\work\\day7-acceptance",
+      "exit_code": 0,
+      "log": "<REPO>\\work\\day7-acceptance\\isolated-module-probe.txt"
+    },
+    {
+      "name": "default-demo",
+      "argv": [
+        "<REPO>\\work\\v2\\Scripts\\python.exe",
+        "scripts/prepare_demo.py",
+        "--verify"
+      ],
+      "cwd": "<REPO>",
+      "exit_code": 0,
+      "log": "<REPO>\\work\\day7-acceptance\\default-demo.txt"
+    },
+    {
+      "name": "experimental-demo",
+      "argv": [
+        "<REPO>\\work\\v2\\Scripts\\python.exe",
+        "scripts/prepare_demo.py",
+        "--experimental-edits",
+        "--verify"
+      ],
+      "cwd": "<REPO>",
+      "exit_code": 0,
+      "log": "<REPO>\\work\\day7-acceptance\\experimental-demo.txt"
+    },
+    {
+      "name": "codex-host",
+      "argv": [
+        "<REPO>\\work\\v2\\Scripts\\python.exe",
+        "scripts/verify_codex_host.py",
+        "--codex",
+        "<USER>/AppData/Local/OpenAI/Codex/bin/fd4c151a749f3ab4/codex.exe",
+        "--experimental-edits"
+      ],
+      "cwd": "<REPO>",
+      "exit_code": 0,
+      "log": "<REPO>\\work\\day7-acceptance\\codex-host.txt"
+    }
+  ],
+  "candidate_directory": "<REPO>\\work\\candidates\\0.1.0rc1-743e415-f10488",
+  "boundary": "Existing isolated work/v2 environment, installing the actual noneditable rc1 wheel. Native SDK/host calls are separate from archive consistency. No live model turn or persistent client configuration.",
+  "source_commit": "743e415a3bcba6b0c229173b22ec24d18c1e0cdc",
+  "bundle_sha256": "45e1c470990f7dcddf8afdf7c646af31340d0a0e9c8404b301ab494e1087ae80",
+  "wheel_sha256": "cb20513bd38346a124d69ba4558f29467f3244b8c5637e4eeebaa9850e57c46a",
+  "default_demo": "<REPO>\\work\\demo-d9c0ce",
+  "experimental_demo": "<REPO>\\work\\demo-3be0de",
+  "host_run": "<REPO>\\work\\cx-aa6633",
+  "passed": true
+}

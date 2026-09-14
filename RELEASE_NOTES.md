@@ -37,6 +37,17 @@ and Codex host; Day 4 established real LibrePCB GUI save/reopen and rollback.
 Those historical packets remain unchanged. Day 7 candidate-specific results
 are recorded separately; building a bundle alone is not runtime acceptance.
 
+## Day 7 candidate acceptance
+
+The candidate built from `743e415a3bcba6b0c229173b22ec24d18c1e0cdc` passed
+30 package checks, an identical repeated wheel build, noneditable installation,
+the default 21-check/10-call sample, experimental 26-check/12-call sample and
+15-check/13-call Codex host run. Server/host stderr is empty; original designs
+are unchanged and previews match the owner-reviewed packet. Exact artifact hashes
+and diagnostics are in [Day 7 evidence](evidence/2026-09-14-day7/README.md).
+The immutable bundle contains the pre-acceptance notes from its source commit;
+this later repository record and separate acceptance sidecar document the test.
+
 ## Known limits and remaining work
 
 - Only this Windows/Python/LibrePCB combination and the included CC0 sample are

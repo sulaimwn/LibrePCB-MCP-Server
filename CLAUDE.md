@@ -6,8 +6,9 @@ by Codex; one writer at a time. Preserve changes and update STATUS before stoppi
 
 The owner chose Codex to continue and is not planning a Claude handoff. This file
 remains for continuity. Days 1–6 pass for the included sample; the owner accepted
-the output review and leaves the license undecided for now. Continue Day 7's
-local WIP candidate from STATUS.md; public release is not authorized.
+the output review and leaves the license undecided for now. Day 7's local rc1
+candidate passes; read docs/DAY7.md and its evidence, then continue from STATUS.md.
+Public release is not authorized.
 Eight default tools plus an opt-in ninth typed-resistance candidate tool exist.
 Actual CLI/GUI save/reopen and discard/reopen rollback passed for the R17 example;
 general editing and native GUI control remain unimplemented.

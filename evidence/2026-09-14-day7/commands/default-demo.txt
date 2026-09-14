@@ -1,0 +1,12 @@
+{
+  "demo_directory": "<REPO>\\work\\demo-d9c0ce",
+  "project": "<REPO>\\work\\demo-d9c0ce\\p\\d0-reader.lpp",
+  "note": "Configuration snippets generated only; host settings were not changed."
+}
+{
+  "passed": true,
+  "checks": 21,
+  "calls": 10,
+  "review_directory": "<REPO>\\work\\demo-d9c0ce\\review-b776e1",
+  "failure": null
+}

@@ -17,6 +17,8 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `docs/DAY4.md`: opt-in ninth typed-resistance candidate tool, save/reopen, invariants, rollback and lifecycle.
 - `docs/DAY5.md`: deadlines, cancellation, failed reports and recovery.
 - `docs/DAY6.md`, `docs/OWNER_TRIAL.md`: fresh setup, generated configuration and owner review.
+- `docs/DAY7.md`, `RELEASE_NOTES.md`, `CHANGELOG.md`: completed local rc1 candidate.
+- `evidence/2026-09-14-day7/README.md`: exact tested candidate hashes, 30 package checks, SDK and host acceptance.
 - `evidence/2026-09-14-day6/README.md`: current installation, repeat setup, 57-test and installed-wheel walkthrough evidence.
 - `evidence/2026-09-12-day5/README.md`: current 57-test suite, real reliability and all packaged regressions.
 - `evidence/2026-09-11-day4/README.md`: historical 42-test, 103-check SDK, 82-check inspection, 15-check Codex host, GUI and package evidence.
@@ -27,7 +29,7 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `toolchain.json`, `requirements.lock`, `pyproject.toml`: pinned LibrePCB/fixture, MCP SDK 2.2.0 and hash-locked Windows/Python 3.12 dependencies.
 
 Days 1–6 are finished for the included sample. **The owner accepted its output
-review. Continue Day 7's local candidate work from STATUS.md.** The owner chose
+review. Day 7's local rc1 candidate also passes; continue from STATUS.md.** The owner chose
 to leave the license undecided; this permits the private local trial, not public
 software release. Persistent live-chat/personal-design trials remain unverified.
 The owner chose Codex to continue and asked for regular GitHub pushes. No Claude
@@ -55,7 +57,7 @@ We are building LibrePCB MCP Server. Continue the existing project rather than s
 Project folder:
 C:\Users\vboxuser\Documents\Codex\2026-09-10\help-me-write-a-good-prompt\outputs\librepcb-mcp-server
 
-Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md, docs/DAY2.md and docs/DAY3.md. Inspect files and Git. Read docs/DAY4.md and docs/DAY5.md too. Days 1–5 are complete: eight default inspection/check/export tools plus an opt-in ninth typed-resistance candidate tool, verified with SDK 2.2.0, the Codex host and LibrePCB 2.1.1. Actual GUI save/reopen, invariant checks and discard/reopen rollback passed for R17. Cooperative cancellation/deadlines and failed-report recovery passed real tests. Day 6 fresh-checkout setup, repeat setup and installed-wheel walkthroughs now pass; read docs/DAY6.md and its evidence. Owner review of work/demo-e8a9b4/review-fb79f0/ remains pending. Continue owner review / Day 7 preparation from STATUS.md; the owner wants Codex to continue and regular GitHub pushes. Reuse .venv and portable CLI. Preserve sources, use one writer, and update STATUS with actual evidence before stopping. No edit tool is a release candidate until its reopen/save/reopen, invariant, check, visual and rollback gates pass. Existing private GitHub publication was owner-requested; do not expand to a public release or deployment without a request.
+Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md, docs/DAY2.md and docs/DAY3.md. Inspect files and Git. Read docs/DAY4.md and docs/DAY5.md too. Days 1–5 are complete: eight default inspection/check/export tools plus an opt-in ninth typed-resistance candidate tool, verified with SDK 2.2.0, the Codex host and LibrePCB 2.1.1. Actual GUI save/reopen, invariant checks and discard/reopen rollback passed for R17. Cooperative cancellation/deadlines and failed-report recovery passed real tests. Day 6 fresh-checkout setup, repeat setup and installed-wheel walkthroughs now pass; read docs/DAY6.md and its evidence. Owner review of work/demo-e8a9b4/review-fb79f0/ was accepted. Day 7 local rc1 candidate passes 30 package checks, both sample workflows and the Codex host; read docs/DAY7.md and its evidence. The owner leaves the license undecided. Continue client usability and broader inspection from STATUS.md; the owner wants Codex to continue and regular GitHub pushes. Reuse .venv and portable CLI. Preserve sources, use one writer, and update STATUS with actual evidence before stopping. No edit tool is a release candidate until its reopen/save/reopen, invariant, check, visual and rollback gates pass. Existing private GitHub publication was owner-requested; do not expand to a public release or deployment without a request.
 ```
 
 ## End-of-session record template

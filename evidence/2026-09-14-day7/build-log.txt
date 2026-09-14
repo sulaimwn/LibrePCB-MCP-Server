@@ -1,0 +1,1 @@
+<REPO>\work\candidates\0.1.0rc1-743e415-f10488\librepcb_mcp_server-0.1.0rc1-py3-none-any.whl

@@ -1,0 +1,41 @@
+{
+  "project_id": "cb97f9febc604361ac58a79109e88dfb",
+  "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+  "state": "saved_snapshot",
+  "outcome": "passed",
+  "approved_count": 18,
+  "unapproved_count": 0,
+  "checks": [
+    {
+      "check": "erc",
+      "board": null,
+      "outcome": "passed",
+      "approved_count": 2,
+      "unapproved_count": 0,
+      "findings": [],
+      "findings_truncated": false,
+      "exit_code": 0,
+      "stdout_artifact": "<REPO>\\work\\demo-3be0de\\d\\s-15da8fae670a\\logs\\a1a53ae9da8b4c8b95102b0a9b5c18ed.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\demo-3be0de\\d\\s-15da8fae670a\\logs\\a1a53ae9da8b4c8b95102b0a9b5c18ed.stderr.txt",
+      "diagnostic_notes": []
+    },
+    {
+      "check": "drc",
+      "board": {
+        "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+        "name": "default",
+        "file": "boards/default/board.lp"
+      },
+      "outcome": "passed",
+      "approved_count": 16,
+      "unapproved_count": 0,
+      "findings": [],
+      "findings_truncated": false,
+      "exit_code": 0,
+      "stdout_artifact": "<REPO>\\work\\demo-3be0de\\d\\s-15da8fae670a\\logs\\77a638c760e844dbb3769c68747d6b26.stdout.txt",
+      "stderr_artifact": "<REPO>\\work\\demo-3be0de\\d\\s-15da8fae670a\\logs\\77a638c760e844dbb3769c68747d6b26.stderr.txt",
+      "diagnostic_notes": []
+    }
+  ],
+  "approval_details_available": false
+}

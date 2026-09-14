@@ -15,7 +15,7 @@ Verified locally through 2026-09-14. Paths describe this machine; use explicit a
 | Qt | 6.10.1, compiled against 6.10.1 |
 | OpenCascade | 7.9.1 |
 | MCP SDK | 2.2.0; all 36 runtime/build dependencies pinned with wheel hashes |
-| Package / build backend | 0.1.0.dev6 / hatchling 1.32.0, editables 0.6 |
+| Package / build backend | 0.1.0rc1 / hatchling 1.32.0, editables 0.6 |
 | MCP protocols tested with SDK | 2025-11-25 (legacy), 2026-07-28 (automatic) |
 | Installed host tested | codex-cli 0.153.4, direct app-server MCP calls |
 | GitHub CLI | 2.100.0, verified official Windows portable download; development publication only |
@@ -47,13 +47,16 @@ is recorded in the Day 4 evidence packet. Its wheel is under `work/day4-wheel/`.
 Day 5 replaced that wheel with noneditable `0.1.0.dev5`, passed all four SDK
 acceptance/regression harnesses and the Codex host, and passed `pip check` in both
 environments. The tested wheel and hash are recorded in the Day 5 packet.
-This environment remains dev5. Day 6 created a new checkout and environment at
+This environment remained dev5 during Day 6, which created a new checkout at
 `C:/Users/vboxuser/AppData/Local/Temp/lp-d6-c6010a/LibrePCB trial`; it downloaded and
 verified the portable runtime, installed locked dependencies, passed default and
 experimental walkthroughs, repeat setup and 57 unit/adapter tests, then installed
 the noneditable dev6 wheel and passed its 26-check/12-call walkthrough. Exact
 commands, hashes and module locations are in `evidence/2026-09-14-day6/`.
-Main `.venv` is editable dev6. These are isolated environments on the same Windows
+Day 7 updated main `.venv` to editable rc1 and `work/v2` to the noneditable rc1
+wheel in `work/candidates/0.1.0rc1-743e415-f10488/`. Package, default/experimental
+SDK workflows and Codex host passed; see the Day 7 evidence packet. The temporary
+Day 6 checkout remains noneditable dev6. These are isolated environments on the same Windows
 host; existing base Python, certificate store and pip cache remain available.
 Windows PowerShell 5.1 setup is verified with process-only RemoteSigned and the
 edition's own built-in modules; registry policy and global module paths unchanged.

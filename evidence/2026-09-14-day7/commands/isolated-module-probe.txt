@@ -1,0 +1,6 @@
+{
+  "module": "<REPO>\\work\\v2\\Lib\\site-packages\\librepcb_mcp\\__init__.py",
+  "version": "0.1.0rc1",
+  "mcp": "2.2.0",
+  "job_resources": true
+}

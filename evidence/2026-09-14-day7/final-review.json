@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Python sources parse",
+      "passed": true
+    },
+    {
+      "name": "Local documentation links resolve: []",
+      "passed": true
+    },
+    {
+      "name": "Version pins agree",
+      "passed": true
+    },
+    {
+      "name": "Fixture unchanged",
+      "passed": true
+    },
+    {
+      "name": "Dependency lock unchanged",
+      "passed": true
+    },
+    {
+      "name": "Tested bundle remains identical",
+      "passed": true
+    },
+    {
+      "name": "Tested wheel remains identical",
+      "passed": true
+    },
+    {
+      "name": "All 30 package checks passed",
+      "passed": true
+    },
+    {
+      "name": "Installed and current runtime/resources match tested wheel",
+      "passed": true
+    },
+    {
+      "name": "default actual check/call counts",
+      "passed": true
+    },
+    {
+      "name": "default stderr empty",
+      "passed": true
+    },
+    {
+      "name": "default source preserved",
+      "passed": true
+    },
+    {
+      "name": "experimental actual check/call counts",
+      "passed": true
+    },
+    {
+      "name": "experimental stderr empty",
+      "passed": true
+    },
+    {
+      "name": "experimental source preserved",
+      "passed": true
+    },
+    {
+      "name": "host actual check/call counts",
+      "passed": true
+    },
+    {
+      "name": "host stderr empty",
+      "passed": true
+    },
+    {
+      "name": "Candidate previews match accepted owner packet",
+      "passed": true
+    },
+    {
+      "name": "All native diagnostics mapped",
+      "passed": true
+    },
+    {
+      "name": "Evidence JSON parses",
+      "passed": true
+    },
+    {
+      "name": "Machine user paths sanitized",
+      "passed": true
+    },
+    {
+      "name": "Current implementation matches candidate source commit",
+      "passed": true
+    },
+    {
+      "name": "Earlier evidence unchanged",
+      "passed": true
+    },
+    {
+      "name": "Working and staged whitespace",
+      "passed": true
+    },
+    {
+      "name": "Owned native/server processes exited",
+      "passed": true
+    },
+    {
+      "name": "License choice preserved",
+      "passed": true
+    },
+    {
+      "name": "Owner acceptance recorded",
+      "passed": true
+    }
+  ],
+  "note": "Consistency review of actual evidence, package and documentation; not more LibrePCB integration."
+}

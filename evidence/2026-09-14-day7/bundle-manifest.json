@@ -1,0 +1,85 @@
+{
+  "package": "librepcb-mcp-server",
+  "version": "0.1.0rc1",
+  "source_commit": "743e415a3bcba6b0c229173b22ec24d18c1e0cdc",
+  "source_commit_time": 1789411670,
+  "build_python": "3.12.14",
+  "build_backend": "hatchling 1.32.0",
+  "dependencies": {
+    "annotated-types": "0.8.0",
+    "anyio": "4.15.1",
+    "attrs": "26.1.0",
+    "cffi": "2.1.1",
+    "click": "8.5.0",
+    "cryptography": "50.0.1",
+    "editables": "0.6",
+    "h11": "0.16.0",
+    "hatchling": "1.32.0",
+    "httpcore2": "2.12.0",
+    "httpx2": "2.12.0",
+    "idna": "3.19",
+    "jsonschema-specifications": "2025.9.1",
+    "jsonschema": "4.26.0",
+    "mcp-types": "2.2.0",
+    "mcp": "2.2.0",
+    "opentelemetry-api": "1.44.0",
+    "packaging": "26.3",
+    "pathspec": "1.1.1",
+    "pluggy": "1.6.0",
+    "pycparser": "3.0",
+    "pydantic": "2.13.5",
+    "pydantic_core": "2.46.5",
+    "PyJWT": "2.13.0",
+    "python-multipart": "0.0.32",
+    "pywin32": "312",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.6.3",
+    "sse-starlette": "3.4.11",
+    "starlette": "1.6.0",
+    "tomlkit": "0.15.1",
+    "trove-classifiers": "2026.6.1.19",
+    "truststore": "0.10.4",
+    "typing-inspection": "0.4.4",
+    "typing_extensions": "4.16.0",
+    "uvicorn": "0.52.4"
+  },
+  "status": "Local candidate assembled; runtime acceptance is a separate recorded step.",
+  "publication": "None. This script does not upload, tag, publish or edit client settings.",
+  "artifacts": [
+    {
+      "path": "source.zip",
+      "bytes": 2549697,
+      "sha256": "9d864c3eef02739bd572bad1e89be843ff3ba0cd4a72b04c4821e05f6c44cd4f"
+    },
+    {
+      "path": "librepcb_mcp_server-0.1.0rc1-py3-none-any.whl",
+      "bytes": 35296,
+      "sha256": "cb20513bd38346a124d69ba4558f29467f3244b8c5637e4eeebaa9850e57c46a"
+    },
+    {
+      "path": "requirements.lock",
+      "bytes": 3683,
+      "sha256": "55e2f87940d8c9508d1756ab49ca278f8a10538e6806d039b51e600587108b00"
+    },
+    {
+      "path": "toolchain.json",
+      "bytes": 1502,
+      "sha256": "b9432bed260ad623828121611cf64b1ff808a7d9cdff548476a90a085847cca3"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 2041,
+      "sha256": "90735d651518e1592803ee45b8dd6de761abce85e1f90221d553ac44fcee60e8"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "bytes": 4139,
+      "sha256": "b3078f2d41cb1694b97b89b37a63c66da5cef30e9f3d4c7010bfa7fafb7f636f"
+    },
+    {
+      "path": "INSTALL.md",
+      "bytes": 1086,
+      "sha256": "2c45307f04e1a243befe34e6dff03faeb61782dcfd7a7ccc227236cccff6f8ea"
+    }
+  ]
+}

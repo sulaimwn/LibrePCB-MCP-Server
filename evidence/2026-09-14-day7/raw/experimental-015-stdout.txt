@@ -1,0 +1,6 @@
+Open project '<REPO>\work\demo-3be0de\d\s-15da8fae670a\p01\d0-reader.lpp'...
+Run DRC...
+  Board 'default':
+    Approved messages: 16
+    Non-approved messages: 0
+SUCCESS

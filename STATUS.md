@@ -6,9 +6,9 @@ pushes. No Claude handoff is planned. Days are milestones, not elapsed dates.
 
 ## Milestone
 
-**Days 1–6 complete for the sample scope. Day 7 local candidate is in progress.**
+**Days 1–7 complete for the agreed sample scope: local WIP candidate 0.1.0rc1.**
 The owner accepted the sample REVIEW.md and explicitly left the license undecided.
-Package **0.1.0rc1** is being prepared, Windows x64, Python 3.12.14, MCP SDK 2.2.0,
+Package **0.1.0rc1**, Windows x64, Python 3.12.14, MCP SDK 2.2.0,
 LibrePCB 2.1.1 / stable format 2 / revision 06465bf. The 36-dependency hash lock
 is unchanged. Eight default tools; opt-in ninth `create_value_edit`. Still WIP.
 
@@ -17,13 +17,40 @@ GitHub: [sulaimwn/LibrePCB-MCP-Server](https://github.com/sulaimwn/LibrePCB-MCP-
 at `e488b1c`; Day 6 implementation was pushed as `718c50d`. `git log -1` identifies
 the final documentation/evidence checkpoint. This is development publication.
 
-## Day 6 changes
+## Day 7 changes and actual results
 
-Day 7 in progress: `scripts/build_candidate.py` assembles an exact committed
-source archive, wheel, dependency pins, release notes and SHA256 manifest into an
-ignored local bundle. `CHANGELOG.md` and `RELEASE_NOTES.md` added; version rc1;
-no runtime behavior change. A clean-source build and packaged MCP/host acceptance
-are still required. Day 6 results below remain historical dev6 evidence.
+`scripts/build_candidate.py`, `CHANGELOG.md` and `RELEASE_NOTES.md` added.
+The builder archives a clean exact commit, builds/compares the wheel, and creates
+a local ZIP with source, dependencies, notes and a SHA256 manifest. Version rc1
+is the only runtime change from dev6. README, plan/spec, environment/setup,
+owner-context and continuity notes are current; `docs/DAY7.md` records details.
+
+Candidate: `work/candidates/0.1.0rc1-743e415-f10488/`.
+Source commit: `743e415a3bcba6b0c229173b22ec24d18c1e0cdc` (already pushed).
+ZIP: `librepcb-mcp-server-0.1.0rc1-local.zip`, 2,373,442 bytes, SHA256
+`45e1c470990f7dcddf8afdf7c646af31340d0a0e9c8404b301ab494e1087ae80`.
+The immutable candidate predates the final documentation/evidence checkpoint;
+its separate acceptance sidecar identifies the exact tested artifact.
+
+| Day 7 check | Actual result |
+| --- | --- |
+| Package/source/manifest/rebuild | **30 checks passed**, including identical repeated wheel build and exact committed source/resource bytes. |
+| Noneditable installation | Actual candidate installed in `work/v2`; `pip check` and isolated site-packages/resource probe passed. |
+| Default sample through generated configuration | **21 checks / 10 real MCP calls passed**; `work/demo-d9c0ce/review-b776e1/`. |
+| Experimental sample | **26 checks / 12 calls passed**; `work/demo-3be0de/review-2b5012/`. |
+| Installed Codex 0.153.4 host | **15 checks / 13 calls passed**, experimental edit/image included; `work/cx-aa6633/`. |
+| Source/image preservation | Originals unchanged; final original/candidate previews exactly match the owner-reviewed Day 6 packet. All server/host stderr is empty. |
+| Dirty-source guard | Actual uncommitted-checkout build refused with exit 1; after commit the candidate built successfully. |
+| Final consistency review | **27 checks passed** over current/installed package bytes, evidence, pins, documentation, recorded decisions and process exit. |
+
+Evidence: [Day 7 packet](evidence/2026-09-14-day7/README.md), including 120 raw
+CLI logs and 22 operation reports. The 57 unit/adapter tests last passed in Day 6;
+no runtime behavior changed except the version, so Day 7 reran installed workflows
+and package checks rather than claiming a new complete unit suite.
+
+## Day 6 historical changes/results
+
+The following rows describe the completed dev6 trial; earlier evidence is unchanged.
 
 - `scripts/bootstrap.ps1`, new `scripts/check_python.py`: check Python 3.12 x64
   before installation; use the running PowerShell edition's built-in modules;
@@ -84,7 +111,8 @@ Final trial is retained at
 This is a fresh checkout/environment on the **same Windows machine**, with the
 existing base Python, certificate store and pip download cache. It is not a fresh
 Windows installation or an owner-followed trial. The trial venv now contains the
-noneditable dev6 wheel; main `.venv` remains editable dev6; `work/v2` remains dev5.
+noneditable dev6 wheel. Day 7 updated main `.venv` to editable rc1 and `work/v2`
+to the actual noneditable rc1 candidate; the Day 6 temporary trial remains dev6.
 
 ## Owner review and boundaries
 
@@ -107,17 +135,19 @@ No model API calls/keys, credential changes, maintainer contact or deployment.
 All setup and sample verification commands have completed. The final read-only
 process check found no owned Python setup/MCP, Windows PowerShell or LibrePCB
 process remaining. Retained trial/demo folders are available for inspection;
-other desktop sessions were not stopped. See the Day 6 evidence process record.
+other desktop sessions were not stopped. See the Day 7 evidence process record.
 
-## Next task — Day 7, Codex continues
+## Next task — client usability and broader inspection, Codex continues
 
-1. Read AGENTS/STATUS/PLAN/SPEC and Day 6 evidence; inspect Git. Keep one writer.
-2. Finish the clean-source local candidate build and validate archive hashes,
-   exact source/wheel contents and packaged output-job resources.
-3. If a live client trial is wanted, use the prepared configuration and sample
-   prompt. Keep SDK/host automation distinct from a persistent live chat test.
-4. Install and verify the actual candidate wheel through the complete sample
-   and installed Codex host. Record exact results and finalize release notes.
-   License remains undecided by owner choice; no public release or deployment
-   is authorized. Keep experimental editing labeled and opt in.
-5. Continue meaningful private GitHub pushes and maintain this context packet.
+1. Read AGENTS/STATUS/PLAN/SPEC and Day 7 evidence; inspect Git. Use one writer.
+2. Continue with a persistent local client connection using the prepared sample
+   config, preserving existing entries. Distinguish configuration loading and
+   direct host tests from a real live-chat/model turn; no API key is needed by
+   this server. The original owner-reviewed packet remains available.
+3. Validate another redistributable design through inspection/check/export before
+   broadening editing. Personal designs need an explicitly provided local path.
+4. Follow the after-week-one roadmap only within verified scope. No general
+   editing, placement/routing or native GUI API has been implemented.
+5. Leave the license undecided per the owner. Keep the candidate local/private;
+   no public release, deployment or maintainer contact is authorized. Continue
+   meaningful private GitHub pushes and keep actual results/context current.

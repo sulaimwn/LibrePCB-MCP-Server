@@ -1,0 +1,10 @@
+{
+  "observed_command": [
+    "<REPO>/.venv/Scripts/python.exe",
+    "scripts/build_candidate.py"
+  ],
+  "observed_exit_code": 1,
+  "message": "Candidate build failed: Commit or preserve and resolve existing changes before building; the source revision must be exact.",
+  "passed": true,
+  "timing": "Actually invoked before the 743e415 implementation commit. Subsequent clean-source build succeeded."
+}

@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "source_commit": "743e415a3bcba6b0c229173b22ec24d18c1e0cdc",
+  "bundle": "<REPO>\\work\\candidates\\0.1.0rc1-743e415-f10488\\librepcb-mcp-server-0.1.0rc1-local.zip",
+  "bundle_sha256": "45e1c470990f7dcddf8afdf7c646af31340d0a0e9c8404b301ab494e1087ae80",
+  "bundle_bytes": 2373442,
+  "wheel_sha256": "cb20513bd38346a124d69ba4558f29467f3244b8c5637e4eeebaa9850e57c46a",
+  "package_checks": 30,
+  "runs": {
+    "default": {
+      "run": "<REPO>\\work\\demo-d9c0ce",
+      "review": "<REPO>\\work\\demo-d9c0ce\\review-b776e1",
+      "checks": 21,
+      "calls": 10,
+      "stderr_bytes": 0
+    },
+    "experimental": {
+      "run": "<REPO>\\work\\demo-3be0de",
+      "review": "<REPO>\\work\\demo-3be0de\\review-2b5012",
+      "checks": 26,
+      "calls": 12,
+      "stderr_bytes": 0
+    },
+    "host": {
+      "run": "<REPO>\\work\\cx-aa6633",
+      "review": "<REPO>\\work\\cx-aa6633",
+      "checks": 15,
+      "calls": 13,
+      "stderr_bytes": 0
+    }
+  },
+  "images": {
+    "original-ethernet.png": {
+      "bytes": 128810,
+      "sha256": "8fcfb3003744dc4904677bca3771ed64e47fb34ae16c9173efc5b23be0ee81b3",
+      "matches_owner_reviewed_packet": true
+    },
+    "candidate-ethernet.png": {
+      "bytes": 128870,
+      "sha256": "39527276d90e34ccdab436c21d92621b063c1fd144d5a07add470a37529656a9",
+      "matches_owner_reviewed_packet": true
+    }
+  },
+  "raw_logs": 120,
+  "operation_reports": 22,
+  "unit_tests": "57 passed in Day 6. No runtime behavior changed except version; no new full unit run in Day 7.",
+  "publication": "Private source/evidence GitHub pushes only; candidate ZIP remains local, no public release/tag/PyPI upload.",
+  "note": "Evidence recorded after building and testing an immutable candidate. The final documentation commit is later than the candidate source commit."
+}

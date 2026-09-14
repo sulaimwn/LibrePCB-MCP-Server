@@ -52,8 +52,9 @@ your live chat has loaded that entry. Claude connection remains optional/unteste
 3. Does the client find LibrePCB's tools and complete the sample prompt?
 4. Is any setup instruction confusing or any output missing?
 
-The agent can prepare and test these outputs; owner acceptance remains pending
-until you have inspected them. A personal-design trial is separate from this
+The owner accepted the generated Day 6 sample REVIEW.md on September 14. That
+acceptance covers its outputs; it does not establish a live-client connection or
+a personal-design trial. For subsequent designs, inspect their own results. A personal-design trial is separate from this
 included CC0 sample. Save and close a personal design before opening it through
 the server, and configure only its intended project root.
 

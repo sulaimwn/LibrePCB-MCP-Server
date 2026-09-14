@@ -158,9 +158,11 @@ compatibility with arbitrary designs. A personal-project trial and fresh-machine
 installation remain later acceptance work. The GUI and editing evidence covers
 the narrow resistor example above, not general editor automation.
 
-## Working boundaries
+## Local release candidate
 
-Day 7 prepares **0.1.0rc1** as a local WIP candidate; verification is in progress.
+Day 7 completes **0.1.0rc1** as a local WIP candidate. Its package checks, default
+and experimental workflows, and Codex-host acceptance passed. See
+[Day 7 evidence](evidence/2026-09-14-day7/README.md).
 See [release notes](RELEASE_NOTES.md) and [changelog](CHANGELOG.md). The candidate
 builder runs from a clean committed checkout:
 
@@ -170,6 +172,8 @@ builder runs from a clean committed checkout:
 
 It creates an ignored local bundle with the exact source revision, installable
 wheel, dependency pins and SHA256 manifest. It does not publish a release.
+
+## Working boundaries
 
 - Closed, saved projects under explicitly configured local roots.
 - Lock/recovery entries, stale revisions, linked paths and unsupported formats are rejected.

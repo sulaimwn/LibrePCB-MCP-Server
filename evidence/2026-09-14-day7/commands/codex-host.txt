@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "checks": 15,
+  "failure": null,
+  "report": "<REPO>\\work\\cx-aa6633\\report.json"
+}
