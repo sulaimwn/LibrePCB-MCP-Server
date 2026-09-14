@@ -43,11 +43,15 @@ LibrePCB ZIP hash and CLI signature, extracts the portable runtime, creates
 It downloads about 85 MB of LibrePCB plus Python dependencies when absent.
 
 ```powershell
-& '.\scripts\bootstrap.ps1' -PythonExe 'C:\Users\vboxuser\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File '.\scripts\bootstrap.ps1' -PythonExe 'C:\Users\vboxuser\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
 ```
 
 On another machine, pass its Python 3.12 x64 executable. A WindowsApps alias is
 not sufficient. The lock is specific to this Python/Windows combination.
+The command applies `RemoteSigned` only to this new setup process; it does not
+change registry-backed policy. Windows PowerShell's default `Restricted` policy
+blocked the original quickstart on the clean-checkout trial. Managed group policy
+still takes precedence. See [Microsoft's process option](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_powershell_exe?view=powershell-5.1#-executionpolicy-executionpolicy).
 The equivalent Python installation steps, after creating a venv, are:
 
 ```powershell

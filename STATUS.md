@@ -1,13 +1,13 @@
 # Current project status
 
-Updated September 12, 2026, America/Toronto. **Codex remains the active writer.**
+Updated September 14, 2026, America/Toronto. **Codex remains the active writer.**
 The owner said to keep going, maintain context and push regularly. No Claude
 handoff is planned. Use these milestone names, not elapsed calendar days.
 
 ## Milestone
 
-**Days 1–5 complete. Next: Day 6 installation and user-workflow trial.**
-Package **0.1.0.dev5**; Windows x64 / Python 3.12.14 / MCP SDK 2.2.0 /
+**Days 1–5 complete. Day 6 installation and user-workflow trial is in progress.**
+Package **0.1.0.dev6** is being prepared; Windows x64 / Python 3.12.14 / MCP SDK 2.2.0 /
 LibrePCB 2.1.1, stable format 2, revision 06465bf. Dependency lock unchanged.
 The server remains WIP: eight tools by default, with opt-in ninth
 `create_value_edit`. No general editing, native GUI API, placement or routing.
@@ -19,6 +19,16 @@ The final current checkpoint is identified by `git log -1`. This is development
 publication, not a public software release or deployment.
 
 ## Day 5 changes
+
+Day 6 work in progress: a fresh private GitHub clone at
+`C:/Users/vboxuser/AppData/Local/Temp/lp-d6-425da4/LibrePCB trial` started with no
+venv or runtime. Windows PowerShell's default Restricted policy blocked the old
+quickstart; a process-only RemoteSigned retry began but its download was aborted
+at 77,283,328 bytes. Both failures are retained. The installer now checks Python
+first, downloads into a separate partial file, verifies before accepting it, uses
+basic parsing/quiet progress, validates exact CLI version and restores Qt settings.
+A final clean-checkout rerun and generated-config workflow are still required.
+The completed evidence below remains Day 5's historical record.
 
 - `operations.py`: cooperative request budget, shared by nested CLI/domain work.
   The budget includes waiting for the writer lock and project-file loops. Default

@@ -61,8 +61,8 @@ sample by U. Bruhin. This is a compatibility example, not a manufacturing approv
 Install Python **3.12 x64**, clone this repository, and run from its folder in PowerShell:
 
 ```powershell
-.\scripts\bootstrap.ps1 -PythonExe python
-.\.venv\Scripts\python.exe scripts\prepare_demo.py
+powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\bootstrap.ps1 -PythonExe python
+.\.venv\Scripts\python.exe scripts\prepare_demo.py --verify
 ```
 
 `python` must resolve to a real Python 3.12 interpreter. You can pass its absolute
@@ -75,6 +75,11 @@ your client's configuration, preserving existing entries. The script generates
 snippets only; it does not modify client settings. The client starts the STDIO
 server when needed.
 
+With `--verify`, it also runs the sample through the generated configuration and
+leaves actual previews, a PDF and a result report in a new review directory.
+See [the owner walkthrough](docs/OWNER_TRIAL.md) for what to inspect and how to
+try the generated prompt in your client.
+
 See [Windows setup](docs/WINDOWS_SETUP.md) for complete commands, configuration and
 troubleshooting. Codex host tool calls and native image delivery have been tested;
 Claude connection and an owner-followed installation trial are still pending.
@@ -84,7 +89,7 @@ Claude connection and an owner-followed installation trial are still pending.
 To prepare a sample configuration with editing enabled:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\prepare_demo.py --experimental-edits
+.\.venv\Scripts\python.exe scripts\prepare_demo.py --experimental-edits --verify
 ```
 
 This adds `--enable-experimental-edits` to the generated server arguments and

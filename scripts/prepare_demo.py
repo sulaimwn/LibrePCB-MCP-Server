@@ -2,9 +2,11 @@
 
 import argparse
 import hashlib
+from importlib.metadata import PackageNotFoundError, version
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tomllib
 from uuid import uuid4
 
@@ -16,8 +18,15 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--experimental-edits", action="store_true", help="Generate a demo config with typed-resistance candidate editing enabled")
+    parser.add_argument("--verify", action="store_true", help="Run the sample workflow through the generated config and leave a review packet")
     options = parser.parse_args()
     pin = json.loads((ROOT / "toolchain.json").read_text(encoding="utf-8"))
+    try:
+        ready = version('librepcb-mcp-server') == pin['tested_environment']['server_package'] and version('mcp') == pin['python_dependencies']['mcp_sdk']
+    except PackageNotFoundError:
+        ready = False
+    if not ready:
+        raise SystemExit('Run bootstrap with this interpreter before preparing the sample; required package versions are missing or differ.')
     fixture = ROOT / "tests/fixtures/d0-reader.lppz"
     assert hashlib.sha256(fixture.read_bytes()).hexdigest() == pin["fixture"]["sha256"]
     demo = ROOT / "work" / ("demo-" + uuid4().hex[:6])
@@ -45,7 +54,10 @@ def main():
                    "Preserve the original project.\n")
     (demo / "sample-prompt.txt").write_text(prompt, encoding="utf-8")
     print(json.dumps({"demo_directory": str(demo), "project": str(source / "d0-reader.lpp"),
-                      "note": "Configuration snippets generated only; host settings were not changed."}, indent=2))
+                      "note": "Configuration snippets generated only; host settings were not changed."}, indent=2), flush=True)
+    if options.verify:
+        result = subprocess.run([command, str(ROOT / 'scripts/verify_demo.py'), '--demo', str(demo)], check=False)
+        raise SystemExit(result.returncode)
 
 
 if __name__ == "__main__":
