@@ -26,8 +26,10 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `evidence/2026-09-10-day1/baseline.json`: eight real CLI command records and 13 passing assertions.
 - `toolchain.json`, `requirements.lock`, `pyproject.toml`: pinned LibrePCB/fixture, MCP SDK 2.2.0 and hash-locked Windows/Python 3.12 dependencies.
 
-Days 1–5 and Day 6 engineering checks are finished. **Owner review is pending;
-continue from STATUS.md toward Day 7 once the remaining gates are resolved.**
+Days 1–6 are finished for the included sample. **The owner accepted its output
+review. Continue Day 7's local candidate work from STATUS.md.** The owner chose
+to leave the license undecided; this permits the private local trial, not public
+software release. Persistent live-chat/personal-design trials remain unverified.
 The owner chose Codex to continue and asked for regular GitHub pushes. No Claude
 handoff is planned; keep this packet for continuity.
 Do not repeat downloads or replace the working SDK imports. No background server

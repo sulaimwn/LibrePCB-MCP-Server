@@ -83,6 +83,7 @@ try the generated prompt in your client.
 See [Windows setup](docs/WINDOWS_SETUP.md) for complete commands, configuration and
 troubleshooting. Codex host tool calls and native image delivery have been tested;
 Claude connection and an owner-followed installation trial are still pending.
+The owner accepted the generated Day 6 sample output review on September 14.
 
 ## Experimental resistor editing
 
@@ -149,7 +150,7 @@ Windows machine, including a new verified LibrePCB download. Repeat setup preser
 existing samples. All **57 unit/adapter tests** pass; generated-config walkthroughs
 pass **21 checks / 10 calls** by default and **26 / 12** with experimental edits.
 The latter also passes from the installed noneditable dev6 wheel. Reviewable
-images, PDF and reports are ready; owner acceptance is pending. See
+images, PDF and reports were accepted in the owner's Day 6 sample review. See
 [Day 6 evidence](evidence/2026-09-14-day6/README.md).
 
 These results do not establish electrical correctness, production readiness or
@@ -158,6 +159,17 @@ installation remain later acceptance work. The GUI and editing evidence covers
 the narrow resistor example above, not general editor automation.
 
 ## Working boundaries
+
+Day 7 prepares **0.1.0rc1** as a local WIP candidate; verification is in progress.
+See [release notes](RELEASE_NOTES.md) and [changelog](CHANGELOG.md). The candidate
+builder runs from a clean committed checkout:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\build_candidate.py
+```
+
+It creates an ignored local bundle with the exact source revision, installable
+wheel, dependency pins and SHA256 manifest. It does not publish a release.
 
 - Closed, saved projects under explicitly configured local roots.
 - Lock/recovery entries, stale revisions, linked paths and unsupported formats are rejected.
@@ -183,6 +195,7 @@ are excluded and can be recreated from the setup instructions.
 
 ## License and attribution
 
-A software license for the server has not yet been chosen. The included D0 reader
+A software license for the server has not yet been chosen; the owner asked to
+leave it undecided for now. The included D0 reader
 fixture is **CC0-1.0**; see [fixture provenance](tests/fixtures/README.md). LibrePCB
 and other dependencies retain their own licenses and are not bundled into this repository.

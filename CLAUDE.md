@@ -5,8 +5,9 @@ Read [AGENTS.md](AGENTS.md), [STATUS.md](STATUS.md), [PLAN.md](PLAN.md),
 by Codex; one writer at a time. Preserve changes and update STATUS before stopping.
 
 The owner chose Codex to continue and is not planning a Claude handoff. This file
-remains for continuity. Days 1–5 and Day 6 engineering checks pass; owner review
-of the prepared sample remains pending before completing Day 6. See STATUS.md.
+remains for continuity. Days 1–6 pass for the included sample; the owner accepted
+the output review and leaves the license undecided for now. Continue Day 7's
+local WIP candidate from STATUS.md; public release is not authorized.
 Eight default tools plus an opt-in ninth typed-resistance candidate tool exist.
 Actual CLI/GUI save/reopen and discard/reopen rollback passed for the R17 example;
 general editing and native GUI control remain unimplemented.

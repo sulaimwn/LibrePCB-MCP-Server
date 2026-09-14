@@ -4,6 +4,12 @@ Planning baseline: September 10–16, 2026, America/Toronto. Treat these as Day 
 
 ## Capacity and scope
 
+Owner update, September 14: continue Day 7 and regular private GitHub pushes.
+The owner said the sample REVIEW.md looks fine and chose to leave the license
+undecided for now. Prepare and verify a local WIP candidate; license selection
+remains a prerequisite for a public software release, not for this private trial.
+The accepted output review does not establish persistent live-chat installation.
+
 Owner update, September 11: Codex continues Day 4 and necessary supporting work,
 with regular meaningful pushes to the existing private GitHub repository. No
 Claude handoff is planned. First prove one saved-copy resistor edit and its
@@ -38,8 +44,8 @@ Earlier exploratory estimates were 40–100 hours for a general inspection/expor
 - [x] Day 4: one typed-resistance candidate, real CLI and GUI save/reopen, exact design invariants, unchanged findings, previews/exports and actual discard/reopen rollback. Opt-in ninth MCP tool; 42 unit/adapter tests, 103 SDK checks/30 calls, 82 inspection checks/27 calls, 15 Codex host checks/13 calls. See `evidence/2026-09-11-day4/`.
 - [x] Day 5: cooperative deadlines/cancellation, failed-handle cleanup, exclusive reports, storage failures and interrupted/retried operations verified. 57 unit/adapter tests; packaged reliability 38 checks, inspection 82, exports/faults 73, edit/rollback 103, Codex host 15. See `evidence/2026-09-12-day5/`. Direct-child supervision only; manual inactive-session retention remains documented.
 - [x] Day 6 engineering: fresh GitHub checkout/venv/runtime on the same Windows host, repeat setup preserving existing files, 57 unit/adapter tests, default 21-check/10-call walkthrough, experimental and noneditable-wheel 26-check/12-call walkthroughs. See `evidence/2026-09-14-day6/`. This is not a fresh Windows machine.
-- [ ] Day 6 owner trial: review packet/configuration ready; feedback requested, no acceptance yet. Persistent live-client and personal-design trials remain unverified.
-- [ ] Day 7: resolve remaining gates, record a license decision, produce a local release candidate and changelog; public release is not authorized.
+- [x] Day 6 sample output review: owner said REVIEW.md looks fine on September 14. Persistent live-client, owner-followed installation and personal-design trials remain unverified.
+- [ ] Day 7: assemble and verify a local WIP candidate and changelog. The owner explicitly leaves the license undecided for now; public release is not authorized.
 
 ### Acceptance gates
 

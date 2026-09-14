@@ -6,8 +6,9 @@ pushes. No Claude handoff is planned. Days are milestones, not elapsed dates.
 
 ## Milestone
 
-**Days 1–5 complete. Day 6 engineering checks passed; owner review is pending.**
-Package **0.1.0.dev6**, Windows x64, Python 3.12.14, MCP SDK 2.2.0,
+**Days 1–6 complete for the sample scope. Day 7 local candidate is in progress.**
+The owner accepted the sample REVIEW.md and explicitly left the license undecided.
+Package **0.1.0rc1** is being prepared, Windows x64, Python 3.12.14, MCP SDK 2.2.0,
 LibrePCB 2.1.1 / stable format 2 / revision 06465bf. The 36-dependency hash lock
 is unchanged. Eight default tools; opt-in ninth `create_value_edit`. Still WIP.
 
@@ -17,6 +18,12 @@ at `e488b1c`; Day 6 implementation was pushed as `718c50d`. `git log -1` identif
 the final documentation/evidence checkpoint. This is development publication.
 
 ## Day 6 changes
+
+Day 7 in progress: `scripts/build_candidate.py` assembles an exact committed
+source archive, wheel, dependency pins, release notes and SHA256 manifest into an
+ignored local bundle. `CHANGELOG.md` and `RELEASE_NOTES.md` added; version rc1;
+no runtime behavior change. A clean-source build and packaged MCP/host acceptance
+are still required. Day 6 results below remain historical dev6 evidence.
 
 - `scripts/bootstrap.ps1`, new `scripts/check_python.py`: check Python 3.12 x64
   before installation; use the running PowerShell edition's built-in modules;
@@ -83,7 +90,9 @@ noneditable dev6 wheel; main `.venv` remains editable dev6; `work/v2` remains de
 
 Ready packet: `work/demo-e8a9b4/review-fb79f0/REVIEW.md`; generated config and
 prompt are in its parent demo directory. Outputs were offered for review in this
-thread. **No owner acceptance has been received.** See `docs/OWNER_TRIAL.md`.
+thread. **The owner accepted this sample output review on September 14.**
+See `docs/OWNER_TRIAL.md`. The owner explicitly leaves the software license
+undecided for now; this does not block the local private candidate trial.
 Persistent Codex UI configuration, Claude connection, personal-design trial and
 a fresh Windows machine remain unverified. No persistent client config changed.
 
@@ -100,14 +109,15 @@ process check found no owned Python setup/MCP, Windows PowerShell or LibrePCB
 process remaining. Retained trial/demo folders are available for inspection;
 other desktop sessions were not stopped. See the Day 6 evidence process record.
 
-## Next task — owner review / Day 7 preparation
+## Next task — Day 7, Codex continues
 
 1. Read AGENTS/STATUS/PLAN/SPEC and Day 6 evidence; inspect Git. Keep one writer.
-2. Collect owner feedback on the prepared sample; fix any reported problems and
-   rerun affected checks. Do not mark the owner trial accepted without feedback.
+2. Finish the clean-source local candidate build and validate archive hashes,
+   exact source/wheel contents and packaged output-job resources.
 3. If a live client trial is wanted, use the prepared configuration and sample
    prompt. Keep SDK/host automation distinct from a persistent live chat test.
-4. Prepare Day 7's local release candidate/checklist/changelog after the remaining
-   gates are resolved. Server license choice is still open; no public release or
-   deployment is authorized. Keep experimental editing labeled and opt in.
+4. Install and verify the actual candidate wheel through the complete sample
+   and installed Codex host. Record exact results and finalize release notes.
+   License remains undecided by owner choice; no public release or deployment
+   is authorized. Keep experimental editing labeled and opt in.
 5. Continue meaningful private GitHub pushes and maintain this context packet.

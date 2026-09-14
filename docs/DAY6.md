@@ -1,6 +1,8 @@
 # Day 6: installation and user-workflow trial
 
-Engineering verification completed September 14, 2026; owner review pending.
+Engineering verification completed September 14, 2026. The owner subsequently
+accepted the sample REVIEW.md. Historical evidence retains its original pending
+status at collection time; current acceptance is recorded in STATUS.md.
 Package `0.1.0.dev6`; domain/transport behavior is unchanged from Day 5 apart
 from its version. Work focuses on the Windows
 bootstrap, generated configuration and a reviewable sample workflow.
@@ -68,8 +70,9 @@ evidence for the unchanged runtime behavior. They were not all rerun in Day 6.
 
 `work/demo-e8a9b4/review-fb79f0/` is the durable workspace review packet; its parent
 contains the actual usable client configuration and prompt. Owner feedback was
-requested in the current thread and remains pending. A server license decision
-also remains open before a distributable release candidate.
+requested in the current thread and was subsequently accepted. The owner chose
+to leave the server license undecided for now. A private local candidate can be
+prepared; a public software release remains outside the authorized scope.
 
 ## Evidence boundaries
 
