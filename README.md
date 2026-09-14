@@ -144,6 +144,14 @@ real cancellation, interrupted CLI execution and recovery after a report-storage
 failure. The installed package also passes the full 82/73/103-check regressions
 and 15 Codex host checks. See [Day 5 evidence](evidence/2026-09-12-day5/README.md).
 
+Day 6 installs from a fresh GitHub checkout and Python environment on the same
+Windows machine, including a new verified LibrePCB download. Repeat setup preserves
+existing samples. All **57 unit/adapter tests** pass; generated-config walkthroughs
+pass **21 checks / 10 calls** by default and **26 / 12** with experimental edits.
+The latter also passes from the installed noneditable dev6 wheel. Reviewable
+images, PDF and reports are ready; owner acceptance is pending. See
+[Day 6 evidence](evidence/2026-09-14-day6/README.md).
+
 These results do not establish electrical correctness, production readiness or
 compatibility with arbitrary designs. A personal-project trial and fresh-machine
 installation remain later acceptance work. The GUI and editing evidence covers

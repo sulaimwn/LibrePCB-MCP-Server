@@ -1,0 +1,41 @@
+{
+  "project_id": "23dfa827ed914f51949757974dca412f",
+  "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+  "state": "saved_snapshot",
+  "outcome": "passed",
+  "approved_count": 18,
+  "unapproved_count": 0,
+  "checks": [
+    {
+      "check": "erc",
+      "board": null,
+      "outcome": "passed",
+      "approved_count": 2,
+      "unapproved_count": 0,
+      "findings": [],
+      "findings_truncated": false,
+      "exit_code": 0,
+      "stdout_artifact": "<CHECKOUT>\\work\\demo-4ece14\\d\\s-5faf6ab4a447\\logs\\19571e666a1140eea951b789714eb946.stdout.txt",
+      "stderr_artifact": "<CHECKOUT>\\work\\demo-4ece14\\d\\s-5faf6ab4a447\\logs\\19571e666a1140eea951b789714eb946.stderr.txt",
+      "diagnostic_notes": []
+    },
+    {
+      "check": "drc",
+      "board": {
+        "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+        "name": "default",
+        "file": "boards/default/board.lp"
+      },
+      "outcome": "passed",
+      "approved_count": 16,
+      "unapproved_count": 0,
+      "findings": [],
+      "findings_truncated": false,
+      "exit_code": 0,
+      "stdout_artifact": "<CHECKOUT>\\work\\demo-4ece14\\d\\s-5faf6ab4a447\\logs\\ba7ef1ddacf84411893372b21cdf1f75.stdout.txt",
+      "stderr_artifact": "<CHECKOUT>\\work\\demo-4ece14\\d\\s-5faf6ab4a447\\logs\\ba7ef1ddacf84411893372b21cdf1f75.stderr.txt",
+      "diagnostic_notes": []
+    }
+  ],
+  "approval_details_available": false
+}

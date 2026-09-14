@@ -1,8 +1,11 @@
 # Windows development quickstart
 
-Day 5 supports saved-project inspection, checks, native PNG/PDF/Gerber exports
+Package `0.1.0.dev6` supports saved-project inspection, checks, native PNG/PDF/Gerber exports
 and opt-in typed-resistance candidates through a local STDIO MCP server. Tested:
 Windows x64, Python 3.12.14, LibrePCB 2.1.1, MCP SDK 2.2.0.
+
+For a first run, follow **Set up prerequisites**, then **Prepare a sample and
+client configuration** below. The longer regression commands are for development.
 
 ## Existing workspace: verify it
 
@@ -60,27 +63,33 @@ The equivalent Python installation steps, after creating a venv, are:
 & '.\.venv\Scripts\python.exe' -m pip check
 ```
 
-The updated bootstrap passed with local prerequisites present. The locked
-dependencies and package also installed into a newly created `work/v2` venv,
-which passed Day 2 tests. Day 3 passed packaged export acceptance there; Day 4
-passed the full candidate workflow using its noneditable wheel too. Fresh-machine
-installation and an owner-followed trial remain Day 6 work.
+Day 6 followed this command from a fresh GitHub checkout with no local venv or
+LibrePCB runtime. The download, verification and installation passed on the same
+Windows machine. See [Day 6](DAY6.md) for the recorded trial and its limits.
+An owner-followed installation on another Windows machine remains unverified.
+Failed downloads are retained as unique `.partial` files and are not used as the
+cached ZIP. A corrupt cached ZIP is refused and preserved for inspection.
 
 ## Prepare a sample and client configuration
 
 ```powershell
-& '.\.venv\Scripts\python.exe' scripts/prepare_demo.py
+& '.\.venv\Scripts\python.exe' scripts/prepare_demo.py --verify
 ```
 
 This creates a new `work/demo-<id>/` containing the unchanged CC0 sample in `p/`,
-`codex-config.toml`, `claude-desktop-config.json`, and `sample-prompt.txt`.
+`codex-config.toml`, `claude-desktop-config.json`, and `sample-prompt.txt`. The
+`--verify` option exercises the generated configuration through actual MCP/CLI
+calls and writes a `review-<id>/` with images, PDF and a result report. Expect
+**21 checks / 10 calls** by default. See [the sample walkthrough](OWNER_TRIAL.md).
 The snippets contain absolute paths for the interpreter, CLI, allowed sample
 root and separate snapshot/log data directory. The script does not install
 them into a client or change existing settings. A ready sample from this
-session is `work/demo-4a5686/`, generated with `--experimental-edits`. To generate
+session is `work/demo-e8a9b4/`, generated with `--experimental-edits --verify`. To generate
 that variant yourself, add `--experimental-edits` to `prepare_demo.py`; it enables
 the ninth tool and raises the generated Codex tool timeout to 300 seconds. The
-default command still generates the eight-tool configuration.
+default command still generates the eight-tool configuration. The experimental
+sample check expects **26 checks / 12 calls**. Generating/checking a configuration
+does not install it into your live conversation; owner review remains separate.
 
 For Codex, merge the generated `mcp_servers.librepcb` table into the appropriate
 trusted project or user config, preserving existing tables. For Claude Desktop,

@@ -1,0 +1,24 @@
+{
+  "project_id": "2a801bd69f224755836448d0a4e2dcb1",
+  "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+  "state": "saved_snapshot",
+  "job": "schematic_pdf",
+  "board_id": null,
+  "artifacts": [
+    {
+      "artifact_id": "53a08fb650f544b48a4404a9ca917b07",
+      "path": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\r003\\files\\schematic.pdf",
+      "filename": "schematic.pdf",
+      "mime_type": "application/pdf",
+      "bytes": 103559,
+      "sha256": "4293a08c4aade5fc822ca3dc2929293a578b2069304733c3a9d4c247f15dc222"
+    }
+  ],
+  "output_directory": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\r003\\files",
+  "diagnostics": {
+    "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\f10919ce4ff54428b559ccc42d046c7b.stdout.txt",
+    "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\f10919ce4ff54428b559ccc42d046c7b.stderr.txt",
+    "exit_code": 0,
+    "process_outcome": "completed"
+  }
+}

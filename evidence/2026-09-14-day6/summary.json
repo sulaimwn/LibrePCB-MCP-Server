@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "server_package": "0.1.0.dev6",
+  "runs": {
+    "workspace-edit": {
+      "review": "<REPO>\\work\\demo-e8a9b4\\review-fb79f0",
+      "checks": 26,
+      "calls": 12,
+      "source_preserved": true,
+      "server_stderr_bytes": 0
+    },
+    "fresh-default": {
+      "review": "<CHECKOUT>\\work\\demo-328783\\review-abe5a1",
+      "checks": 21,
+      "calls": 10,
+      "source_preserved": true,
+      "server_stderr_bytes": 0
+    },
+    "fresh-edit": {
+      "review": "<CHECKOUT>\\work\\demo-22ea57\\review-e69dcd",
+      "checks": 26,
+      "calls": 12,
+      "source_preserved": true,
+      "server_stderr_bytes": 0
+    },
+    "wheel-edit": {
+      "review": "<CHECKOUT>\\work\\demo-4ece14\\review-d37bf9",
+      "checks": 26,
+      "calls": 12,
+      "source_preserved": true,
+      "server_stderr_bytes": 0
+    }
+  },
+  "raw_logs": 168,
+  "operation_reports": 31,
+  "images": {
+    "original-ethernet.png": {
+      "bytes": 128810,
+      "sha256": "8fcfb3003744dc4904677bca3771ed64e47fb34ae16c9173efc5b23be0ee81b3",
+      "matches_visually_reviewed_workspace_image": true
+    },
+    "candidate-ethernet.png": {
+      "bytes": 128870,
+      "sha256": "39527276d90e34ccdab436c21d92621b063c1fd144d5a07add470a37529656a9",
+      "matches_visually_reviewed_workspace_image": true
+    }
+  },
+  "owner_review": "Requested in the active thread; no acceptance received at collection time.",
+  "boundary": "Fresh GitHub checkout, venv and portable runtime on the same Windows host; base Python, certificate store and pip cache reused. No fresh OS, persistent UI connection or owner-followed installation claimed."
+}

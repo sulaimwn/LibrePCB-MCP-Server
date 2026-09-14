@@ -1,0 +1,7 @@
+Invoke-WebRequest : Unable to read data from the transport connection: An established connection was aborted by the
+software in your host machine.
+At <INITIAL_TRIAL>\LibrePCB trial\scripts\bootstrap.ps1:13 char:5
++     Invoke-WebRequest -Uri $toolchain.librepcb.url -OutFile $archiveP ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Invoke-WebRequest], IOException
+    + FullyQualifiedErrorId : System.IO.IOException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand

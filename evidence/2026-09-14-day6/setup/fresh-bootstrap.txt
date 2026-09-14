@@ -1,0 +1,99 @@
+{"python": "3.12.14", "bits": 64, "executable": "<BASE_PYTHON>"}
+Downloading the pinned LibrePCB portable archive...
+LibrePCB CLI Version 2.1.1
+File Format 2 (stable)
+Git Revision 06465bf (2026-06-12)
+Qt Version 6.10.1 (compiled against 6.10.1)
+OpenCascade OCCT 7.9.1
+Creating the local Python environment...
+Python 3.12.14
+{"python": "3.12.14", "bits": 64, "executable": "<CHECKOUT>\\.venv\\Scripts\\python.exe"}
+Collecting annotated-types==0.8.0 (from -r <CHECKOUT>\requirements.lock (line 4))
+  Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Collecting anyio==4.15.1 (from -r <CHECKOUT>\requirements.lock (line 5))
+  Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Collecting attrs==26.1.0 (from -r <CHECKOUT>\requirements.lock (line 6))
+  Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Collecting cffi==2.1.1 (from -r <CHECKOUT>\requirements.lock (line 7))
+  Using cached cffi-2.1.1-cp312-cp312-win_amd64.whl (185 kB)
+Collecting click==8.5.0 (from -r <CHECKOUT>\requirements.lock (line 8))
+  Using cached click-8.5.0-py3-none-any.whl (125 kB)
+Collecting cryptography==50.0.1 (from -r <CHECKOUT>\requirements.lock (line 9))
+  Using cached cryptography-50.0.1-cp311-abi3-win_amd64.whl (3.8 MB)
+Collecting editables==0.6 (from -r <CHECKOUT>\requirements.lock (line 10))
+  Using cached editables-0.6-py3-none-any.whl (5.4 kB)
+Collecting h11==0.16.0 (from -r <CHECKOUT>\requirements.lock (line 11))
+  Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting hatchling==1.32.0 (from -r <CHECKOUT>\requirements.lock (line 12))
+  Using cached hatchling-1.32.0-py3-none-any.whl (78 kB)
+Collecting httpcore2==2.12.0 (from -r <CHECKOUT>\requirements.lock (line 13))
+  Using cached httpcore2-2.12.0-py3-none-any.whl (83 kB)
+Collecting httpx2==2.12.0 (from -r <CHECKOUT>\requirements.lock (line 14))
+  Using cached httpx2-2.12.0-py3-none-any.whl (95 kB)
+Collecting idna==3.19 (from -r <CHECKOUT>\requirements.lock (line 15))
+  Using cached idna-3.19-py3-none-any.whl (68 kB)
+Collecting jsonschema-specifications==2025.9.1 (from -r <CHECKOUT>\requirements.lock (line 16))
+  Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Collecting jsonschema==4.26.0 (from -r <CHECKOUT>\requirements.lock (line 17))
+  Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Collecting mcp-types==2.2.0 (from -r <CHECKOUT>\requirements.lock (line 18))
+  Using cached mcp_types-2.2.0-py3-none-any.whl (69 kB)
+Collecting mcp==2.2.0 (from -r <CHECKOUT>\requirements.lock (line 19))
+  Using cached mcp-2.2.0-py3-none-any.whl (365 kB)
+Collecting opentelemetry-api==1.44.0 (from -r <CHECKOUT>\requirements.lock (line 20))
+  Using cached opentelemetry_api-1.44.0-py3-none-any.whl (60 kB)
+Collecting packaging==26.3 (from -r <CHECKOUT>\requirements.lock (line 21))
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Collecting pathspec==1.1.1 (from -r <CHECKOUT>\requirements.lock (line 22))
+  Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+Collecting pluggy==1.6.0 (from -r <CHECKOUT>\requirements.lock (line 23))
+  Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+Collecting pycparser==3.0 (from -r <CHECKOUT>\requirements.lock (line 24))
+  Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+Collecting pydantic==2.13.5 (from -r <CHECKOUT>\requirements.lock (line 25))
+  Using cached pydantic-2.13.5-py3-none-any.whl (472 kB)
+Collecting pydantic_core==2.46.5 (from -r <CHECKOUT>\requirements.lock (line 26))
+  Using cached pydantic_core-2.46.5-cp312-cp312-win_amd64.whl (2.0 MB)
+Collecting PyJWT==2.13.0 (from -r <CHECKOUT>\requirements.lock (line 27))
+  Using cached pyjwt-2.13.0-py3-none-any.whl (31 kB)
+Collecting python-multipart==0.0.32 (from -r <CHECKOUT>\requirements.lock (line 28))
+  Using cached python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Collecting pywin32==312 (from -r <CHECKOUT>\requirements.lock (line 29))
+  Using cached pywin32-312-cp312-cp312-win_amd64.whl (6.9 MB)
+Collecting referencing==0.37.0 (from -r <CHECKOUT>\requirements.lock (line 30))
+  Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Collecting rpds-py==2026.6.3 (from -r <CHECKOUT>\requirements.lock (line 31))
+  Using cached rpds_py-2026.6.3-cp312-cp312-win_amd64.whl (220 kB)
+Collecting sse-starlette==3.4.11 (from -r <CHECKOUT>\requirements.lock (line 32))
+  Using cached sse_starlette-3.4.11-py3-none-any.whl (17 kB)
+Collecting starlette==1.6.0 (from -r <CHECKOUT>\requirements.lock (line 33))
+  Using cached starlette-1.6.0-py3-none-any.whl (75 kB)
+Collecting tomlkit==0.15.1 (from -r <CHECKOUT>\requirements.lock (line 34))
+  Using cached tomlkit-0.15.1-py3-none-any.whl (49 kB)
+Collecting trove-classifiers==2026.6.1.19 (from -r <CHECKOUT>\requirements.lock (line 35))
+  Using cached trove_classifiers-2026.6.1.19-py3-none-any.whl (14 kB)
+Collecting truststore==0.10.4 (from -r <CHECKOUT>\requirements.lock (line 36))
+  Using cached truststore-0.10.4-py3-none-any.whl (18 kB)
+Collecting typing-inspection==0.4.4 (from -r <CHECKOUT>\requirements.lock (line 37))
+  Using cached typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Collecting typing_extensions==4.16.0 (from -r <CHECKOUT>\requirements.lock (line 38))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Collecting uvicorn==0.52.4 (from -r <CHECKOUT>\requirements.lock (line 39))
+  Using cached uvicorn-0.52.4-py3-none-any.whl (79 kB)
+Installing collected packages: trove-classifiers, typing_extensions, truststore, tomlkit, rpds-py, pywin32, python-multipart, PyJWT, pycparser, pluggy, pathspec, packaging, idna, h11, editables, click, attrs, annotated-types, uvicorn, typing-inspection, referencing, pydantic_core, opentelemetry-api, httpcore2, hatchling, cffi, anyio, starlette, pydantic, jsonschema-specifications, httpx2, cryptography, sse-starlette, mcp-types, jsonschema, mcp
+Successfully installed PyJWT-2.13.0 annotated-types-0.8.0 anyio-4.15.1 attrs-26.1.0 cffi-2.1.1 click-8.5.0 cryptography-50.0.1 editables-0.6 h11-0.16.0 hatchling-1.32.0 httpcore2-2.12.0 httpx2-2.12.0 idna-3.19 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.2.0 mcp-types-2.2.0 opentelemetry-api-1.44.0 packaging-26.3 pathspec-1.1.1 pluggy-1.6.0 pycparser-3.0 pydantic-2.13.5 pydantic_core-2.46.5 python-multipart-0.0.32 pywin32-312 referencing-0.37.0 rpds-py-2026.6.3 sse-starlette-3.4.11 starlette-1.6.0 tomlkit-0.15.1 trove-classifiers-2026.6.1.19 truststore-0.10.4 typing-inspection-0.4.4 typing_extensions-4.16.0 uvicorn-0.52.4
+Obtaining file:///<TRIAL>/LibrePCB%20trial
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: librepcb-mcp-server
+  Building editable for librepcb-mcp-server (pyproject.toml): started
+  Building editable for librepcb-mcp-server (pyproject.toml): finished with status 'done'
+  Created wheel for librepcb-mcp-server: filename=librepcb_mcp_server-0.1.0.dev6-py3-none-any.whl size=5800 sha256=6c3e02ca589c44aae638e7b46d5de5e69369dcacbf9a77fabd48c55de571a498
+  Stored in directory: <USER>\AppData\Local\Temp\pip-ephem-wheel-cache-_8bhz3zk\wheels\dd\f5\ed\e3ff938db15cb395c8afdb85ab7f0030525dd3c365fcb327a8
+Successfully built librepcb-mcp-server
+Installing collected packages: librepcb-mcp-server
+Successfully installed librepcb-mcp-server-0.1.0.dev6
+No broken requirements found.
+Local MCP prerequisites ready. Follow docs/WINDOWS_SETUP.md to connect a client.

@@ -1,141 +1,113 @@
 # Current project status
 
 Updated September 14, 2026, America/Toronto. **Codex remains the active writer.**
-The owner said to keep going, maintain context and push regularly. No Claude
-handoff is planned. Use these milestone names, not elapsed calendar days.
+The owner requested continued work, detailed folder context and regular GitHub
+pushes. No Claude handoff is planned. Days are milestones, not elapsed dates.
 
 ## Milestone
 
-**Days 1–5 complete. Day 6 installation and user-workflow trial is in progress.**
-Package **0.1.0.dev6** is being prepared; Windows x64 / Python 3.12.14 / MCP SDK 2.2.0 /
-LibrePCB 2.1.1, stable format 2, revision 06465bf. Dependency lock unchanged.
-The server remains WIP: eight tools by default, with opt-in ninth
-`create_value_edit`. No general editing, native GUI API, placement or routing.
+**Days 1–5 complete. Day 6 engineering checks passed; owner review is pending.**
+Package **0.1.0.dev6**, Windows x64, Python 3.12.14, MCP SDK 2.2.0,
+LibrePCB 2.1.1 / stable format 2 / revision 06465bf. The 36-dependency hash lock
+is unchanged. Eight default tools; opt-in ninth `create_value_edit`. Still WIP.
 
 GitHub: [sulaimwn/LibrePCB-MCP-Server](https://github.com/sulaimwn/LibrePCB-MCP-Server),
-**private**, `origin`, branch `master`. Regular pushes are owner-authorized.
-Day 4 completed at `ebbd277`; initial Day 5 implementation was pushed as `79040fe`.
-The final current checkpoint is identified by `git log -1`. This is development
-publication, not a public software release or deployment.
+**private**, `origin`, branch `master`. Regular pushes are authorized. Day 5 ended
+at `e488b1c`; Day 6 implementation was pushed as `718c50d`. `git log -1` identifies
+the final documentation/evidence checkpoint. This is development publication.
 
-## Day 5 changes
+## Day 6 changes
 
-Day 6 work in progress: a fresh private GitHub clone at
-`C:/Users/vboxuser/AppData/Local/Temp/lp-d6-425da4/LibrePCB trial` started with no
-venv or runtime. Windows PowerShell's default Restricted policy blocked the old
-quickstart; a process-only RemoteSigned retry began but its download was aborted
-at 77,283,328 bytes. Both failures are retained. The installer now checks Python
-first, downloads into a separate partial file, verifies before accepting it, uses
-basic parsing/quiet progress, validates exact CLI version and restores Qt settings.
-A final clean-checkout rerun and generated-config workflow are still required.
-The completed evidence below remains Day 5's historical record.
-
-- `operations.py`: cooperative request budget, shared by nested CLI/domain work.
-  The budget includes waiting for the writer lock and project-file loops. Default
-  90 seconds, or 240 with experimental editing; `--operation-timeout` can select
-  a positive finite limit up to 600 seconds. Per-CLI default remains 30 seconds.
-- `server.py`: worker cancellation uses verified AnyIO callbacks; it does not
-  abandon a thread that is still writing. `service.py` prevents expired/cancelled
-  queued work from starting and removes new handles/registrations on failure.
-- CLI/file adapters: checkpoints during file capture/copy and process waits;
-  direct-child kill/reap on cancellation or timeout. Flush bounded logs and stop
-  the child if log storage fails. No process-tree adapter was added.
-- `adapters/reports.py`: exclusive report creation with linked-path rejection.
-  Candidate operations record `started.json`, require final `edit.json` storage,
-  and retain a separate `failure.json` where possible. Failed report storage cannot
-  mask the original failure. Rule-check and unexpected-error diagnostics also cope
-  with storage failure. Retries preserve all previous operation directories.
-- Edits require capacity for both baseline/candidate check operations before saving.
-  The existing typed-resistance scope, exact byte invariants and opt-in gate remain.
-- `tests/test_reliability.py`: 15 added tests for budgets, cancellation, writer
-  queueing, real subprocess/log failures, failed reports, retry and registration
-  cleanup. Synthetic fault cases are labeled; real LibrePCB acceptance is separate.
-- `scripts/verify_day5.py`: actual interrupted CLI invocation, report-write failure
-  after native validation, successful retries, real MCP active/queued cancellation,
-  recovery and restart. README, setup, plan/spec, continuity and evidence updated.
+- `scripts/bootstrap.ps1`, new `scripts/check_python.py`: check Python 3.12 x64
+  before installation; use the running PowerShell edition's built-in modules;
+  download into a unique partial file and accept only the pinned hash; verify
+  CLI signature/version; restore the process Qt setting. The quickstart uses
+  process-only RemoteSigned, without a registry policy change.
+- `scripts/prepare_demo.py`, new `scripts/verify_demo.py`: validate installed
+  package versions, generate client snippets, optionally exercise their literal
+  command/arguments from another working directory, and leave actual previews,
+  a PDF, raw report and `REVIEW.md`. Source designs stay unchanged.
+- `pyproject.toml`, package `__init__.py`, `toolchain.json`: version dev6.
+  Domain, transport and CLI adapter behavior otherwise unchanged from Day 5.
+- README, setup, `docs/DAY6.md`, `docs/OWNER_TRIAL.md`, environment, plan,
+  specification and continuity notes updated. New evidence packet below.
 
 ## Checks actually performed
 
-Final integration rows below use the **noneditable Day 5 wheel** installed in
-`work/v2`; module loading from site-packages was verified. Unit tests use `.venv`.
+All commands and raw diagnostics: [Day 6 evidence](evidence/2026-09-14-day6/README.md).
 
-| Run | Result and path |
+| Check | Actual result |
 | --- | --- |
-| Unit/adapter suite | **57 passed**, 160.095 seconds; `work/day5-unit-final.txt`. |
-| New real CLI/MCP reliability | **38 checks / 7 completed MCP calls**, plus two cancelled requests and **26 observed direct service CLI invocations**; `work/d5-de8a3e/`. |
-| Existing inspection regression | **82 checks / 27 calls passed**; `work/d2-d6a048/`. |
-| Checks/export/native-image/fault regression | **73 checks / 20 calls passed**; `work/d3-4a5bd3/`. |
-| Candidate/edit/rollback regression | **103 checks / 30 calls passed**; `work/d4-482d14/`. |
-| Installed Codex host | **15 checks / 13 calls passed** with experimental edits; `work/cx-b86578/`. Direct ephemeral calls; no model turn. |
-| Package/dependencies | Noneditable wheel `work/day5-wheel/librepcb_mcp_server-0.1.0.dev5-py3-none-any.whl`; both environments passed `pip check`. |
-| Final consistency review | **47 checks passed**: source/wheel match, pinned hashes, evidence counts/artifacts, docs links and unchanged earlier evidence. |
+| Fresh private GitHub clone | Commit `718c50d1ba99e069822d8786c4d4b8528471a8f6`; no venv/runtime initially; path contains a space. |
+| Fresh bootstrap | Passed: new 85,142,354-byte download, pinned hash, valid executable signature, exact CLI version, new venv, 36 locked dependencies, package and `pip check`. |
+| Default generated configuration | **21 checks / 10 MCP calls passed**, all eight tools. |
+| Experimental generated configuration | **26 checks / 12 calls passed**, all nine tools including validated R17 candidate. |
+| Repeat bootstrap | Passed, preserving all **1258** existing demo files byte-for-byte. |
+| Fresh-environment unit/adapter tests | **57 passed**, 129.657 seconds. Synthetic cases are distinct from real integration. |
+| Noneditable dev6 wheel | Installed into the fresh environment; site-packages module and packaged output-job resources verified; `pip check` passed. |
+| Installed wheel sample workflow | **26 checks / 12 real MCP calls passed**, including native PNG, PDF, 11 manufacturing files and validated candidate. |
+| Prerequisite/cache failures | **2 passed**: missing Python creates no work/venv; corrupt cache is rejected and retained. |
+| Main-workspace sample | **26 checks / 12 calls passed** at `work/demo-e8a9b4/review-fb79f0/`; original and candidate images visually inspected. |
+| Final consistency review | **65 passed**: current source/wheel, pins, evidence, links, path sanitization and completed process cleanup. |
 
-All final server/host stderr files are empty. Exact reports, mapped raw CLI logs,
-started/failure/success records and wheel hashes are under
-`evidence/2026-09-12-day5/`. Earlier editable recovery also passed 38 checks at
-`work/d5-b9ab7c/`; the final packet uses the installed run above as authoritative.
+Every final demo server stderr is empty. All 184 source files remain unchanged;
+97 components, 48 nets, one board and two sheets. Checks retain 2 approved ERC /
+16 approved DRC findings, zero unapproved findings. R17 is 1.5 kΩ in the original
+and 2.2 kΩ in the validated candidate. Packaged images match the visually reviewed
+workspace images byte-for-byte. No fresh GUI save/reopen was needed for packaging;
+Day 4 remains that historical evidence.
 
-The CC0 fixture remains 97 components, 48 nets, one board, two sheets and 184
-untouched source files. Validated R17 candidates retain 2 approved ERC / 16 approved
-DRC findings and zero unapproved findings; saved controls/candidates have 188 files.
-Day 4's actual GUI save/reopen screenshots remain historical visual proof. GUI
-was not rerun for reliability changes. Day 5 reran native preview/export delivery,
-real rule-fault detection, exact candidate invariants and actual rollback.
+Day 5's noneditable dev5 regression evidence remains unchanged: 57 unit/adapter
+tests, reliability 38 checks, inspection 82, exports/faults 73, edit/rollback 103,
+Codex host 15. See `evidence/2026-09-12-day5/`. No claim those entire integration
+harnesses were rerun in Day 6; the generated-config workflows above were rerun.
 
-## Failures exercised and resolved
+## Actual failures and recovery
 
-- Interrupted one real CLI `--save` invocation with a deliberate 10 ms timeout.
-  It failed with retained logs/control and no candidate handle. The source stayed
-  unchanged. This does not identify which internal save phase was reached.
-- Injected final report-write failure after actual successful LibrePCB candidate
-  validation. The tool failed, removed its handle, retained failure evidence and
-  then successfully retried into a new directory, preserving earlier outputs.
-- Cancelled an active and queued edit through real SDK STDIO requests. The active
-  request recorded cancellation, the queued request never started, and subsequent
-  source inspection and a same-session edit retry succeeded. Restart rejected old
-  handles and reopened the original source unchanged.
-- Initial combined unit run had 56 passes and one test KeyError: the test expected
-  `process_outcome` inside an interpreted check, which stores timeout in
-  `diagnostic_notes`. Corrected the assertion; final 57-test suite passed.
+The first fresh checkout (`lp-d6-425da4`) hit Restricted script policy. A retry
+using process-only RemoteSigned started its download but the host aborted it
+after 77,283,328 bytes. The old installer left an incomplete final-name ZIP.
+Both logs/files are retained. The revised installer verifies a unique partial
+before accepting it; the final fresh download passed. One prerequisite test
+initially exposed PowerShell 7 module paths inherited by Windows PowerShell 5.1;
+explicit built-in module imports fixed that. Final negative tests pass.
 
-## Boundaries and recovery
+Final trial is retained at
+`C:/Users/vboxuser/AppData/Local/Temp/lp-d6-c6010a/LibrePCB trial`.
+This is a fresh checkout/environment on the **same Windows machine**, with the
+existing base Python, certificate store and pip download cache. It is not a fresh
+Windows installation or an owner-followed trial. The trial venv now contains the
+noneditable dev6 wheel; main `.venv` remains editable dev6; `work/v2` remains dev5.
 
-See `docs/DAY5.md` for operation budgets, cancellation, retained files and recovery.
-Deadlines are cooperative, not atomic or hard real-time: an individual stalled
-filesystem call or cleanup can exceed the nominal budget. General descendant
-supervision and forced server-process termination remain unsupported. Confirm
-owned LibrePCB processes have exited before cleaning an abruptly ended session.
-Automatic retention and runtime disk quotas remain deferred; preserve wanted
-candidates and clean only inactive, known session directories manually.
+## Owner review and boundaries
 
-Only closed saved projects and the documented typed-resistance shape are supported.
-Candidate handles expire with the server session or external saves; copy a closed
-candidate to an allowed project folder for later-session use. No source replacement
-or model-facing deletion tool exists. No electrical-correctness claim is made.
+Ready packet: `work/demo-e8a9b4/review-fb79f0/REVIEW.md`; generated config and
+prompt are in its parent demo directory. Outputs were offered for review in this
+thread. **No owner acceptance has been received.** See `docs/OWNER_TRIAL.md`.
+Persistent Codex UI configuration, Claude connection, personal-design trial and
+a fresh Windows machine remain unverified. No persistent client config changed.
 
-Fresh-machine setup, owner/personal-design trial, persistent MCP UI installation,
-Claude connection and a server license choice remain open. Existing isolated-env
-wheel tests do not establish a fresh-machine installation. No subscription keys,
-model API calls, credential changes, maintainer contact, automation or deployment.
+Closed saved projects only; narrow typed-resistance candidates, no source
+replacement or general editing. No placement, wiring, routing or live-editor API.
+Day 5 cooperative deadlines/direct-child cleanup and manual inactive-session
+retention still apply; no process-tree guarantee or automatic disk quota.
+No model API calls/keys, credential changes, maintainer contact or deployment.
 
 ## Running processes
 
-All Day 5 test harnesses have completed. No owned MCP server, LibrePCB CLI or GUI
-process remains running. Other desktop sessions were not stopped. Generated demo
-snippets at `work/demo-4a5686/` remain available; no persistent client config changed.
+All setup and sample verification commands have completed. The final read-only
+process check found no owned Python setup/MCP, Windows PowerShell or LibrePCB
+process remaining. Retained trial/demo folders are available for inspection;
+other desktop sessions were not stopped. See the Day 6 evidence process record.
 
-## Next task — Day 6, Codex continues
+## Next task — owner review / Day 7 preparation
 
-1. Read AGENTS/STATUS/PLAN/SPEC, `docs/DAY5.md`, environment/setup notes and current
-   evidence; inspect Git. Reuse the pinned portable runtime and dependency lock.
-2. Follow the Windows quickstart from a clean checkout/environment, checking the
-   bootstrap and generated config/sample paths as a user would. Keep this distinct
-   from a fresh-machine claim if the same Windows machine is used.
-3. Package and walk through open → inspect → checks → native preview → PDF/export;
-   optionally demonstrate the narrowly supported candidate edit. Prepare concrete
-   artifacts and a reviewable client configuration before an owner trial.
-4. Record any actual installation failures, exact commands and recovery. Keep the
-   WIP/experimental gates and source preservation. A second client is optional;
-   the owner deferred Claude. Continue meaningful GitHub pushes.
-5. Owner review and license choice remain release gates. Day 7 is a local release
-   candidate only when its gates pass. No native-fork expansion during packaging.
+1. Read AGENTS/STATUS/PLAN/SPEC and Day 6 evidence; inspect Git. Keep one writer.
+2. Collect owner feedback on the prepared sample; fix any reported problems and
+   rerun affected checks. Do not mark the owner trial accepted without feedback.
+3. If a live client trial is wanted, use the prepared configuration and sample
+   prompt. Keep SDK/host automation distinct from a persistent live chat test.
+4. Prepare Day 7's local release candidate/checklist/changelog after the remaining
+   gates are resolved. Server license choice is still open; no public release or
+   deployment is authorized. Keep experimental editing labeled and opt in.
+5. Continue meaningful private GitHub pushes and maintain this context packet.

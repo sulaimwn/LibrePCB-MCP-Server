@@ -65,7 +65,7 @@ async def verify(demo):
 
     log = (review / 'server-stderr.txt').open('w', encoding='utf-8')
     try:
-        # Literal generated argv, launched from outside the checkout directory.
+        # Literal generated argv, launched away from the checkout root.
         params = StdioServerParameters(command=config['command'], args=config['args'], cwd=review,
                                        env={'PYTHONIOENCODING': 'utf-8', 'PYTHONUNBUFFERED': '1'})
         async with Client(stdio_client(params, errlog=log), mode='legacy', read_timeout_seconds=config['tool_timeout_sec']) as client:

@@ -1,0 +1,7 @@
+{
+  "path": "<INITIAL_TRIAL>\\LibrePCB trial\\work\\downloads\\librepcb-2.1.1-windows-x86_64.zip",
+  "retained": true,
+  "bytes": 77283328,
+  "sha256": "68d606f2326575635e17751296e031628dc08dbbf7b6e0b1abd59a953cf4fd7c",
+  "note": "Old installer left an incomplete ZIP at the final-name path after the actual host-aborted download. Preserved, never accepted by the new installer."
+}

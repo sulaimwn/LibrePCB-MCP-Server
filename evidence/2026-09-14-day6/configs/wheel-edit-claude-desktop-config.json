@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "librepcb": {
+      "command": "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "librepcb_mcp.server",
+        "--cli",
+        "<CHECKOUT>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe",
+        "--project-root",
+        "<CHECKOUT>\\work\\demo-4ece14\\p",
+        "--data-root",
+        "<CHECKOUT>\\work\\demo-4ece14\\d",
+        "--enable-experimental-edits"
+      ]
+    }
+  }
+}

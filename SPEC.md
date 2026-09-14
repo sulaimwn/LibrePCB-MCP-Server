@@ -14,7 +14,9 @@ LibrePCB **2.1.1 / file format 2**. Read `docs/DAY2.md` for the inspection subse
 and `docs/DAY3.md` for checks, native PNG and fixed PDF/Gerber exports. Day 4
 adds an opt-in typed-resistance candidate tool, documented in `docs/DAY4.md`.
 Day 5 adds cooperative whole-operation deadlines/cancellation and failure recovery
-without expanding the tool set; see `docs/DAY5.md`. General editing and live-editor
+without expanding the tool set; see `docs/DAY5.md`. Day 6 verifies fresh checkout,
+installation and generated-config workflows without expanding domain operations;
+see `docs/DAY6.md`. Owner review is pending. General editing and live-editor
 control remain planned.
 
 AI client → local MCP server → project adapter and CLI runner → isolated project copies and output artifacts.

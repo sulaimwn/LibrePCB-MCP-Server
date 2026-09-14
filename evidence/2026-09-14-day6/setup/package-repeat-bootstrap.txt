@@ -1,0 +1,63 @@
+{"python": "3.12.14", "bits": 64, "executable": "<CHECKOUT>\\.venv\\Scripts\\python.exe"}
+LibrePCB CLI Version 2.1.1
+File Format 2 (stable)
+Git Revision 06465bf (2026-06-12)
+Qt Version 6.10.1 (compiled against 6.10.1)
+OpenCascade OCCT 7.9.1
+Python 3.12.14
+{"python": "3.12.14", "bits": 64, "executable": "<CHECKOUT>\\.venv\\Scripts\\python.exe"}
+Requirement already satisfied: annotated-types==0.8.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 4)) (0.8.0)
+Requirement already satisfied: anyio==4.15.1 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 5)) (4.15.1)
+Requirement already satisfied: attrs==26.1.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 6)) (26.1.0)
+Requirement already satisfied: cffi==2.1.1 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 7)) (2.1.1)
+Requirement already satisfied: click==8.5.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 8)) (8.5.0)
+Requirement already satisfied: cryptography==50.0.1 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 9)) (50.0.1)
+Requirement already satisfied: editables==0.6 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 10)) (0.6)
+Requirement already satisfied: h11==0.16.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 11)) (0.16.0)
+Requirement already satisfied: hatchling==1.32.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 12)) (1.32.0)
+Requirement already satisfied: httpcore2==2.12.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 13)) (2.12.0)
+Requirement already satisfied: httpx2==2.12.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 14)) (2.12.0)
+Requirement already satisfied: idna==3.19 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 15)) (3.19)
+Requirement already satisfied: jsonschema-specifications==2025.9.1 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 16)) (2025.9.1)
+Requirement already satisfied: jsonschema==4.26.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 17)) (4.26.0)
+Requirement already satisfied: mcp-types==2.2.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 18)) (2.2.0)
+Requirement already satisfied: mcp==2.2.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 19)) (2.2.0)
+Requirement already satisfied: opentelemetry-api==1.44.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 20)) (1.44.0)
+Requirement already satisfied: packaging==26.3 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 21)) (26.3)
+Requirement already satisfied: pathspec==1.1.1 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 22)) (1.1.1)
+Requirement already satisfied: pluggy==1.6.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 23)) (1.6.0)
+Requirement already satisfied: pycparser==3.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 24)) (3.0)
+Requirement already satisfied: pydantic==2.13.5 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 25)) (2.13.5)
+Requirement already satisfied: pydantic_core==2.46.5 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 26)) (2.46.5)
+Requirement already satisfied: PyJWT==2.13.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 27)) (2.13.0)
+Requirement already satisfied: python-multipart==0.0.32 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 28)) (0.0.32)
+Requirement already satisfied: pywin32==312 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 29)) (312)
+Requirement already satisfied: referencing==0.37.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 30)) (0.37.0)
+Requirement already satisfied: rpds-py==2026.6.3 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 31)) (2026.6.3)
+Requirement already satisfied: sse-starlette==3.4.11 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 32)) (3.4.11)
+Requirement already satisfied: starlette==1.6.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 33)) (1.6.0)
+Requirement already satisfied: tomlkit==0.15.1 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 34)) (0.15.1)
+Requirement already satisfied: trove-classifiers==2026.6.1.19 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 35)) (2026.6.1.19)
+Requirement already satisfied: truststore==0.10.4 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 36)) (0.10.4)
+Requirement already satisfied: typing-inspection==0.4.4 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 37)) (0.4.4)
+Requirement already satisfied: typing_extensions==4.16.0 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 38)) (4.16.0)
+Requirement already satisfied: uvicorn==0.52.4 in <CHECKOUT>\.venv\lib\site-packages (from -r <CHECKOUT>\requirements.lock (line 39)) (0.52.4)
+Obtaining file:///<TRIAL>/LibrePCB%20trial
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: librepcb-mcp-server
+  Building editable for librepcb-mcp-server (pyproject.toml): started
+  Building editable for librepcb-mcp-server (pyproject.toml): finished with status 'done'
+  Created wheel for librepcb-mcp-server: filename=librepcb_mcp_server-0.1.0.dev6-py3-none-any.whl size=5800 sha256=6c3e02ca589c44aae638e7b46d5de5e69369dcacbf9a77fabd48c55de571a498
+  Stored in directory: <USER>\AppData\Local\Temp\pip-ephem-wheel-cache-sy8d_cvf\wheels\dd\f5\ed\e3ff938db15cb395c8afdb85ab7f0030525dd3c365fcb327a8
+Successfully built librepcb-mcp-server
+Installing collected packages: librepcb-mcp-server
+  Attempting uninstall: librepcb-mcp-server
+    Found existing installation: librepcb-mcp-server 0.1.0.dev6
+    Uninstalling librepcb-mcp-server-0.1.0.dev6:
+      Successfully uninstalled librepcb-mcp-server-0.1.0.dev6
+Successfully installed librepcb-mcp-server-0.1.0.dev6
+No broken requirements found.
+Local MCP prerequisites ready. Follow docs/WINDOWS_SETUP.md to connect a client.

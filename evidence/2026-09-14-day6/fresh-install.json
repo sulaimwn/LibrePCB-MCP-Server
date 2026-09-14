@@ -1,0 +1,52 @@
+{
+  "trial": "<TRIAL>",
+  "checkout": "<CHECKOUT>",
+  "base_python": "<BASE_PYTHON>",
+  "boundary": "Fresh checkout/environment on the same Windows machine. Existing base interpreter, user certificate store and pip download cache remain available.",
+  "commands": [
+    {
+      "name": "clone",
+      "exit_code": 0,
+      "log": "<TRIAL>\\clone.txt"
+    },
+    {
+      "name": "bootstrap",
+      "exit_code": 0,
+      "log": "<TRIAL>\\bootstrap.txt",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "RemoteSigned",
+        "-File",
+        "<CHECKOUT>\\scripts\\bootstrap.ps1",
+        "-PythonExe",
+        "<BASE_PYTHON>"
+      ]
+    },
+    {
+      "name": "prepare-demo",
+      "exit_code": 0,
+      "log": "<TRIAL>\\prepare-demo.txt",
+      "argv": [
+        "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+        "scripts/prepare_demo.py",
+        "--verify"
+      ]
+    },
+    {
+      "name": "prepare-edit-demo",
+      "exit_code": 0,
+      "log": "<TRIAL>\\prepare-edit-demo.txt",
+      "argv": [
+        "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+        "scripts/prepare_demo.py",
+        "--experimental-edits",
+        "--verify"
+      ]
+    }
+  ],
+  "source_commit": "718c50d1ba99e069822d8786c4d4b8528471a8f6",
+  "initial_venv_absent": true,
+  "initial_runtime_absent": true
+}

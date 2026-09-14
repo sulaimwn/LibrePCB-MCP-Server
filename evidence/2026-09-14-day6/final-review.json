@@ -1,0 +1,266 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Python files parse",
+      "passed": true
+    },
+    {
+      "name": "Markdown links resolve: []",
+      "passed": true
+    },
+    {
+      "name": "Fixture pin unchanged",
+      "passed": true
+    },
+    {
+      "name": "Lock unchanged",
+      "passed": true
+    },
+    {
+      "name": "Package pins agree",
+      "passed": true
+    },
+    {
+      "name": "Package and repeat setup passed",
+      "passed": true
+    },
+    {
+      "name": "Repeat setup preservation count recorded",
+      "passed": true
+    },
+    {
+      "name": "Fresh complete download verified",
+      "passed": true
+    },
+    {
+      "name": "Fresh executable signature valid",
+      "passed": true
+    },
+    {
+      "name": "Fresh checkout started without prerequisites",
+      "passed": true
+    },
+    {
+      "name": "Fresh checkout commands passed",
+      "passed": true
+    },
+    {
+      "name": "Actual fresh source revision recorded",
+      "passed": true
+    },
+    {
+      "name": "Fresh suite actually passed",
+      "passed": true
+    },
+    {
+      "name": "Wheel module and resources loaded",
+      "passed": true
+    },
+    {
+      "name": "Wheel dependencies satisfied",
+      "passed": true
+    },
+    {
+      "name": "Wheel hash matches installed record",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/errors.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/operations.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/server.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/service.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/__init__.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/checks.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/cli.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/edits.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/exports.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/files.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/project.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/reports.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/sexpr.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/adapters/__init__.py",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/resources/gerber.lp",
+      "passed": true
+    },
+    {
+      "name": "Wheel matches librepcb_mcp/resources/preview.lp",
+      "passed": true
+    },
+    {
+      "name": "workspace-edit actual check/call counts",
+      "passed": true
+    },
+    {
+      "name": "workspace-edit source preserved",
+      "passed": true
+    },
+    {
+      "name": "workspace-edit correct package/SDK",
+      "passed": true
+    },
+    {
+      "name": "workspace-edit server stderr empty",
+      "passed": true
+    },
+    {
+      "name": "workspace-edit both snippets agree (not a Claude connection)",
+      "passed": true
+    },
+    {
+      "name": "fresh-default actual check/call counts",
+      "passed": true
+    },
+    {
+      "name": "fresh-default source preserved",
+      "passed": true
+    },
+    {
+      "name": "fresh-default correct package/SDK",
+      "passed": true
+    },
+    {
+      "name": "fresh-default server stderr empty",
+      "passed": true
+    },
+    {
+      "name": "fresh-default both snippets agree (not a Claude connection)",
+      "passed": true
+    },
+    {
+      "name": "fresh-edit actual check/call counts",
+      "passed": true
+    },
+    {
+      "name": "fresh-edit source preserved",
+      "passed": true
+    },
+    {
+      "name": "fresh-edit correct package/SDK",
+      "passed": true
+    },
+    {
+      "name": "fresh-edit server stderr empty",
+      "passed": true
+    },
+    {
+      "name": "fresh-edit both snippets agree (not a Claude connection)",
+      "passed": true
+    },
+    {
+      "name": "wheel-edit actual check/call counts",
+      "passed": true
+    },
+    {
+      "name": "wheel-edit source preserved",
+      "passed": true
+    },
+    {
+      "name": "wheel-edit correct package/SDK",
+      "passed": true
+    },
+    {
+      "name": "wheel-edit server stderr empty",
+      "passed": true
+    },
+    {
+      "name": "wheel-edit both snippets agree (not a Claude connection)",
+      "passed": true
+    },
+    {
+      "name": "Image hash and visual comparison: original-ethernet.png",
+      "passed": true
+    },
+    {
+      "name": "Image hash and visual comparison: candidate-ethernet.png",
+      "passed": true
+    },
+    {
+      "name": "Raw artifact mapping complete",
+      "passed": true
+    },
+    {
+      "name": "Retained failed download is incomplete",
+      "passed": true
+    },
+    {
+      "name": "Intended prerequisite failures pass",
+      "passed": true
+    },
+    {
+      "name": "All evidence JSON parses",
+      "passed": true
+    },
+    {
+      "name": "Git whitespace check",
+      "passed": true
+    },
+    {
+      "name": "Days 1-5 evidence unchanged",
+      "passed": true
+    },
+    {
+      "name": "Only runtime version changed from Day 5",
+      "passed": true
+    },
+    {
+      "name": "Owner review still accurately pending",
+      "passed": true
+    },
+    {
+      "name": "PowerShell syntax check passed",
+      "passed": true
+    },
+    {
+      "name": "No owned setup/server/native process remains",
+      "passed": true
+    },
+    {
+      "name": "Machine user paths sanitized in new evidence",
+      "passed": true
+    }
+  ],
+  "note": "Consistency checks over actual evidence, package and documentation. Not additional LibrePCB integration."
+}

@@ -1,0 +1,200 @@
+{
+  "outcome": "validated_candidate",
+  "source_project_id": "2a801bd69f224755836448d0a4e2dcb1",
+  "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+  "change": {
+    "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+    "reference": "R17",
+    "file": "circuit/circuit.lp",
+    "field": "RESISTANCE",
+    "type": "resistance",
+    "unit": "kiloohm",
+    "before": "1.5",
+    "after": "2.2",
+    "value_raw": "{{RESISTANCE}}",
+    "character_span": [
+      10716,
+      10721
+    ]
+  },
+  "cli_roundtrip": [
+    {
+      "flags": [
+        "--save"
+      ],
+      "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\1f93ddd3e3c84f959b017c0bca11337e.stdout.txt",
+      "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\1f93ddd3e3c84f959b017c0bca11337e.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    },
+    {
+      "flags": [
+        "--strict"
+      ],
+      "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\490feefa105644b0b5101b0fd2228dd3.stdout.txt",
+      "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\490feefa105644b0b5101b0fd2228dd3.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    },
+    {
+      "flags": [
+        "--save"
+      ],
+      "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\717f98f9ddba440c857113a719c58c5e.stdout.txt",
+      "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\717f98f9ddba440c857113a719c58c5e.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    },
+    {
+      "flags": [
+        "--strict"
+      ],
+      "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\7141766a528d4d63ae07a86a5821fa80.stdout.txt",
+      "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\7141766a528d4d63ae07a86a5821fa80.stderr.txt",
+      "exit_code": 0,
+      "process_outcome": "completed"
+    }
+  ],
+  "operation_directory": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\e01",
+  "baseline_checks": {
+    "project_id": "2a801bd69f224755836448d0a4e2dcb1",
+    "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+    "state": "saved_snapshot",
+    "outcome": "passed",
+    "approved_count": 18,
+    "unapproved_count": 0,
+    "checks": [
+      {
+        "check": "erc",
+        "board": null,
+        "outcome": "passed",
+        "approved_count": 2,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\c53af8b7c64d43b0a4e0b40182e0576d.stdout.txt",
+        "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\c53af8b7c64d43b0a4e0b40182e0576d.stderr.txt",
+        "diagnostic_notes": []
+      },
+      {
+        "check": "drc",
+        "board": {
+          "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+          "name": "default",
+          "file": "boards/default/board.lp"
+        },
+        "outcome": "passed",
+        "approved_count": 16,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\492203cfc0974e7e96c74d3265c25694.stdout.txt",
+        "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\492203cfc0974e7e96c74d3265c25694.stderr.txt",
+        "diagnostic_notes": []
+      }
+    ],
+    "approval_details_available": false,
+    "report_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\r005\\checks.json"
+  },
+  "generated_preference_files": [
+    "boards/default/settings.user.lp",
+    "project/settings.user.lp",
+    "schematics/ethernet/settings.user.lp",
+    "schematics/main/settings.user.lp"
+  ],
+  "invariants": {
+    "exact_expected_files": true,
+    "file_count": 188,
+    "changed_files": [
+      "circuit/circuit.lp"
+    ],
+    "identifiers_connectivity_geometry_and_other_bytes_preserved": true
+  },
+  "candidate_checks": {
+    "project_id": "d60d4a061ef04dc68a7d4f32986f95de",
+    "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+    "state": "saved_snapshot",
+    "outcome": "passed",
+    "approved_count": 18,
+    "unapproved_count": 0,
+    "checks": [
+      {
+        "check": "erc",
+        "board": null,
+        "outcome": "passed",
+        "approved_count": 2,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\6d048f618ad04cfabe0284852c6fa6fe.stdout.txt",
+        "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\6d048f618ad04cfabe0284852c6fa6fe.stderr.txt",
+        "diagnostic_notes": []
+      },
+      {
+        "check": "drc",
+        "board": {
+          "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+          "name": "default",
+          "file": "boards/default/board.lp"
+        },
+        "outcome": "passed",
+        "approved_count": 16,
+        "unapproved_count": 0,
+        "findings": [],
+        "findings_truncated": false,
+        "exit_code": 0,
+        "stdout_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\f66608aacb464a2085d004251bd4ef2d.stdout.txt",
+        "stderr_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\logs\\f66608aacb464a2085d004251bd4ef2d.stderr.txt",
+        "diagnostic_notes": []
+      }
+    ],
+    "approval_details_available": false,
+    "report_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\r006\\checks.json"
+  },
+  "candidate": {
+    "project_id": "d60d4a061ef04dc68a7d4f32986f95de",
+    "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+    "state": "saved_snapshot",
+    "captured_at": "2026-09-14T18:23:41.261585+00:00",
+    "lock_present": false,
+    "metadata": {
+      "id": "62381a67-292d-448e-952b-bea07d640ac0",
+      "name": "d0-reader",
+      "author": "U. Bruhin",
+      "version": "v2",
+      "created": "2023-06-06T15:13:03Z"
+    },
+    "file_format": "2",
+    "boards": [
+      {
+        "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+        "name": "default",
+        "file": "boards/default/board.lp"
+      }
+    ],
+    "schematics": [
+      {
+        "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+        "name": "Main",
+        "file": "schematics/main/schematic.lp"
+      },
+      {
+        "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+        "name": "Ethernet",
+        "file": "schematics/ethernet/schematic.lp"
+      }
+    ],
+    "component_count": 97,
+    "net_count": 48,
+    "snapshot_project": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\e01\\c\\d0-reader.lpp",
+    "is_edit_candidate": true,
+    "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+    "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+  },
+  "rollback": "Original was never modified. Close the candidate and discard its copy to abandon this edit.",
+  "experimental": true,
+  "report_artifact": "<CHECKOUT>\\work\\demo-22ea57\\d\\s-9bfd323cdc4a\\e01\\edit.json"
+}

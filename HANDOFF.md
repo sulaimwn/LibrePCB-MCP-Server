@@ -16,6 +16,8 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `docs/DAY3.md`: eight default checks/export/image tools.
 - `docs/DAY4.md`: opt-in ninth typed-resistance candidate tool, save/reopen, invariants, rollback and lifecycle.
 - `docs/DAY5.md`: deadlines, cancellation, failed reports and recovery.
+- `docs/DAY6.md`, `docs/OWNER_TRIAL.md`: fresh setup, generated configuration and owner review.
+- `evidence/2026-09-14-day6/README.md`: current installation, repeat setup, 57-test and installed-wheel walkthrough evidence.
 - `evidence/2026-09-12-day5/README.md`: current 57-test suite, real reliability and all packaged regressions.
 - `evidence/2026-09-11-day4/README.md`: historical 42-test, 103-check SDK, 82-check inspection, 15-check Codex host, GUI and package evidence.
 - `evidence/2026-09-11-day3/README.md`: 33 unit tests, 82 inspection checks, 73 check/export/image checks, 12 Codex host checks and packaged-server evidence.
@@ -24,12 +26,13 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `evidence/2026-09-10-day1/baseline.json`: eight real CLI command records and 13 passing assertions.
 - `toolchain.json`, `requirements.lock`, `pyproject.toml`: pinned LibrePCB/fixture, MCP SDK 2.2.0 and hash-locked Windows/Python 3.12 dependencies.
 
-Days 1–5 are finished. **Next is Day 6 installation/user-workflow trial at STATUS.md.**
+Days 1–5 and Day 6 engineering checks are finished. **Owner review is pending;
+continue from STATUS.md toward Day 7 once the remaining gates are resolved.**
 The owner chose Codex to continue and asked for regular GitHub pushes. No Claude
 handoff is planned; keep this packet for continuity.
 Do not repeat downloads or replace the working SDK imports. No background server
 is required; hosts start STDIO processes when needed. Ready sample and generated
-Codex/Claude Desktop configuration snippets are in `work/demo-4a5686/` (experimental edits enabled); no live
+Codex/Claude Desktop configuration snippets are in `work/demo-e8a9b4/` (experimental edits enabled); no live
 client config was changed. Recreate them with `scripts/prepare_demo.py` if needed.
 
 The private GitHub repository is `https://github.com/sulaimwn/LibrePCB-MCP-Server`, remote `origin`, branch `master`. The owner explicitly requested this upload with a WIP README. Downloaded runtimes, environments and scratch artifacts remain ignored. Git commands from the normal user may need a per-command `-c safe.directory=<absolute repository path>` because the sandbox account created `.git`. See the recorded environment; avoid a global wildcard trust setting. Git writes may still require the coding client's permission flow.
@@ -50,7 +53,7 @@ We are building LibrePCB MCP Server. Continue the existing project rather than s
 Project folder:
 C:\Users\vboxuser\Documents\Codex\2026-09-10\help-me-write-a-good-prompt\outputs\librepcb-mcp-server
 
-Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md, docs/DAY2.md and docs/DAY3.md. Inspect files and Git. Read docs/DAY4.md and docs/DAY5.md too. Days 1–5 are complete: eight default inspection/check/export tools plus an opt-in ninth typed-resistance candidate tool, verified with SDK 2.2.0, the Codex host and LibrePCB 2.1.1. Actual GUI save/reopen, invariant checks and discard/reopen rollback passed for R17. Cooperative cancellation/deadlines and failed-report recovery passed real tests. Continue Day 6 setup/user-workflow trial from STATUS.md; the owner wants Codex to continue and regular GitHub pushes. Reuse .venv and portable CLI. Preserve sources, use one writer, and update STATUS with actual evidence before stopping. No edit tool is a release candidate until its reopen/save/reopen, invariant, check, visual and rollback gates pass. Existing private GitHub publication was owner-requested; do not expand to a public release or deployment without a request.
+Read AGENTS.md, STATUS.md, PLAN.md, SPEC.md, HANDOFF.md, docs/DAY2.md and docs/DAY3.md. Inspect files and Git. Read docs/DAY4.md and docs/DAY5.md too. Days 1–5 are complete: eight default inspection/check/export tools plus an opt-in ninth typed-resistance candidate tool, verified with SDK 2.2.0, the Codex host and LibrePCB 2.1.1. Actual GUI save/reopen, invariant checks and discard/reopen rollback passed for R17. Cooperative cancellation/deadlines and failed-report recovery passed real tests. Day 6 fresh-checkout setup, repeat setup and installed-wheel walkthroughs now pass; read docs/DAY6.md and its evidence. Owner review of work/demo-e8a9b4/review-fb79f0/ remains pending. Continue owner review / Day 7 preparation from STATUS.md; the owner wants Codex to continue and regular GitHub pushes. Reuse .venv and portable CLI. Preserve sources, use one writer, and update STATUS with actual evidence before stopping. No edit tool is a release candidate until its reopen/save/reopen, invariant, check, visual and rollback gates pass. Existing private GitHub publication was owner-requested; do not expand to a public release or deployment without a request.
 ```
 
 ## End-of-session record template

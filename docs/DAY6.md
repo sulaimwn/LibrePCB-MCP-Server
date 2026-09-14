@@ -1,7 +1,8 @@
 # Day 6: installation and user-workflow trial
 
-In progress, September 12–14, 2026. Package `0.1.0.dev6`; domain/transport behavior
-is unchanged from Day 5 apart from its version. Work focuses on the Windows
+Engineering verification completed September 14, 2026; owner review pending.
+Package `0.1.0.dev6`; domain/transport behavior is unchanged from Day 5 apart
+from its version. Work focuses on the Windows
 bootstrap, generated configuration and a reviewable sample workflow.
 
 ## Findings from a fresh GitHub checkout
@@ -27,8 +28,10 @@ PowerShell 7 module paths and Windows PowerShell 5.1 could not find its hash,
 archive or signature commands. No global module-path change was made.
 
 Actual prerequisite tests reject missing Python before creating work/venv data,
-and reject/preserve a corrupt cached ZIP before installation. Full fresh setup
-and repeat setup still need their recorded acceptance runs.
+and reject/preserve a corrupt cached ZIP before installation. Both pass. Final
+fresh setup at Git commit `718c50d` passed with a new verified 85,142,354-byte
+download, valid signature, new venv and locked dependencies. Repeat setup also
+passed, preserving all 1258 existing demo files byte-for-byte.
 
 ## Sample workflow
 
@@ -44,6 +47,29 @@ readable `REVIEW.md`. [Owner trial](OWNER_TRIAL.md) explains how to inspect it a
 connect a live client. Generating/checking snippets does not alter client settings.
 Owner acceptance, personal-design review and live UI connection remain separate
 from automated SDK/CLI verification.
+
+## Recorded acceptance
+
+- Fresh generated default configuration: **21 checks / 10 actual MCP calls**.
+- Fresh generated experimental configuration: **26 checks / 12 calls**.
+- Fresh-environment unit/adapter suite: **57 passed**, 129.657 seconds.
+- Noneditable dev6 wheel: installed into that environment, verified module loading
+  from site-packages and packaged output-job resources; `pip check` passes. The
+  experimental sample workflow passes **26 checks / 12 calls** after installation.
+- Workspace review packet: **26 checks / 12 calls**, original/candidate PNGs
+  visually inspected. Packaged images match those bytes. Every source file is
+  preserved; server stderr is empty in all four sample runs.
+
+The test suite includes synthetic fault cases. Actual MCP/LibrePCB workflows are
+recorded separately in [the Day 6 packet](../evidence/2026-09-14-day6/README.md),
+including raw CLI diagnostics, failed setup logs, source commit and wheel hash.
+Day 5's wider 82/73/103/38-check integrations and Codex host remain historical
+evidence for the unchanged runtime behavior. They were not all rerun in Day 6.
+
+`work/demo-e8a9b4/review-fb79f0/` is the durable workspace review packet; its parent
+contains the actual usable client configuration and prompt. Owner feedback was
+requested in the current thread and remains pending. A server license decision
+also remains open before a distributable release candidate.
 
 ## Evidence boundaries
 

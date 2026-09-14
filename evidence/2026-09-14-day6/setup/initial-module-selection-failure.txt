@@ -1,0 +1,8 @@
+{"python": "3.12.14", "bits": 64, "executable": "<BASE_PYTHON>"}
+Get-FileHash : The term 'Get-FileHash' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At <USER>\AppData\Local\Temp\lp-d6-check-729d5b\corrupt-cache\scripts\bootstrap.ps1:35 char:16
++ $actualHash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA2 ...
++                ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Get-FileHash:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException

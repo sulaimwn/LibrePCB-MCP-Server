@@ -1,0 +1,7 @@
+{"python": "3.12.14", "bits": 64, "executable": "<BASE_PYTHON>"}
+LibrePCB archive hash mismatch. Inspect the existing file before retrying.
+At <PREREQUISITE_TRIAL>\corrupt-cache\scripts\bootstrap.ps1:42 char:5
++     throw 'LibrePCB archive hash mismatch. Inspect the existing file  ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (LibrePCB archiv...efore retrying.:String) [], RuntimeException
+    + FullyQualifiedErrorId : LibrePCB archive hash mismatch. Inspect the existing file before retrying.

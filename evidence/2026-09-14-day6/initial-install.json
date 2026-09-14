@@ -1,0 +1,29 @@
+{
+  "trial": "<INITIAL_TRIAL>",
+  "checkout": "<INITIAL_TRIAL>\\LibrePCB trial",
+  "base_python": "<BASE_PYTHON>",
+  "boundary": "Fresh checkout/environment on the same Windows machine. Existing base interpreter, user certificate store and pip download cache remain available.",
+  "commands": [
+    {
+      "name": "clone",
+      "exit_code": 0,
+      "log": "<INITIAL_TRIAL>\\clone.txt"
+    },
+    {
+      "name": "bootstrap",
+      "exit_code": 1,
+      "log": "<INITIAL_TRIAL>\\bootstrap.txt",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "<INITIAL_TRIAL>\\LibrePCB trial\\scripts\\bootstrap.ps1",
+        "-PythonExe",
+        "<BASE_PYTHON>"
+      ]
+    }
+  ],
+  "source_commit": "e488b1cfe6f967fa49496c05dec6bc7bd003d13a",
+  "initial_venv_absent": true,
+  "initial_runtime_absent": true
+}

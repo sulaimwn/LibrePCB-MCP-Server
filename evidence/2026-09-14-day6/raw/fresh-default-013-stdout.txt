@@ -1,0 +1,6 @@
+Open project '<CHECKOUT>\work\demo-328783\d\s-feec10560243\p01\d0-reader.lpp'...
+Run output job 'Schematic PNG'...
+  => '<CHECKOUT>\work\demo-328783\d\s-feec10560243\r002\files\schematic.png'
+  => '<CHECKOUT>\work\demo-328783\d\s-feec10560243\r002\files\schematic1.png'
+  => '<CHECKOUT>\work\demo-328783\d\s-feec10560243\r002\files\schematic2.png'
+SUCCESS

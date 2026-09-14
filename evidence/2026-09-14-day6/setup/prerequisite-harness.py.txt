@@ -1,0 +1,37 @@
+"""Actual PowerShell prerequisite/cache failures on disposable setup copies."""
+import json
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+from uuid import uuid4
+
+root = Path(__file__).resolve().parents[1]
+trial = Path(tempfile.gettempdir()) / ('lp-d6-check-' + uuid4().hex[:6])
+trial.mkdir()
+python = Path(r'<BASE_PYTHON>')
+checks = []
+for name in ('missing-python', 'corrupt-cache'):
+    folder = trial / name
+    (folder / 'scripts').mkdir(parents=True)
+    for file in ('bootstrap.ps1', 'check_python.py'):
+        shutil.copyfile(root / 'scripts' / file, folder / 'scripts' / file)
+    shutil.copyfile(root / 'toolchain.json', folder / 'toolchain.json')
+    if name == 'corrupt-cache':
+        downloads = folder / 'work/downloads'
+        downloads.mkdir(parents=True)
+        archive = downloads / 'librepcb-2.1.1-windows-x86_64.zip'
+        archive.write_bytes(b'test-owned invalid archive')
+    argv = ['powershell.exe', '-NoProfile', '-ExecutionPolicy', 'RemoteSigned', '-File',
+            str(folder / 'scripts/bootstrap.ps1'), '-PythonExe', str(python if name == 'corrupt-cache' else folder / 'missing.exe')]
+    result = subprocess.run(argv, capture_output=True, text=True, encoding='utf-8', timeout=30, creationflags=subprocess.CREATE_NO_WINDOW)
+    (trial / (name + '.txt')).write_text(result.stdout + result.stderr, encoding='utf-8')
+    if name == 'missing-python':
+        passed = result.returncode != 0 and not (folder / 'work').exists() and not (folder / '.venv').exists()
+    else:
+        passed = result.returncode != 0 and 'archive hash mismatch' in result.stderr and archive.read_bytes() == b'test-owned invalid archive' and not (folder / '.venv').exists()
+    checks.append({'name': name, 'passed': passed, 'exit_code': result.returncode, 'log': str(trial / (name + '.txt'))})
+record = {'passed': all(c['passed'] for c in checks), 'checks': checks, 'trial': str(trial)}
+(root / 'work/day6-bootstrap-checks.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
+print(json.dumps(record, indent=2))
+raise SystemExit(0 if record['passed'] else 1)

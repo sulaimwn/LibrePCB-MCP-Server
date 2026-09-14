@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "missing-python",
+      "passed": true,
+      "exit_code": 1,
+      "log": "<PREREQUISITE_TRIAL>\\missing-python.txt"
+    },
+    {
+      "name": "corrupt-cache",
+      "passed": true,
+      "exit_code": 1,
+      "log": "<PREREQUISITE_TRIAL>\\corrupt-cache.txt"
+    }
+  ],
+  "trial": "<PREREQUISITE_TRIAL>"
+}

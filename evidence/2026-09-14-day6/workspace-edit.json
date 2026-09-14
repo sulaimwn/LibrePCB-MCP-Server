@@ -1,0 +1,2778 @@
+{
+  "passed": true,
+  "failure": null,
+  "checks": [
+    {
+      "name": "configured_tool_count",
+      "passed": true
+    },
+    {
+      "name": "get_status_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "pinned_cli_ready",
+      "passed": true
+    },
+    {
+      "name": "open_project_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "get_project_summary_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "sample_summary",
+      "passed": true
+    },
+    {
+      "name": "list_components_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "list_components_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "list_nets_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "all_sample_records",
+      "passed": true
+    },
+    {
+      "name": "original_resistance",
+      "passed": true
+    },
+    {
+      "name": "run_checks_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "baseline_findings_preserved",
+      "passed": true
+    },
+    {
+      "name": "export_preview_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "export_preview_native_image",
+      "passed": true
+    },
+    {
+      "name": "export_preview_png_matches_artifact",
+      "passed": true
+    },
+    {
+      "name": "run_output_job_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "pdf_export",
+      "passed": true
+    },
+    {
+      "name": "run_output_job_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "manufacturing_exports",
+      "passed": true
+    },
+    {
+      "name": "create_value_edit_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "candidate_validated",
+      "passed": true
+    },
+    {
+      "name": "export_preview_successful_bounded_result",
+      "passed": true
+    },
+    {
+      "name": "export_preview_native_image",
+      "passed": true
+    },
+    {
+      "name": "export_preview_png_matches_artifact",
+      "passed": true
+    },
+    {
+      "name": "all_source_files_unchanged",
+      "passed": true
+    }
+  ],
+  "calls": [
+    {
+      "tool": "get_status",
+      "arguments": {},
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "server_version": "0.1.0.dev6",
+          "mcp_sdk_version": "2.2.0",
+          "ready": true,
+          "librepcb": {
+            "version": "2.1.1",
+            "file_format": "2",
+            "version_output": "LibrePCB CLI Version 2.1.1\r\nFile Format 2 (stable)\r\nGit Revision 06465bf (2026-06-12)\r\nQt Version 6.10.1 (compiled against 6.10.1)\r\nOpenCascade OCCT 7.9.1\r\n",
+            "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\5e034e7bc97a4dbeaba83f594a7a5ee1.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\5e034e7bc97a4dbeaba83f594a7a5ee1.stderr.txt"
+          },
+          "tools": [
+            "get_status",
+            "open_project",
+            "get_project_summary",
+            "list_components",
+            "list_nets",
+            "run_checks",
+            "export_preview",
+            "run_output_job",
+            "create_value_edit"
+          ],
+          "problems": [],
+          "saved_state_only": true,
+          "write_tools": true,
+          "experimental_edits": true,
+          "project_root_count": 1,
+          "output_jobs": [
+            "schematic_pdf",
+            "gerber_excellon"
+          ],
+          "limits": {
+            "max_page_size": 100,
+            "max_open_attempts_per_session": 32,
+            "max_check_export_operations": 64,
+            "max_edit_attempts": 8,
+            "max_response_bytes": 64000,
+            "operation_timeout_seconds": 240,
+            "cli_timeout_seconds": 30,
+            "max_preview_wire_bytes": 1500000,
+            "max_log_bytes_per_stream": 2000000
+          }
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "open_project",
+      "arguments": {
+        "path": "<REPO>\\work\\demo-e8a9b4\\p\\d0-reader.lpp"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "captured_at": "2026-09-14T18:13:58.637396+00:00",
+          "lock_present": false,
+          "metadata": {
+            "id": "62381a67-292d-448e-952b-bea07d640ac0",
+            "name": "d0-reader",
+            "author": "U. Bruhin",
+            "version": "v2",
+            "created": "2023-06-06T15:13:03Z"
+          },
+          "file_format": "2",
+          "boards": [
+            {
+              "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+              "name": "default",
+              "file": "boards/default/board.lp"
+            }
+          ],
+          "schematics": [
+            {
+              "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+              "name": "Main",
+              "file": "schematics/main/schematic.lp"
+            },
+            {
+              "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+              "name": "Ethernet",
+              "file": "schematics/ethernet/schematic.lp"
+            }
+          ],
+          "component_count": 97,
+          "net_count": 48,
+          "snapshot_project": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\p01\\d0-reader.lpp",
+          "is_edit_candidate": false,
+          "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "get_project_summary",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "captured_at": "2026-09-14T18:13:58.637396+00:00",
+          "lock_present": false,
+          "metadata": {
+            "id": "62381a67-292d-448e-952b-bea07d640ac0",
+            "name": "d0-reader",
+            "author": "U. Bruhin",
+            "version": "v2",
+            "created": "2023-06-06T15:13:03Z"
+          },
+          "file_format": "2",
+          "boards": [
+            {
+              "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+              "name": "default",
+              "file": "boards/default/board.lp"
+            }
+          ],
+          "schematics": [
+            {
+              "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+              "name": "Main",
+              "file": "schematics/main/schematic.lp"
+            },
+            {
+              "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+              "name": "Ethernet",
+              "file": "schematics/ethernet/schematic.lp"
+            }
+          ],
+          "component_count": 97,
+          "net_count": 48,
+          "snapshot_project": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\p01\\d0-reader.lpp",
+          "is_edit_candidate": false,
+          "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "list_components",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+        "cursor": null,
+        "limit": 100
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "items": [
+            {
+              "id": "833ecbcf-4fa8-4d41-8a7b-76d8aa2aca38",
+              "reference": "C1",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "10"
+                },
+                {
+                  "key": "MPN",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "CL21B106KPQNNNE"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "9d44c525-8cb7-4be9-a420-dde87cee9470",
+              "reference": "C10",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "1"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "012ad46b-d2fe-45e3-bd71-c9efe2b64f8f",
+              "reference": "C11",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "picofarad",
+                  "value": "470"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "e1af92d3-99cb-41c1-b1ec-e540dd5e33b6",
+              "reference": "C12",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "2a39a7e6-3c03-4837-b3be-3b048667007b",
+              "reference": "C13",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "7125d431-34cb-499b-ae40-e2a9341978be",
+              "reference": "C14",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "cad40db4-06ae-41d4-9b11-6cc38b57221d",
+              "reference": "C15",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "4.7"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "fb0aab3f-18a3-43a4-8d76-f36ed14f431a",
+              "reference": "C16",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "22"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "e6338ab3-f7a6-41a8-9021-9271210f5e31",
+              "reference": "C17",
+              "value_raw": "{{CAPACITANCE}} {{VOLTAGE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "10"
+                },
+                {
+                  "key": "VOLTAGE",
+                  "type": "voltage",
+                  "unit": "volt",
+                  "value": "63"
+                }
+              ],
+              "library_component_id": "c54375c5-7149-4ded-95c5-7462f7301ee7",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "f1683221-4f7d-48c5-bf92-13a4d7e3af5a",
+              "reference": "C18",
+              "value_raw": "{{CAPACITANCE}} {{VOLTAGE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "2.2"
+                },
+                {
+                  "key": "VOLTAGE",
+                  "type": "voltage",
+                  "unit": "volt",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "7fb7021e-b70d-4393-9f92-289f17ea3aef",
+              "reference": "C19",
+              "value_raw": "{{CAPACITANCE}} {{VOLTAGE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "68"
+                },
+                {
+                  "key": "VOLTAGE",
+                  "type": "voltage",
+                  "unit": "volt",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "5dcf2423-9583-48e3-8b53-8584b1624810",
+              "reference": "C2",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "1"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "4dfac795-d12f-42ab-937d-846bbfc4f8b6",
+              "reference": "C20",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "22"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "3bf29801-1d20-4a07-ad75-a0073904be7d",
+              "reference": "C21",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "22"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "95bdf903-be49-4fb9-853a-237f0b6df7e0",
+              "reference": "C22",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "22"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "0bb7e288-9d70-4e52-aead-db1b9d28c40d",
+              "reference": "C23",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "microfarad",
+                  "value": "1"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "a7155975-e241-465b-8c2b-3d22f5ca0465",
+              "reference": "C3",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "a1002183-a0ce-45c7-814b-6817eb5c5e30",
+              "reference": "C4",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "c7f5f900-1886-48fb-b905-0d39aedcd00f",
+              "reference": "C5",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "6ef2a109-6a4b-458a-b639-a0b18a7b3a4e",
+              "reference": "C6",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "29dcffa2-c5d8-43b9-9a73-e59ec1a63813",
+              "reference": "C7",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "nanofarad",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "32244cd4-f019-4488-a3de-af2a8b1b20fe",
+              "reference": "C8",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "picofarad",
+                  "value": "5.6"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "07276241-31f8-45cd-bf4c-80fb3c644340",
+              "reference": "C9",
+              "value_raw": "{{CAPACITANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "CAPACITANCE",
+                  "type": "capacitance",
+                  "unit": "picofarad",
+                  "value": "5.6"
+                }
+              ],
+              "library_component_id": "d167e0e3-6a92-4b76-b013-77b9c230e5f1",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "8483851e-d9b0-45b6-bc81-18329c3ab38a",
+              "reference": "FRAME1",
+              "value_raw": "",
+              "value_is_template": false,
+              "attributes": [
+                {
+                  "key": "FIELD_SHEET",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_SHEET or SHEET }}"
+                },
+                {
+                  "key": "FIELD_PROJECT",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_PROJECT or PROJECT }}"
+                },
+                {
+                  "key": "FIELD_VERSION",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_VERSION or VERSION }}"
+                },
+                {
+                  "key": "FIELD_DATE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_DATE or DATE }}"
+                },
+                {
+                  "key": "FIELD_AUTHOR",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_AUTHOR or AUTHOR }}"
+                },
+                {
+                  "key": "FIELD_PAGE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_PAGE_X_OF_Y or PAGE_X_OF_Y }}"
+                }
+              ],
+              "library_component_id": "98e71eaa-1b90-4a84-8529-ed4f493e5c41",
+              "schematic_only": true,
+              "signal_count": 0,
+              "connected_signal_count": 0
+            },
+            {
+              "id": "6c5fef49-b8b0-45aa-afec-2ba985d5acbd",
+              "reference": "FRAME2",
+              "value_raw": "",
+              "value_is_template": false,
+              "attributes": [
+                {
+                  "key": "FIELD_SHEET",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_SHEET or SHEET }}"
+                },
+                {
+                  "key": "FIELD_PROJECT",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_PROJECT or PROJECT }}"
+                },
+                {
+                  "key": "FIELD_VERSION",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_VERSION or VERSION }}"
+                },
+                {
+                  "key": "FIELD_DATE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_DATE or DATE }}"
+                },
+                {
+                  "key": "FIELD_AUTHOR",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_AUTHOR or AUTHOR }}"
+                },
+                {
+                  "key": "FIELD_PAGE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "{{ SCH_FRAME_PAGE_X_OF_Y or PAGE_X_OF_Y }}"
+                }
+              ],
+              "library_component_id": "98e71eaa-1b90-4a84-8529-ed4f493e5c41",
+              "schematic_only": true,
+              "signal_count": 0,
+              "connected_signal_count": 0
+            },
+            {
+              "id": "964014e1-6239-4e47-ab17-d264bafbaf3b",
+              "reference": "GND1",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "02ab39b5-5d3b-48a2-bff8-6caebff2acac",
+              "reference": "GND10",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "237a7afa-4297-4f5e-9f9a-a9fa01f0ff4b",
+              "reference": "GND11",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "3b30a7ca-9835-4c38-ab55-0c8463a8f78a",
+              "reference": "GND12",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "ec16a9fb-4f04-435f-8504-be98b1d16f77",
+              "reference": "GND14",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "ea68bf2d-d42b-4506-a6a7-504c66c0a8b2",
+              "reference": "GND15",
+              "value_raw": "POE-",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "bda52440-7722-4a50-ad56-dfa04a9431c7",
+              "reference": "GND16",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "0679d0fa-d7dd-4e8c-870d-87fade8c385d",
+              "reference": "GND18",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "8443070a-830f-4c9c-baa0-b701e6ebecae",
+              "reference": "GND19",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "91700c25-4e77-4f31-ab5e-aebec2ce764b",
+              "reference": "GND2",
+              "value_raw": "POE-",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "97ac812a-282c-4b88-9c30-c78e01cff639",
+              "reference": "GND20",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "19515003-6e87-434d-b0bc-34909060449e",
+              "reference": "GND21",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "b28e4b09-6159-4af4-8a6d-8216c2875b6a",
+              "reference": "GND22",
+              "value_raw": "POE-",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "3a31231b-ea04-4d22-9148-285c6c6189cc",
+              "reference": "GND23",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "69374a07-1c8a-4524-9855-cc6261b03864",
+              "reference": "GND3",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "fceb0554-d57e-4755-9d84-240714826a5d",
+              "reference": "GND4",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "dd209c5c-0a24-4aa8-b573-576eae9f3247",
+              "reference": "GND5",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "13ab4987-a7bc-4acb-b8eb-cad6cd1612a9",
+              "reference": "GND6",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "6bd245e6-9267-4a61-b99b-b7d12590d897",
+              "reference": "GND7",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "36ec6636-c530-45d3-9962-429df8a4e61c",
+              "reference": "GND8",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "4796a834-6754-49e1-baa2-b15877bd0dd9",
+              "reference": "GND9",
+              "value_raw": "GND",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "8076f6be-bfab-4fc1-9772-5d54465dd7e1",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "83db69ce-17a4-4500-bfe5-6a25b6b7b52f",
+              "reference": "J1",
+              "value_raw": "{{MPN or DEVICE}}",
+              "value_is_template": true,
+              "attributes": [],
+              "library_component_id": "b5f6fc2b-765f-43ed-b0b7-168936ee917d",
+              "schematic_only": false,
+              "signal_count": 13,
+              "connected_signal_count": 13
+            },
+            {
+              "id": "15938381-1b97-4fc0-896c-f66d1c330321",
+              "reference": "J2",
+              "value_raw": "SWD",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "e9ea7610-0ef4-4855-9f9b-e7f77a28afa1",
+              "schematic_only": false,
+              "signal_count": 10,
+              "connected_signal_count": 7
+            },
+            {
+              "id": "457ce8ed-6e41-4fe2-9c75-67b28f019346",
+              "reference": "L1",
+              "value_raw": "{{MPN}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "INDUCTANCE",
+                  "type": "inductance",
+                  "unit": "millihenry",
+                  "value": ""
+                }
+              ],
+              "library_component_id": "506bd124-6062-400e-9078-b38bd7e1aaee",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "880e7d49-e2bc-470b-a847-917f5a080149",
+              "reference": "L2",
+              "value_raw": "{{MPN}}\n{{INDUCTANCE}} {{CURRENT}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "INDUCTANCE",
+                  "type": "inductance",
+                  "unit": "microhenry",
+                  "value": "33"
+                },
+                {
+                  "key": "CURRENT",
+                  "type": "current",
+                  "unit": "ampere",
+                  "value": "1.4"
+                }
+              ],
+              "library_component_id": "506bd124-6062-400e-9078-b38bd7e1aaee",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "98e8b920-81ac-4339-8c1c-f4781c05fed7",
+              "reference": "LED1",
+              "value_raw": "{{MPN or COLOR}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "COLOR",
+                  "type": "string",
+                  "unit": "none",
+                  "value": ""
+                }
+              ],
+              "library_component_id": "2b24b18d-bd95-4fb4-8fe6-bce1d020ead4",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "36172735-7087-490f-8baf-6c496325b8af",
+              "reference": "LOGO1",
+              "value_raw": "Made With\nLibrePCB",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "b91cf23a-4f07-4b99-8f52-0b42304aef20",
+              "schematic_only": false,
+              "signal_count": 0,
+              "connected_signal_count": 0
+            },
+            {
+              "id": "bd3c2e0f-7731-411e-bf7d-ceb6181d1036",
+              "reference": "LOGO2",
+              "value_raw": "Made With\nLibrePCB",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "b91cf23a-4f07-4b99-8f52-0b42304aef20",
+              "schematic_only": false,
+              "signal_count": 0,
+              "connected_signal_count": 0
+            },
+            {
+              "id": "ba393cfa-486e-4054-9ee4-ab54bca3ffd2",
+              "reference": "OSHW1",
+              "value_raw": "open source\nhardware",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "10118da4-3006-423e-99b4-076adb434065",
+              "schematic_only": false,
+              "signal_count": 0,
+              "connected_signal_count": 0
+            },
+            {
+              "id": "d0c12e22-ad7c-4b4a-bb07-354f99ef08aa",
+              "reference": "OSHW2",
+              "value_raw": "open source\nhardware",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "10118da4-3006-423e-99b4-076adb434065",
+              "schematic_only": false,
+              "signal_count": 0,
+              "connected_signal_count": 0
+            },
+            {
+              "id": "77a7ec0e-9940-4fcd-8b0e-b55d3eb7222b",
+              "reference": "R1",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "100"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "43b118fa-2bdf-44ba-b1e6-e9ac0db5a2f3",
+              "reference": "R10",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "10"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "70977821-9348-4848-a119-7cb1773e1de5",
+              "reference": "R11",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "33"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "c25b32a9-03e9-4e86-9df4-45e375c19a48",
+              "reference": "R12",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "33"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "bdec3ff1-be23-4448-b8a2-3ef6b25c76de",
+              "reference": "R13",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "10"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "8b260dcc-0672-4842-ad5c-83612addb7f8",
+              "reference": "R14",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "10"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "f6c9f82f-aa01-4f1c-ba38-7158f79e4fa2",
+              "reference": "R15",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "33"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "86736e33-3f84-409f-ac1e-307361ed71a5",
+              "reference": "R16",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "10"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+              "reference": "R17",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "1.5"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "00e4b29e-0481-46f3-9e2b-81ba3e7f0d61",
+              "reference": "R18",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "10"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "16ee59fb-c3e6-46f0-b4e2-4cbbbb3b7f20",
+              "reference": "R19",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "33"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "7e7a5c56-5d2b-4596-b2d0-1f5ad2c05559",
+              "reference": "R2",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "1"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "82c9da57-27ea-4f59-9613-aee7feb964f3",
+              "reference": "R20",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "270"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            }
+          ],
+          "total": 97,
+          "next_cursor": "2daf148ea7fe4ced88fcdbb935a16b92:components:68"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "list_components",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+        "cursor": "2daf148ea7fe4ced88fcdbb935a16b92:components:68",
+        "limit": 100
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "items": [
+            {
+              "id": "4189ce4d-a3cc-4086-8427-00e902bbb954",
+              "reference": "R21",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "270"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "52376e68-10f3-446c-a616-3f02fd63984b",
+              "reference": "R22",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "24.9"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "8f5390c0-fd16-4465-ab32-2ad07c9d1ca2",
+              "reference": "R23",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "68"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "e856dd61-1e05-4131-a75b-15fd3e6c4122",
+              "reference": "R24",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "39"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "b8de2a6d-4f1c-4001-ba22-3c83fff252f7",
+              "reference": "R3",
+              "value_raw": "{{RESISTANCE}} {{TOLERANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "49.9"
+                },
+                {
+                  "key": "TOLERANCE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "1%"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "f91e38fb-e9bd-45e7-9f23-017566705e8d",
+              "reference": "R4",
+              "value_raw": "{{RESISTANCE}} {{TOLERANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "49.9"
+                },
+                {
+                  "key": "TOLERANCE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "1%"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "d47e6e6f-81d5-447d-8cf7-4da7c22d2288",
+              "reference": "R5",
+              "value_raw": "{{RESISTANCE}} {{TOLERANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "49.9"
+                },
+                {
+                  "key": "TOLERANCE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "1%"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "e74774d8-cf35-4c18-b669-0e8ebd04291b",
+              "reference": "R6",
+              "value_raw": "{{RESISTANCE}} {{TOLERANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "49.9"
+                },
+                {
+                  "key": "TOLERANCE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "1%"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "034423fb-3f2e-477f-996a-2da8e7fd3568",
+              "reference": "R7",
+              "value_raw": "{{RESISTANCE}} {{TOLERANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "12.1"
+                },
+                {
+                  "key": "TOLERANCE",
+                  "type": "string",
+                  "unit": "none",
+                  "value": "1%"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "9ca990ca-8c3a-44c6-9ac1-5169cf075773",
+              "reference": "R8",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "kiloohm",
+                  "value": "10"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "cb8d5e6a-a825-416e-a6f6-f928a247f404",
+              "reference": "R9",
+              "value_raw": "{{RESISTANCE}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "RESISTANCE",
+                  "type": "resistance",
+                  "unit": "ohm",
+                  "value": "0"
+                }
+              ],
+              "library_component_id": "ef80cd5e-2689-47ee-8888-31d04fc99174",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "42618473-1206-46c0-a689-11d39e98406d",
+              "reference": "S1",
+              "value_raw": "{{MPN or DEVICE}}",
+              "value_is_template": true,
+              "attributes": [],
+              "library_component_id": "6eedad0b-5b41-4233-9b7b-8be1ee8527e0",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "0757a959-c918-4a59-9158-fd0b99534a15",
+              "reference": "T1",
+              "value_raw": "{{MPN or DEVICE}}",
+              "value_is_template": true,
+              "attributes": [],
+              "library_component_id": "d432298e-f17c-4405-9bba-f420d6a8638f",
+              "schematic_only": false,
+              "signal_count": 2,
+              "connected_signal_count": 2
+            },
+            {
+              "id": "37f38c6b-adbb-41c8-ae80-a2c9426d783f",
+              "reference": "TP1",
+              "value_raw": "",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "e2659029-10eb-42f4-af23-41301bb12569",
+              "schematic_only": false,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "9c02d201-b0f7-4d4c-ac24-afaddfd8a046",
+              "reference": "TP2",
+              "value_raw": "",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "e2659029-10eb-42f4-af23-41301bb12569",
+              "schematic_only": false,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "b1453689-0d9f-4797-b2e9-44db3643ce0b",
+              "reference": "U1",
+              "value_raw": "{{MPN or DEVICE or COMPONENT}}",
+              "value_is_template": true,
+              "attributes": [],
+              "library_component_id": "13c70620-f418-4d65-a1f6-3f7ddab61d7a",
+              "schematic_only": false,
+              "signal_count": 25,
+              "connected_signal_count": 25
+            },
+            {
+              "id": "5eb2db29-53ef-498e-a4a7-e609a610bd2e",
+              "reference": "U3",
+              "value_raw": "{{MPN or DEVICE or COMPONENT}}",
+              "value_is_template": true,
+              "attributes": [],
+              "library_component_id": "a98daff2-8a6f-4dab-94c3-c988a472ba93",
+              "schematic_only": false,
+              "signal_count": 58,
+              "connected_signal_count": 25
+            },
+            {
+              "id": "4f8a0408-460a-4bcd-afba-c3f28d2c38e2",
+              "reference": "U4",
+              "value_raw": "{{MPN or DEVICE or COMPONENT}}",
+              "value_is_template": true,
+              "attributes": [],
+              "library_component_id": "e7ba0a22-f0a4-4c39-92d1-0ac5db882ff0",
+              "schematic_only": false,
+              "signal_count": 16,
+              "connected_signal_count": 13
+            },
+            {
+              "id": "f50b1de0-2d39-4925-a1a2-ac007a39a83d",
+              "reference": "VCC10",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "6c8e2215-ea8c-494b-b8e8-e21190184468",
+              "reference": "VCC14",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "b8dc8591-a6a0-4132-8bed-9ea445c45d41",
+              "reference": "VCC2",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "41c0c73f-6548-4adc-bc9b-41f178d8153b",
+              "reference": "VCC3",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "0f2cf9bb-8714-458c-acf2-3e57dce8e34e",
+              "reference": "VCC4",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "0f3ff6a0-0d81-4523-8cbb-31a959ff85ea",
+              "reference": "VCC5",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "9bc27173-2945-4c66-a516-d3cc728c08c3",
+              "reference": "VCC6",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "c79ab574-74fe-4217-a3be-965c04248e77",
+              "reference": "VCC7",
+              "value_raw": "3V3",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "23ec1e10-3b91-464c-9173-1cab70518d41",
+              "reference": "VCC8",
+              "value_raw": "POE+",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "ffa86117-c6ca-4d51-8dc8-261d86aecbe1",
+              "reference": "VCC9",
+              "value_raw": "POE+",
+              "value_is_template": false,
+              "attributes": [],
+              "library_component_id": "58c3c6cd-11eb-4557-aa3f-d3e05874afde",
+              "schematic_only": true,
+              "signal_count": 1,
+              "connected_signal_count": 1
+            },
+            {
+              "id": "61752d95-391e-4bab-804c-c2d0802c5de1",
+              "reference": "Y1",
+              "value_raw": "{{FREQUENCY}}\n{{MPN}}",
+              "value_is_template": true,
+              "attributes": [
+                {
+                  "key": "FREQUENCY",
+                  "type": "frequency",
+                  "unit": "megahertz",
+                  "value": ""
+                }
+              ],
+              "library_component_id": "2c5d2ae0-a3db-45cc-b04b-8ba114d1c9ce",
+              "schematic_only": false,
+              "signal_count": 3,
+              "connected_signal_count": 3
+            }
+          ],
+          "total": 97,
+          "next_cursor": null
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "list_nets",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+        "cursor": null,
+        "limit": 100
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "items": [
+            {
+              "id": "d3764793-7b40-45e2-9fe3-863c2095f671",
+              "name": "!LAN_RST",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "30852888-93c8-4c8a-94a4-d3cc44fc00ba",
+              "name": "!RST",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "d6084e3e-947d-43a5-ae0d-103b2dab57d7",
+              "name": "3V3",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 33,
+              "component_count": 31
+            },
+            {
+              "id": "db3fad3a-3836-4b1c-8446-b55f37ee21e0",
+              "name": "BUTTON",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "3a4b85da-e763-4c91-8568-31b18ac3bfb4",
+              "name": "GND",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 58,
+              "component_count": 50
+            },
+            {
+              "id": "b3e7004d-d98b-4923-b8bf-ac1c94b01cfc",
+              "name": "IR_RX",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "0f0faf0f-9180-4685-8a5b-5bd6b41776f5",
+              "name": "IR_TX",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "027e756f-b2c8-4749-8997-1fb19ce9e903",
+              "name": "N1",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 13,
+              "component_count": 11
+            },
+            {
+              "id": "81c39325-849d-4e69-adf8-7a9efb377095",
+              "name": "N10",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "a1e36bea-3602-4afa-a9b3-34da7d4898af",
+              "name": "N11",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "e931fbc6-b697-4880-9a90-fc2ae5c78d46",
+              "name": "N13",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "fb7514fe-6ebb-415a-971d-9f722d0ddede",
+              "name": "N14",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "e8bfc69a-3ee2-43a9-97b1-b92a54725521",
+              "name": "N15",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "9f7bb39d-4c4b-4b74-a21c-2e315bbbc826",
+              "name": "N16",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "4692a733-2378-4bb1-8a58-61b787f961a4",
+              "name": "N17",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "0e1174ea-3fe4-48ad-b224-34da8526a432",
+              "name": "N18",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "3fa681ba-2258-420d-994c-81710775cd3e",
+              "name": "N2",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "1187f240-e2de-403b-879d-825c0c8d2956",
+              "name": "N20",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 2
+            },
+            {
+              "id": "69e2cce0-0d08-4e0c-b0cc-f0af90812c3d",
+              "name": "N21",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "5e665c16-6185-4cd9-981b-617cc0515015",
+              "name": "N22",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "cab62255-b344-448f-a831-05d0ffc03ce2",
+              "name": "N23",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "02b80077-d4c7-43dc-a7f3-7fc7252c8bc1",
+              "name": "N24",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "f42e4b34-d9d1-42c9-9e33-279893193340",
+              "name": "N25",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "b1edb226-f6b3-440d-9029-598e95a7941a",
+              "name": "N35",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "2d4d80e9-2db7-40e1-a8af-72b7e5534357",
+              "name": "N4",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "882faf4c-cc47-4492-9987-c0a3d71f7be5",
+              "name": "N5",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "16ca6a21-9cab-43e6-b7d3-eb425b201589",
+              "name": "N6",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "a9ce2f04-3f3c-4e9b-ae39-cb35dd479e2c",
+              "name": "N7",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "4b563a47-adc8-412b-8440-2f91af204c8a",
+              "name": "POE+",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 5,
+              "component_count": 5
+            },
+            {
+              "id": "69e74bd6-1d89-43c1-8cd3-054d10dacb6d",
+              "name": "POE-",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 11,
+              "component_count": 11
+            },
+            {
+              "id": "253f4df0-35c2-43a1-8cb2-a3b71d7003f9",
+              "name": "POWER_LED",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "e811a883-0bf7-4717-8e67-abc99cf5f3b9",
+              "name": "RMII_CRS_DV",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "2cb4b452-5be2-493c-9584-8c2ab61fbef2",
+              "name": "RMII_MDC",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "92b24eb0-6903-4fd6-893d-a0257bf9f6d6",
+              "name": "RMII_MDIO",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "e4ee24bc-117e-4a9c-8e04-b81448e87c5b",
+              "name": "RMII_REFCLK",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "01a8e87a-83b0-4b63-8452-24655ee197c5",
+              "name": "RMII_RXD0",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "42f69056-981a-4e4c-9ca4-36d4283e5a24",
+              "name": "RMII_RXD1",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "6d861872-c545-4f50-8aab-e1564d6e45a4",
+              "name": "RMII_TXD0",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "a3247f41-00c3-4b50-b51a-481f4e070741",
+              "name": "RMII_TXD1",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "2385a23e-5495-43f3-82d7-e1e30ccb3dff",
+              "name": "RMII_TXEN",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "cc36d04f-7553-4855-81e9-c3c9edba17d7",
+              "name": "RXN",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "3cccfa53-8a84-4ca7-aea9-b6c57fc7a96a",
+              "name": "RXP",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "f0f721fd-9ea0-4ba2-bdc2-1849a7fbf626",
+              "name": "SWCLK",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "f204f496-03dc-451f-8b6a-c904f24048a9",
+              "name": "SWDIO",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "cac81af3-0b0a-4d77-b041-b76fda6a053d",
+              "name": "TEST1",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "47bcc937-8ad9-4f62-a850-2884d0744204",
+              "name": "TEST2",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 2,
+              "component_count": 2
+            },
+            {
+              "id": "fe5ff8b6-3c98-4b12-8df7-c90b8abe15b3",
+              "name": "TXN",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            },
+            {
+              "id": "4fb04036-6a2f-415b-8ba3-c07deba7403f",
+              "name": "TXP",
+              "netclass_id": "6b4592ea-551e-4039-aa59-8b170c8528ca",
+              "signal_count": 3,
+              "component_count": 3
+            }
+          ],
+          "total": 48,
+          "next_cursor": null
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_checks",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "outcome": "passed",
+          "approved_count": 18,
+          "unapproved_count": 0,
+          "checks": [
+            {
+              "check": "erc",
+              "board": null,
+              "outcome": "passed",
+              "approved_count": 2,
+              "unapproved_count": 0,
+              "findings": [],
+              "findings_truncated": false,
+              "exit_code": 0,
+              "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\81bb2222ffd54d4f960b25fe7234af17.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\81bb2222ffd54d4f960b25fe7234af17.stderr.txt",
+              "diagnostic_notes": []
+            },
+            {
+              "check": "drc",
+              "board": {
+                "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                "name": "default",
+                "file": "boards/default/board.lp"
+              },
+              "outcome": "passed",
+              "approved_count": 16,
+              "unapproved_count": 0,
+              "findings": [],
+              "findings_truncated": false,
+              "exit_code": 0,
+              "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\0850580c633b44c2920abc6663923d28.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\0850580c633b44c2920abc6663923d28.stderr.txt",
+              "diagnostic_notes": []
+            }
+          ],
+          "approval_details_available": false,
+          "report_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r001\\checks.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "export_preview",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+        "schematic_id": "a3fc7c77-9971-4020-b120-fae5dcadff13"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "job": "schematic_png",
+          "board_id": null,
+          "artifacts": [
+            {
+              "artifact_id": "db8cc754cdaf49d39b8cfaffa9227b77",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r002\\files\\schematic1.png",
+              "filename": "schematic1.png",
+              "mime_type": "image/png",
+              "bytes": 94085,
+              "sha256": "1610fbaa20439185eca2ce5d637472fa31d83f25b63d58faeafd24629e234ba2",
+              "width": 1754,
+              "height": 1239
+            },
+            {
+              "artifact_id": "e700f3ea1a5044449c9993cb37a0acb1",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r002\\files\\schematic2.png",
+              "filename": "schematic2.png",
+              "mime_type": "image/png",
+              "bytes": 128810,
+              "sha256": "8fcfb3003744dc4904677bca3771ed64e47fb34ae16c9173efc5b23be0ee81b3",
+              "width": 1754,
+              "height": 1239
+            }
+          ],
+          "output_directory": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r002\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\2332474bc00d43f3b31e36e0450d9ae4.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\2332474bc00d43f3b31e36e0450d9ae4.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r002\\artifacts.json",
+          "selected_schematic": {
+            "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+            "name": "Ethernet",
+            "file": "schematics/ethernet/schematic.lp"
+          },
+          "image_artifact_id": "e700f3ea1a5044449c9993cb37a0acb1",
+          "image_note": "One selected schematic is attached as an MCP image; all generated pages are listed as artifacts."
+        }
+      },
+      "images": [
+        {
+          "file": "original-ethernet.png",
+          "bytes": 128810,
+          "sha256": "8fcfb3003744dc4904677bca3771ed64e47fb34ae16c9173efc5b23be0ee81b3"
+        }
+      ]
+    },
+    {
+      "tool": "run_output_job",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+        "job_name": "schematic_pdf"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "job": "schematic_pdf",
+          "board_id": null,
+          "artifacts": [
+            {
+              "artifact_id": "fab3e0f46d4e4cc6af2fa246022baed8",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r003\\files\\schematic.pdf",
+              "filename": "schematic.pdf",
+              "mime_type": "application/pdf",
+              "bytes": 103641,
+              "sha256": "d77171971907b6edf5c877280f781093240d1c886706ba8c631362ee5a760f8e"
+            }
+          ],
+          "output_directory": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r003\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\38d8d23e1fac4d06874db022cde2761c.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\38d8d23e1fac4d06874db022cde2761c.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r003\\artifacts.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "run_output_job",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+        "job_name": "gerber_excellon"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "state": "saved_snapshot",
+          "job": "gerber_excellon",
+          "board_id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+          "artifacts": [
+            {
+              "artifact_id": "2bb5bd7e71184c5cbc523cb8d7fd4c46",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_COPPER-BOTTOM.gbr",
+              "filename": "board_COPPER-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 192191,
+              "sha256": "5fc50ebcf3044fb47bd52a7ba83bd3e7ada4bb9bdf24162908a8b686b3d1aa44"
+            },
+            {
+              "artifact_id": "433e5ef68ada4a45a56018c9086d92a3",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_COPPER-TOP.gbr",
+              "filename": "board_COPPER-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 124596,
+              "sha256": "381b101547132b820ea4b49e73d37d659fef7edb86d9aedc11d42b687e5ca9dc"
+            },
+            {
+              "artifact_id": "286984988c81459793edbb2c8dfa09a8",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_DRILLS-NPTH.drl",
+              "filename": "board_DRILLS-NPTH.drl",
+              "mime_type": "application/octet-stream",
+              "bytes": 367,
+              "sha256": "0220ac696bb327ca995cd30a9afd17de87acb18cb2e12d470f085eb1abbd1cab"
+            },
+            {
+              "artifact_id": "1803a1add4304644ae68ddace6623382",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_DRILLS-PTH.drl",
+              "filename": "board_DRILLS-PTH.drl",
+              "mime_type": "application/octet-stream",
+              "bytes": 3436,
+              "sha256": "868fd260639eb900a51097ea0490de550dbc4860f48a7a93d052feaf812ba257"
+            },
+            {
+              "artifact_id": "4c542df7aa074dc290efb8bbb570c8b3",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_OUTLINES.gbr",
+              "filename": "board_OUTLINES.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 879,
+              "sha256": "e9b82e0efdbbbcf83036374a8892dea40d72c76b3d3fc0fc3d0d406ff0ae4b59"
+            },
+            {
+              "artifact_id": "9d96b7bdf0c24e9990febdc4828ed524",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_SILKSCREEN-BOTTOM.gbr",
+              "filename": "board_SILKSCREEN-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 76513,
+              "sha256": "9de0b269ef44eedcad3e92cee4c9291e730b1a4dd8bfe735d9484d44bc47042a"
+            },
+            {
+              "artifact_id": "f13a9236e3ae4b19916e905d3bae9567",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_SILKSCREEN-TOP.gbr",
+              "filename": "board_SILKSCREEN-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 32457,
+              "sha256": "23db695d5bfc0e1bff9d8d2197fd6ac2ee63617ff1633d7231d9abd24ef61d9f"
+            },
+            {
+              "artifact_id": "14c02227727b4e32b000d722b32bc3cc",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_SOLDERMASK-BOTTOM.gbr",
+              "filename": "board_SOLDERMASK-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 13364,
+              "sha256": "bd1e26fa894bc19f563d39ba62ce92cc6572565aff0203eeec1f9e63235a868c"
+            },
+            {
+              "artifact_id": "2e78143726d6456d8664eda20776d111",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_SOLDERMASK-TOP.gbr",
+              "filename": "board_SOLDERMASK-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 2088,
+              "sha256": "0b71d678a7ce3e221eb1e00af300132abff179088f988c1f5f4a9f1a802a3536"
+            },
+            {
+              "artifact_id": "cb4054562820415daa44143acaafc97a",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_SOLDERPASTE-BOTTOM.gbr",
+              "filename": "board_SOLDERPASTE-BOTTOM.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 9239,
+              "sha256": "7a1f75ef675f17a95521692410fc8f69adeeadacc8cca763c7bebcc2b45a9f9c"
+            },
+            {
+              "artifact_id": "326e271c00a54352bd79629c59f6ab95",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files\\gerber\\board_SOLDERPASTE-TOP.gbr",
+              "filename": "board_SOLDERPASTE-TOP.gbr",
+              "mime_type": "application/octet-stream",
+              "bytes": 1384,
+              "sha256": "ef20cefc906e1a6f389ad1630637dde91eeacb6cb3abbd39da843b701957527d"
+            }
+          ],
+          "output_directory": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\094b7aad861547b7877941de45ecf51d.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\094b7aad861547b7877941de45ecf51d.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r004\\artifacts.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "create_value_edit",
+      "arguments": {
+        "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+        "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+        "expected_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+        "new_value": "2.2"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "outcome": "validated_candidate",
+          "source_project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+          "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+          "change": {
+            "component_id": "0f0fb70f-d2f9-4a08-83e2-47fae2ffc276",
+            "reference": "R17",
+            "file": "circuit/circuit.lp",
+            "field": "RESISTANCE",
+            "type": "resistance",
+            "unit": "kiloohm",
+            "before": "1.5",
+            "after": "2.2",
+            "value_raw": "{{RESISTANCE}}",
+            "character_span": [
+              10716,
+              10721
+            ]
+          },
+          "cli_roundtrip": [
+            {
+              "flags": [
+                "--save"
+              ],
+              "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\6da9d2afbeb74e40bffe61f5f2879a7f.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\6da9d2afbeb74e40bffe61f5f2879a7f.stderr.txt",
+              "exit_code": 0,
+              "process_outcome": "completed"
+            },
+            {
+              "flags": [
+                "--strict"
+              ],
+              "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\e3cd6499e4cb4856a328b560f3706e05.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\e3cd6499e4cb4856a328b560f3706e05.stderr.txt",
+              "exit_code": 0,
+              "process_outcome": "completed"
+            },
+            {
+              "flags": [
+                "--save"
+              ],
+              "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\99135ed1c6924f929f0c4e7232222b17.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\99135ed1c6924f929f0c4e7232222b17.stderr.txt",
+              "exit_code": 0,
+              "process_outcome": "completed"
+            },
+            {
+              "flags": [
+                "--strict"
+              ],
+              "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\5333840476944ae8a984695618bdcc2c.stdout.txt",
+              "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\5333840476944ae8a984695618bdcc2c.stderr.txt",
+              "exit_code": 0,
+              "process_outcome": "completed"
+            }
+          ],
+          "operation_directory": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\e01",
+          "baseline_checks": {
+            "project_id": "2daf148ea7fe4ced88fcdbb935a16b92",
+            "revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+            "state": "saved_snapshot",
+            "outcome": "passed",
+            "approved_count": 18,
+            "unapproved_count": 0,
+            "checks": [
+              {
+                "check": "erc",
+                "board": null,
+                "outcome": "passed",
+                "approved_count": 2,
+                "unapproved_count": 0,
+                "findings": [],
+                "findings_truncated": false,
+                "exit_code": 0,
+                "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\ff69fe74684c4b1cb06a4bcc3abfc4bf.stdout.txt",
+                "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\ff69fe74684c4b1cb06a4bcc3abfc4bf.stderr.txt",
+                "diagnostic_notes": []
+              },
+              {
+                "check": "drc",
+                "board": {
+                  "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                  "name": "default",
+                  "file": "boards/default/board.lp"
+                },
+                "outcome": "passed",
+                "approved_count": 16,
+                "unapproved_count": 0,
+                "findings": [],
+                "findings_truncated": false,
+                "exit_code": 0,
+                "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\59b1196f859a4d6bbcfbceca6314083c.stdout.txt",
+                "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\59b1196f859a4d6bbcfbceca6314083c.stderr.txt",
+                "diagnostic_notes": []
+              }
+            ],
+            "approval_details_available": false,
+            "report_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r005\\checks.json"
+          },
+          "generated_preference_files": [
+            "boards/default/settings.user.lp",
+            "project/settings.user.lp",
+            "schematics/ethernet/settings.user.lp",
+            "schematics/main/settings.user.lp"
+          ],
+          "invariants": {
+            "exact_expected_files": true,
+            "file_count": 188,
+            "changed_files": [
+              "circuit/circuit.lp"
+            ],
+            "identifiers_connectivity_geometry_and_other_bytes_preserved": true
+          },
+          "candidate_checks": {
+            "project_id": "84f2b70a59014d4e9bc0d5fbbe7c05bc",
+            "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+            "state": "saved_snapshot",
+            "outcome": "passed",
+            "approved_count": 18,
+            "unapproved_count": 0,
+            "checks": [
+              {
+                "check": "erc",
+                "board": null,
+                "outcome": "passed",
+                "approved_count": 2,
+                "unapproved_count": 0,
+                "findings": [],
+                "findings_truncated": false,
+                "exit_code": 0,
+                "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\3b9473a5e37d47158b80a691c9ca4078.stdout.txt",
+                "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\3b9473a5e37d47158b80a691c9ca4078.stderr.txt",
+                "diagnostic_notes": []
+              },
+              {
+                "check": "drc",
+                "board": {
+                  "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                  "name": "default",
+                  "file": "boards/default/board.lp"
+                },
+                "outcome": "passed",
+                "approved_count": 16,
+                "unapproved_count": 0,
+                "findings": [],
+                "findings_truncated": false,
+                "exit_code": 0,
+                "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\185c057c783b43aaa9d4d42a2e9e87a6.stdout.txt",
+                "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\185c057c783b43aaa9d4d42a2e9e87a6.stderr.txt",
+                "diagnostic_notes": []
+              }
+            ],
+            "approval_details_available": false,
+            "report_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r006\\checks.json"
+          },
+          "candidate": {
+            "project_id": "84f2b70a59014d4e9bc0d5fbbe7c05bc",
+            "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+            "state": "saved_snapshot",
+            "captured_at": "2026-09-14T18:15:09.601838+00:00",
+            "lock_present": false,
+            "metadata": {
+              "id": "62381a67-292d-448e-952b-bea07d640ac0",
+              "name": "d0-reader",
+              "author": "U. Bruhin",
+              "version": "v2",
+              "created": "2023-06-06T15:13:03Z"
+            },
+            "file_format": "2",
+            "boards": [
+              {
+                "id": "9220702f-a48e-4216-8865-87f6ea8ca353",
+                "name": "default",
+                "file": "boards/default/board.lp"
+              }
+            ],
+            "schematics": [
+              {
+                "id": "f963e052-a18b-4f05-bdb0-ab605ad87e1b",
+                "name": "Main",
+                "file": "schematics/main/schematic.lp"
+              },
+              {
+                "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+                "name": "Ethernet",
+                "file": "schematics/ethernet/schematic.lp"
+              }
+            ],
+            "component_count": 97,
+            "net_count": 48,
+            "snapshot_project": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\e01\\c\\d0-reader.lpp",
+            "is_edit_candidate": true,
+            "source_revision": "sha256:f9943b950a1e9cb3a97c53c38acadcd4902ae7b02dc1c78dec0d5fbfea0e0757",
+            "inspection_scope": "Circuit components, raw values/attributes, and net signal counts; no geometry or resolved display values."
+          },
+          "rollback": "Original was never modified. Close the candidate and discard its copy to abandon this edit.",
+          "experimental": true,
+          "report_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\e01\\edit.json"
+        }
+      },
+      "images": []
+    },
+    {
+      "tool": "export_preview",
+      "arguments": {
+        "project_id": "84f2b70a59014d4e9bc0d5fbbe7c05bc",
+        "schematic_id": "a3fc7c77-9971-4020-b120-fae5dcadff13"
+      },
+      "data": {
+        "ok": true,
+        "message": "Saved-project operation completed.",
+        "data": {
+          "project_id": "84f2b70a59014d4e9bc0d5fbbe7c05bc",
+          "revision": "sha256:3a512a6b335e72078e8f6b06be7859ac91fdf7fa70e4c28a92bef0962e92b7f7",
+          "state": "saved_snapshot",
+          "job": "schematic_png",
+          "board_id": null,
+          "artifacts": [
+            {
+              "artifact_id": "794a7e18a9704e78a35abec93c5f34cd",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r007\\files\\schematic1.png",
+              "filename": "schematic1.png",
+              "mime_type": "image/png",
+              "bytes": 94085,
+              "sha256": "1610fbaa20439185eca2ce5d637472fa31d83f25b63d58faeafd24629e234ba2",
+              "width": 1754,
+              "height": 1239
+            },
+            {
+              "artifact_id": "97170c1953404e5ca933d480410f5c1d",
+              "path": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r007\\files\\schematic2.png",
+              "filename": "schematic2.png",
+              "mime_type": "image/png",
+              "bytes": 128870,
+              "sha256": "39527276d90e34ccdab436c21d92621b063c1fd144d5a07add470a37529656a9",
+              "width": 1754,
+              "height": 1239
+            }
+          ],
+          "output_directory": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r007\\files",
+          "diagnostics": {
+            "stdout_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\557eb2d617e34434b62705861d43ba8a.stdout.txt",
+            "stderr_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\logs\\557eb2d617e34434b62705861d43ba8a.stderr.txt",
+            "exit_code": 0,
+            "process_outcome": "completed"
+          },
+          "manifest_artifact": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\r007\\artifacts.json",
+          "selected_schematic": {
+            "id": "a3fc7c77-9971-4020-b120-fae5dcadff13",
+            "name": "Ethernet",
+            "file": "schematics/ethernet/schematic.lp"
+          },
+          "image_artifact_id": "97170c1953404e5ca933d480410f5c1d",
+          "image_note": "One selected schematic is attached as an MCP image; all generated pages are listed as artifacts."
+        }
+      },
+      "images": [
+        {
+          "file": "candidate-ethernet.png",
+          "bytes": 128870,
+          "sha256": "39527276d90e34ccdab436c21d92621b063c1fd144d5a07add470a37529656a9"
+        }
+      ]
+    }
+  ],
+  "source_preserved": true,
+  "source_project": "<REPO>\\work\\demo-e8a9b4\\p\\d0-reader.lpp",
+  "candidate_project": "<REPO>\\work\\demo-e8a9b4\\d\\s-bc2f40add7f5\\e01\\c\\d0-reader.lpp",
+  "review_directory": "<REPO>\\work\\demo-e8a9b4\\review-fb79f0",
+  "configuration": "<REPO>\\work\\demo-e8a9b4\\codex-config.toml",
+  "experimental_edits": true,
+  "note": "Real SDK/CLI workflow using generated config. Owner review and persistent UI connection are separate."
+}

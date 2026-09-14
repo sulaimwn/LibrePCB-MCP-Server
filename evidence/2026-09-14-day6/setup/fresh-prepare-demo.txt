@@ -1,0 +1,12 @@
+{
+  "demo_directory": "<CHECKOUT>\\work\\demo-328783",
+  "project": "<CHECKOUT>\\work\\demo-328783\\p\\d0-reader.lpp",
+  "note": "Configuration snippets generated only; host settings were not changed."
+}
+{
+  "passed": true,
+  "checks": 21,
+  "calls": 10,
+  "review_directory": "<CHECKOUT>\\work\\demo-328783\\review-abe5a1",
+  "failure": null
+}

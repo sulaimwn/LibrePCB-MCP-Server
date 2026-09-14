@@ -1,0 +1,6 @@
+{
+  "package": "0.1.0.dev6",
+  "mcp": "2.2.0",
+  "module": "<CHECKOUT>\\.venv\\Lib\\site-packages\\librepcb_mcp\\__init__.py",
+  "job_resources": true
+}

@@ -1,0 +1,9 @@
+Get-Command : The term '<PREREQUISITE_TRIAL>\missing-python\missing.exe' is not
+recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if
+a path was included, verify that the path is correct and try again.
+At <PREREQUISITE_TRIAL>\missing-python\scripts\bootstrap.ps1:14 char:19
++ ... vedPython = Get-Command $prerequisitePython -CommandType Application  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (<TRUNCATED_PATH>hon\missing.exe:String) [Get-Command], CommandNotFoun
+   dException
+    + FullyQualifiedErrorId : CommandNotFoundException,Microsoft.PowerShell.Commands.GetCommandCommand

@@ -1,0 +1,2 @@
+Use LibrePCB tools: check status, open <CHECKOUT>\work\demo-4ece14\p\d0-reader.lpp, get its summary, then inspect its components and nets, run ERC and DRC, and show a schematic preview. Report approved and unapproved findings separately and raw template values honestly.
+Then create a separate candidate changing R17's RESISTANCE attribute from 1.5 to 2.2 in its existing kiloohm unit, using its component ID and current source revision. Show the candidate Ethernet preview and its check results. Preserve the original project.

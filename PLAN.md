@@ -30,14 +30,16 @@ Earlier exploratory estimates were 40–100 hours for a general inspection/expor
 
 ## Decision gates
 
-### Milestone progress (updated September 12)
+### Milestone progress (updated September 14)
 
 - [x] Day 1: Python 3.12.14 and portable LibrePCB 2.1.1 verified. Pinned CC0 D0 reader fixture. Real strict load, ERC/DRC, PDF/Gerber and PNG output jobs passed. Byte preservation and two negative probes passed. See `evidence/2026-09-10-day1/`.
 - [x] Day 2: SDK 2.2.0 and dependencies pinned; five STDIO inspection tools; allowlisted saved copies and revisions; format-2 parser. SDK integration passed 82 checks/27 calls, installed Codex host passed 7 checks, and 19 adapter/parser/file tests passed. Fresh Python environment verified. See `evidence/2026-09-10-day2/`. No Claude/UI connection claimed.
 - [x] Day 3: eight tools with conservative checks, real ERC/DRC faults, native PNG, PDF and manufacturing exports. Packaged SDK run: 73 checks/20 calls; inspection regression: 82/27; Codex host: 12/10; unit/adapter tests: 33. Host-delivered image bytes were visually inspected by this agent; no live model turn or UI connection claimed. See `evidence/2026-09-11-day3/`. Private GitHub repository created with WIP README; not a release.
 - [x] Day 4: one typed-resistance candidate, real CLI and GUI save/reopen, exact design invariants, unchanged findings, previews/exports and actual discard/reopen rollback. Opt-in ninth MCP tool; 42 unit/adapter tests, 103 SDK checks/30 calls, 82 inspection checks/27 calls, 15 Codex host checks/13 calls. See `evidence/2026-09-11-day4/`.
 - [x] Day 5: cooperative deadlines/cancellation, failed-handle cleanup, exclusive reports, storage failures and interrupted/retried operations verified. 57 unit/adapter tests; packaged reliability 38 checks, inspection 82, exports/faults 73, edit/rollback 103, Codex host 15. See `evidence/2026-09-12-day5/`. Direct-child supervision only; manual inactive-session retention remains documented.
-- [ ] Days 6–7: fresh-machine packaging/setup, owner trial and release candidate remain pending.
+- [x] Day 6 engineering: fresh GitHub checkout/venv/runtime on the same Windows host, repeat setup preserving existing files, 57 unit/adapter tests, default 21-check/10-call walkthrough, experimental and noneditable-wheel 26-check/12-call walkthroughs. See `evidence/2026-09-14-day6/`. This is not a fresh Windows machine.
+- [ ] Day 6 owner trial: review packet/configuration ready; feedback requested, no acceptance yet. Persistent live-client and personal-design trials remain unverified.
+- [ ] Day 7: resolve remaining gates, record a license decision, produce a local release candidate and changelog; public release is not authorized.
 
 ### Acceptance gates
 

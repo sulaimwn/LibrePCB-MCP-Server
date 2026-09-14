@@ -1,0 +1,103 @@
+{
+  "trial": "<TRIAL>",
+  "checkout": "<CHECKOUT>",
+  "commands": [
+    {
+      "name": "repeat-bootstrap",
+      "exit_code": 0,
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "RemoteSigned",
+        "-File",
+        "<CHECKOUT>\\scripts\\bootstrap.ps1",
+        "-PythonExe",
+        "<BASE_PYTHON>"
+      ],
+      "log": "<TRIAL>\\repeat-bootstrap.txt"
+    },
+    {
+      "name": "fresh-unit-tests",
+      "exit_code": 0,
+      "argv": [
+        "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "<TRIAL>\\fresh-unit-tests.txt"
+    },
+    {
+      "name": "wheel-install",
+      "exit_code": 0,
+      "argv": [
+        "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "--disable-pip-version-check",
+        "install",
+        "--force-reinstall",
+        "--no-deps",
+        "<REPO>\\work\\day6-wheel\\librepcb_mcp_server-0.1.0.dev6-py3-none-any.whl"
+      ],
+      "log": "<TRIAL>\\wheel-install.txt"
+    },
+    {
+      "name": "wheel-pip-check",
+      "exit_code": 0,
+      "argv": [
+        "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "log": "<TRIAL>\\wheel-pip-check.txt"
+    },
+    {
+      "name": "wheel-module-probe",
+      "exit_code": 0,
+      "argv": [
+        "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+        "<TRIAL>\\probe-installed-package.py"
+      ],
+      "log": "<TRIAL>\\wheel-module-probe.txt"
+    },
+    {
+      "name": "wheel-demo",
+      "exit_code": 0,
+      "argv": [
+        "<CHECKOUT>\\.venv\\Scripts\\python.exe",
+        "scripts/prepare_demo.py",
+        "--experimental-edits",
+        "--verify"
+      ],
+      "log": "<TRIAL>\\wheel-demo.txt"
+    }
+  ],
+  "checks": [
+    {
+      "name": "fresh_download_matches_pin",
+      "passed": true
+    },
+    {
+      "name": "repeat_setup_preserves_existing_demo_files",
+      "passed": true
+    }
+  ],
+  "archive": {
+    "path": "<CHECKOUT>\\work\\downloads\\librepcb-2.1.1-windows-x86_64.zip",
+    "bytes": 85142354,
+    "sha256": "5fed82a57ede5e807bca4a737108389c64fbd323d29b967dbb2eafa63b6cb3ae"
+  },
+  "preserved_demo_file_count": 1258,
+  "wheel": {
+    "path": "<REPO>\\work\\day6-wheel\\librepcb_mcp_server-0.1.0.dev6-py3-none-any.whl",
+    "bytes": 34908,
+    "sha256": "722e0530376636af6d38063c538a9189b0e5dec993f0da3e9250a0c342713c47"
+  },
+  "passed": true
+}

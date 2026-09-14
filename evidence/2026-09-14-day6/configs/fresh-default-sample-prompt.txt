@@ -1,0 +1,1 @@
+Use LibrePCB tools: check status, open <CHECKOUT>\work\demo-328783\p\d0-reader.lpp, get its summary, then inspect its components and nets, run ERC and DRC, and show a schematic preview. Report approved and unapproved findings separately and raw template values honestly.

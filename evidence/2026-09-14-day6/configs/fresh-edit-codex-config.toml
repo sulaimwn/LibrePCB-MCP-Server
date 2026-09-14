@@ -1,0 +1,5 @@
+[mcp_servers.librepcb]
+command = "<CHECKOUT>\\.venv\\Scripts\\python.exe"
+args = ["-m", "librepcb_mcp.server", "--cli", "<CHECKOUT>\\work\\tools\\librepcb-2.1.1\\bin\\librepcb-cli.exe", "--project-root", "<CHECKOUT>\\work\\demo-22ea57\\p", "--data-root", "<CHECKOUT>\\work\\demo-22ea57\\d", "--enable-experimental-edits"]
+startup_timeout_sec = 30
+tool_timeout_sec = 300

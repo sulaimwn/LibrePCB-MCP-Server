@@ -1,0 +1,7 @@
+Processing <REPO>\work\day6-wheel\librepcb_mcp_server-0.1.0.dev6-py3-none-any.whl
+Installing collected packages: librepcb-mcp-server
+  Attempting uninstall: librepcb-mcp-server
+    Found existing installation: librepcb-mcp-server 0.1.0.dev6
+    Uninstalling librepcb-mcp-server-0.1.0.dev6:
+      Successfully uninstalled librepcb-mcp-server-0.1.0.dev6
+Successfully installed librepcb-mcp-server-0.1.0.dev6
