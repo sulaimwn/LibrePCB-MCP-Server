@@ -153,6 +153,11 @@ The latter also passes from the installed noneditable dev6 wheel. Reviewable
 images, PDF and reports were accepted in the owner's Day 6 sample review. See
 [Day 6 evidence](evidence/2026-09-14-day6/README.md).
 
+On September 15, the owner's actual connected Codex chat successfully used all
+eight default tools: sample inspection, ERC/DRC, a native schematic image and PDF.
+All 184 source files stayed unchanged. Editing was disabled in that connection.
+See [live-chat evidence](evidence/2026-09-15-live-chat/README.md).
+
 These results do not establish electrical correctness, production readiness or
 compatibility with arbitrary designs. A personal-project trial and fresh-machine
 installation remain later acceptance work. The GUI and editing evidence covers

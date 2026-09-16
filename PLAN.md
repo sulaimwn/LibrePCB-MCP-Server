@@ -44,10 +44,17 @@ Earlier exploratory estimates were 40–100 hours for a general inspection/expor
 - [x] Day 4: one typed-resistance candidate, real CLI and GUI save/reopen, exact design invariants, unchanged findings, previews/exports and actual discard/reopen rollback. Opt-in ninth MCP tool; 42 unit/adapter tests, 103 SDK checks/30 calls, 82 inspection checks/27 calls, 15 Codex host checks/13 calls. See `evidence/2026-09-11-day4/`.
 - [x] Day 5: cooperative deadlines/cancellation, failed-handle cleanup, exclusive reports, storage failures and interrupted/retried operations verified. 57 unit/adapter tests; packaged reliability 38 checks, inspection 82, exports/faults 73, edit/rollback 103, Codex host 15. See `evidence/2026-09-12-day5/`. Direct-child supervision only; manual inactive-session retention remains documented.
 - [x] Day 6 engineering: fresh GitHub checkout/venv/runtime on the same Windows host, repeat setup preserving existing files, 57 unit/adapter tests, default 21-check/10-call walkthrough, experimental and noneditable-wheel 26-check/12-call walkthroughs. See `evidence/2026-09-14-day6/`. This is not a fresh Windows machine.
-- [x] Day 6 sample output review: owner said REVIEW.md looks fine on September 14. Persistent live-client, owner-followed installation and personal-design trials remain unverified.
+- [x] Day 6 sample output review: owner said REVIEW.md looks fine on September 14. Owner-followed fresh installation and personal-design trials remain unverified.
 - [x] Day 7: local `0.1.0rc1` candidate built from commit `743e415`; 30 package checks, 21/10 default SDK workflow, 26/12 experimental workflow and 15/13 Codex host passed. See `evidence/2026-09-14-day7/`. Owner explicitly leaves the license undecided; no public release authorized.
 
 ### Acceptance gates
+
+Post-week-one progress, September 15: all eight default tools succeeded in the
+owner's actual connected Codex chat (nine recorded calls, including pagination).
+Native image received/visually inspected, PDF exported, ERC/DRC had zero unapproved
+findings, and all 184 source files stayed unchanged. See
+`evidence/2026-09-15-live-chat/`. Next: broaden inspection fixture coverage before
+expanding edits. Live experimental editing and restart/reconnection remain untested.
 
 - End of Day 1: if loading/check/export is blocked, resolve that first; do not build wrappers around assumed CLI behavior.
 - End of Day 2: if structured project parsing is too broad, support a documented subset and reject unsupported versions/shapes. Do not silently misread designs.

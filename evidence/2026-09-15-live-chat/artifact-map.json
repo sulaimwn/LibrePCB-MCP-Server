@@ -1,0 +1,127 @@
+[
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\02882d3a4d7a41c9ba26686d8d1de637.stderr.txt",
+    "retained": "diagnostics/logs/02882d3a4d7a41c9ba26686d8d1de637.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\02882d3a4d7a41c9ba26686d8d1de637.stdout.txt",
+    "retained": "diagnostics/logs/02882d3a4d7a41c9ba26686d8d1de637.stdout.txt",
+    "original_sha256": "cba26b169fbca0b4c1fcc586b9ff9129a270094d816770e4eb9e5fde695a7273"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\5576e9eaec334e6c8cc3ade76c172eb7.stderr.txt",
+    "retained": "diagnostics/logs/5576e9eaec334e6c8cc3ade76c172eb7.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\5576e9eaec334e6c8cc3ade76c172eb7.stdout.txt",
+    "retained": "diagnostics/logs/5576e9eaec334e6c8cc3ade76c172eb7.stdout.txt",
+    "original_sha256": "cba26b169fbca0b4c1fcc586b9ff9129a270094d816770e4eb9e5fde695a7273"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\5806f11f3ec24e1ea43d0e40e97c1af3.stderr.txt",
+    "retained": "diagnostics/logs/5806f11f3ec24e1ea43d0e40e97c1af3.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\5806f11f3ec24e1ea43d0e40e97c1af3.stdout.txt",
+    "retained": "diagnostics/logs/5806f11f3ec24e1ea43d0e40e97c1af3.stdout.txt",
+    "original_sha256": "6913d5d4c64b9ee65413adf4287e9ed2e8328048ed481998c334481b108fa8b3"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\98e32ba3f072442c93fd9c198c29eefa.stderr.txt",
+    "retained": "diagnostics/logs/98e32ba3f072442c93fd9c198c29eefa.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\98e32ba3f072442c93fd9c198c29eefa.stdout.txt",
+    "retained": "diagnostics/logs/98e32ba3f072442c93fd9c198c29eefa.stdout.txt",
+    "original_sha256": "cba26b169fbca0b4c1fcc586b9ff9129a270094d816770e4eb9e5fde695a7273"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\9948e735212c4ec39cba96a3f1253aaa.stderr.txt",
+    "retained": "diagnostics/logs/9948e735212c4ec39cba96a3f1253aaa.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\9948e735212c4ec39cba96a3f1253aaa.stdout.txt",
+    "retained": "diagnostics/logs/9948e735212c4ec39cba96a3f1253aaa.stdout.txt",
+    "original_sha256": "c70a454dec2d4e31978ac935cc217aa2206fc17d80746c4eb6b47336a99926a9"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\99fde98a53de436a9b2247e24dd53f47.stderr.txt",
+    "retained": "diagnostics/logs/99fde98a53de436a9b2247e24dd53f47.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\99fde98a53de436a9b2247e24dd53f47.stdout.txt",
+    "retained": "diagnostics/logs/99fde98a53de436a9b2247e24dd53f47.stdout.txt",
+    "original_sha256": "cba26b169fbca0b4c1fcc586b9ff9129a270094d816770e4eb9e5fde695a7273"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\9b18b4c3afa247159927082b76219384.stderr.txt",
+    "retained": "diagnostics/logs/9b18b4c3afa247159927082b76219384.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\9b18b4c3afa247159927082b76219384.stdout.txt",
+    "retained": "diagnostics/logs/9b18b4c3afa247159927082b76219384.stdout.txt",
+    "original_sha256": "cba26b169fbca0b4c1fcc586b9ff9129a270094d816770e4eb9e5fde695a7273"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\d12adda91d1e4222a71e4353ae5b78c9.stderr.txt",
+    "retained": "diagnostics/logs/d12adda91d1e4222a71e4353ae5b78c9.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\d12adda91d1e4222a71e4353ae5b78c9.stdout.txt",
+    "retained": "diagnostics/logs/d12adda91d1e4222a71e4353ae5b78c9.stdout.txt",
+    "original_sha256": "87d253b90aaf3120223270c49d434efc084fe842aec53556ba8468336d5b18a1"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\d8179fdfd3cd47b7b28df18cb4b34233.stderr.txt",
+    "retained": "diagnostics/logs/d8179fdfd3cd47b7b28df18cb4b34233.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\d8179fdfd3cd47b7b28df18cb4b34233.stdout.txt",
+    "retained": "diagnostics/logs/d8179fdfd3cd47b7b28df18cb4b34233.stdout.txt",
+    "original_sha256": "3dfd3a512af16f683f0d9b1addd85d03552b4a3b76f3ec7c66f60cd919d9bd1c"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\dd3bdf88a09c4b02a3d55d9a8eeb5185.stderr.txt",
+    "retained": "diagnostics/logs/dd3bdf88a09c4b02a3d55d9a8eeb5185.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\dd3bdf88a09c4b02a3d55d9a8eeb5185.stdout.txt",
+    "retained": "diagnostics/logs/dd3bdf88a09c4b02a3d55d9a8eeb5185.stdout.txt",
+    "original_sha256": "5554d2ed5ec81e629e0c1152d205e60389cad2c87303102c8bd1f1df0d01c234"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\e7cdf1f471e7458da532e7546b9a3538.stderr.txt",
+    "retained": "diagnostics/logs/e7cdf1f471e7458da532e7546b9a3538.stderr.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\logs\\e7cdf1f471e7458da532e7546b9a3538.stdout.txt",
+    "retained": "diagnostics/logs/e7cdf1f471e7458da532e7546b9a3538.stdout.txt",
+    "original_sha256": "cba26b169fbca0b4c1fcc586b9ff9129a270094d816770e4eb9e5fde695a7273"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\r001\\checks.json",
+    "retained": "diagnostics/r001/checks.json",
+    "original_sha256": "4a1b5b7a854d76842a87ae7c2a45889435145358e9cc9de37052cb188976aaf2"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\r002\\artifacts.json",
+    "retained": "diagnostics/r002/artifacts.json",
+    "original_sha256": "5a61d86532cfc04b151cf6e4b494bca3edb247eb690672e27af3f97ee57431ca"
+  },
+  {
+    "original": "<REPO>\\work\\demo-d9c0ce\\d\\s-c0bf9bf17d48\\r003\\artifacts.json",
+    "retained": "diagnostics/r003/artifacts.json",
+    "original_sha256": "d6fda2f751246d4af8700542e3ede24526a2909042167125f2fd3afcad69897f"
+  }
+]

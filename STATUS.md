@@ -1,6 +1,6 @@
 # Current project status
 
-Updated September 14, 2026, America/Toronto. **Codex remains the active writer.**
+Updated September 15, 2026, America/Toronto. **Codex remains the active writer.**
 The owner requested continued work, detailed folder context and regular GitHub
 pushes. No Claude handoff is planned. Days are milestones, not elapsed dates.
 
@@ -16,6 +16,24 @@ GitHub: [sulaimwn/LibrePCB-MCP-Server](https://github.com/sulaimwn/LibrePCB-MCP-
 **private**, `origin`, branch `master`. Regular pushes are authorized. Day 5 ended
 at `e488b1c`; Day 6 implementation was pushed as `718c50d`. `git log -1` identifies
 the final documentation/evidence checkpoint. This is development publication.
+
+## Live Codex chat verified September 15
+
+The owner's connected Codex conversation now exposes all eight default tools.
+Nine recorded live calls covered status, opening the sample, summary, both pages
+of components, nets, ERC/DRC, native Ethernet PNG and schematic PDF. All succeeded:
+97 components, 48 nets, two sheets and one board; 2 approved ERC / 16 approved DRC
+findings, zero unapproved findings. The native image was displayed and visually
+inspected in this chat. Three exported files match their returned hashes/sizes;
+the image attachment matches the selected PNG. All 184 source files retain the
+opening revision. This is an actual model-led conversation, beyond the earlier
+SDK and direct-host tests. Editing is disabled in this live connection.
+
+Evidence: [live-chat packet](evidence/2026-09-15-live-chat/README.md), with structured
+results, verification and 25 diagnostic files. No server code, dependency or
+configuration changes; no new unit-suite run. Updated STATUS, PLAN, README,
+HANDOFF, owner-trial and environment notes. No failed calls in this walkthrough.
+The immutable Day 7 candidate and historical evidence remain unchanged.
 
 ## Day 7 changes and actual results
 
@@ -121,8 +139,9 @@ prompt are in its parent demo directory. Outputs were offered for review in this
 thread. **The owner accepted this sample output review on September 14.**
 See `docs/OWNER_TRIAL.md`. The owner explicitly leaves the software license
 undecided for now; this does not block the local private candidate trial.
-Persistent Codex UI configuration, Claude connection, personal-design trial and
-a fresh Windows machine remain unverified. No persistent client config changed.
+The connected Codex chat passed the September 15 sample workflow. Claude,
+personal-design trials and a fresh Windows machine remain unverified. This
+walkthrough did not edit persistent client settings or inspect credentials.
 
 Closed saved projects only; narrow typed-resistance candidates, no source
 replacement or general editing. No placement, wiring, routing or live-editor API.
@@ -132,18 +151,17 @@ No model API calls/keys, credential changes, maintainer contact or deployment.
 
 ## Running processes
 
-All setup and sample verification commands have completed. The final read-only
-process check found no owned Python setup/MCP, Windows PowerShell or LibrePCB
-process remaining. Retained trial/demo folders are available for inspection;
-other desktop sessions were not stopped. See the Day 7 evidence process record.
+The host-managed LibrePCB MCP connection used by this chat remains active;
+session data is in `work/demo-d9c0ce/d/s-c0bf9bf17d48/`. Do not stop it or clean
+its files during the conversation. All requested checks/exports have returned.
+The Day 7 no-processes record describes that earlier test's shutdown only.
 
 ## Next task — client usability and broader inspection, Codex continues
 
 1. Read AGENTS/STATUS/PLAN/SPEC and Day 7 evidence; inspect Git. Use one writer.
-2. Continue with a persistent local client connection using the prepared sample
-   config, preserving existing entries. Distinguish configuration loading and
-   direct host tests from a real live-chat/model turn; no API key is needed by
-   this server. The original owner-reviewed packet remains available.
+2. The live Codex sample connection is verified; preserve the active connection.
+   Read `evidence/2026-09-15-live-chat/README.md` for results and artifact locations.
+   Restart/reconnection behavior and live experimental editing were not tested.
 3. Validate another redistributable design through inspection/check/export before
    broadening editing. Personal designs need an explicitly provided local path.
 4. Follow the after-week-one roadmap only within verified scope. No general

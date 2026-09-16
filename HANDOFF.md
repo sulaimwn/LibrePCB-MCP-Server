@@ -18,6 +18,7 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 - `docs/DAY5.md`: deadlines, cancellation, failed reports and recovery.
 - `docs/DAY6.md`, `docs/OWNER_TRIAL.md`: fresh setup, generated configuration and owner review.
 - `docs/DAY7.md`, `RELEASE_NOTES.md`, `CHANGELOG.md`: completed local rc1 candidate.
+- `evidence/2026-09-15-live-chat/README.md`: actual connected Codex model-led sample workflow; all eight default tools, native image, PDF and unchanged source.
 - `evidence/2026-09-14-day7/README.md`: exact tested candidate hashes, 30 package checks, SDK and host acceptance.
 - `evidence/2026-09-14-day6/README.md`: current installation, repeat setup, 57-test and installed-wheel walkthrough evidence.
 - `evidence/2026-09-12-day5/README.md`: current 57-test suite, real reliability and all packaged regressions.
@@ -31,13 +32,17 @@ Both clients should read `AGENTS.md`, `STATUS.md`, `PLAN.md`, and `SPEC.md` at t
 Days 1–6 are finished for the included sample. **The owner accepted its output
 review. Day 7's local rc1 candidate also passes; continue from STATUS.md.** The owner chose
 to leave the license undecided; this permits the private local trial, not public
-software release. Persistent live-chat/personal-design trials remain unverified.
+software release. The actual Codex live-chat sample workflow passed September 15;
+personal-design trials remain unverified. Editing is disabled in that connection.
 The owner chose Codex to continue and asked for regular GitHub pushes. No Claude
 handoff is planned; keep this packet for continuity.
 Do not repeat downloads or replace the working SDK imports. No background server
 is required; hosts start STDIO processes when needed. Ready sample and generated
-Codex/Claude Desktop configuration snippets are in `work/demo-e8a9b4/` (experimental edits enabled); no live
-client config was changed. Recreate them with `scripts/prepare_demo.py` if needed.
+Codex/Claude Desktop configuration snippets are in `work/demo-e8a9b4/` (experimental edits enabled).
+The live Codex connection uses the default sample `work/demo-d9c0ce/`; its active
+session is `d/s-c0bf9bf17d48/`. Preserve it while the chat is using it. This
+walkthrough did not edit client settings. Recreate sample snippets with
+`scripts/prepare_demo.py` if needed.
 
 The private GitHub repository is `https://github.com/sulaimwn/LibrePCB-MCP-Server`, remote `origin`, branch `master`. The owner explicitly requested this upload with a WIP README. Downloaded runtimes, environments and scratch artifacts remain ignored. Git commands from the normal user may need a per-command `-c safe.directory=<absolute repository path>` because the sandbox account created `.git`. See the recorded environment; avoid a global wildcard trust setting. Git writes may still require the coding client's permission flow.
 

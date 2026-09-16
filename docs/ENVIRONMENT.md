@@ -68,8 +68,14 @@ ephemeral thread and direct MCP calls. No model turn was submitted. The final
 test disabled other plugins/apps only in its child process and had empty stderr.
 Generated host schemas are ignored under `work/research/day2/codex-schema/`.
 
-Ready sample/config snippets: `<repository>\work\demo-e8a9b4\`.
-See `docs/WINDOWS_SETUP.md`; snippets have not been installed in a client.
+Ready experimental sample/config snippets: `<repository>\work\demo-e8a9b4\`.
+On September 15, the actual Codex chat connected to the default sample
+`<repository>\work\demo-d9c0ce\` using rc1 and CLI 2.1.1. All eight default
+tools succeeded, including native PNG and PDF. The host-managed session
+`d/s-c0bf9bf17d48/` remains active. See `evidence/2026-09-15-live-chat/`.
+The earlier harness paragraph describes historical direct-host testing; this
+new walkthrough was model-led in the owner's conversation. No configuration
+or credentials were edited by this walkthrough.
 
 ## Downloads and integrity
 

@@ -44,6 +44,13 @@ The server needs no sign-in or model API key of its own. See
 The standalone checker proves the configured command works; it does not prove
 your live chat has loaded that entry. Claude connection remains optional/untested.
 
+On September 15 the owner's actual Codex chat did load the eight default tools
+and completed the sample workflow, including both component pages, real ERC/DRC,
+a native Ethernet schematic image and PDF. Source files stayed unchanged. See
+[live-chat evidence](../evidence/2026-09-15-live-chat/README.md). The connected
+sample is `work/demo-d9c0ce/`; editing is disabled. Restart/reconnection and
+experimental editing in the live chat were not part of this walkthrough.
+
 ## What to review
 
 1. Is the original schematic readable, and can you open its PDF?
